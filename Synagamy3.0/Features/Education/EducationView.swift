@@ -2,37 +2,45 @@
 //  EducationView.swift
 //  Synagamy3.0
 //
-//  Browse all education topics (with local search). Tapping a row opens a detail sheet.
-//  Matches the EducationTopic model (topic, category, layExplanation, expertSummary, reference, relatedTo).
+//  Categories → Topics flow.
+//  • Lists unique categories as BrandTiles (with topic counts).
+//  • Tapping a category navigates to TopicListView scoped to that category.
+//  • Keeps floating header, vanish effect, and empty/error states.
+//
+//  Expects:
+//  - AppData.topics : [EducationTopic]
+//  - BrandTile, EmptyStateView, HomeButton, FloatingLogoHeader
+//  - OnChangeHeightModifier, .vanishIntoPage
 //
 
 import SwiftUI
 
 struct EducationView: View {
     // MARK: - Data
-    @State private var allTopics: [EducationTopic] = []       // loaded in .task
-    @State private var searchText: String = ""                 // .searchable binding
+    @State private var allTopics: [EducationTopic] = []   // loaded in .task
 
     // MARK: - UI State
-    @State private var headerHeight: CGFloat = 64              // reserved for floating header
-    @State private var selectedTopic: EducationTopic? = nil    // drives detail sheet
-    @State private var errorMessage: String? = nil             // user-facing alert text
+    @State private var headerHeight: CGFloat = 64
+    @State private var errorMessage: String? = nil
 
-    // MARK: - Derived filter (fast local search)
-    private var filteredTopics: [EducationTopic] {
-        let q = searchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        guard !q.isEmpty else { return allTopics }
-        return allTopics.filter { t in
-            t.topic.lowercased().contains(q)
-            || t.category.lowercased().contains(q)
-            || t.layExplanation.lowercased().contains(q)
-        }
+    // MARK: - Derived: categories + lookup
+    private var categories: [(name: String, count: Int)] {
+        let grouped = Dictionary(grouping: allTopics, by: { $0.category })
+        return grouped
+            .map { ($0.key, $0.value.count) }
+            .sorted { a, b in
+                a.name.localizedCaseInsensitiveCompare(b.name) == .orderedAscending
+            }
+    }
+
+    private var topicsByCategory: [String: [EducationTopic]] {
+        Dictionary(grouping: allTopics, by: { $0.category })
     }
 
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
-                if allTopics.isEmpty && searchText.isEmpty {
+                if allTopics.isEmpty {
                     EmptyStateView(
                         icon: "book",
                         title: "No topics available",
@@ -40,29 +48,35 @@ struct EducationView: View {
                     )
                     .padding(.horizontal, 16)
                     .padding(.top, 24)
-                } else if filteredTopics.isEmpty {
-                    EmptyStateView(
-                        icon: "magnifyingglass",
-                        title: "No matches",
-                        message: "Try a different keyword or clear your search."
-                    )
-                    .padding(.horizontal, 16)
-                    .padding(.top, 24)
                 } else {
-                    LazyVStack(spacing: 12) {
-                        ForEach(filteredTopics, id: \.id) { topic in
-                            Button { selectedTopic = topic } label: {
-                                BrandTile(
-                                    title: topic.topic,
-                                    subtitle: topic.category,        // model has no subtitle; show category
-                                    systemIcon: "book.fill",
-                                    assetIcon: nil
+                    LazyVStack(spacing: 75) {
+                        ForEach(categories, id: \.name) { cat in
+                            // Push into TopicListView scoped to this category
+                            NavigationLink {
+                                TopicListView(
+                                    title: cat.name,
+                                    topics: topicsByCategory[cat.name] ?? [],
+                                    enableSearch: true
                                 )
-                                .scrollFadeScale()
+                            } label: {
+                                BrandTile(
+                                    title: cat.name,
+                                    subtitle: "\(cat.count) topic\(cat.count == 1 ? "" : "s")",
+                                    systemIcon: "square.grid.2x2.fill",
+                                    assetIcon: nil,
+                                    isCompact: true
+                                )
+                                .vanishIntoPage(
+                                    vanishDistance: 350,
+                                    minScale: 0.88,
+                                    maxBlur: 2.5,
+                                    topInset: 0,
+                                    blurKickIn: 14
+                                )
                             }
                             .buttonStyle(.plain)
                             .padding(.horizontal, 16)
-                            .accessibilityLabel(Text("\(topic.topic). \(topic.category). Tap to read."))
+                            .accessibilityLabel(Text("\(cat.name). \(cat.count) topics. Tap to view."))
                         }
                     }
                     .padding(.vertical, 14)
@@ -76,7 +90,11 @@ struct EducationView: View {
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(.hidden, for: .navigationBar)
-        .toolbar { ToolbarItem(placement: .topBarTrailing) { HomeButton(usePopToRoot: true) } }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                HomeButton(usePopToRoot: true)
+            }
+        }
 
         // MARK: - Floating header space reservation
         .safeAreaInset(edge: .top) { Color.clear.frame(height: headerHeight) }
@@ -86,18 +104,13 @@ struct EducationView: View {
                     GeometryReader { geo in
                         Color.clear
                             .onAppear { headerHeight = geo.size.height }
-                            .modifier(OnChangeHeightModifier(currentHeight: $headerHeight,
-                                                             height: geo.size.height))
+                            .modifier(OnChangeHeightModifier(
+                                currentHeight: $headerHeight,
+                                height: geo.size.height
+                            ))
                     }
                 )
         }
-
-        // MARK: - Search
-        .searchable(text: $searchText,
-                    placement: .navigationBarDrawer(displayMode: .automatic),
-                    prompt: Text("Search topics"))
-        .textInputAutocapitalization(.never)
-        .disableAutocorrection(true)
 
         // MARK: - Alerts
         .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {
@@ -110,21 +123,6 @@ struct EducationView: View {
                 $0.topic.localizedCaseInsensitiveCompare($1.topic) == .orderedAscending
             }
             allTopics = topics
-        }
-
-        // MARK: - Detail Sheet
-        .sheet(item: $selectedTopic) { t in
-            NavigationStack {
-                ScrollView {
-                    TopicDetailContent(topic: t)
-                        .padding(.horizontal, 16)
-                        .padding(.top, 12)
-                }
-                .navigationTitle(t.topic)
-                .navigationBarTitleDisplayMode(.inline)
-            }
-            .presentationDetents([.medium, .large])
-            .presentationDragIndicator(.visible)
         }
     }
 }

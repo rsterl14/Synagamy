@@ -4,9 +4,11 @@
 //
 //  Purpose
 //  -------
-//  A pair of lightweight effects for list rows/cards:
-//   1) Zero-arg convenience: subtle fade/scale on appear (matches existing call sites).
-//   2) Offset-driven version: fade/scale based on distance from a reference offset.
+//  A trio of lightweight effects for list rows/cards:
+//   1) Appear fade/scale (zero-arg convenience).
+//   2) Offset-driven fade/scale (you provide offset).
+//   3) Vanish-into-page (TOP ONLY): tiles “sink” and disappear as they approach the top.
+//      • The top-most tile is NOT blurred at the threshold; blur ramps in only after it passes above.
 //
 //  App Store–friendly: pure SwiftUI transforms, no private APIs.
 //
@@ -54,6 +56,72 @@ private struct ScrollFadeScale: ViewModifier {
     }
 }
 
+// MARK: - Vanish-into-page (TOP ONLY, with blur protection at the top)
+
+private struct VanishIntoPage: ViewModifier {
+    /// How far *below the top threshold* before the tile fully fades.
+    var vanishDistance: CGFloat = 260
+    /// Minimum scale when near the top.
+    var minScale: CGFloat = 0.86
+    /// Max blur (subtle; we keep it low to preserve legibility during motion).
+    var maxBlur: CGFloat = 3
+    /// Extra vertical offset to simulate sinking into the page.
+    var maxYOffset: CGFloat = 6
+    /// If you have a floating header, set this to its height so the vanish starts beneath it.
+    var topInset: CGFloat = 0
+    /// How many points *past the top* before blur starts ramping in.
+    /// This ensures the top-most visible tile is never blurred.
+    var blurKickIn: CGFloat = 14
+
+    func body(content: Content) -> some View {
+        GeometryReader { geo in
+            let frame = geo.frame(in: .global)
+
+            // Distance from the *top threshold* (0 + topInset).
+            // We ramp the effect as the item’s top approaches that threshold.
+            let relativeY = frame.minY - topInset
+
+            // Normalize into [0, 1]:
+            //  - 0 when far below the top (relativeY >= vanishDistance)
+            //  - 1 when at or above the top threshold (relativeY <= 0)
+            let raw = 1 - min(1, max(0, relativeY / max(1, vanishDistance)))
+
+            // Smooth easing so it feels natural.
+            let eased = cubicEaseOut(raw)
+
+            let opacity = 1 - eased
+            let scale = 1 - eased * (1 - minScale)
+
+            // --- Blur protection for the top-most tile ---
+            // Only allow blur to ramp in AFTER the tile has moved a bit ABOVE the top threshold.
+            // When `relativeY` is near 0 (tile at the top), blur = 0.
+            // As it goes further negative (off the top), blur smoothly increases.
+            let overshoot = max(0, -relativeY) // points above the top threshold
+            let blurRamp = min(1, overshoot / max(1, blurKickIn))
+            let blur = (eased * maxBlur) * blurRamp
+            // --------------------------------------------
+
+            let yOffset = eased * maxYOffset
+
+            content
+                .frame(width: geo.size.width, height: geo.size.height) // keep original layout
+                .opacity(opacity)
+                .scaleEffect(scale)
+                .blur(radius: blur)
+                .offset(y: yOffset)
+                .compositingGroup() // ensure blur/opacity composite correctly
+                .animation(.easeOut(duration: 0.22), value: raw)
+                .animation(.easeOut(duration: 0.22), value: blurRamp)
+        }
+    }
+
+    // Simple cubic ease-out to keep motion feeling natural
+    private func cubicEaseOut(_ x: CGFloat) -> CGFloat {
+        let inv = 1 - x
+        return 1 - inv * inv * inv
+    }
+}
+
 // MARK: - Public extensions
 
 extension View {
@@ -73,11 +141,30 @@ extension View {
                                  fadeDistance: fadeDistance,
                                  minScale: minScale))
     }
+
+    /// “Sink & vanish” effect as tiles approach the **top** of the viewport.
+    /// `topInset` lets you start the effect under a floating header.
+    /// The top-most visible tile is protected from blur at the threshold.
+    func vanishIntoPage(
+        vanishDistance: CGFloat = 260,
+        minScale: CGFloat = 0.86,
+        maxBlur: CGFloat = 3,
+        maxYOffset: CGFloat = 6,
+        topInset: CGFloat = 0,
+        blurKickIn: CGFloat = 14
+    ) -> some View {
+        modifier(VanishIntoPage(vanishDistance: vanishDistance,
+                                minScale: minScale,
+                                maxBlur: maxBlur,
+                                maxYOffset: maxYOffset,
+                                topInset: topInset,
+                                blurKickIn: blurKickIn))
+    }
 }
 
 // MARK: - Previews
 
-#Preview("ScrollFadeScale • Zero-arg") {
+#Preview("Appear • Zero-arg") {
     VStack(spacing: 16) {
         ForEach(0..<5) { i in
             Text("Tile \(i)")
@@ -94,23 +181,25 @@ extension View {
     .padding(.vertical, 24)
 }
 
-#Preview("ScrollFadeScale • Offset-driven") {
+#Preview("Vanish Into Page (Top Only, no blur on top tile)") {
     ScrollView {
         VStack(spacing: 24) {
-            ForEach(0..<12) { i in
-                GeometryReader { geo in
-                    let offset = geo.frame(in: .global).minY
-                    Text("Row \(i)")
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 68)
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(Color("BrandSecondary").opacity(0.12))
-                        )
-                        .scrollFadeScale(offset: offset, fadeDistance: 240, minScale: 0.9)
-                        .padding(.horizontal, 16)
-                }
-                .frame(height: 68)
+            ForEach(0..<16) { i in
+                Text("Row \(i)")
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 68)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color("BrandSecondary").opacity(0.12))
+                    )
+                    // Adjust topInset if you have a floating header (e.g., 80).
+                    // blurKickIn controls how far past the top before blur starts.
+                    .vanishIntoPage(vanishDistance: 260,
+                                    minScale: 0.88,
+                                    maxBlur: 2.5,
+                                    topInset: 0,
+                                    blurKickIn: 14)
+                    .padding(.horizontal, 16)
             }
         }
         .padding(.vertical, 24)

@@ -75,7 +75,7 @@ struct HomeView: View {
         NavigationStack {
             VStack(spacing: 0) {
                 ScrollView {
-                    LazyVStack(spacing: 16) {
+                    LazyVStack(spacing: 75) {
                         ForEach(items) { item in
                             NavigationLink(value: item.route) {
                                 BrandTile(
@@ -88,7 +88,11 @@ struct HomeView: View {
                             .buttonStyle(.plain)
                             .accessibilityLabel(Text("\(item.title). \(item.subtitle). Tap to open."))
                             .padding(.horizontal, 16)
-                            .scrollFadeScale() // subtle appear animation
+                            .vanishIntoPage(vanishDistance: 350,
+                                            minScale: 0.88,
+                                            maxBlur: 2.5,
+                                            topInset: 0,
+                                            blurKickIn: 14)
                         }
                     }
                     .padding(.vertical, 20)

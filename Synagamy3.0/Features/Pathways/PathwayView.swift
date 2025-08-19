@@ -42,7 +42,7 @@ struct PathwayView: View {
                     .padding(.horizontal, 16)
                     .padding(.top, 24)
                 } else {
-                    LazyVStack(spacing: 12) {
+                    LazyVStack(spacing: 75) {
                         ForEach(categories) { category in
                             NavigationLink {
                                 PathListView(category: category, educationTopics: educationTopics)
@@ -56,7 +56,11 @@ struct PathwayView: View {
                                 )
                             }
                             .buttonStyle(.plain)
-                            .scrollFadeScale()
+                            .vanishIntoPage(vanishDistance: 350,
+                                            minScale: 0.88,
+                                            maxBlur: 2.5,
+                                            topInset: 0,
+                                            blurKickIn: 14)
                             .accessibilityLabel(Text("\(category.title). Tap to view pathways."))
                         }
                     }
@@ -142,7 +146,7 @@ struct PathListView: View {
                         .padding(.horizontal, 16)
                         .padding(.top, 12)
                     } else {
-                        LazyVStack(spacing: 12) {
+                        LazyVStack(spacing: 75) {
                             ForEach(category.paths) { path in
                                 NavigationLink {
                                     StepListView(path: path, educationTopics: educationTopics)
@@ -155,7 +159,11 @@ struct PathListView: View {
                                     )
                                 }
                                 .buttonStyle(.plain)
-                                .scrollFadeScale()
+                                .vanishIntoPage(vanishDistance: 350,
+                                                minScale: 0.88,
+                                                maxBlur: 2.5,
+                                                topInset: 0,
+                                                blurKickIn: 14)
                                 .accessibilityLabel(Text("\(path.title). Tap to view steps."))
                             }
                         }

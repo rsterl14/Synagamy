@@ -118,7 +118,7 @@ struct ResourcesView: View {
                     .padding(.horizontal, 16)
                     .padding(.top, 24)
                 } else {
-                    VStack(spacing: 16) {
+                    VStack(spacing: 75) {
                         ForEach(resources) { resource in
                             BrandTile(
                                 title: resource.title,
@@ -128,7 +128,11 @@ struct ResourcesView: View {
                             )
                             .padding(.horizontal, 16)
                             .onTapGesture { selectedResource = resource } // safe state update
-                            .scrollFadeScale()
+                            .vanishIntoPage(vanishDistance: 350,
+                                            minScale: 0.88,
+                                            maxBlur: 2.5,
+                                            topInset: 0,
+                                            blurKickIn: 14)
                             .accessibilityLabel(Text("\(resource.title). \(resource.subtitle). Tap to view details."))
                         }
                     }

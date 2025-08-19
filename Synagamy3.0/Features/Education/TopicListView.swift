@@ -2,50 +2,51 @@
 //  TopicListView.swift
 //  Synagamy3.0
 //
-//  Compact list of Education topics (optionally filtered by a caller-provided subset).
-//  Tapping a row opens the full details in a sheet.
+//  Topics → Detail flow.
+//  • Shows a list of topics (usually passed in for a selected category).
+//  • Local search (optional) within the provided topic set.
+//  • Tapping a topic opens TopicDetailContent in a sheet.
 //
-//  Fixes in this version:
-//   • Uses `topic.category` as the secondary line (model has no `subtitle`).
-//   • Safe, App Store–friendly patterns: empty/error states, no force-unwraps.
-//   • Keeps optional local search and the shared floating-header spacing.
+//  Expects:
+//  - BrandTile, EmptyStateView, HomeButton, FloatingLogoHeader
+//  - OnChangeHeightModifier, .vanishIntoPage
 //
+
 import SwiftUI
 
 struct TopicListView: View {
     // MARK: - Inputs
 
-    /// Optional headline shown above the list (e.g., “Stimulation & Monitoring”).
-    var title: String?
+    /// Optional headline shown above the list (e.g., the category name).
+    var title: String? = nil
 
-    /// Provide your own topic subset, or leave nil to use all topics.
+    /// Provide the topic subset to show (recommended). If nil, will show all topics.
     var topics: [EducationTopic]? = nil
 
-    /// If provided, the local search bar appears. Default: true when using “all topics”.
+    /// Enable/disable search UI.
     var enableSearch: Bool? = nil
 
     // MARK: - Data & UI State
 
-    @State private var all: [EducationTopic] = []               // working set
+    @State private var working: [EducationTopic] = []      // list being displayed
     @State private var searchText: String = ""
-    @State private var selected: EducationTopic? = nil          // drives detail sheet
+    @State private var selected: EducationTopic? = nil     // drives detail sheet
 
-    @State private var headerHeight: CGFloat = 64               // space for floating header
-    @State private var errorMessage: String? = nil              // non-technical user alert
+    @State private var headerHeight: CGFloat = 64
+    @State private var errorMessage: String? = nil
 
     // MARK: - Derived
 
     private var isSearchEnabled: Bool {
         if let enableSearch { return enableSearch }
-        // Enable search by default when caller did not pass a custom subset.
+        // Default: enable search only when showing all topics
         return topics == nil
     }
 
     private var filtered: [EducationTopic] {
-        let base = all
         let q = searchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        guard !q.isEmpty else { return base }
-        return base.filter { t in
+        guard !q.isEmpty else { return working }
+        return working.filter { t in
             t.topic.lowercased().contains(q)
             || t.category.lowercased().contains(q)
             || t.layExplanation.lowercased().contains(q)
@@ -59,7 +60,7 @@ struct TopicListView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 12) {
 
-                    // Optional section title
+                    // Optional title (usually the category)
                     if let title, !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                         Text(title)
                             .font(.title3.weight(.semibold))
@@ -70,14 +71,14 @@ struct TopicListView: View {
                             .accessibilityAddTraits(.isHeader)
                     }
 
-                    // Empty / No matches states
-                    if all.isEmpty && searchText.isEmpty {
+                    if working.isEmpty && searchText.isEmpty {
                         EmptyStateView(
                             icon: "book",
                             title: "No topics available",
-                            message: "Please check back later. You can still explore Pathways."
+                            message: "Please check back later."
                         )
                         .padding(.top, 8)
+
                     } else if filtered.isEmpty {
                         EmptyStateView(
                             icon: "magnifyingglass",
@@ -85,19 +86,25 @@ struct TopicListView: View {
                             message: "Try a different keyword or clear your search."
                         )
                         .padding(.top, 8)
+
                     } else {
-                        // List of compact tiles
-                        LazyVStack(spacing: 10) {
+                        LazyVStack(spacing: 75) {
                             ForEach(filtered, id: \.id) { t in
                                 Button { selected = t } label: {
                                     BrandTile(
-                                        title: t.topic,
-                                        subtitle: t.category,          // ← show category
+                                        title: t.topic,            // first line
+                                        subtitle: t.category,      // second line = category
                                         systemIcon: "book.fill",
                                         assetIcon: nil,
                                         isCompact: true
                                     )
-                                    .scrollFadeScale()
+                                    .vanishIntoPage(
+                                        vanishDistance: 350,
+                                        minScale: 0.88,
+                                        maxBlur: 2.5,
+                                        topInset: 0,
+                                        blurKickIn: 14
+                                    )
                                 }
                                 .buttonStyle(.plain)
                                 .accessibilityLabel(Text("\(t.topic). \(t.category). Tap to read."))
@@ -120,19 +127,19 @@ struct TopicListView: View {
         .toolbarBackground(.hidden, for: .navigationBar)
         .toolbar { ToolbarItem(placement: .topBarTrailing) { HomeButton(usePopToRoot: true) } }
 
-        // Reserve space for the floating header
-        .safeAreaInset(edge: .top) { Color.clear.frame(height: headerHeight) }
+        // MARK: - Floating header
 
-        // Floating brand header (Education by default)
+        .safeAreaInset(edge: .top) { Color.clear.frame(height: headerHeight) }
         .overlay(alignment: .top) {
             FloatingLogoHeader(primaryImage: "SynagamyLogoTwo", secondaryImage: "EducationLogo")
-                .cloudyFloating()
                 .background(
                     GeometryReader { geo in
                         Color.clear
                             .onAppear { headerHeight = geo.size.height }
-                            .modifier(OnChangeHeightModifier(currentHeight: $headerHeight,
-                                                             height: geo.size.height))
+                            .modifier(OnChangeHeightModifier(
+                                currentHeight: $headerHeight,
+                                height: geo.size.height
+                            ))
                     }
                 )
         }
@@ -141,23 +148,23 @@ struct TopicListView: View {
 
         .modifier(SearchIfEnabled(isEnabled: isSearchEnabled, searchText: $searchText))
 
-        // MARK: - Alert
+        // MARK: - Alerts
 
         .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {
             Button("OK", role: .cancel) { errorMessage = nil }
         }, message: { Text(errorMessage ?? "Please try again.") })
 
-        // MARK: - Load data
+        // MARK: - Load list
 
         .task {
-            // Use caller-provided topics or fall back to all cached topics
+            // Use provided subset or all topics
             let base = topics ?? AppData.topics
-            all = base.sorted {
+            working = base.sorted {
                 $0.topic.localizedCaseInsensitiveCompare($1.topic) == .orderedAscending
             }
         }
 
-        // MARK: - Detail Sheet
+        // MARK: - Detail sheet
 
         .sheet(item: $selected) { t in
             NavigationStack {
@@ -175,7 +182,7 @@ struct TopicListView: View {
     }
 }
 
-// MARK: - Helper modifier to conditionally attach .searchable without branching body
+// MARK: - Conditional search wrapper
 
 private struct SearchIfEnabled: ViewModifier {
     let isEnabled: Bool
@@ -184,9 +191,11 @@ private struct SearchIfEnabled: ViewModifier {
     func body(content: Content) -> some View {
         if isEnabled {
             content
-                .searchable(text: $searchText,
-                            placement: .navigationBarDrawer(displayMode: .automatic),
-                            prompt: Text("Search topics"))
+                .searchable(
+                    text: $searchText,
+                    placement: .navigationBarDrawer(displayMode: .automatic),
+                    prompt: Text("Search topics")
+                )
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
         } else {

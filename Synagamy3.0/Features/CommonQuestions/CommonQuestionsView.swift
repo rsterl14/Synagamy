@@ -36,7 +36,7 @@ struct CommonQuestionsView: View {
                     .padding(.horizontal, 16)
                     .padding(.top, 24)
                 } else {
-                    LazyVStack(spacing: 16) {
+                    LazyVStack(spacing: 75) {
                         ForEach(questions, id: \.id) { q in
                             Button {
                                 selected = q // safe state update to present the sheet
@@ -47,7 +47,11 @@ struct CommonQuestionsView: View {
                                     systemIcon: "questionmark.circle.fill",
                                     assetIcon: nil
                                 )
-                                .scrollFadeScale()
+                                .vanishIntoPage(vanishDistance: 350,
+                                                minScale: 0.88,
+                                                maxBlur: 2.5,
+                                                topInset: 0,
+                                                blurKickIn: 14)
                             }
                             .buttonStyle(.plain)
                             .padding(.horizontal, 16)
