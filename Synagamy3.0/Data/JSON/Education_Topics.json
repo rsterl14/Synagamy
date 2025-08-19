@@ -1,0 +1,2748 @@
+[
+  {
+    "topic": "Fertilization",
+    "lay_explanation": "Fertilization occurs when a sperm cell successfully enters an egg cell and their genetic material combines, forming a zygote (the first stage of a new embryo). In natural conception, this typically happens in the fallopian tube shortly after ovulation. In assisted reproduction (IVF), fertilization is performed in the laboratory. This can be done either by conventional insemination, where many sperm are placed around the egg in a dish, or by intracytoplasmic sperm injection (ICSI), where a single healthy sperm is carefully injected directly into the egg.",
+    "expert_summary": "Fertilization in vivo begins with sperm–oocyte recognition, the acrosome reaction, penetration of the zona pellucida, membrane fusion, and the formation of male and female pronuclei. These processes establish syngamy and initiate embryogenesis. In ART, two principal methods are used: (1) conventional IVF, in which thousands of motile sperm are co-incubated with the oocyte to allow natural selection and penetration, and (2) intracytoplasmic sperm injection (ICSI), in which a single morphologically normal sperm is microinjected directly into the oocyte cytoplasm, bypassing the need for zona penetration and acrosomal activity. Both methods ultimately lead to pronuclear formation and zygote development under controlled culture conditions.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4046257/",
+      "https://www.mdpi.com/2077-0383/11/19/5722",
+      "https://doi.org/10.1242/dev.176966"
+    ],
+    "related_to": [
+      "Zygote",
+      "Oocyte (Egg Cell)",
+      "Sperm",
+      "Intracytoplasmic Sperm Injection (ICSI)",
+      "In Vitro Fertilization (IVF)",
+      "Conventional Insemination"
+    ],
+    "category": "Reproductive Cycle & Natural Conception"
+  },
+  {
+    "topic": "Implantation",
+    "lay_explanation": "Implantation happens when a developing embryo, at the blastocyst stage, attaches to the lining of the uterus (endometrium) and begins to grow. This usually takes place around 6–10 days after fertilization. The blastocyst must first hatch out of its protective shell (the zona pellucida), make contact with the uterine lining, and then embed itself into the tissue, which provides the nutrients and support needed for early pregnancy. In IVF, after embryo transfer, the embryo must still implant in the same way for the pregnancy to continue successfully.",
+    "expert_summary": "Implantation involves a coordinated sequence of events: blastocyst hatching, adhesion to the receptive endometrium, trophoblast invasion, and decidualization of maternal stromal cells. These steps establish the maternal–fetal interface. The process is tightly regulated by ovarian steroid hormones (estrogen and progesterone), locally produced cytokines, growth factors, and immune tolerance mechanisms. In assisted reproduction, successful implantation following embryo transfer depends on synchrony between embryo development and endometrial receptivity; luteal phase support with progesterone is often required to optimize outcomes.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/23223073/"
+    ],
+    "related_to": [
+      "Blastocyst",
+      "Endometrium",
+      "Zona Pellucida",
+      "Hatching Blastocyst",
+      "Embryo Transfer",
+      "Luteal Phase Support"
+    ],
+    "category": "Reproductive Cycle & Natural Conception"
+  },
+  {
+    "topic": "Menstrual Cycle Overview",
+    "lay_explanation": "The menstrual cycle is the body's monthly rhythm that prepares for pregnancy. It begins with menstruation (bleeding), when the uterine lining sheds. Next, an egg grows in the ovary (follicular phase). Around the middle of the cycle, ovulation occurs—the release of the egg. After this, the uterus lining thickens during the luteal phase to support a possible pregnancy. If no fertilization happens, hormone levels drop and the lining sheds, starting the next period.",
+    "expert_summary": "The menstrual cycle averages 28 days and is divided into four phases: menstrual, follicular, ovulatory, and luteal. It is governed by hypothalamic–pituitary–ovarian interactions involving GnRH, FSH, LH, estrogen, and progesterone. The cycle coordinates ovarian follicle growth, ovulation, corpus luteum function, and endometrial preparation for implantation. Disturbances in this hormonal regulation can lead to infertility, irregular cycles, or gynecological disorders.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK279054/"
+    ],
+    "related_to": [
+      "Ovulation",
+      "Endometrium",
+      "Follicle",
+      "Oocyte",
+      "Gonadotropin-Releasing Hormone (GnRH)",
+      "Follicle Stimulating Hormone (FSH)",
+      "Luteinizing Hormone (LH)",
+      "Estrogen",
+      "Progesterone"
+    ],
+    "category": "Reproductive Cycle & Natural Conception"
+  },
+  {
+    "topic": "Ovulation",
+    "lay_explanation": "Ovulation is when a mature egg is released from the ovary into the fallopian tube, where it can be fertilized. This usually happens in the middle of the menstrual cycle, triggered by a natural rise in luteinizing hormone (LH). The egg can only be fertilized for about 12–24 hours after release. In assisted reproductive technologies (ART) such as IVF, doctors carefully control ovulation using hormone medications. Instead of relying on natural ovulation, they stimulate the ovaries to produce multiple eggs, and then use a special 'trigger shot' (hCG or LH analog) to time ovulation precisely. The eggs are collected directly from the ovaries before they are released, so they can be fertilized in the lab.",
+    "expert_summary": "Ovulation is initiated by the mid-cycle LH surge, which resumes oocyte meiosis I, leads to germinal vesicle breakdown, and culminates in extrusion of the first polar body. Proteolytic activity and follicular wall remodeling allow follicular rupture and release of the cumulus–oocyte complex into the fallopian tube. In ART, natural ovulation is bypassed: controlled ovarian hyperstimulation (COH) with gonadotropins recruits multiple follicles, and a pharmacological trigger (commonly hCG or a GnRH agonist) mimics the LH surge to induce final oocyte maturation. Oocytes are retrieved transvaginally before rupture, preventing in vivo ovulation and enabling in vitro fertilization. Precise timing of this trigger is critical to optimize oocyte quality and retrieval success.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK279054/",
+      "https://rbej.biomedcentral.com/articles/10.1186/s12958-024-01332-5"
+    ],
+    "related_to": [
+      "Oocyte (Egg Cell)",
+      "Follicle",
+      "LH Surge",
+      "Corpus Luteum",
+      "Oocyte Retrieval",
+      "Controlled Ovarian Hyperstimulation (COH)",
+      "Human Chorionic Gonadotropin (hCG) Trigger",
+      "GnRH Angonist",
+      "Fertilization"
+    ],
+    "category": "Reproductive Cycle & Natural Conception"
+  },
+  {
+    "topic": "Referral to a Fertility Center",
+    "lay_explanation": "A referral is when your healthcare provider recommends you to a fertility specialist or clinic for further evaluation and treatment. This step ensures you receive expert assessment and tailored treatment options. In some cases, such as sperm cryopreservation for fertility preservation (for example, before cancer treatment), a full referral is not required and a requisition from a physician may be sufficient.",
+    "expert_summary": "Referral to a fertility center involves transmission of relevant medical history, laboratory results (e.g., semen analysis, hormone levels), and imaging reports to the reproductive specialist. The purpose is to expedite specialist evaluation, initiate targeted fertility investigations, and develop individualized management plans. Common indications include infertility persisting >12 months, abnormal semen parameters, history of reproductive tract disorders (cryptorchidism, varicocele, ejaculatory dysfunction), or prior gonadotoxic therapy. Early referral is particularly critical for couples with advanced maternal age or additional female factor risk factors. In ART contexts, timely referral facilitates coordinated care for procedures such as intrauterine insemination (IUI), in vitro fertilization (IVF), and sperm banking for fertility preservation.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9302705/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Conventional Insemination",
+      "Intrauterine Insemination (IUI)",
+      "Fertility Preservation"
+    ],
+    "category": "Referral & Initial Consultation"
+  },
+  {
+    "category": "Referral & Initial Consultation",
+    "topic": "Initial Consult",
+    "lay_explanation": "The initial fertility consultation is the first appointment with a fertility specialist and comes following a referal to a fertility clinic. It is usually recommended when someone has been trying to conceive for 12 months or longer without success, or sooner if there are known risk factors such as irregular cycles, history of pelvic infections, endometriosis, or advanced maternal age. During this visit, the doctor reviews medical history, lifestyle, and any prior test results. For men, the first-line test is usually a semen analysis to check sperm count, movement, and shape. For women, testing often includes hormone bloodwork (to assess egg supply and cycle hormones), ultrasound of the ovaries and uterus, and sometimes imaging to check if the fallopian tubes are open. These early tests help identify possible causes of infertility and guide whether treatments like ovulation medication, intrauterine insemination (IUI), or in vitro fertilization (IVF) may be appropriate.",
+    "expert_summary": "The initial fertility consultation entails a comprehensive evaluation, including detailed reproductive, medical, surgical, and lifestyle history. Male evaluation begins with semen analysis; abnormal results are followed by endocrine assays (FSH, LH, testosterone, prolactin) and, when indicated, genetic testing (karyotype, Y-chromosome microdeletions, CFTR mutations). Female assessment targets ovarian reserve (AMH, day 3 FSH, estradiol), ovulatory status, uterine cavity (transvaginal ultrasound), and tubal patency (HSG, saline sonohysterography, or hysterosalpingo-contrast sonography). Mechanistically, this step classifies infertility into male factor, ovulatory, tubal, uterine, ovarian reserve–related, combined, or unexplained categories. Results guide individualized management plans, ranging from timed intercourse and ovulation induction to advanced ART, including IUI and IVF/ICSI. Early referral improves prognosis, particularly in cases of diminished ovarian reserve or severe male factor infertility.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9302705/"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Follicle Stimulating Hormone (FSH) Test",
+      "Anti-Mullerian Hormone (AMH) Test",
+      "Estradiol (E2) Blood Test Test",
+      "Antral Follicle Count (AFC) Ultrasound",
+      "Hysterosalpingogram (HSG)",
+      "Saline Infusion Sonohysterography (SIS)",
+      "Intrauterine Insemination (IUI)",
+      "In Vitro Fertilization (IVF/ICSI)"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Anatomy & Processes",
+    "topic": "Spermatogenesis",
+    "lay_explanation": "Spermatogenesis is the process by which sperm are made inside the testes. It starts with stem cells and takes about 74 days for immature cells to develop into mature sperm. During this time, the cells divide, grow, and change shape until they become sperm with a head and tail that can swim. This process happens in the seminiferous tubules of the testes, with help from Sertoli cells. If spermatogenesis is disrupted, sperm count or quality can be low, which affects fertility.",
+    "expert_summary": "Spermatogenesis is a continuous and highly organized process occurring within seminiferous tubules, progressing from spermatogonial stem cells → spermatocytes → spermatids → mature spermatozoa. It is divided into mitotic proliferation, meiotic recombination/division, and spermiogenesis (morphological remodeling). Sertoli cells provide structural and paracrine support, while Leydig cell-derived testosterone and FSH signaling are essential regulatory inputs. The entire cycle in humans requires ~74 days, followed by ~12–21 days of epididymal transit for maturation. Disruptions in spermatogenesis underlie oligospermia, azoospermia, or abnormal morphology. In ART, impaired spermatogenesis often necessitates sperm retrieval techniques (e.g., testicular sperm extraction [TESE], micro-TESE) or use of ejaculated sperm with ICSI.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK10095/"
+    ],
+    "related_to": [
+      "Testes",
+      "Sertoli Cells",
+      "Leydig Cells",
+      "Testosterone",
+      "Follicle Stimulating Hormone (FSH)",
+      "Luteinizing Hormone (LH)",
+      "Sperm"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Anatomy & Processes",
+    "topic": "Testes",
+    "lay_explanation": "The testes are the male reproductive organs that produce sperm and the hormone testosterone. They are located in the scrotum, which keeps them about 2–4°C cooler than the rest of the body. This cooler temperature is essential for healthy sperm development. Without properly functioning testes, sperm production and male fertility are compromised. In assisted reproductive technologies (ART), conditions affecting the testes—such as very low sperm counts or no sperm in the ejaculate—may require sperm retrieval directly from the testes for use in IVF or ICSI.",
+    "expert_summary": "The testes consist of tightly coiled seminiferous tubules where spermatogenesis occurs, supported by Sertoli cells, and interstitial tissue containing Leydig cells that synthesize testosterone. Optimal spermatogenesis requires proper thermoregulation (~2–4°C below core temperature) and hypothalamic–pituitary hormonal stimulation (LH acting on Leydig cells, FSH acting on Sertoli cells). Pathologies such as cryptorchidism, orchitis, trauma, varicocele, or gonadotoxic exposures (e.g., chemotherapy, radiation) may impair spermatogenesis, leading to oligospermia or azoospermia. In ART, testicular sperm extraction (TESE, micro-TESE) or fine-needle aspiration may be employed in cases of obstructive or non-obstructive azoospermia, allowing intracytoplasmic sperm injection (ICSI) to bypass ejaculatory or maturation defects.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK279031/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3114571/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK562258/"
+    ],
+    "related_to": [
+      "Sperm",
+      "Testosterone",
+      "Follicle Stimulating Hormone (FSH)",
+      "Luteinizing Hormone (LH)",
+      "Oligospermia",
+      "Azoospermia",
+      "Obstructive Azoospermia",
+      "Non-Obstructive Azoospermia",
+      "Intracytoplasmic Sperm Injection (ICSI)",
+      "Sperm Retrieval Techniques",
+      "Testicular Sperm Extraction (TESE/micro-TESE)",
+      "Percutaneous Epididymal Sperm Aspiration (PESA)"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Anatomy & Processes",
+    "topic": "Sertoli Cells",
+    "lay_explanation": "Sertoli cells are special cells inside the testes that act like 'nurse cells' for developing sperm. They provide nutrition, remove waste, and create a safe environment for sperm to grow. They also form a barrier (the blood–testis barrier) that protects sperm from the body's immune system. Without healthy Sertoli cells, sperm cannot properly mature.",
+    "expert_summary": "Sertoli cells line the seminiferous tubules and provide structural, nutritional, and paracrine support for spermatogenesis. They form the blood–testis barrier through tight junctions, creating basal and adluminal compartments critical for meiosis and postmeiotic differentiation. Under FSH stimulation, Sertoli cells secrete androgen-binding protein (ABP), inhibin B, and various growth factors that regulate germ cell development. Dysfunction or depletion of Sertoli cells is associated with Sertoli cell–only syndrome and severe oligozoospermia. In ART, Sertoli cell quality indirectly impacts sperm yield for IVF/ICSI.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/18242891/"
+    ],
+    "related_to": [
+      "Testes",
+      "Spermatogenesis",
+      "Sperm",
+      "Leydig Cells",
+      "Inhibin B",
+      "Follicle Stimulating Hormone (FSH)"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Anatomy & Processes",
+    "topic": "Leydig Cells",
+    "lay_explanation": "Leydig cells are found between the sperm-producing tubules in the testes. Their main job is to make testosterone, the hormone needed for male development and sperm production. Without enough testosterone from Leydig cells, sperm production and fertility are reduced.",
+    "expert_summary": "Leydig cells, located in the interstitial space of the testes, synthesize testosterone in response to luteinizing hormone (LH) from the pituitary. Testosterone acts locally on Sertoli cells to support spermatogenesis and systemically to maintain male secondary sexual characteristics. Leydig cell function depends on cholesterol transport into mitochondria via StAR protein and enzymatic activity of CYP11A1 and 17β-HSD. Age, varicocele, toxins, or gonadotoxic therapies may impair Leydig cell steroidogenesis, leading to hypogonadism and infertility. In ART, impaired Leydig cell function can necessitate hormonal optimization prior to sperm retrieval or IVF/ICSI.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6044347/"
+    ],
+    "related_to": [
+      "Testes",
+      "Spermatogenesis",
+      "Sperm",
+      "Sertoli Cells",
+      "Luteinizing Hormone (LH)"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Anatomy & Processes",
+    "topic": "Epididymis",
+    "lay_explanation": "The epididymis is a long, coiled tube attached to the back of each testis. As sperm travel through the epididymis, they finish maturing and learn how to swim. The epididymis also stores sperm until ejaculation. If it becomes blocked or damaged, sperm may not mature properly or may not reach the semen, which can make it harder to conceive. In assisted reproduction, sperm can sometimes be collected directly from the epididymis if there is a blockage in the reproductive tract this is known as a PESA.",
+    "expert_summary": "The epididymis is anatomically divided into the caput, corpus, and cauda, and plays an essential role in post-testicular sperm maturation, motility acquisition, and storage. Epididymal epithelial secretions mediate structural and biochemical modifications of the sperm membrane that prepare sperm for capacitation and fertilization. Pathologies such as congenital bilateral absence of the vas deferens (CBAVD), epididymal obstruction, or infection (epididymitis, tuberculosis) can lead to obstructive azoospermia. In ART, percutaneous (PESA) or testicular sperm extraction (TESE) is used for sperm retrieval in obstructive cases, with subsequent ICSI enabling fertilization.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7432785/"
+    ],
+    "related_to": [
+      "Vas Deferens",
+      "Testes",
+      "Obstructive Azoospermia",
+      "Testicular Sperm Extraction (TESE/micro-TESE)",
+      "Percutaneous Epididymal Sperm Aspiration (PESA)"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Anatomy & Processes",
+    "topic": "Vas Deferens",
+    "lay_explanation": "The vas deferens is a muscular tube that carries sperm from the epididymis to the ejaculatory ducts, where it mixes with fluid from the accessory glands to form semen. It acts like a transport highway for sperm during ejaculation. If the vas deferens is blocked, missing (as in some men with cystic fibrosis), or cut during a vasectomy, sperm cannot reach the semen, which can cause infertility. In assisted reproduction, sperm can sometimes be collected directly from the epididymis or testes if the vas deferens is not working.",
+    "expert_summary": "The vas deferens is a paired muscular duct responsible for sperm transport from the epididymal tail to the ejaculatory ducts, aided by peristaltic contractions during ejaculation. Histologically, it has a thick smooth muscle wall critical for propulsion. Clinically, pathology includes congenital bilateral absence of the vas deferens (CBAVD), strongly associated with CFTR mutations, acquired obstructions from infection or iatrogenic injury, and surgical interruption during vasectomy. Fertility restoration options include microsurgical reconstruction (vasovasostomy, vasoepididymostomy) or sperm retrieval for use in ART (PESA, MESA, TESE).",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK538429/"
+    ],
+    "related_to": [
+      "Epididymis",
+      "Seminal Vesicles",
+      "Obstructive Azoospermia",
+      "Vasectomy",
+      "Sperm Retrieval Techniques",
+      "Congenital Bilateral Absence of the Vas Deferens (CBAVD)",
+      "Percutaneous Epididymal Sperm Aspiration (PESA)",
+      "Testicular Sperm Extraction (TESE/micro-TESE)"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Anatomy & Processes",
+    "topic": "Sperm",
+    "lay_explanation": "Sperm are the male reproductive cells. They are much smaller than eggs and have a head (which carries the father's genetic material), a midpiece packed with mitochondria that provide energy, and a long tail that helps them swim. Sperm are made in the testicles and released in semen during ejaculation. Their main role is to reach the egg and deliver genetic material needed to form an embryo.",
+    "expert_summary": "Spermatozoa are highly specialized haploid male gametes produced through spermatogenesis within the seminiferous tubules. A mature sperm cell is composed of a condensed nucleus and acrosome in the head, a midpiece rich in mitochondria to generate ATP, and a flagellum for progressive motility. Functional competence is acquired through epididymal maturation and capacitation within the female reproductive tract, which primes sperm for zona pellucida binding and the acrosome reaction required for fertilization. Abnormalities in morphology, motility, or DNA integrity contribute significantly to male infertility.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK10095/"
+    ],
+    "related_to": [
+      "Oocyte (Egg Cell)",
+      "Zygote",
+      "Fertilization",
+      "Spermatogenesis"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Anatomy & Processes",
+    "topic": "Semen",
+    "lay_explanation": "Semen is the fluid released during ejaculation and the sperm produced from the testicules through spermatogenesis. It contains sperm, which fertilize an egg, along with fluid from the prostate, seminal vesicles, and other glands. These fluids help protect sperm, provide nutrients, and allow them to move more easily. Problems with semen, such as low sperm count or changes in the fluid, can make it harder to conceive. In fertility treatments, semen is prepared in the laboratory (through sperm washing) to select the healthiest sperm for use in intrauterine insemination (IUI) or in vitro fertilization (IVF).",
+    "expert_summary": "Semen is a composite ejaculate fluid containing spermatozoa and seminal plasma. Seminal plasma is primarily derived from the seminal vesicles (~60%), prostate gland (~30%), with contributions from the epididymis and bulbourethral glands. Its functions include buffering vaginal acidity, providing fructose and polyamines for sperm metabolism, prostaglandins to aid uterine contractility, and proteins/enzymes needed for capacitation. According to WHO 6th edition, normal semen volume is 1.4–6 mL, concentration ≥16 million/mL, total motility ≥42%, and morphology ≥4% normal forms. In ART, semen analysis is the cornerstone of male fertility assessment, while semen processing techniques (density-gradient centrifugation, swim-up) are employed to isolate motile, morphologically normal sperm. Processed sperm are then used in IUI, IVF, or intracytoplasmic sperm injection (ICSI).",
+    "reference": [
+      "https://www.who.int/publications/i/item/9789240030787",
+      "https://www.ncbi.nlm.nih.gov/books/NBK564369/"
+    ],
+    "related_to": [
+      "Spermatogenesis",
+      "Sperm",
+      "Semen Analysis",
+      "Prostate Gland",
+      "Seminal Vesicles",
+      "Bulbourethral (Cowper's) Glands"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Anatomy & Processes",
+    "topic": "Seminal Vesicles",
+    "lay_explanation": "The seminal vesicles are glands that sit behind the bladder and make most of the fluid in semen. This fluid is rich in sugar (fructose), which gives sperm the energy they need to swim and survive. Without this energy supply, sperm would not be able to travel far enough to reach and fertilize an egg. In fertility treatments, changes in seminal vesicle function can affect semen quality, and processed sperm for intrauterine insemination (IUI) or in vitro fertilization (IVF) are separated from seminal fluid in the lab before use.",
+    "expert_summary": "The seminal vesicles contribute ~60–70% of seminal plasma volume. Their alkaline secretions contain fructose (the principal energy substrate for sperm motility), prostaglandins (modulate uterine contractility and cervical mucus penetration), and coagulation proteins (facilitate initial semen clotting, later liquefied by prostatic enzymes). Dysfunction or agenesis, as in congenital bilateral absence of the vas deferens (CBAVD) or ejaculatory duct obstruction, results in low-volume, acidic, fructose-negative semen—a hallmark in male infertility work-up. In ART, seminal vesicle dysfunction can alter semen parameters and impair natural conception, but semen preparation techniques (density gradient centrifugation, swim-up) isolate motile sperm independent of seminal plasma contribution, enabling their use in IUI, IVF, or ICSI.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK538429/"
+    ],
+    "related_to": [
+      "Semen",
+      "Semen Analysis",
+      "Prostate Gland",
+      "Bulbourethral (Cowper's) Glands"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Anatomy & Processes",
+    "topic": "Prostate Gland",
+    "lay_explanation": "The prostate gland is located below the bladder and adds fluid to semen that helps sperm move and survive. This fluid contains enzymes and minerals that protect sperm and allow them to swim more easily in the female reproductive tract. Without the prostate's contribution, semen would be less able to support fertilization. In assisted reproduction (like IVF and ICSI), sperm are separated from the prostatic fluid before use, but changes in prostate health can still affect semen quality and fertility.",
+    "expert_summary": "The prostate contributes ~20–30% of seminal plasma volume. Its secretions are slightly acidic and contain citrate (buffering capacity), zinc (stabilizes chromatin and protects against oxidative damage), and enzymes such as prostate-specific antigen (PSA), which liquefy semen post-ejaculation to release motile sperm. Prostate pathology (e.g., prostatitis, ejaculatory duct obstruction, or post-surgical changes) can impair semen liquefaction, alter pH, and reduce sperm motility. In ART, semen preparation methods (density gradient, swim-up) isolate spermatozoa from prostatic secretions, mitigating functional impairment. However, abnormal prostatic function remains a diagnostic marker of male infertility and can influence treatment strategies.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK538429/"
+    ],
+    "related_to": [
+      "Semen",
+      "Semen Analysis",
+      "Bulbourethral (Cowper's) Glands",
+      "Seminal Vesicles"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Anatomy & Processes",
+    "topic": "Bulbourethral (Cowper's) Glands",
+    "lay_explanation": "The bulbourethral glands, also called Cowper's glands, are two small glands below the prostate. They make a clear fluid released before ejaculation, sometimes called pre-ejaculate. This fluid helps clean and lubricate the urethra, making it easier and safer for sperm to pass through during ejaculation. In assisted reproduction (like IUI or IVF), pre-ejaculate is not usually used, but its role in protecting sperm during natural conception highlights its importance.",
+    "expert_summary": "The bulbourethral glands contribute a small pre-ejaculatory secretion that is mucus-rich and alkaline. This fluid lubricates the urethra and neutralizes residual acidity from urine, providing a safer passage for ejaculated sperm. While the overall contribution to seminal volume is minimal, dysfunction (e.g., obstruction, infection) may impair urethral conditions for sperm transit. Clinically, pre-ejaculate can contain motile sperm, which has implications for unintended fertilization. In ART, sperm are typically retrieved from ejaculate or directly from the testis/epididymis, bypassing the need for this secretion, but its physiological role remains important in natural fertility.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK538429/"
+    ],
+    "related_to": [
+      "Semen",
+      "Semen Analysis",
+      "Seminal Vesicles",
+      "Prostate Gland"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Hormones",
+    "topic": "Testosterone",
+    "lay_explanation": "Testosterone is the main male sex hormone. It is made in the testes and is important for sperm production, sex drive, and male characteristics such as muscle mass and body hair. If testosterone levels are too low, it can affect sperm production and make it harder to conceive. In fertility treatment, measuring testosterone helps doctors understand male reproductive health and plan treatment options.",
+    "expert_summary": "Testosterone is produced by Leydig cells in response to LH stimulation. It supports spermatogenesis indirectly by acting on Sertoli cells, maintains libido, and drives secondary male characteristics. Intratesticular testosterone levels are 50–100 times higher than in serum, a concentration required for normal spermatogenesis. Primary hypogonadism (testicular failure) or secondary hypogonadism (pituitary/hypothalamic dysfunction) both impair sperm production. Importantly, exogenous testosterone therapy suppresses LH and FSH via negative feedback, reducing intratesticular testosterone and worsening infertility. In ART, assessing testosterone is critical for diagnosing male factor infertility, guiding interventions such as gonadotropin therapy, and avoiding inappropriate testosterone supplementation.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9161277/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK526128/"
+    ],
+    "related_to": [
+      "Gonadotropin-Releasing Hormone (GnRH)",
+      "Luteinizing Hormone (LH)",
+      "Follicle Stimulating Hormone (FSH)",
+      "Spermatogenesis",
+      "Leydig Cells",
+      "Sertoli Cells"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Hormones",
+    "topic": "Gonadotropin-Releasing Hormone (GnRH)",
+    "lay_explanation": "GnRH is a hormone made in the brain (hypothalamus) that tells the pituitary gland to release two key hormones: FSH and LH. These hormones are important for sperm production in men and for controlling ovulation in women.",
+    "expert_summary": "GnRH is secreted in a pulsatile manner from hypothalamic neurons, stimulating pituitary gonadotrophs to release FSH and LH, thereby regulating gametogenesis and gonadal steroidogenesis. Continuous administration of GnRH agonists leads to pituitary receptor desensitization and suppression of gonadotropins, a mechanism widely exploited in ART to control ovulation timing and prevent premature LH surge. Conversely, GnRH antagonists act via competitive inhibition at pituitary receptors, offering rapid, reversible suppression of gonadotropins with greater flexibility in IVF cycles.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK558992/"
+    ],
+    "related_to": [
+      "Follicle Stimulating Hormone (FSH)",
+      "Luteinizing Hormone (LH)",
+      "Spermatogenesis",
+      "Leydig Cells",
+      "Sertoli Cells"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Hormones",
+    "topic": "Follicle Stimulating Hormone (FSH)",
+    "lay_explanation": "FSH is a hormone released by the brain (pituitary gland) that helps the testes make sperm. It signals special support cells in the testis (Sertoli cells) to help sperm grow and mature. If FSH is too high, it often means the testes are not working properly. If it is too low, sperm production may also be reduced. In fertility treatment, FSH levels are checked to understand male fertility and, in some cases, FSH medications are used to help improve sperm production.",
+    "expert_summary": "FSH is secreted by the anterior pituitary under GnRH control. In males, FSH binds to Sertoli cell receptors, stimulating spermatogenesis, androgen-binding protein production, and germ cell maturation. Elevated FSH suggests primary testicular failure (non-obstructive azoospermia), while low/normal FSH with azoospermia indicates central hypogonadotropic hypogonadism. Clinically, FSH assessment is central in infertility workup, and recombinant FSH therapy may be applied in ART for selected hypogonadotropic patients to stimulate spermatogenesis.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8658012/"
+    ],
+    "related_to": [
+      "Gonadotropin-Releasing Hormone (GnRH)",
+      "Luteinizing Hormone (LH)",
+      "Testosterone",
+      "Sertoli Cells",
+      "Spermatogenesis"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Hormones",
+    "topic": "Luteinizing Hormone (LH)",
+    "lay_explanation": "LH is a hormone made by the brain (pituitary gland) that tells the testes to make testosterone. Testosterone is needed for sperm production, sex drive, and male health. If LH is too low, testosterone drops and sperm production suffers. If LH is very high but testosterone is low, it usually means the testes are not working properly. In fertility treatments, medicines that act like LH (such as hCG) are sometimes used to help men with low hormone levels make testosterone and sperm.",
+    "expert_summary": "LH is secreted by the anterior pituitary in response to pulsatile GnRH stimulation. It binds to LH receptors on Leydig cells, stimulating intratesticular testosterone production, which is critical for spermatogenesis. Clinically, low LH with low testosterone indicates central (hypogonadotropic) hypogonadism, while high LH with low testosterone suggests primary testicular failure. Measurement of LH is therefore essential in infertility workup. In ART, exogenous hCG (an LH analog) is employed to stimulate Leydig cell testosterone production and restore spermatogenesis in hypogonadotropic men.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8658012/"
+    ],
+    "related_to": [
+      "Testosterone",
+      "Human Chorionic Gonadotropin (hCG)",
+      "Follicle Stimulating Hormone (FSH)",
+      "Leydig Cells",
+      "Spermatogenesis"
+    ]
+  },
+  {
+    "category": "Male Reproductive Biology - Hormones",
+    "topic": "Inhibin B",
+    "lay_explanation": "Inhibin B is a hormone made by the testes that helps control sperm production. It tells the brain to adjust FSH (a hormone that stimulates sperm development). Low Inhibin B usually means sperm production is reduced, which can make it harder to conceive. Doctors sometimes measure it in fertility testing to see if the testes are producing sperm properly.",
+    "expert_summary": "Inhibin B is secreted by Sertoli cells in response to spermatogenic activity and provides negative feedback on pituitary FSH secretion. Serum Inhibin B concentrations strongly correlate with Sertoli cell function and spermatogenic output. Clinically, low or undetectable Inhibin B is associated with non-obstructive azoospermia and severe spermatogenic failure, while normal levels are often observed in obstructive azoospermia. Thus, Inhibin B is a useful biomarker to help differentiate the etiology of azoospermia in infertility workups. Although not universally used in ART, Inhibin B testing may guide counseling, predict sperm retrieval outcomes during TESE, and inform prognosis in severe male factor infertility.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/11720872/"
+    ],
+    "related_to": [
+      "Follicle Stimulating Hormone (FSH)",
+      "Spermatogenesis",
+      "Sertoli Cells"
+    ]
+  },
+  {
+    "category": "Male Infertility",
+    "topic": "Azoospermia",
+    "lay_explanation": "Azoospermia means no sperm are found in a man's semen. It affects about 1% of all men and around 10–15% of men facing fertility issues. This can happen because the testes aren't producing sperm (non-obstructive azoospermia) or because a blockage prevents sperm from entering the semen (obstructive azoospermia). Since no sperm are present in the ejaculate, natural conception isn't possible. However, assisted reproductive technology—such as surgically retrieving sperm from the testes or epididymis and using IVF with ICSI—can help couples achieve pregnancy.",
+    "expert_summary": "Azoospermia—the absence of sperm in the ejaculate—occurs in roughly 1% of all men and about 10–15% of infertile men. It is categorized as obstructive azoospermia (OA), where spermatogenesis is intact but sperm transport is blocked, or non-obstructive azoospermia (NOA), where sperm production is impaired due to genetic, hormonal, or testicular pathology. Diagnostic evaluation includes confirming azoospermia with two separate semen analyses and further assessing via hormone tests, genetic screening, and imaging to differentiate OA from NOA. Management depends on the subtype: OA can often be addressed with surgical sperm retrieval (e.g., TESA, TESE) followed by ICSI, while NOA often requires micro-TESE. Assisted reproductive technology, particularly ICSI following effective sperm retrieval, is essential for enabling biological parenthood in men with azoospermia.",
+    "reference": [
+      "https://www.hopkinsmedicine.org/health/conditions-and-diseases/azoospermia",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3583160/",
+      "https://pubmed.ncbi.nlm.nih.gov/24193894/"
+    ],
+    "related_to": [
+      "Spermatogenesis",
+      "Semen Analysis",
+      "Obstructive Azoospermia",
+      "Non-Obstructive Azoospermia",
+      "Percutaneous Epididymal Sperm Aspiration (PESA)",
+      "Testicular Sperm Extraction (TESE/micro-TESE)",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "category": "Male Infertility",
+    "topic": "Non-Obstructive Azoospermia",
+    "lay_explanation": "Non-Obstructive Azoospermia means the testes produce few or no sperm due to problems like genetic conditions (such as Klinefelter syndrome or Y-chromosome microdeletions), hormonal imbalances, or damage from treatments like chemotherapy. Since sperm production is impaired, natural conception isn't possible. In some cases, a surgical method called micro-TESE can locate and retrieve sperm directly from the testes, which can then be used with IVF and ICSI to help someone have a biological child.",
+    "expert_summary": "Non-Obstructive Azoospermia (NOA) is defined by severely impaired spermatogenesis from causes such as chromosomal abnormalities (e.g., Klinefelter syndrome, Y-chromosome microdeletions), gonadotoxic exposures, or idiopathic testicular dysfunction. While overall sperm production is low or absent, isolated pockets of spermatogenesis may persist. Micro-TESE offers clinicians a focused, microsurgical approach to identify and retrieve sperm from these pockets. Diagnostic tools like FNA mapping can help localize areas of sperm production. Micro-TESE followed by IVF-ICSI remains the standard pathway for achieving biological parenthood in NOA. When sperm retrieval fails, options include donor sperm or adoption, accompanied by genetic counseling.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8548745/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11430832/",
+      "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2022.893679/full"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Klinefelter Syndrome",
+      "Y Chromosome Microdeletion",
+      "Percutaneous Epididymal Sperm Aspiration (PESA)",
+      "Testicular Sperm Extraction (micro-TESE)",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "category": "Male Infertility",
+    "topic": "Oligospermia",
+    "lay_explanation": "Oligospermia means the number of sperm in semen is lower than normal. It can happen due to hormonal imbalances, enlarged veins in the scrotum (varicocele), infections, or lifestyle and environmental factors. Having fewer sperm makes it less likely for one to reach and fertilize the egg, making pregnancy more difficult.",
+    "expert_summary": "Oligospermia, defined as low sperm concentration in the ejaculate, arises from causes including endocrine disruptions, testicular dysfunction, varicocele, genitourinary infections, and environmental or lifestyle exposures. These conditions lead to reduced sperm output in the ejaculate, decreasing the likelihood of successful fertilization. Management focuses on treating reversible causes—such as correcting varicocele, addressing infections, hormonal therapy, or lifestyle modification—and, if sperm levels remain low, integrating assisted reproductive approaches like intrauterine insemination (IUI) or IVF with ICSI.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7566408/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6585183/",
+      "https://www.sciencedirect.com/topics/medicine-and-dentistry/oligospermia",
+      "https://www.sciencedirect.com/science/article/pii/S1807593222021470"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Varicocele",
+      "Y Chromosome Microdeletion",
+      "Percutaneous Epididymal Sperm Aspiration (PESA)",
+      "Testicular Sperm Extraction (micro-TESE)",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "category": "Male Infertility",
+    "topic": "Teratozoospermia",
+    "lay_explanation": "Teratozoospermia means that most sperm have an abnormal shape—this could affect the head, midpiece, or tail. Oddly shaped sperm may have difficulty swimming properly or attaching to the egg, which can make fertilization more challenging.",
+    "expert_summary": "Teratozoospermia refers to abnormal sperm morphology that impairs motility, zona binding, or the acrosome reaction. Underlying causes include oxidative stress, DNA damage, and genetic abnormalities. While natural fertilization may be inefficient, assisted reproductive techniques—particularly ICSI—can bypass many of the morphological barriers. Emerging methods like IMSI (selecting sperm at higher magnification) further refine sperm selection and may improve clinical outcomes in severe cases.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10932644/",
+      "https://pubmed.ncbi.nlm.nih.gov/38481866/",
+      "https://www.tandfonline.com/doi/full/10.3109/19396368.2012.727061",
+      "https://www.sciencedirect.com/science/article/abs/pii/S1521690X20301007"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "category": "Male Infertility",
+    "topic": "Varicocele & Fertility",
+    "lay_explanation": "A varicocele is an enlargement of the veins in the scrotum. This pooling of blood increases heat and oxidative stress in the testes, which can harm sperm quality and reduce fertility.",
+    "expert_summary": "Varicocele results from defective venous drainage in the pampiniform plexus, leading to elevated scrotal temperature and oxidative stress. These changes can impair spermatogenesis, resulting in reduced sperm quality. Microsurgical varicocelectomy or embolization can restore normal blood flow, often improving semen parameters and increasing chances of pregnancy or live birth.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3228353/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7648199/",
+      "https://www.nature.com/articles/nrurol.2017.98",
+      "https://www.tandfonline.com/doi/full/10.1080/20905998.2024.2367341"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Testes"
+    ]
+  },
+  {
+    "category": "Male Infertility",
+    "topic": "Retrograde Ejaculation",
+    "lay_explanation": "Retrograde ejaculation happens when semen flows backward into the bladder instead of out through the penis during orgasm. This occurs because the bladder neck doesn't close correctly, which can be caused by surgery, nerve damage from conditions like diabetes, or certain medications. Although it feels normal at the time, fertility is affected because semen does not leave the body.",
+    "expert_summary": "Retrograde ejaculation occurs due to failure of bladder neck closure during ejaculation, allowing semen to enter the bladder instead of being expelled. Underlying causes include bladder neck surgery, autonomic neuropathy (e.g., from diabetes or spinal cord injury), or medication effects (such as alpha-blockers). Natural conception is hindered since semen is not delivered antegrade. Management options include pharmacologic agents to tighten bladder neck tone, collection of sperm from alkalinized post-ejaculatory urine for ART, or advancing directly to ART (e.g., ICSI) when necessary.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11941111/",
+      "https://tau.amegroups.org/article/view/3515/html",
+      "https://www.sciencedirect.com/science/article/pii/S0015028211027956",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8987146/"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "category": "Male Infertility",
+    "topic": "Congenital Bilateral Absence of the Vas Deferens (CBAVD)",
+    "lay_explanation": "CBAVD is a condition in which a man is born without both vas deferens—the tubes that normally carry sperm from the testes into the semen. It is often linked to genetic mutations in the CFTR gene, which is also associated with cystic fibrosis. Because sperm cannot travel into the semen, men with CBAVD have no sperm in their ejaculate and cannot conceive naturally, even though their testes may still produce sperm.",
+    "expert_summary": "CBAVD is a congenital androgen-independent absence of both vas deferens despite intact spermatogenesis. It is most commonly associated with mutations in the CFTR gene, accounting for a substantial percentage of cases, and may also involve ADGRG2 mutations as a secondary cause. Clinically, CBAVD presents as obstructive azoospermia with reduced ejaculate volume and acidic pH, reflecting absent seminal vesicle secretions. Management includes surgical sperm retrieval (e.g., PESA, MESA, TESE) combined with ICSI, providing a path to biological parenthood. Genetic counseling and CFTR mutation testing are strongly recommended for both partners to assess the risk of transmitting cystic fibrosis or CBAVD to offspring.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8873976/",
+      "https://pubmed.ncbi.nlm.nih.gov/35222530/",
+      "https://www.spandidos-publications.com/10.3892/mmr.2020.11456",
+      "https://journals.lww.com/ajandrology/fulltext/2021/23020/sperm_retrieval_and_intracytoplasmic_sperm.4.aspx"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Vas Deferens",
+      "Obstructive Azoospermia",
+      "Sperm Retrieval Techniques",
+      "Testicular Sperm Extraction (micro-TESE)",
+      "Percutaneous Epididymal Sperm Aspiration (PESA)",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "category": "Male Infertility",
+    "topic": "Klinefelter Syndrome",
+    "lay_explanation": "Klinefelter syndrome is a genetic condition where men are born with an extra X chromosome (47,XXY). This leads to underdeveloped testes, low testosterone levels, and little or no sperm production—making most men with this condition infertile without medical help.",
+    "expert_summary": "Klinefelter syndrome (47,XXY) results in progressive testicular failure, with impaired Sertoli and Leydig cell function leading to hypergonadotropic hypogonadism and absent spermatogenesis. Despite azoospermia, micro-TESE offers potential for sperm retrieval; approximately half of men with KS achieve successful retrieval. Testosterone replacement may aid well-being but should be halted prior to micro-TESE to improve outcomes. Genetic counseling is essential to discuss risks and reproductive options, including IVF-ICSI using retrieved sperm.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6168324/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8815347/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10715617/",
+      "https://www.frontiersin.org/articles/10.3389/frph.2021.636629/full",
+      "https://onlinelibrary.wiley.com/doi/10.1111/andr.12767"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Testosterone",
+      "Non-Obstructive Azoospermia",
+      "Sperm Retrieval Techniques",
+      "Testicular Sperm Extraction (micro-TESE)",
+      "Percutaneous Epididymal Sperm Aspiration (PESA)",
+      "Intracytoplasmic Sperm Injection (ICSI)",
+      "Chromosomes and Genes",
+      "Aneuploidy"
+    ]
+  },
+  {
+    "category": "Male Infertility",
+    "topic": "Jacob's Syndrome (47,XYY)",
+    "lay_explanation": "Jacob's syndrome occurs when a man is born with an extra Y chromosome (47,XYY instead of the usual 46,XY). It's a random genetic change and most men with this condition are fertile and unaware of it. However, some may experience reduced sperm count or quality, which can make conceiving more challenging.",
+    "expert_summary": "Jacob's syndrome (47,XYY) arises due to nondisjunction during paternal meiosis II, resulting in an extra Y chromosome in males. Although most exhibit normal testicular function and fertility, a subset present with impaired semen parameters, including oligospermia or elevated sperm aneuploidy. Diagnosis typically involves semen analysis and karyotyping. While fertility is generally preserved, ART may be considered when subfertility is present, alongside genetic counseling regarding sperm chromosomal abnormalities.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3922324/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7478696/",
+      "https://casesjournal.biomedcentral.com/articles/10.1186/1757-1626-2-28",
+      "https://onlinelibrary.wiley.com/doi/10.1111/j.1439-0272.2010.01129.x",
+      "https://ec.bioscientifica.com/view/journals/ec/14/4/EC-24-0697.xml"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Non-Obstructive Azoospermia",
+      "Aneuploidy",
+      "Chromosomes and Genes"
+    ]
+  },
+  {
+    "category": "Male Infertility",
+    "topic": "Y Chromosome Microdeletion",
+    "lay_explanation": "A Y chromosome microdeletion means small sections of the Y chromosome—the parts that carry important genes for sperm production—are missing. Without those genes, a man often produces very few or no sperm, which reduces fertility.",
+    "expert_summary": "Y Chromosome Microdeletion involves deletions in the AZF (Azoospermia Factor) regions (AZFa, AZFb, AZFc) that are critical for spermatogenesis. Depending on the specific region deleted, this results in severe oligospermia or azoospermia. Diagnosis is based on PCR-based screening of AZF loci. In particular, AZFc deletions may still allow sperm retrieval via micro-TESE for use in ICSI, while AZFa or AZFb deletions generally indicate poor retrieval potential. Genetic counseling is essential, since male offspring conceived via ICSI may inherit the same deletion and face similar fertility challenges.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8039602/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3901175/",
+      "https://onlinelibrary.wiley.com/doi/10.1002/mgg3.2392",
+      "https://academic.oup.com/edrv/article/22/2/226/2424079",
+      "https://www.fertstert.org/article/S0015-0282(03)02867-X/fulltext"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Non-Obstructive Azoospermia",
+      "Sperm Retrieval Techniques",
+      "Testicular Sperm Extraction (micro-TESE)",
+      "Percutaneous Epididymal Sperm Aspiration (PESA)",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "category": "Male Infertility",
+    "topic": "Vasectomy",
+    "lay_explanation": "A vasectomy is a surgical procedure used as permanent birth control. During the procedure, the vas deferens—the tubes that carry sperm from the testes to the semen—are cut or sealed. The testes continue making sperm, but the sperm can't enter the semen, so natural conception is prevented.",
+    "expert_summary": "Vasectomy involves surgically dividing and sealing the vas deferens to block sperm passage while preserving normal spermatogenesis. Sperm produced by the testes are degraded and reabsorbed in the reproductive tract, often by phagocytosis and fluid reuptake, without affecting hormone production. This results in obstructive azoospermia and complete infertility. reversal via microsurgical vasovasostomy or vasoepididymostomy can restore sperm flow, and for those not undergoing reversal, surgical sperm retrieval paired with ICSI provides an alternative path to fertility.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9422300/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3228353/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3114592/"
+    ],
+    "related_to": [
+      "Obstructive Azoospermia",
+      "Sperm Retrieval",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "category": "Male Infertility Testing",
+    "topic": "Infectious Disease Screening (Male)",
+    "lay_explanation": "Before fertility treatment, men are usually asked to do simple blood tests for infections like HIV, hepatitis B and C, syphilis, chlamydia, and gonorrhea. This is to keep you, your partner, the care team, and any embryos or stored samples safe. If something is positive, it's treated or managed first, and your clinic will use extra precautions so ART can proceed safely.",
+    "expert_summary": "Pre-ART infectious disease screening is recommended for all patients using autologous gametes and is mandatory for donor gametes. Core tests include serologic screening for HIV-1/2, hepatitis B (e.g., HBsAg ± anti-HBc), hepatitis C, and syphilis; nucleic-acid testing and additional panels (e.g., CMV, HTLV) apply to donors per FDA HCT/P regulations. Risk-based screening for Chlamydia trachomatis and Neisseria gonorrhoeae is advised for patients, with routine NAAT required for donors. Positive results warrant guideline-directed management (treatment or viral suppression), vaccination when indicated (e.g., HBV), counseling, and laboratory risk-mitigation measures (e.g., dedicated storage, validated handling workflows) before proceeding with ART.",
+    "reference": [
+      "https://www.asrm.org/practice-guidance/practice-committee-documents/recommendations-for-reducing-the-risk-of-viral-transmission-during-fertility-treatment-with-the-use-of-autologous-gametes-a-committee-opinion/",
+      "https://www.asrm.org/practice-guidance/practice-committee-documents/guidance-regarding-gamete-and-embryo-donation/"
+    ],
+    "related_to": [
+      "Initial Consult"
+    ]
+  },
+  {
+    "category": "Male Infertility Testing",
+    "topic": "Semen Analysis",
+    "lay_explanation": "A semen analysis is a lab test that looks at a man's sperm. It measures how much fluid is produced, how many sperm there are, how well they move, and how they look. This test helps doctors understand potential causes of male fertility problems.",
+    "expert_summary": "Following the WHO 6th edition guidelines, a basic semen analysis includes assessment of ejaculate volume, sperm concentration, total and progressive motility, and morphology. Advanced analysis may also include sperm vitality, leukocyte count, and DNA fragmentation. Reference thresholds—defined as the 5th percentile from data on fertile men—are: volume ≥ 1.4 mL; concentration ≥ 16 million/mL; total motility ≥ 42 %; progressive motility ≥ 30 %; and normal morphology ≥ 4 % normal forms. Semen analysis remains a cornerstone of fertility evaluation but must be interpreted holistically with clinical context and repeat testing as needed.",
+    "reference": [
+      "https://www.who.int/publications/i/item/9789240030787",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10929669/"
+    ],
+    "related_to": [
+      "Sperm",
+      "Intracytoplasmic Sperm Injection (ICSI)",
+      "Conventional Insemination",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Male Infertility Testing",
+    "topic": "Sperm DNA Fragmentation Testing",
+    "lay_explanation": "This test checks if the DNA inside sperm is intact or damaged. When sperm DNA is broken or fragmented, it can be harder to fertilize an egg or to develop a healthy embryo.",
+    "expert_summary": "Sperm DNA fragmentation testing measures the proportion of sperm with DNA breaks (single- or double-strand), using assays such as SCSA, TUNEL, Comet, or SCD. Elevated DNA Fragmentation Index (DFI)—typically above ~25–30% depending on assay—has been linked to reduced embryo quality, increased miscarriage risk, and lower fertility, though correlations with IVF/ICSI outcomes remain debated. Common clinical interventions include antioxidant therapy, varicocele repair, and use of testicular sperm via micro-TESE when indicated. SDF testing is now included as an extended parameter in the WHO 6th edition semen analysis guidelines.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7988559/",
+      "https://pubmed.ncbi.nlm.nih.gov/32777871/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6732090/",
+      "https://wjmh.org/DOIx.php?id=10.5534%2Fwjmh.220282",
+      "https://www.nature.com/articles/s41598-023-45091-6"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Intracytoplasmic Sperm Injection (ICSI)",
+      "Chromosomes and Genes"
+    ]
+  },
+  {
+    "category": "Male Infertility Testing",
+    "topic": "Sperm Preparation (Density Gradient / Swim-Up)",
+    "lay_explanation": "This lab technique helps separate out the healthiest, most mobile sperm from the rest of the semen sample. By doing this, the best sperm can be selected for procedures like IUI or IVF, increasing the chances of successful fertilization.",
+    "expert_summary": "Sperm preparation using density gradient centrifugation (DGC) and swim-up methods enriches for motile, morphologically normal sperm while reducing debris and DNA-damaged cells. Both techniques improve sperm quality for ART; DGC achieves higher total motile sperm counts, while swim-up may better preserve DNA integrity and lower oxidative stress. Combining DGC with swim-up or using double-gradient techniques can enhance sperm recovery, especially in poor-quality samples.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3370043/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4271431/",
+      "https://www.nature.com/articles/srep39051",
+      "https://www.mdpi.com/2077-0383/14/4/1066"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Intrauterine Insemination (IUI)",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Anatomy",
+    "topic": "Ovaries",
+    "lay_explanation": "The ovaries are small, organs located on either side of the uterus. They release eggs during the menstrual cycle and produce important hormones like estrogen and progesterone. If ovarian function is compromised—through low egg supply or hormone imbalance—it can make it harder to become pregnant.",
+    "expert_summary": "The ovaries contain a fixed pool of primordial follicles established before birth, gradually depleted over a woman's reproductive lifespan. Folliculogenesis—from primordial to preovulatory follicles—is regulated by gonadotropins (FSH, LH). The ovaries also produce sex steroids (estradiol, progesterone) and markers of reserve like anti-Müllerian hormone (AMH) and inhibin B. Ovarian dysfunction—such as diminished ovarian reserve, premature ovarian insufficiency, or PCOS—impairs follicular maturation and hormonal feedback. Evaluation relies on ovarian reserve tests (AMH and antral follicle count [AFC]), which inform individualized fertility planning, including decisions regarding ART or fertility preservation.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11277126/",
+      "https://pubmed.ncbi.nlm.nih.gov/32031903/",
+      "https://www.fertstert.org/article/S0015-0282(20)32336-0/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/33220971/",
+      "https://rbej.biomedcentral.com/articles/10.1186/s12958-022-01033-x"
+    ],
+    "related_to": [
+      "Menstrual Cycle Overview",
+      "Oocytes",
+      "Follicle",
+      "Ovulation",
+      "Gonadotropin-Releasing Hormone (GnRH)",
+      "Follicle Stimulating Hormone (FSH)",
+      "Luteinizing Hormone (LH)",
+      "Anti-Mullerian Hormone (AMH)"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Anatomy",
+    "topic": "Fallopian Tubes",
+    "lay_explanation": "The fallopian tubes are thin tubes on each side of the uterus that pick up eggs released from the ovaries. The egg meets sperm in the tube and, if fertilization occurs, the fertilized egg moves into the uterus. If the tubes are blocked or damaged, eggs and sperm can't meet, and it's very hard to get pregnant naturally.",
+    "expert_summary": "The fallopian tubes (uterine tubes) are seromuscular conduits comprising fimbriae, infundibulum, ampulla, isthmus, and intramural segments. Fertilization and early embryo development occur during transit in the ampulla, propelled by coordinated ciliary motion and peristaltic contractions of the tubal epithelium and musculature. Pathologies such as PID, endometriosis, hydrosalpinx, or surgical damage disrupt this transport, impairing fertility and increasing ectopic pregnancy risk. Diagnostic evaluation includes hysterosalpingography (HSG), sonosalpingography, or laparoscopic visualization. Management involves surgical correction (e.g., salpingostomy or salpingectomy for hydrosalpinx), although IVF remains the primary alternative when tubal function is compromised.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK547660/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK547660/",
+      "https://pubmed.ncbi.nlm.nih.gov/25436898/",
+      "https://www.asrm.org/practice-guidance/practice-committee-documents/role-of-tubal-surgery-in-the-era-of-assisted-reproductive-technology-a-committee-opinion-2021/",
+      "https://pubmed.ncbi.nlm.nih.gov/33220971/",
+      "https://academic.oup.com/humrep/article/23/10/2359/713379?login=true"
+    ],
+    "related_to": [
+      "Oocytes",
+      "Fertilization",
+      "Hysterosalpingogram (HSG)",
+      "In Vitro Fertilization (IVF)"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Anatomy",
+    "topic": "Uterus",
+    "lay_explanation": "The uterus is a hollow, muscular organ where a fertilized egg implants and grows during pregnancy. Each month, its inner lining (the endometrium) thickens to prepare for a possible pregnancy, then sheds during menstruation if no pregnancy occurs. Conditions like fibroids or scarring can make it harder for an embryo to implant and grow.",
+    "expert_summary": "Anatomically, the uterus comprises the fundus, body, and cervix, with histological layers including the perimetrium, myometrium, and endometrium. It serves as the site for embryo implantation, decidualization, and fetal development. Functional receptivity involves endometrial transformation and temporally restricted 'implantation windows' supported by cycles of estrogen and progesterone. Uterine pathologies—such as fibroids (particularly submucosal or cavity-distorting intramural types), endometrial adhesions, or scarring—impede implantation by altering blood flow, contractility, or endometrial gene expression. Clinical evaluation may include ultrasound, hysteroscopy, or MRI, with management ranging from surgical correction to assisted reproductive strategies (e.g., IVF) depending on the issue.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK547660/",
+      "https://pubmed.ncbi.nlm.nih.gov/33220971/",
+      "https://www.sciencedirect.com/science/article/pii/S0015028207035649",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8186666/",
+      "https://www.frontiersin.org/journals/cell-and-developmental-biology/articles/10.3389/fcell.2021.633180/full"
+    ],
+    "related_to": [
+      "Endometrium",
+      "Implantation"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Anatomy",
+    "topic": "Endometrium",
+    "lay_explanation": "The endometrium is the soft, inner lining of the uterus. Each month, it thickens to prepare for a possible pregnancy. If an embryo doesn't attach, this lining sheds as a menstrual period. In fertility treatments like IVF, preparing the endometrium to be 'receptive' is essential for successful embryo implantation.",
+    "expert_summary": "The endometrium consists of a regenerating basal layer and a cyclically responsive functional layer that thickens under estrogen and transforms under progesterone into a secretory structure capable of supporting implantation and early pregnancy. Endometrial receptivity—a temporary 'window of implantation'—is regulated by molecular signals and cell types including uterine glands and pinopodes. Assisted reproduction strategies such as frozen embryo transfer (FET) leverage this window, with preparation methods (natural vs HRT cycles) and tools like the Endometrial Receptivity Array (ERA) used to optimize timing. Techniques such as Doppler ultrasound assess blood flow and structure to further guide embryo transfer decisions.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11424594/",
+      "https://rbej.biomedcentral.com/articles/10.1186/s12958-023-01106-5",
+      "https://pubmed.ncbi.nlm.nih.gov/1782183/",
+      "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2024.1260960/full",
+      "https://www.nature.com/articles/s41598-025-91745-y"
+    ],
+    "related_to": [
+      "Uterus",
+      "Estrogen",
+      "Progesterone",
+      "Implantation",
+      "Endometrial Preparation for FET",
+      "Menstrual Cycle Overview"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Anatomy",
+    "topic": "Cervix",
+    "lay_explanation": "The cervix is the lower part of the uterus opening into the vagina. It produces mucus that changes across the menstrual cycle — sometimes acting like a sunscreen, blocking sperm, and other times acting like a clear pathway that helps sperm swim toward the uterus around ovulation. If the cervix is scarred, blocked, or produces abnormal mucus, it can make it harder for sperm to reach the egg naturally.",
+    "expert_summary": "The cervix controls sperm entry into the uterus and acts as a barrier to pathogens. Under estrogen influence near ovulation, cervical mucus becomes watery and elastic (high spinnbarkeit), facilitating sperm transport; under progesterone it becomes thick and impenetrable. Cervical factors — including stenosis, hostile mucus, scarring, or infection — can impair fertility. Although once evaluated via postcoital testing, this test is now seldom used due to poor reliability. Instead, interventions such as intrauterine insemination (IUI) bypass cervical constraints, while surgical correction is reserved for anatomic problems.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/1755453/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8487651/",
+      "https://academic.oup.com/humrep/article/29/10/2092/648095"
+    ],
+    "related_to": [
+      "Uterus",
+      "Vagina",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Anatomy",
+    "topic": "Vagina",
+    "lay_explanation": "The vagina is the muscular canal that connects the cervix to the outside of the body. It receives sperm during intercourse and serves as the birth canal during delivery. A healthy vaginal environment is slightly acidic, which protects against infections—but sperm must quickly pass through into the uterus to avoid being damaged. Issues like infection or scarring can interfere with fertility.",
+    "expert_summary": "As the entry point of the female reproductive tract, the vagina receives semen but maintains an acidic pH (3.8–4.5), predominantly through lactic acid produced by Lactobacillus species, which protects against pathogens but reduces sperm survival. Seminal plasma neutralizes vaginal acidity, supporting rapid sperm transit toward the cervix :contentReference[oaicite:1]{index=1}. Lactobacilli dominance—unique to humans—ensures a protective microbiome, vital for reproductive health :contentReference[oaicite:2]{index=2}. Disruptions like infections, vaginal scarring, or epithelial anomalies can impair sperm survival and mobility. Clinical assessment includes pelvic examination and imaging, with ART (e.g., IUI, IVF) bypassing vaginal barriers when necessary.",
+    "reference": [
+      "https://www.sciencedirect.com/science/article/pii/S1751731118000526",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11149062/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5143676/",
+      "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2018.00181/full"
+    ],
+    "related_to": [
+      "Cervix",
+      "Uterus"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Anatomy",
+    "topic": "Follicle",
+    "lay_explanation": "A follicle is a tiny, fluid-filled sac inside the ovary that holds an immature egg (oocyte). As the egg matures, the follicle enlarges and eventually releases the egg during ovulation. In fertility treatments like IVF, doctors stimulate multiple follicles to grow so they can collect several mature eggs at once.",
+    "expert_summary": "An ovarian follicle is composed of an oocyte surrounded by granulosa and theca cells. Folliculogenesis progresses from primordial through antral to preovulatory (Graafian) stages under FSH and LH regulation. In ART, understanding follicle development is critical—controlled ovarian stimulation aims to recruit multiple follicles to yield multiple oocytes for retrieval. Follicle growth is monitored via ultrasound and estradiol levels to time trigger shots (e.g., hCG) for final oocyte maturation and subsequent retrieval for IVF or ICSI. Emerging research, including in vitro folliculogenesis and follicle activation, is exploring future paths to generate mature oocytes outside the body.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK279005/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3585681/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK576409/",
+      "https://rbej.biomedcentral.com/articles/10.1186/s12958-025-01356-5"
+    ],
+    "related_to": [
+      "Oocyte (Egg Cell)",
+      "Ovarian Stimulation",
+      "Ovulation",
+      "Ovulation Trigger (hCG/GnRH Agonist)"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Anatomy",
+    "topic": "Oocyte (Egg Cell)",
+    "lay_explanation": "An oocyte (or egg) is a woman's reproductive cell and is one of the largest cells in the human body—visible to the naked eye. Each month, a few begin to mature inside ovarian follicles, but normally only one is released during ovulation. This egg carries half the genetic blueprint needed to create a baby, and when it meets sperm, the union forms an embryo.In ART—especially IVF and ICSI—only metaphase II oocytes are retrieved and injected. Following, proper fertilization the oocyte will develope into a zygote",
+    "expert_summary": "The oocyte is an immature female gamete arrested in prophase I of meiosis until ovulatory stimulation. Human oocytes grow from ~35 µm in primordial follicles to ~110–120 µm by the preovulatory stage; oocytes of this size indicate cytoplasmic and nuclear maturity necessary for fertilization. Following the LH surge, the dominant follicle's oocyte completes meiosis I and arrests at metaphase II with extrusion of the first polar body, becoming capable of sperm fusion. In ART—especially IVF and ICSI—only metaphase II oocytes are retrieved and injected. Studies show oocytes with larger oolemmal diameter are associated with higher fertilization and better embryo development outcomes.",
+    "reference": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9596637/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC1482430/"
+    ],
+    "related_to": [
+      "Sperm",
+      "Zygote",
+      "Ovulation",
+      "Fertilization",
+      "Ovarian Stimulation",
+      "In Vitro Fertilization (IVF)",
+      "Conventional Insemination",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Hormones",
+    "topic": "Estrogen",
+    "lay_explanation": "Estrogen is a key female sex hormone made mainly by developing follicles (later the corpus luteum) in the ovaries. It helps regulate the menstrual cycle by thickening the uterine lining, promoting ovulation, and supporting egg development. If estrogen is too low, periods may become irregular or absent, and getting pregnant can become more difficult. In fertility treatments, estrogen levels are monitored to assess ovary response and prepare the womb for implantation.",
+    "expert_summary": "Estrogen (primarily estradiol, E2) is synthesized by granulosa cells in the ovary through aromatization of theca-derived androgens under FSH stimulation. Rising estradiol levels drive endometrial proliferation, modulate cervical mucus, and mediate feedback to the hypothalamus and pituitary—culminating in the mid-cycle LH surge that triggers ovulation. Estradiol is critically involved in endometrial receptivity by enhancing epithelial proliferation, implantation factors (e.g., LIF, MUC-1), and immune cell interactions. In ART, serum estradiol serves as a biomarker for follicular response during controlled ovarian stimulation and endometrial preparedness; however, its predictive value for pregnancy outcomes is nuanced. Excessively elevated estradiol can impair outcomes such as implantation and placentation.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/16782289/",
+      "https://www.mdpi.com/2392-7674/11/2/53",
+      "https://www.sciencedirect.com/science/article/pii/S1472648325003384",
+      "https://www.nature.com/articles/s41598-025-00200-5"
+    ],
+    "related_to": [
+      "Ovaries",
+      "Progesterone",
+      "Estrogen",
+      "Follicle Stimulating Hormone (FSH)",
+      "Luteinizing Hormone (LH)",
+      "Menstrual Cycle Overview",
+      "Endometrium",
+      "Ovarian Stimulation"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Hormones",
+    "topic": "Progesterone",
+    "lay_explanation": "Progesterone is a hormone made by the ovary after ovulation. It prepares the lining of the uterus so that a fertilized egg can implant and grow. If pregnancy does not happen, progesterone levels drop, and a menstrual period begins. Without enough progesterone, it is harder for a pregnancy to be supported.",
+    "expert_summary": "Progesterone is produced by the corpus luteum after ovulation under LH stimulation. It stabilizes and differentiates the endometrium, making it receptive for implantation, and suppresses uterine contractions. If pregnancy occurs, progesterone production is maintained by hCG until placental takeover. Low luteal progesterone impairs implantation and early pregnancy maintenance. Serum progesterone measurement confirms ovulation and luteal sufficiency, and supplementation is standard in ART cycles.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/31303484/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Estrogen",
+      "Ovulation",
+      "Corpus Luteum",
+      "Endometrium"
+    ]
+  },
+  {
+    "topic": "Gonadotropin-Releasing Hormone (GnRH)",
+    "lay_explanation": "GnRH is a hormone made in the brain (hypothalamus) that tells the pituitary gland to release other hormones (FSH and LH). These hormones help control the menstrual cycle and sperm production. In fertility treatments, special medicines based on GnRH can be used to either start or block these signals to help doctors control ovulation.",
+    "expert_summary": "GnRH, secreted in a pulsatile manner from hypothalamic neurons, stimulates pituitary gonadotrophs to release FSH and LH, thereby regulating gametogenesis and gonadal steroidogenesis. Continuous GnRH agonist exposure leads to receptor desensitization and suppression of gonadotropin release, forming the basis for its use in ART cycle control. GnRH antagonists competitively inhibit GnRH receptors, providing rapid suppression of gonadotropins, widely employed in IVF protocols to prevent premature LH surge.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/22821864/",
+      "https://pubmed.ncbi.nlm.nih.gov/20621291/"
+    ],
+    "related_to": [
+      "Follicle Stimulating Hormone (FSH)",
+      "Luteinizing Hormone (LH)",
+      "Ovarian Stimulation",
+      "GnRH Agonist Protocol",
+      "GnRH Antagonist Protocol"
+    ],
+    "category": "Female Reproductive Biology – Hormones"
+  },
+  {
+    "category": "Female Reproductive Biology - Hormones",
+    "topic": "Follicle Stimulating Hormone (FSH)",
+    "lay_explanation": "FSH is a hormone made by the brain that helps eggs grow in the ovaries. Each month, it stimulates a group of eggs, and usually one will mature and be released during ovulation. If FSH levels are too high, it often means the ovaries are not responding well, which can make it harder to conceive.",
+    "expert_summary": "FSH is secreted by the anterior pituitary under GnRH control. It stimulates granulosa cell proliferation and aromatase activity, leading to estrogen production and follicle growth. Elevated FSH on cycle day 3 indicates diminished ovarian reserve, while low/normal FSH with anovulation suggests central causes. FSH levels guide infertility workups and ovarian stimulation protocols in ART. Persistent elevation is diagnostic of primary ovarian insufficiency.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/29150187/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Luteinizing Hormone (LH)",
+      "Estrogen",
+      "Ovarian Reserve Testing",
+      "Ovaries"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Hormones",
+    "topic": "Luteinizing Hormone (LH)",
+    "lay_explanation": "LH is a hormone made by the brain that triggers ovulation â the release of an egg from the ovary. A sudden rise in LH around the middle of the cycle causes the egg to be released. Problems with LH can lead to irregular ovulation and make it harder to get pregnant.",
+    "expert_summary": "LH is secreted by the anterior pituitary under pulsatile GnRH stimulation. In females, the mid-cycle LH surge triggers ovulation, luteinization of the follicle, and progesterone production by the corpus luteum. Chronic LH elevation, as seen in PCOS, disrupts follicular maturation and contributes to anovulation. LH measurement is useful in diagnosing ovulatory disorders and timing ovulation in ART cycles. Therapeutically, hCG is used as an LH analog to induce ovulation in fertility treatments.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/28272202/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "FSH",
+      "Ovulation",
+      "Corpus Luteum",
+      "Progesterone"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Hormones",
+    "topic": "Anti-Mullerian Hormone (AMH)",
+    "lay_explanation": "AMH is a hormone made by small growing follicles in the ovaries. The amount of AMH in the blood gives an idea of how many eggs a woman has left â often called ovarian reserve. Higher AMH usually means more eggs, while very low AMH suggests fewer eggs remain, which can affect fertility.",
+    "expert_summary": "AMH is secreted by granulosa cells of pre-antral and small antral follicles. It reflects the size of the growing follicle pool and serves as a biomarker of ovarian reserve. AMH is cycle-independent and correlates with antral follicle count. Low AMH indicates diminished ovarian reserve, while elevated levels are typical of PCOS due to increased follicle number. Clinically, AMH guides prognosis, ART stimulation protocols, and fertility preservation counseling.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/29150187/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Ovarian Reserve Testing",
+      "FSH",
+      "Ovaries",
+      "In Vitro Fertilization (IVF)"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Hormones",
+    "topic": "Human Chorionic Gonadotropin (hCG)",
+    "lay_explanation": "hCG is a hormone made by the embryo soon after it implants in the uterus. It tells the ovary to keep making progesterone so that the pregnancy can continue. This is the hormone measured in pregnancy tests. In fertility treatments, hCG is sometimes given as a shot to trigger ovulation.",
+    "expert_summary": "hCG is produced by the syncytiotrophoblast cells of the early embryo and later the placenta. Mechanistically, hCG binds to LH receptors in the corpus luteum, maintaining progesterone secretion to support implantation and early pregnancy until placental steroidogenesis takes over. Clinically, hCG is the basis of pregnancy testing (serum or urine). In ART, recombinant or urinary hCG is administered to mimic the LH surge and trigger ovulation. Abnormal hCG levels may indicate ectopic pregnancy, miscarriage, or gestational trophoblastic disease.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/32160474/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Progesterone",
+      "Corpus Luteum",
+      "Pregnancy Testing",
+      "Ovulation Induction"
+    ]
+  },
+  {
+    "category": "Female Reproductive Biology - Hormones",
+    "topic": "Prolactin",
+    "lay_explanation": "Prolactin is a hormone made by the brain that helps with breast development and milk production after childbirth. If prolactin levels are too high when a woman is not pregnant or breastfeeding, it can stop regular ovulation and periods, making it harder to conceive.",
+    "expert_summary": "Prolactin is secreted by the anterior pituitary and is primarily regulated by hypothalamic dopamine inhibition. It stimulates mammary gland development and lactation. Hyperprolactinemia, often due to pituitary adenomas, hypothyroidism, or medications, disrupts GnRH secretion, leading to hypogonadotropic hypogonadism, anovulation, and infertility. Evaluation includes serum prolactin testing and pituitary imaging when indicated. Management involves dopamine agonists (bromocriptine, cabergoline) to restore normal ovulatory cycles and fertility.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/29262491/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "FSH",
+      "LH",
+      "Ovulation Disorders",
+      "Hypothalamic-Pituitary Axis"
+    ]
+  },
+  {
+    "topic": "Polycystic Ovary Syndrome (PCOS)",
+    "lay_explanation": "A common hormonal condition causing irregular periods, excess hair growth, acne, and difficulty conceiving.",
+    "expert_summary": "Endocrine disorder defined by chronic anovulation, hyperandrogenism, and/or polycystic ovarian morphology per Rotterdam criteria. Associated with insulin resistance and infertility.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/32867916/"
+    ],
+    "related_to": [
+      "Oligoamenorrhea",
+      "Amenorrhea"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Advanced Maternal Age (AMA)",
+    "lay_explanation": "Advanced Maternal Age (AMA) is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Defined as age â¥ 35 at delivery; associated with decreased ovarian reserve, increased aneuploidy risk, and lower ART success rates.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/34353477/"
+    ],
+    "related_to": [
+      "Premature Ovarian Insufficiency (POI)"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Premature Ovarian Insufficiency (POI)",
+    "lay_explanation": "Premature Ovarian Insufficiency (POI) is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Loss of ovarian function before age 40, often idiopathic or due to autoimmune, genetic, or iatrogenic causes. Associated with amenorrhea, hypoestrogenism, and infertility.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/32856238/"
+    ],
+    "related_to": [
+      "Amenorrhea",
+      "Advanced Maternal Age (AMA)"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Endometriosis",
+    "lay_explanation": "When tissue like the lining of the uterus grows outside it, causing pain and infertility.",
+    "expert_summary": "Ectopic endometrial implants induce inflammation, adhesions, and impaired implantation.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/33622112/"
+    ],
+    "related_to": [
+      "Tubal Factor Infertility"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Tubal Factor Infertility",
+    "lay_explanation": "Tubal Factor Infertility is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Tubal Factor Infertility: pathophysiology impacts gametogenesis, endocrine signaling, or reproductive anatomy. Evaluation includes targeted labs/imaging; management is individualized by severity, prognosis, and patient goals.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/32892965/"
+    ],
+    "related_to": [
+      "Endometriosis"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Uterine Fibroids",
+    "lay_explanation": "Uterine Fibroids is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Leiomyomas may distort the uterine cavity or impair implantation depending on size and location.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/32765466/"
+    ],
+    "related_to": [
+      "Embryo Transfer"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "category": "Female Infertility",
+    "topic": "Thin Endometrium",
+    "lay_explanation": "Thin Endometrium is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Endometrial thickness <7 mm at transfer is associated with lower pregnancy rates; treatments include estrogen therapy and PRP infusion.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Varicocele & Fertility",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "category": "Female Infertility",
+    "topic": "Adenomyosis",
+    "lay_explanation": "When the lining of the uterus grows into the muscle wall, causing pain and heavy bleeding.",
+    "expert_summary": "Adenomyosis is linked to subfertility and ART failure, possibly due to impaired implantation and altered uterine contractility.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Varicocele & Fertility",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "topic": "Asherman's Syndrome",
+    "lay_explanation": "Asherman's Syndrome is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Intrauterine adhesions, often post-curettage or infection, leading to infertility.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/33622110/"
+    ],
+    "related_to": [
+      "Mullerian Anomalies"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Mullerian Anomalies",
+    "lay_explanation": "Mullerian Anomalies is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Arise from abnormal Mullerian duct fusion; may cause infertility or miscarriage.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/33245614/"
+    ],
+    "related_to": [
+      "Uterine Fibroids"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Amenorrhea",
+    "lay_explanation": "No menstrual periods; can be primary (never started) or secondary (stopped for >3 months).",
+    "expert_summary": "Primary or secondary amenorrhea due to hypothalamic, pituitary, ovarian, or uterine causes.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/30019799/"
+    ],
+    "related_to": [
+      "Hypothalamic Amenorrhea"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Oligoamenorrhea",
+    "lay_explanation": "Oligoamenorrhea is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Cycle length >35 days due to chronic anovulation from PCOS, hypothalamic dysfunction, or other causes.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/33771382/"
+    ],
+    "related_to": [
+      "PCOS"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Luteal Phase Deficiency",
+    "lay_explanation": "The body makes too little progesterone after ovulation, which can affect implantation.",
+    "expert_summary": "Characterized by a shortened luteal phase and inadequate progesterone secretion from the corpus luteum, potentially impairing endometrial receptivity.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/29349896/"
+    ],
+    "related_to": [
+      "Embryo Implantation"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Hypothalamic Amenorrhea",
+    "lay_explanation": "Hypothalamic Amenorrhea is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Functional hypothalamic amenorrhea is caused by reduced GnRH secretion due to stress, energy deficit, or excessive exercise, leading to hypoestrogenism and anovulation.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/28460882/"
+    ],
+    "related_to": [
+      "Amenorrhea"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "category": "Female Infertility",
+    "topic": "Chronic Endometritis",
+    "lay_explanation": "Long-term inflammation of the uterine lining that may reduce implantation chances.",
+    "expert_summary": "Chronic endometritis, often caused by infection, can be diagnosed by hysteroscopy or biopsy; antibiotic treatment may improve fertility.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/"
+    ],
+    "related_to": [
+      "Semen Analysis",
+      "Varicocele & Fertility",
+      "Intracytoplasmic Sperm Injection (ICSI)"
+    ]
+  },
+  {
+    "topic": "Thyroid Disorders",
+    "lay_explanation": "Both underactive and overactive thyroid can interfere with menstrual cycles and ovulation.",
+    "expert_summary": "Hypothyroidism and hyperthyroidism alter sex hormone-binding globulin, GnRH pulsatility, and prolactin levels, impacting ovulation and fertility.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/30323108/"
+    ],
+    "related_to": [
+      "Amenorrhea"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Hyperprolactinemia",
+    "lay_explanation": "Hyperprolactinemia is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Excess serum prolactin suppresses GnRH, impairing LH/FSH secretion and causing anovulation, often from pituitary adenomas, medications, or hypothyroidism.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/28460881/"
+    ],
+    "related_to": [
+      "Amenorrhea"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Fragile X Premutation Carrier",
+    "lay_explanation": "Fragile X Premutation Carrier is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "FMR1 premutation carriers have increased risk of premature ovarian insufficiency due to CGG repeat expansion.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/28624694/"
+    ],
+    "related_to": [
+      "POI"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Antiphospholipid Syndrome (APS)",
+    "lay_explanation": "Antiphospholipid Syndrome (APS) is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Autoantibodies to phospholipids increase thrombosis risk, linked to recurrent pregnancy loss.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/31686797/"
+    ],
+    "related_to": [
+      "Unexplained Infertility"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Turner Syndrome",
+    "lay_explanation": "Turner Syndrome is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "expert_summary": "Monosomy X (45,X) or mosaicism causing gonadal dysgenesis, short stature, and infertility.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/31948942/"
+    ],
+    "related_to": [
+      "Premature Ovarian Insufficiency (POI)"
+    ],
+    "category": "Female Infertility"
+  },
+  {
+    "topic": "Infectious Disease Screening (Female)",
+    "lay_explanation": "Standard blood and swab tests (e.g., HIV, hepatitis B/C, syphilis, chlamydia, gonorrhea) required before treatment to ensure safety.",
+    "expert_summary": "Screening mandated by guidelines before gamete/embryo handling and ART; positive results require management before proceeding.",
+    "reference": [
+      "https://www.asrm.org/practice-guidance/practice-committee-documents/guidance-regarding-gamete-and-embryo-donation/"
+    ],
+    "related_to": [
+      "IVF Preparation",
+      "Donor Gametes",
+      "Embryo Transfer"
+    ],
+    "category": "Female Infertility Testing"
+  },
+  {
+    "topic": "Anti-Mullerian Hormone (AMH) Test",
+    "lay_explanation": "A blood test that estimates your ovarian reserve (roughly, your remaining egg supply). Higher AMH often means more eggs; lower AMH may indicate fewer eggs.",
+    "expert_summary": "Cycle-independent marker of ovarian reserve reflecting the population of pre-antral and small antral follicles; predictive of ovarian response in controlled stimulation. Typical reference: High ovarian reserve >3.5 ng/mL, average 1.0-3.5 ng/mL, low <1.0 ng/mL; values vary with age and assay.",
+    "reference": [
+      "https://www.asrm.org/topics/topics-index/amh-testing/",
+      "https://pubmed.ncbi.nlm.nih.gov/24313244/"
+    ],
+    "related_to": [
+      "Ovarian Stimulation",
+      "Oocyte Cryopreservation (Egg Freezing)"
+    ],
+    "category": "Female Infertility Testing"
+  },
+  {
+    "topic": "Antral Follicle Count (AFC) Ultrasound",
+    "lay_explanation": "A baseline transvaginal ultrasound that counts small resting follicles in each ovary to estimate egg supply.",
+    "expert_summary": "Baseline AFC correlates with ovarian reserve and complements AMH for stimulation protocol planning. Low ovarian reserve: <5 total antral follicles; normal 8; high >20 (may indicate PCOS).",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/26775199/"
+    ],
+    "related_to": [
+      "Ovarian Stimulation",
+      "Follicle",
+      "AMH Test"
+    ],
+    "category": "Female Infertility Testing"
+  },
+  {
+    "topic": "Estradiol (E2) Blood Test",
+    "lay_explanation": "Measures estrogen levels in your blood, often used to track follicle growth during your cycle or while on stimulation medicines.",
+    "expert_summary": "Serum E2 rises with granulosa cell aromatase activity during follicular development; serial E2 guides gonadotropin titration and OHSS prevention. Follicular phase: 30–100 pg/mL early, rising to 150–500 pg/mL pre-ovulation; trigger day (ART) often 200–400 pg/mL per mature follicle.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/21944066/"
+    ],
+    "related_to": [
+      "Ovarian Stimulation",
+      "Follicle"
+    ],
+    "category": "Female Infertility Testing"
+  },
+  {
+    "topic": "Follicle Stimulating Hormone (FSH) Test",
+    "lay_explanation": "A blood test (often on early in the menstrual cycle) that helps assess ovarian function and reserve.",
+    "expert_summary": "Elevated day-3 FSH suggests diminished ovarian reserve; interpretation must consider concurrent estradiol. Day-3 FSH interpretation: normal </L, borderline 10–/L, reduced ovarian reserve >/L.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/24097379/"
+    ],
+    "related_to": [
+      "Ovarian Stimulation",
+      "AMH Test"
+    ],
+    "category": "Female Infertility Testing"
+  },
+  {
+    "topic": "Luteinizing Hormone (LH) Test",
+    "lay_explanation": "Measures LH to help time ovulation or assess hormone balance; LH surges just before ovulation.",
+    "expert_summary": "LH surge triggers ovulation; abnormal secretion patterns common in anovulation/PCOS. LH surge typically 25–/L occurs ~24–36 hours before ovulation.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/30872377/"
+    ],
+    "related_to": [
+      "Ovulation",
+      "Menstrual Cycle Overview"
+    ],
+    "category": "Female Infertility Testing"
+  },
+  {
+    "topic": "Progesterone Test",
+    "lay_explanation": "A blood test after ovulation to confirm that ovulation occurred and to check luteal phase support.",
+    "expert_summary": "Mid-luteal progesterone >3 ng/mL is consistent with ovulation; inadequate levels may prompt luteal support in ART cycles. Mid-luteal phase: >3 ng/mL indicates ovulation; >10 ng/mL suggests adequate luteal function.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/31679070/"
+    ],
+    "related_to": [
+      "Luteal Phase",
+      "Implantation"
+    ],
+    "category": "Female Infertility Testing"
+  },
+  {
+    "topic": "Hysterosalpingogram (HSG)",
+    "lay_explanation": "An X-ray with dye to check whether the fallopian tubes are open and to assess the shape of the uterus.",
+    "expert_summary": "Contrast fluoroscopy evaluating tubal patency and uterine cavity contour; part of first-line infertility evaluation.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/28927302/"
+    ],
+    "related_to": [
+      "Fallopian Tubes",
+      "Uterus",
+      "Intrauterine Insemination (IUI)"
+    ],
+    "category": "Female Infertility Testing"
+  },
+  {
+    "topic": "Saline Infusion Sonohysterography (SIS)",
+    "lay_explanation": "Ultrasound with sterile saline to look for uterine polyps, fibroids, or scarring that could affect implantation.",
+    "expert_summary": "Saline distension enhances endometrial cavity visualization to detect intrauterine pathology before ART.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/29916506/"
+    ],
+    "related_to": [
+      "Endometrium",
+      "Implantation",
+      "Frozen Embryo Transfer (FET)"
+    ],
+    "category": "Female Infertility Testing"
+  },
+  {
+    "category": "Lifestyle & Enviromental Factors Affecting Fertility",
+    "topic": "Stress & Fertility",
+    "lay_explanation": "How chronic stress can interfere with reproductive hormones and treatment success.",
+    "expert_summary": "Stress can elevate cortisol and prolactin, disrupting ovulatory function, luteal phase adequacy, and libido. Psychological distress may also reduce ART adherence and outcomes.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://www.cdc.gov/reproductivehealth/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Ovulation Induction (Letrozole/Clomiphene)"
+    ]
+  },
+  {
+    "category": "Lifestyle & Enviromental Factors Affecting Fertility",
+    "topic": "Body Weight & Fertility (Underweight, Overweight, Obesity)",
+    "lay_explanation": "How being underweight or overweight can affect your ability to conceive and respond to fertility treatments.",
+    "expert_summary": "Both low and high BMI can disrupt hypothalamic-pituitary-gonadal axis function, alter menstrual cyclicity, and impact sperm parameters. Obesity is associated with insulin resistance, hyperandrogenism, and poorer IVF outcomes; underweight status may cause hypothalamic amenorrhea.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://www.cdc.gov/reproductivehealth/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Ovulation Induction (Letrozole/Clomiphene)"
+    ]
+  },
+  {
+    "category": "Lifestyle & Enviromental Factors Affecting Fertility",
+    "topic": "Nutrition & Fertility",
+    "lay_explanation": "How the foods and nutrients you eat can affect hormone balance, egg and sperm health, and chances of conception.",
+    "expert_summary": "Adequate intake of macro- and micronutrients influences reproductive hormones, oocyte and sperm quality, implantation, and pregnancy outcomes. Diets rich in antioxidants, omega-3 fatty acids, and balanced glycemic load have been linked to improved fertility potential.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://www.cdc.gov/reproductivehealth/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Ovulation Induction (Letrozole/Clomiphene)"
+    ]
+  },
+  {
+    "category": "Lifestyle & Enviromental Factors Affecting Fertility",
+    "topic": "Exercise & Fertility",
+    "lay_explanation": "The role of physical activity in supporting or impairing fertility, depending on intensity and frequency.",
+    "expert_summary": "Moderate exercise improves insulin sensitivity, hormone balance, and ovulatory function. Excessive high-intensity training can lead to energy deficits and hypothalamic amenorrhea, while sedentary lifestyles may exacerbate obesity-related infertility.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://www.cdc.gov/reproductivehealth/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Ovulation Induction (Letrozole/Clomiphene)"
+    ]
+  },
+  {
+    "category": "Lifestyle & Enviromental Factors Affecting Fertility",
+    "topic": "Smoking & Fertility",
+    "lay_explanation": "Smoking & Fertility describes everyday factors that can support or hinder fertility. Small, sustained changes can improve natural conception and treatment outcomes.",
+    "expert_summary": "Cigarette smoke contains toxins that accelerate ovarian follicle depletion, impair tubal function, and damage sperm DNA integrity. Smoking is associated with lower IVF success rates and earlier menopause onset.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://www.cdc.gov/reproductivehealth/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Ovulation Induction (Letrozole/Clomiphene)"
+    ]
+  },
+  {
+    "category": "Lifestyle & Enviromental Factors Affecting Fertility",
+    "topic": "Alcohol Use & Fertility",
+    "lay_explanation": "Alcohol Use & Fertility describes everyday factors that can support or hinder fertility. Small, sustained changes can improve natural conception and treatment outcomes.",
+    "expert_summary": "Chronic or excessive alcohol intake can impair ovarian reserve, disrupt menstrual cycles, increase miscarriage risk, and negatively affect spermatogenesis, testosterone levels, and sperm motility.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://www.cdc.gov/reproductivehealth/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Ovulation Induction (Letrozole/Clomiphene)"
+    ]
+  },
+  {
+    "category": "Lifestyle & Enviromental Factors Affecting Fertility",
+    "topic": "Recreational Drugs & Fertility",
+    "lay_explanation": "How substances like marijuana, cocaine, and anabolic steroids can affect reproduction.",
+    "expert_summary": "Cannabis can alter hypothalamic gonadotropin release, impair sperm motility, and disrupt ovulation. Cocaine and anabolic steroids may reduce sperm count, alter morphology, and cause menstrual irregularities.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://www.cdc.gov/reproductivehealth/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Ovulation Induction (Letrozole/Clomiphene)"
+    ]
+  },
+  {
+    "category": "Lifestyle & Enviromental Factors Affecting Fertility",
+    "topic": "Sleep & Fertility",
+    "lay_explanation": "Sleep & Fertility describes everyday factors that can support or hinder fertility. Small, sustained changes can improve natural conception and treatment outcomes.",
+    "expert_summary": "Poor sleep quality and shift work can disrupt circadian regulation of reproductive hormones, impairing ovulation, semen quality, and implantation rates.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://www.cdc.gov/reproductivehealth/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Ovulation Induction (Letrozole/Clomiphene)"
+    ]
+  },
+  {
+    "category": "Lifestyle & Enviromental Factors Affecting Fertility",
+    "topic": "Occupational Hazards (Chemicals, Radiation)",
+    "lay_explanation": "Jobs or environments with certain exposures can lower fertility in men and women.",
+    "expert_summary": "Chronic exposure to pesticides, heavy metals, solvents, or ionizing radiation can impair gametogenesis, increase DNA damage, and raise miscarriage risk.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://www.cdc.gov/reproductivehealth/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Ovulation Induction (Letrozole/Clomiphene)"
+    ]
+  },
+  {
+    "topic": "Clomiphene Citrate (Clomid/Serophene)",
+    "lay_explanation": "This is a pill taken for several days early in the menstrual cycle. It works by \"tricking\" the brain into thinking estrogen levels are low. In response, the brain sends a stronger signal (via hormones) to the ovaries to grow and release an egg. You take it at home, and the clinic tracks your progress with ultrasounds and/or blood tests to see when ovulation is likely to occur.",
+    "expert_summary": "Selective estrogen receptor modulator (SERM) that blocks estrogen feedback at the hypothalamus, increasing GnRH pulse frequency and stimulating FSH/LH secretion. Used as first-line for anovulatory infertility such as PCOS.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/32064936/"
+    ],
+    "related_to": [
+      "Ovulation Induction",
+      "IUI"
+    ],
+    "category": "Fertility Drugs"
+  },
+  {
+    "topic": "Letrozole (Femara)",
+    "lay_explanation": "This pill is taken early in the menstrual cycle. It lowers estrogen levels in the body, which signals the brain to release more hormones that stimulate the ovaries. This helps one or more eggs grow to maturity. It's taken at home, and your fertility team monitors your ovaries with ultrasound and bloodwork to find the right time for ovulation or treatment.",
+    "expert_summary": "Aromatase inhibitor that reduces peripheral conversion of androgens to estrogens, lowering estrogen feedback and increasing endogenous FSH secretion. Shown to improve ovulation and live birth rates in PCOS.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/32064936/"
+    ],
+    "related_to": [
+      "Ovulation Induction",
+      "IUI"
+    ],
+    "category": "Fertility Drugs"
+  },
+  {
+    "topic": "Gonadotropins (FSH, hMG)",
+    "lay_explanation": "These are injections given under the skin, usually in the stomach or thigh, at home each day during treatment. They directly tell the ovaries to grow multiple follicles (each containing an egg). Your progress is closely watched in the clinic with ultrasounds and blood tests so the timing of egg release or retrieval is exact.",
+    "expert_summary": "Recombinant FSH (rFSH) or human menopausal gonadotropin (hMG) stimulates multiple follicular development in ovulatory and anovulatory patients. Requires close monitoring to reduce OHSS and multiple gestations.",
+    "reference": [
+      "https://www.eshre.eu/",
+      "https://pubmed.ncbi.nlm.nih.gov/28460882/"
+    ],
+    "related_to": [
+      "Ovarian Stimulation",
+      "IVF",
+      "IUI"
+    ],
+    "category": "Fertility Drugs"
+  },
+  {
+    "topic": "GnRH Agonists",
+    "lay_explanation": "These medicines are injections or nasal sprays that first cause a brief burst of your natural fertility hormones, then quiet them down completely. In IVF, this allows doctors to fully control your cycle, preventing eggs from releasing too early and improving timing for egg retrieval.",
+    "expert_summary": "Initially stimulate, then downregulate pituitary GnRH receptors, suppressing LH/FSH secretion. Used in long stimulation protocols or as an ovulation trigger in certain IVF cycles.",
+    "reference": [
+      "https://www.eshre.eu/",
+      "https://pubmed.ncbi.nlm.nih.gov/21944066/"
+    ],
+    "related_to": [
+      "IVF",
+      "Ovarian Stimulation"
+    ],
+    "category": "Fertility Drugs"
+  },
+  {
+    "topic": "GnRH Antagonists",
+    "lay_explanation": "These injections quickly block the brain's signal to release an egg. In IVF, they are given partway through stimulation to make sure the eggs stay in the ovaries until the planned retrieval. They work almost immediately and are used for just a few days.",
+    "expert_summary": "Competitively inhibit GnRH receptors to rapidly suppress LH/FSH release. Used during stimulation to prevent premature LH surge.",
+    "reference": [
+      "https://www.eshre.eu/",
+      "https://pubmed.ncbi.nlm.nih.gov/28236696/"
+    ],
+    "related_to": [
+      "IVF",
+      "Ovarian Stimulation"
+    ],
+    "category": "Fertility Drugs"
+  },
+  {
+    "topic": "Human Chorionic Gonadotropin (hCG) Trigger",
+    "lay_explanation": "This is a one-time injection given when your eggs are fully grown, based on ultrasound and blood test results. It sends a signal that finishes egg maturation and prepares them for release. In IUI cycles, this helps time insemination; in IVF cycles, it ensures the eggs are ready for collection.",
+    "expert_summary": "Mimics the natural LH surge to induce final oocyte maturation and ovulation. Administered in coordination with insemination or egg retrieval procedures.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/28236696/"
+    ],
+    "related_to": [
+      "Oocyte Pickup",
+      "IUI"
+    ],
+    "category": "Fertility Drugs"
+  },
+  {
+    "topic": "Progesterone (Luteal Phase Support)",
+    "lay_explanation": "After ovulation or an embryo transfer, progesterone is given as vaginal gel, suppository, pill, or injection. It helps the uterine lining stay thick and ready for an embryo to implant, supporting the earliest stages of pregnancy.",
+    "expert_summary": "Administered vaginally, orally, or intramuscularly to maintain luteal phase in ART cycles. Supports implantation and early pregnancy maintenance.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/31679070/"
+    ],
+    "related_to": [
+      "Luteal Phase Support",
+      "Embryo Transfer"
+    ],
+    "category": "Fertility Drugs"
+  },
+  {
+    "topic": "Ovarian Stimulation",
+    "lay_explanation": "Fertility drugs encourage multiple eggs to grow. Monitoring with scans and blood tests tracks follicle growth, and a trigger shot matures the eggs for collection.",
+    "expert_summary": "Gonadotropin-based stimulation with protocol choice to optimize yield and minimize OHSS risk. Aim for 8–15 oocytes retrieved in IVF; adjust protocol to avoid OHSS (estradiol >3500 pg/mL and >20 follicles = high risk).",
+    "reference": [
+      "https://www.eshre.eu/-/media/sitecore-files/Guidelines/COS/ESHRE-COS-guideline_final-09102019_.pdf"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Oocyte Cryopreservation (Egg Freezing)"
+    ],
+    "category": "Ovarian Hyperstimulation"
+  },
+  {
+    "category": "Ovarian Hyperstimulation",
+    "topic": "Ovarian Hyperstimulation Syndrome (OHSS)",
+    "lay_explanation": "Ovarian Hyperstimulation Syndrome (OHSS) is a complication that can happen after using fertility medicines to stimulate the ovaries. In OHSS, the ovaries swell and leak fluid into the body, which can cause bloating, pain, nausea, and in severe cases trouble breathing or blood clots. It happens because the medicines make the ovaries release high levels of hormones, especially after the trigger shot. OHSS is more common in women with many eggs, such as those with PCOS. Most cases are mild, but severe OHSS can be dangerous and requires medical care.",
+    "expert_summary": "OHSS is an iatrogenic complication of controlled ovarian stimulation characterized by increased vascular permeability, third-space fluid shifts, hemoconcentration, and risk of thromboembolism. Pathophysiology is driven by high estradiol levels and VEGF release from granulosa cells after hCG exposure, leading to ascites, pleural effusion, oliguria, and electrolyte imbalance. Risk factors include PCOS, high antral follicle count, elevated serum E2, and use of hCG for luteal support. Prevention strategies include GnRH antagonist protocols, GnRH agonist trigger, dopamine agonists, 'freeze-all' embryo strategies, and individualized stimulation. Management ranges from outpatient supportive care (analgesics, fluids, monitoring) for mild-moderate cases to hospitalization with paracentesis, anticoagulation, and intensive monitoring for severe cases.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/33022760/",
+      "https://www.asrm.org/",
+      "https://www.eshre.eu/"
+    ],
+    "related_to": [
+      "GnRH Agonist Trigger",
+      "Freeze-All Strategy",
+      "Controlled Ovarian Stimulation",
+      "PCOS"
+    ]
+  },
+  {
+    "topic": "Cycle Protocol Selection (Natural vs Stimulated)",
+    "lay_explanation": "Deciding whether to proceed in a natural menstrual cycle or add medications to improve timing or egg development.",
+    "expert_summary": "Protocol selection considers ovulatory function, multiples risk, and indication; natural cycles vs oral agents vs gonadotropins.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/32064936/"
+    ],
+    "related_to": [
+      "Ovulation Induction (Letrozole/Clomiphene)",
+      "IUI"
+    ],
+    "category": "Ovarian Hyperstimulation"
+  },
+  {
+    "category": "Ovarian Hyperstimulation",
+    "topic": "Clomiphene Citrate Protocol",
+    "lay_explanation": "Clomiphene citrate (Clomid) is an oral medication that helps the ovaries release eggs. It works by blocking estrogen signals in the brain, which tricks the body into making more FSH and LH. These hormones stimulate the ovaries to grow and release an egg. It is often the first treatment used for women with irregular ovulation.",
+    "expert_summary": "Clomiphene citrate is a selective estrogen receptor modulator (SERM) that blocks estrogen receptors in the hypothalamus, reducing negative feedback and increasing GnRH, FSH, and LH release. This stimulates follicular growth and ovulation. It is typically given on cycle days 3â7 or 5â9. Drawbacks include anti-estrogenic effects on endometrium and cervical mucus, limiting implantation potential. Clinical use includes first-line ovulation induction in anovulatory women (e.g., PCOS).",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/33220972/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Ovulation Induction",
+      "Letrozole Protocol",
+      "FSH",
+      "LH"
+    ]
+  },
+  {
+    "category": "Ovarian Hyperstimulation",
+    "topic": "Estradiol (E2) Priming Protocol",
+    "lay_explanation": "Estradiol (E2) priming is a method used before ovarian stimulation to help eggs grow more evenly. Estrogen is given in the cycle before treatment to quiet the ovaries and improve how they respond to fertility medicines. This is often used for women with low egg reserve or those who responded poorly in past IVF cycles.",
+    "expert_summary": "E2 priming involves luteal-phase or early follicular administration of estradiol before controlled ovarian stimulation. Mechanistically, estradiol suppresses endogenous FSH to prevent premature follicle recruitment, improving synchronization of the follicular cohort. It is commonly used in poor ovarian responders to enhance uniformity of response to gonadotropins. Evidence shows better follicular coordination, though impact on live birth rates remains under investigation.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/30477354/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Poor Ovarian Response",
+      "Gonadotropin Stimulation",
+      "Ovarian Reserve Testing"
+    ]
+  },
+  {
+    "category": "Ovarian Hyperstimulation",
+    "topic": "Agonist/Antagonist Conversion Protocol",
+    "lay_explanation": "This protocol starts with a GnRH agonist to control the ovaries, then switches to a GnRH antagonist during stimulation. The goal is to prevent early ovulation but still allow flexibility and reduce risks like ovarian hyperstimulation. It is sometimes used in women who need extra control or who have responded unpredictably in the past.",
+    "expert_summary": "The agonist/antagonist conversion protocol begins with a GnRH agonist in the luteal phase to achieve pituitary suppression, followed by discontinuation and introduction of a GnRH antagonist once ovarian stimulation with gonadotropins begins. This allows initial synchronization from agonist use with the shorter duration and OHSS risk reduction associated with antagonists. Clinical indications include high-risk responders, poor responders requiring synchronization, and patients needing cycle flexibility.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/25751140/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "GnRH Agonist Protocol",
+      "GnRH Antagonist Protocol",
+      "OHSS",
+      "IVF"
+    ]
+  },
+  {
+    "category": "Ovarian Hyperstimulation",
+    "topic": "GnRH Agonist Protocol",
+    "lay_explanation": "GnRH agonists are medicines that control the natural hormone cycle. At first, they cause a temporary hormone surge, but with continued use, they turn off the brainâs hormone signals. This prevents early ovulation. Doctors then give FSH injections to stimulate the ovaries to grow many eggs in a controlled way, useful in IVF.",
+    "expert_summary": "GnRH agonists initially cause a 'flare effect' with increased LH/FSH release, followed by pituitary desensitization through receptor downregulation. In the **long protocol**, agonists are started in the luteal phase to suppress endogenous gonadotropins, allowing controlled ovarian stimulation with exogenous FSH. In the **short/flare protocol**, agonists are started early in the follicular phase to exploit the initial gonadotropin surge. Agonist protocols reduce premature LH surges and improve follicular synchronization but require careful monitoring.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/28945997/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "GnRH Antagonist Protocol",
+      "Gonadotropin Stimulation",
+      "LH",
+      "IVF"
+    ]
+  },
+  {
+    "category": "Ovarian Hyperstimulation",
+    "topic": "GnRH Antagonist Protocol",
+    "lay_explanation": "GnRH antagonists are medicines that quickly block the brainâs hormone signals. They are given during ovarian stimulation to prevent eggs from being released too early. This protocol is shorter, easier, and lowers the risk of OHSS compared to older protocols, making it widely used in IVF.",
+    "expert_summary": "GnRH antagonists competitively block GnRH receptors in the pituitary, rapidly suppressing LH secretion and preventing premature ovulation. They are administered mid-stimulation (around day 5â6 of gonadotropin therapy) until trigger. Advantages include shorter duration, lower gonadotropin requirements, and reduced OHSS risk. Antagonist cycles are now standard in ART, especially in high responders and PCOS patients. hCG or GnRH agonist can be used for final oocyte maturation.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/31585772/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "GnRH Agonist Protocol",
+      "Gonadotropin Stimulation",
+      "OHSS",
+      "IVF"
+    ]
+  },
+  {
+    "category": "Ovarian Hyperstimulation",
+    "topic": "GnRH Antagonist with OCP Pretreatment",
+    "lay_explanation": "This protocol uses birth control pills before starting ovarian stimulation. The pills quiet the ovaries, prevent early hormone rises, and allow the doctor to schedule the IVF cycle more predictably. After stopping the pills, stimulation begins with gonadotropins and an antagonist to control ovulation.",
+    "expert_summary": "Oral contraceptive pill (OCP) pretreatment is used before antagonist cycles to suppress endogenous gonadotropins, prevent functional ovarian cysts, and improve scheduling flexibility. Mechanistically, OCPs provide exogenous estrogen/progestin, stabilizing the cycle prior to gonadotropin stimulation. Clinical studies suggest no consistent improvement in pregnancy outcomes, though cycle programming and reduced cancellation rates are benefits. Commonly applied in high-volume IVF centers where timing control is needed.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/29223717/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "GnRH Antagonist Protocol",
+      "Cycle Scheduling",
+      "Ovarian Stimulation"
+    ]
+  },
+  {
+    "category": "Ovarian Hyperstimulation",
+    "topic": "Minimal Stimulation (Mini-IVF) Protocol",
+    "lay_explanation": "Minimal stimulation, or mini-IVF, uses lower doses of fertility medicines â sometimes just pills like clomiphene or letrozole with small amounts of gonadotropins. This approach aims to grow fewer eggs but with less medication, lower cost, and reduced risks such as ovarian hyperstimulation. It may be used in women with low egg reserve or those wanting a gentler approach.",
+    "expert_summary": "Minimal stimulation IVF protocols use oral agents (clomiphene or letrozole) Â± low-dose gonadotropins to recruit a limited number of follicles (2â6), in contrast to conventional high-dose regimens. Mechanistically, this reduces exogenous FSH exposure, allowing selection of a small follicular cohort. Clinical advantages include lower medication cost, reduced OHSS risk, and improved patient tolerance. Indications include poor ovarian reserve, patients preferring mild stimulation, or oncofertility cases. However, fewer oocytes are retrieved, requiring careful patient selection.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/30338564/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Clomiphene Citrate Protocol",
+      "Letrozole Protocol",
+      "IVF",
+      "Poor Ovarian Response"
+    ]
+  },
+  {
+    "topic": "Ovulation Trigger (hCG/GnRH Agonist)",
+    "lay_explanation": "A timed medication causes the final maturation of the egg and release/collection to coordinate IUI or egg retrieval.",
+    "expert_summary": "hCG or GnRH-agonist trigger schedules ovulation or oocyte maturation; selection depends on OHSS risk and protocol.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/28236696/",
+      "https://www.eshre.eu/"
+    ],
+    "related_to": [
+      "Ovarian Stimulation",
+      "Oocyte Pickup (OPU)"
+    ],
+    "category": "Ovarian Hyperstimulation"
+  },
+  {
+    "topic": "Oocyte Pickup (OPU)",
+    "lay_explanation": "Oocyte pickup, or egg collection, is the procedure used to retrieve mature eggs from the ovaries during IVF. Its done under light sedation. A thin needle, guided by ultrasound, is passed through the vaginal wall into each ovary. The fluid from each follicle is collected, and the eggs are identified under a microscope. The procedure takes about 15 minutes, and most patients can go home the same day.",
+    "expert_summary": "Oocyte pickup is performed transvaginally under ultrasound guidance, typically 36 hours after hCG or GnRH agonist trigger to induce final oocyte maturation. A single-lumen or double-lumen aspiration needle is used to aspirate follicular fluid into warmed tubes. Aspirates are examined immediately for cumulus oocyte complexes (COCs). Procedure considerations include patient analgesia, follicular flushing (optional), minimizing blood contamination, and avoiding injury to pelvic structures.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/30227677/"
+    ],
+    "related_to": [
+      "Ovarian Stimulation",
+      "Oocyte Cryopreservation (Egg Freezing)",
+      "In Vitro Fertilization (IVF)"
+    ],
+    "category": "Oocyte Pickup (OPU)"
+  },
+  {
+    "category": "Oocyte Pickup (OPU)",
+    "topic": "OPU Drug - Fentanyl",
+    "lay_explanation": "Fentanyl is a very strong pain medicine often used during egg collection (OPU) to help with discomfort. It works quickly, reducing pain and helping patients stay comfortable during the procedure. Fentanyl is usually given through an IV in small doses and is short-acting, which means it wears off quickly after the procedure. Side effects can include drowsiness, nausea, or slowed breathing, so it is carefully monitored by the medical team.",
+    "expert_summary": "Fentanyl is a potent synthetic Î¼-opioid receptor agonist with rapid onset (1â2 min) and short duration of action (30â60 min). It provides strong analgesia during transvaginal oocyte retrieval and is commonly used in conscious sedation protocols in combination with benzodiazepines (e.g., midazolam). Adverse effects include respiratory depression, bradycardia, hypotension, nausea, and chest wall rigidity at high doses. Careful titration and cardiorespiratory monitoring are required. Its pharmacokinetics make it ideal for short procedures such as OPU.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/32423548/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Oocyte Pickup (OPU)",
+      "Midazolam",
+      "Conscious Sedation",
+      "Anesthesia in IVF"
+    ]
+  },
+  {
+    "category": "Oocyte Pickup (OPU)",
+    "topic": "OPU Drug - Midazolam",
+    "lay_explanation": "Midazolam is a medicine used to help patients relax and feel calm during egg collection (OPU). It belongs to the benzodiazepine family and is often used together with pain medicine like fentanyl. Midazolam can make you feel sleepy, reduce anxiety, and help you forget the procedure, while still allowing you to breathe on your own. Side effects can include drowsiness, dizziness, or temporary confusion after the procedure.",
+    "expert_summary": "Midazolam is a short-acting benzodiazepine that potentiates GABA-A receptor activity, producing anxiolysis, sedation, anterograde amnesia, and mild muscle relaxation. It has rapid onset (2â5 min) and duration of 30â60 min, making it well-suited for office-based anesthesia. In IVF, it is combined with opioids (e.g., fentanyl) for conscious sedation during OPU. Potential adverse effects include respiratory depression (especially when combined with opioids), hypotension, paradoxical agitation, and prolonged sedation in patients with hepatic impairment. Flumazenil is an available reversal agent.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/30974120/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Oocyte Pickup (OPU)",
+      "Fentanyl",
+      "Conscious Sedation",
+      "Anesthesia in IVF"
+    ]
+  },
+  {
+    "topic": "In Vitro Fertilization (IVF)",
+    "lay_explanation": "In IVF, fertility medicine is first used to help your ovaries grow several eggs at the same time. When the eggs are ready, they are collected from the ovaries using a thin needle, while you're under sedation. The eggs are then placed in the lab and fertilized either by mixing with sperm (conventional insemination) or by ICSI. The fertilized eggs are grown in a special warm and nutrient-rich environment for several days until they become embryos. One or more healthy embryos are then placed into the uterus to try to start a pregnancy.",
+    "expert_summary": "In Vitro Fertilization (IVF) involves controlled ovarian stimulation, transvaginal oocyte retrieval, in vitro fertilization via conventional insemination or ICSI, embryo culture to cleavage or blastocyst stage, and transcervical embryo transfer.",
+    "reference": [
+      "https://www.asrm.org/topics/topics-index/in-vitro-fertilization-ivf/",
+      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD002118.pub6/full"
+    ],
+    "related_to": [
+      "Intracytoplasmic Sperm Injection (ICSI)",
+      "Conventional Insemination",
+      "Blastocyst Culture"
+    ],
+    "category": "Assisted Reproductive Technologies (ART)"
+  },
+  {
+    "topic": "Donor Sperm IVF",
+    "lay_explanation": "Donor Sperm IVF is a lab or clinic procedure that helps eggs and sperm meet or embryos develop. It's selected based on diagnosis and prior results.",
+    "expert_summary": "Requires infectious disease and genetic screening; outcomes comparable to partner sperm.",
+    "reference": [
+      "https://www.asrm.org/practice-guidance/practice-committee-documents/guidance-regarding-gamete-and-embryo-donation/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)",
+      "Sperm Cryopreservation"
+    ],
+    "category": "Assisted Reproductive Technologies (ART)"
+  },
+  {
+    "topic": "Donor Egg IVF",
+    "lay_explanation": "Eggs from a screened donor are fertilized and embryos are transferred into the intended recipient's uterus.",
+    "expert_summary": "High success rates due to younger oocyte age; requires thorough donor and recipient screening.",
+    "reference": [
+      "https://academic.oup.com/humupd/article/22/5/620/1749612"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Surrogacy (Gestational Carrier)",
+      "Frozen Embryo Transfer (FET)"
+    ],
+    "category": "Assisted Reproductive Technologies (ART)"
+  },
+  {
+    "topic": "Fertilization - Conventional Insemination",
+    "lay_explanation": "With conventional insemination, the egg and sperm are placed together in the same drop of special fluid in a dish in the lab. This fluid keeps them safe and healthy. The sperm then have to swim to the egg on their own, attach to it, and push their way inside — just like they would inside the body. If a sperm successfully enters, the egg is fertilized and can begin developing into an embryo.",
+    "expert_summary": "Conventional insemination in IVF involves co-incubation of approximately 50,000–100,000 motile sperm with each mature oocyte in culture medium under controlled laboratory conditions, allowing spontaneous sperm binding, penetration, and fertilization. Suitable for cases without severe male factor infertility.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://www.fertilityiq.com/fertility-treatment/ivf-fertilization-methods",
+      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012692.pub2/full"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ],
+    "category": "Assisted Reproductive Technologies (ART)"
+  },
+  {
+    "topic": "Fertilization - Intracytoplasmic Sperm Injection (ICSI)",
+    "lay_explanation": "In ICSI, a fertility specialist uses a powerful microscope to see your egg and a single sperm. They hold the egg gently in place with a tiny glass tube, then use an even smaller, hollow needle to pick up one sperm. That sperm is carefully injected straight inside the egg. This is done when sperm have trouble swimming to the egg or breaking through its outer shell on their own. Once the sperm is inside, the egg is placed in a warm, protective dish in the lab and watched closely to see if it starts to fertilize and grow into an embryo.",
+    "expert_summary": "Intracytoplasmic Sperm Injection (ICSI) involves the direct injection of a single spermatozoon into the ooplasm using a microneedle. Indications include severe male factor infertility (e.g., oligoasthenoteratozoospermia, azoospermia with surgically retrieved sperm), prior IVF fertilization failure, or use of cryopreserved oocytes.",
+    "reference": [
+      "https://www.asrm.org/topics/topics-index/intracytoplasmic-sperm-injection-icsi/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9867417/",
+      "https://www.nature.com/articles/s41591-025-03621-x"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Sperm Cryopreservation",
+      "Preimplantation Genetic Testing for Aneuploidy (PGT-A)"
+    ],
+    "category": "Assisted Reproductive Technologies (ART)"
+  },
+  {
+    "topic": "Intrauterine Insemination (IUI)",
+    "lay_explanation": "IUI places prepared sperm directly inside the uterus near ovulation. The sample is washed to select healthy sperm, then placed using a thin, soft tube. This helps sperm get closer to the egg.",
+    "expert_summary": "Washed motile sperm are inseminated into the uterine cavity, with or without ovarian stimulation.",
+    "reference": [
+      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD001838.pub5/full"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Sperm Cryopreservation"
+    ],
+    "category": "Assisted Reproductive Technologies (ART)"
+  },
+  {
+    "topic": "In Vitro Maturation (IVM)",
+    "lay_explanation": "In Vitro Maturation (IVM) is a lab or clinic procedure that helps eggs and sperm meet or embryos develop. Its selected based on diagnosis and prior results.",
+    "expert_summary": "In Vitro Maturation (IVM): laboratory/clinical intervention to enhance fertilization, embryo development, or uterine delivery; choice depends on diagnosis, ovarian response, and gamete quality.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/33049082/"
+    ],
+    "related_to": [
+      "IVF",
+      "Ovarian Tissue Cryopreservation"
+    ],
+    "category": "Assisted Reproductive Technologies (ART)"
+  },
+  {
+    "category": "Assisted Reproductive Technologies (ART)",
+    "topic": "Sperm Retrieval Techniques",
+    "lay_explanation": "Sperm Retrieval Techniques describes procedures used to obtain sperm when it isnt present in the ejaculate. They are done by specialists and the sperm is used for IVF/ICSI.",
+    "expert_summary": "Includes TESE, micro-TESE, PESA, and MESA; often used in conjunction with IVF/ICSI for azoospermic patients.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "topic": "Testicular Sperm Extraction (TESE/micro-TESE)",
+    "lay_explanation": "Sperm are retrieved directly from the testicle when they are absent in the ejaculate.",
+    "expert_summary": "Open or microdissection techniques for NOA; coordinates with cryopreservation or ICSI.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/33423156/"
+    ],
+    "related_to": [
+      "Intracytoplasmic Sperm Injection (ICSI)",
+      "Sperm Cryopreservation"
+    ],
+    "category": "Assisted Reproductive Technologies (ART)"
+  },
+  {
+    "category": "Assisted Reproductive Technologies (ART)",
+    "topic": "Percutaneous Epididymal Sperm Aspiration (PESA)",
+    "lay_explanation": "PESA is a medical procedure used to collect sperm directly from the epididymis when sperm cannot travel through the normal pathway due to a blockage, such as after a vasectomy or in men born without a vas deferens. A fine needle is inserted through the scrotal skin into the epididymis to gently draw out fluid that contains sperm. The retrieved sperm are not mature enough for natural fertilization, so they are usually injected directly into an egg using ICSI during IVF.",
+    "expert_summary": "PESA is a minimally invasive outpatient procedure performed under local anesthesia to obtain sperm from the epididymal tubules in cases of obstructive azoospermia (e.g., vasectomy, CBAVD, post-infectious obstruction). The aspirated spermatozoa often display reduced motility and limited fertilization capacity due to incomplete maturation. Thus, their use is restricted to ICSI, which bypasses the need for sperm capacitation and zona penetration. PESA is repeatable, cost-effective, and avoids microsurgery, though it may yield variable sperm counts and necessitate cryopreservation for multiple ART cycles.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/19673191/",
+      "https://pubmed.ncbi.nlm.nih.gov/11853550/"
+    ],
+    "related_to": [
+      "Epididymis",
+      "Obstructive Azoospermia",
+      "ICSI",
+      "Microsurgical Epididymal Sperm Aspiration (MESA)",
+      "Testicular Sperm Extraction (TESE)"
+    ]
+  },
+  {
+    "topic": "Donor Selection & Counseling",
+    "lay_explanation": "Choosing an egg or sperm donor involves medical, genetic, infectious-disease, and personal considerations, often with counseling.",
+    "expert_summary": "Comprehensive process addressing medical eligibility, genetic screening, CMV/ID status, anonymity/legal aspects, and psychosocial counseling.",
+    "reference": [
+      "https://www.asrm.org/practice-guidance/practice-committee-documents/guidance-regarding-gamete-and-embryo-donation/"
+    ],
+    "related_to": [
+      "Donor Egg IVF",
+      "Donor Sperm IVF",
+      "Genetic Counseling"
+    ],
+    "category": "Assisted Reproductive Technologies (ART)"
+  },
+  {
+    "topic": "Legal & Ethics in Third-Party Reproduction",
+    "lay_explanation": "Legal contracts clarify parental rights and responsibilities in donor and surrogacy arrangements.",
+    "expert_summary": "Varies by jurisdiction; requires specialized legal counsel and clear consent processes.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Surrogacy (Gestational Carrier)",
+      "Donor Selection & Counseling"
+    ],
+    "category": "Assisted Reproductive Technologies (ART)"
+  },
+  {
+    "topic": "Surrogacy (Gestational Carrier)",
+    "lay_explanation": "An embryo is placed into another person uterus, and she carries the pregnancy for the intended parent(s).",
+    "expert_summary": "Ethics and practice guidance covers medical criteria, legal aspects, and informed consent.",
+    "reference": [
+      "https://www.asrm.org/practice-guidance/practice-committee-documents/recommendations-for-practices-using-gestational-carriers-a-committee-opinion-2022/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Donor Egg IVF",
+      "Frozen Embryo Transfer (FET)"
+    ],
+    "category": "Assisted Reproductive Technologies (ART)"
+  },
+  {
+    "topic": "Zygote",
+    "lay_explanation": "A zygote is the very first stage of a new human life. It forms when a sperm successfully enters an egg and their genetic material combines. The zygote contains all the DNA needed for a unique person half from the mother and half from the father. Soon after forming, the zygote begins to divide into more cells.",
+    "expert_summary": "A single-celled diploid organism resulting from the fusion of haploid gametes during fertilization. It undergoes cleavage divisions without growth, transitioning to the multicellular embryo.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK539894/",
+      "https://pubmed.ncbi.nlm.nih.gov/29170420/"
+    ],
+    "related_to": [
+      "Oocyte (Egg Cell)",
+      "Sperm",
+      "Fertilization",
+      "2-Cell Embryo"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "Zona Pellucida",
+    "lay_explanation": "The zona pellucida is a protective shell around the egg cell. It helps the sperm attach to the egg during fertilization, makes sure only one sperm can enter, and protects the early embryo until it reaches the uterus. In IVF, the zona pellucida can be carefully opened in a lab procedure called assisted hatching to help the embryo implant.",
+    "expert_summary": "The zona pellucida (ZP) is a glycoprotein-rich extracellular matrix surrounding mammalian oocytes and early embryos. It mediates species-specific sperm binding, triggers the acrosome reaction, and enforces the block to polyspermy. Post-fertilization, it maintains structural integrity and regulates embryo transport to the uterus. In assisted reproduction, ZP manipulation techniques (e.g., zona drilling, laser-assisted hatching, intracytoplasmic sperm injection bypassing natural zona penetration) highlight its clinical significance.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/31101891/",
+      "https://pubmed.ncbi.nlm.nih.gov/16382096/"
+    ],
+    "related_to": [
+      "Oocyte (Egg Cell)",
+      "Sperm",
+      "Fertilization",
+      "Assisted Hatching",
+      "ICSI (Intracytoplasmic Sperm Injection)"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "Embryo",
+    "lay_explanation": "An embryo is what we call the developing baby in the very early stages after fertilization, before it becomes a fetus. In fertility treatments, an embryo refers to the egg after it has been fertilized and has started dividing. Embryos grow through several stages, 2-cell, 4-cell, morula, and blastocyst, before they are ready to attach to the uterus.",
+    "expert_summary": "Post-zygotic developmental stage characterized by cleavage, compaction, blastulation, and gastrulation. In human ART, the term refers to fertilized oocytes cultured from the pronuclear stage onward until implantation.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK558948/",
+      "https://pubmed.ncbi.nlm.nih.gov/31444392/"
+    ],
+    "related_to": [
+      "Zygote",
+      "Blastocyst",
+      "Embryo Grading",
+      "Implantation"
+    ],
+    "category": "Female Reproductive Biology - Anatomy"
+  },
+  {
+    "topic": "2-Cell Embryo",
+    "lay_explanation": "About one day after fertilization, the zygote divides into two equal cells. This is the very first step in the embryo's growth. Each cell contains the same genetic material, and both will continue to divide to make more cells.",
+    "expert_summary": "The first cleavage division occurs ~24 hours post-fertilization, producing two blastomeres of similar size. Successful progression depends on accurate chromosome segregation and cytoplasmic division.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/29170420/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK558948/"
+    ],
+    "related_to": [
+      "Zygote",
+      "4-Cell Embryo",
+      "Embryo"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "4-Cell Embryo",
+    "lay_explanation": "By about 2 days after fertilization, the embryo has divided again to make four cells. The cells are still loosely connected and will keep dividing as the embryo grows.",
+    "expert_summary": "Two cleavage divisions result in a 4-cell embryo by ~44 hours post-fertilization. Cell divisions remain synchronous, with minimal differentiation at this stage.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/29170420/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK558948/"
+    ],
+    "related_to": [
+      "2-Cell Embryo",
+      "Morula",
+      "Embryo"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "Morula",
+    "lay_explanation": "Around 3 days after fertilization, the embryo is called a morula. It looks like a tiny raspberry made up of many cells packed closely together. The cells are preparing to form a hollow space inside, which will turn it into a blastocyst.",
+    "expert_summary": "A compact ball of 16 blastomeres formed after multiple cleavage divisions. Compaction increases cell-cell adhesion and polarity, setting the stage for blastocoel formation.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/29170420/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK558948/"
+    ],
+    "related_to": [
+      "4-Cell Embryo",
+      "Blastocyst",
+      "Embryo"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "Blastocyst",
+    "lay_explanation": "A blastocyst is the stage an embryo reaches about 5–6 days after fertilization. It has a hollow center, a group of cells inside that will become the baby (inner cell mass), and an outer layer that will become the placenta (trophectoderm). This is the stage when the embryo is usually transferred in IVF because it's ready to attach to the uterus.",
+    "expert_summary": "A post-compaction embryo with a fluid-filled blastocoel, inner cell mass (future fetus), and trophectoderm (future placenta). Hatching from the zona pellucida precedes implantation.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/31140578/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK558948/"
+    ],
+    "related_to": [
+      "Embryo",
+      "Inner Cell Mass (ICM)",
+      "Trophectoderm (TE)",
+      "Blastocyst Culture"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "Hatching Blastocyst",
+    "lay_explanation": "A few days after becoming a blastocyst, the embryo begins to break free from its protective shell (the zona pellucida). Hatching is necessary so it can attach to the uterus lining.",
+    "expert_summary": "Zona pellucida thinning and rupture occur naturally or can be assisted in vitro. Hatching precedes trophoblast invasion during implantation.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/28875935/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK558948/"
+    ],
+    "related_to": [
+      "Blastocyst",
+      "Implantation",
+      "Assisted Hatching"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "Blastocyst - Inner Cell Mass (ICM)",
+    "lay_explanation": "Inside the blastocyst is a small cluster of cells called the inner cell mass. These cells will eventually develop into the baby's body. The rest of the blastocyst becomes the supporting structures like the placenta.",
+    "expert_summary": "Pluripotent cell population within the blastocyst that differentiates into the epiblast and hypoblast, giving rise to all fetal tissues.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/30892364/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK558948/"
+    ],
+    "related_to": [
+      "Blastocyst",
+      "Embryo",
+      "Trophectoderm (TE)"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "Blastocyst - Trophectoderm (TE)",
+    "lay_explanation": "The trophectoderm is the outer layer of cells in a blastocyst. These cells will form the placenta and other tissues that support the baby during pregnancy.",
+    "expert_summary": "The epithelial outer layer of the blastocyst responsible for implantation and interaction with the endometrium; gives rise to trophoblast lineages.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/28875935/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK558948/"
+    ],
+    "related_to": [
+      "Blastocyst",
+      "Inner Cell Mass (ICM)",
+      "Implantation"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "Corpus Luteum",
+    "lay_explanation": "The corpus luteum is a temporary gland that forms in the ovary after ovulation from the empty follicle. It makes hormones, especially progesterone, which prepare the uterus lining to support a pregnancy. If pregnancy does not happen, the corpus luteum breaks down, and this drop in hormones triggers the next period. In IVF, doctors may give progesterone support because the corpus luteum may not make enough on its own.",
+    "expert_summary": "The corpus luteum (CL) is a transient endocrine structure formed from the post-ovulatory follicle under the influence of the LH surge. It produces progesterone and, to a lesser extent, estradiol and inhibin A, which maintain endometrial receptivity and early pregnancy. Luteolysis occurs in the absence of human chorionic gonadotropin (hCG) rescue. In ART, luteal phase support with exogenous progesterone or hCG is essential, as controlled ovarian stimulation and GnRH analogs disrupt natural luteal function.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/16885530/",
+      "https://pubmed.ncbi.nlm.nih.gov/23934125/"
+    ],
+    "related_to": [
+      "Ovulation",
+      "Progesterone",
+      "Luteal Phase Support",
+      "Early Pregnancy",
+      "Endometrium"
+    ],
+    "category": "Reproductive Cycle & Hormonal Regulation"
+  },
+  {
+    "topic": "Blastocyst Culture",
+    "lay_explanation": "Embryos are grown in the lab for 5 days to reach the blastocyst stage before transfer or freezing, allowing better selection.",
+    "expert_summary": "Extended culture supports selection but may reduce embryo availability in some cycles.",
+    "reference": [
+      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD002118.pub6/full"
+    ],
+    "related_to": [
+      "Embryo Grading",
+      "Embryo Cryopreservation",
+      "Time-Lapse Embryo Imaging"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "Embryo Grading",
+    "lay_explanation": "Embryos are scored based on appearance and growth, helping decide which to transfer or freeze first. Blastocyst is graded on a 1-6 scale for expansion of the blastocyst, A-C for the trophectoderm and inner cell mass.",
+    "expert_summary": "Istanbul consensus guidelines for morphology scoring at cleavage and blastocyst stages.",
+    "reference": [
+      "https://academic.oup.com/humrep/article-pdf/26/6/1270/9543944/der037.pdf"
+    ],
+    "related_to": [
+      "Blastocyst Culture",
+      "Time-Lapse Embryo Imaging",
+      "In Vitro Fertilization (IVF)"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "Time-Lapse Embryo Imaging",
+    "lay_explanation": "Special incubators take frequent photos of embryos so they can be monitored without disturbing them. This creates a time-lapse video of development.",
+    "expert_summary": "Continuous culture with morphokinetic analysis; unclear impact on live birth rates.",
+    "reference": [
+      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD011320.pub4/full"
+    ],
+    "related_to": [
+      "Embryo Grading",
+      "Blastocyst Culture",
+      "In Vitro Fertilization (IVF)"
+    ],
+    "category": "Embryo Development"
+  },
+  {
+    "topic": "Chromosomes and Genes",
+    "lay_explanation": "Chromosomes are long strands of DNA that carry our genes — the instructions for how our bodies grow and function. Humans have 46 chromosomes, arranged in 23 pairs. One set comes from the mother, the other from the father. Genes are smaller sections of DNA that code for specific traits like eye color or blood type.",
+    "expert_summary": "DNA is packaged into 46 chromosomes in human somatic cells. Genes are functional sequences that encode proteins or regulatory RNAs. Meiosis produces haploid gametes with 23 chromosomes each.",
+    "reference": [
+      "https://www.genome.gov/genetics-glossary",
+      "https://pubmed.ncbi.nlm.nih.gov/30422584/"
+    ],
+    "related_to": [
+      "Oocyte (Egg Cell)",
+      "Sperm",
+      "Fertilization",
+      "Preimplantation Genetic Testing for Aneuploidy (PGT-A)"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Embryo Biopsy Techniques",
+    "lay_explanation": "A few cells are removed from an embryo for genetic testing, usually at the blastocyst stage. The embryo is frozen while the cells are analyzed.",
+    "expert_summary": "Describes polar body, cleavage-stage, and trophectoderm biopsy methods, with QA and traceability considerations.",
+    "reference": [
+      "https://academic.oup.com/hropen/article/2020/3/hoaa020/5848312"
+    ],
+    "related_to": [
+      "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+      "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)",
+      "Preimplantation Genetic Testing for Structural Rearrangements (PGT-SR)"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "PGT-Complete",
+    "lay_explanation": "PGT-Complete is a type of embryo genetic test that screens for chromosome numbers (like PGT-A), single-gene disorders (like PGT-M), and certain other genetic conditions all in one procedure. It provides a more comprehensive genetic profile before deciding which embryo to transfer.",
+    "expert_summary": "PGT-Complete integrates trophectoderm biopsy with whole-genome sequencing-based analysis to simultaneously detect aneuploidy, pathogenic single nucleotide variants, and in some cases polygenic risk scores. It combines methodologies of PGT-A, PGT-M, and genome-wide screening, allowing comprehensive embryo genetic characterization prior to transfer.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/33461563/"
+    ],
+    "related_to": [
+      "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+      "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+    "lay_explanation": "PGT-A checks embryos to see if they have the correct number of chromosomes before putting them into the uterus. After an embryo grows to the blastocyst stage, a few cells are gently removed from the outer layer that would become the placenta. These cells are tested in a lab to look for missing or extra chromosomes. Only embryos with the correct number are chosen for transfer, which can improve the chance of a healthy pregnancy.",
+    "expert_summary": "PGT-A involves biopsy of trophectoderm cells, whole-genome amplification, and chromosomal analysis using NGS or aCGH.",
+    "reference": [
+      "https://www.asrm.org/topics/topics-index/preimplantation-genetic-testing-pgt-a/",
+      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD010966.pub3/full"
+    ],
+    "related_to": [
+      "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)",
+      "Preimplantation Genetic Testing for Structural Rearrangements (PGT-SR)",
+      "Embryo Biopsy Techniques"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)",
+    "lay_explanation": "PGT-M is used when a couple has a risk of passing on a specific inherited disease. After IVF, embryos are grown until the blastocyst stage. A few cells are removed and tested for the exact genetic change. Only embryos without that change are chosen for transfer.",
+    "expert_summary": "PGT-M targets known pathogenic variants in high-risk couples. Requires family-specific assay development, linkage analysis, and strict lab QA.",
+    "reference": [
+      "https://www.asrm.org/topics/topics-index/preimplantation-genetic-testing-pgt-m/",
+      "https://academic.oup.com/hropen/article/2020/3/hoaa021/5848302"
+    ],
+    "related_to": [
+      "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+      "Preimplantation Genetic Testing for Structural Rearrangements (PGT-SR)",
+      "Embryo Biopsy Techniques"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Preimplantation Genetic Testing for Structural Rearrangements (PGT-SR)",
+    "lay_explanation": "PGT-SR is for people who carry a structural chromosome change, like a translocation. These changes don't usually cause problems for the carrier but can lead to embryos with missing or extra chromosome pieces. Testing helps choose embryos with the correct structure for transfer.",
+    "expert_summary": "PGT-SR uses NGS, aCGH, or FISH to detect unbalanced chromosome complements in carriers of balanced rearrangements.",
+    "reference": [
+      "https://www.asrm.org/topics/topics-index/preimplantation-genetic-testing-pgt-sr/",
+      "https://academic.oup.com/hropen/article/2020/3/hoaa020/5848312"
+    ],
+    "related_to": [
+      "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+      "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)",
+      "Embryo Biopsy Techniques"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "PGT-Polygenic",
+    "lay_explanation": "PGT-Polygenic estimates the genetic risk for complex conditions that are influenced by many genes, like diabetes or heart disease. It's used to choose embryos with lower estimated genetic risk for these traits.",
+    "expert_summary": "Polygenic risk scoring from trophectoderm biopsy DNA is used to estimate embryo susceptibility to multifactorial diseases based on the cumulative effect of multiple genetic variants. While controversial, proponents argue it can inform embryo selection beyond monogenic and chromosomal testing. Ethical, clinical, and predictive value debates remain ongoing.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/33608597/"
+    ],
+    "related_to": [
+      "PGT-Complete",
+      "Preimplantation Genetic Testing for Aneuploidy (PGT-A)"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Aneuploid Embryo",
+    "lay_explanation": "An aneuploid embryo has too many or too few chromosomes. This usually prevents it from developing into a healthy pregnancy and may lead to miscarriage if implantation occurs.",
+    "expert_summary": "Embryo with chromosomal gains or losses in all tested cells. Rarely results in a healthy live birth. Most clinics recommend against transfer.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/32027680/"
+    ],
+    "related_to": [
+      "PGT-A",
+      "Euploid Embryo"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Euploid Embryo",
+    "lay_explanation": "A euploid embryo has the correct number of chromosomes in each cell. This means it has the best chance of implanting and developing into a healthy pregnancy, though no test can guarantee success.",
+    "expert_summary": "Embryo with a normal chromosomal complement (46 chromosomes). Associated with higher implantation and live birth rates. Typically prioritized for transfer.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/34353477/"
+    ],
+    "related_to": [
+      "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+      "Embryo Selection Strategy"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "High-Level Mosaic Embryo",
+    "lay_explanation": "More cells are abnormal than normal, but some healthy cells remain. These embryos are less likely to result in a healthy pregnancy compared to low-level mosaics or euploid embryos, and risks are higher.",
+    "expert_summary": "Trophectoderm biopsy shows ≥40% and ≤80% abnormal cells. Lower implantation and higher miscarriage rates than euploid embryos. May be considered only when no euploid embryos are available and after thorough counseling.",
+    "reference": [
+      "https://pgdis.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/33864944/"
+    ],
+    "related_to": [
+      "PGT-A",
+      "Embryo Selection Strategy"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Low-Level Mosaic Embryo",
+    "lay_explanation": "Some cells have the correct number of chromosomes, and some do not — but the proportion of abnormal cells is lower. These embryos may still implant and lead to a healthy pregnancy, but risks can be higher. Doctors consider each case individually.",
+    "expert_summary": "Trophectoderm biopsy shows <40% abnormal cells. May have similar implantation rates to euploid embryos in some contexts, but with increased risk for adverse outcomes compared to euploid embryos. Clinical use guided by counseling and follow-up testing.",
+    "reference": [
+      "https://pgdis.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/33864944/"
+    ],
+    "related_to": [
+      "PGT-A",
+      "Embryo Selection Strategy"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "No Result / Inconclusive",
+    "lay_explanation": "Sometimes the lab cannot get a clear genetic result from the embryo's sample. This could be due to too little DNA, technical issues, or contamination. If the embryo is healthy otherwise, another biopsy may be possible.",
+    "expert_summary": "Failure to generate a definitive chromosomal profile due to insufficient DNA yield, amplification failure, or assay noise. Options include re-biopsy or transfer with counseling on uncertainty.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "PGT-A",
+      "Embryo Biopsy Techniques"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Non-Invasive PGT (niPGT)",
+    "lay_explanation": "Non-invasive PGT tests the genetic material that embryos naturally release into the culture fluid while growing in the lab. This means the embryo doesn't need a biopsy, which may reduce potential harm.",
+    "expert_summary": "Non-invasive preimplantation genetic testing analyzes cell-free DNA released into spent embryo culture medium or blastocoel fluid. Early studies show variable concordance with trophectoderm biopsy results, with advantages in avoiding direct embryo manipulation. Current applications are mainly investigational, with efforts to improve DNA yield, reduce maternal contamination, and validate accuracy for PGT-A and beyond.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/34535280/",
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+      "Blastocyst Culture"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Genetic Counseling",
+    "lay_explanation": "A genetics professional reviews personal and family history to assess risks and testing options.",
+    "expert_summary": "Pedigree analysis, risk assessment, and informed consent for genetic testing strategies in reproduction.",
+    "reference": [
+      "https://www.acog.org/womens-health/faqs/carrier-screening"
+    ],
+    "related_to": [
+      "PGT-M",
+      "PGT-A"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Assisted Hatching",
+    "lay_explanation": "A small opening is made in the embryo's shell to help it ‘hatch' before transfer. This can be done with a laser or chemical solution.",
+    "expert_summary": "Assisted zona manipulation to facilitate implantation; limited evidence for benefit.",
+    "reference": [
+      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD001894.pub5/full"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Embryo Grading"
+    ],
+    "category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Endometrial Preparation for FET",
+    "lay_explanation": "Hormones or a natural cycle are used to prepare the uterine lining for embryo transfer.",
+    "expert_summary": "Estradiol/progesterone or monitored natural cycles align endometrial receptivity with embryo stage.",
+    "reference": [
+      "https://rbej.biomedcentral.com/articles/10.1186/s12958-021-00869-z"
+    ],
+    "related_to": [
+      "Frozen Embryo Transfer (FET)"
+    ],
+    "category": "Embryo Transfer"
+  },
+  {
+    "topic": "Fresh Embryo Transfer - Day Two or Three (Cleavage Stage)",
+    "lay_explanation": "A fresh embryo transfer on day two or three places the embryo into the uterus earlier in its development, when it is at the 2-cell to 8-cell stage. This can be helpful when fewer embryos are available or when the lab or clinic prefers shorter culture times.",
+    "expert_summary": "Day-two or day-three cleavage-stage transfer involves transferring embryos 48 hours post-fertilization. Benefits include reduced in vitro culture time, which may improve outcomes in suboptimal lab conditions, and ensuring transfer in cases with limited embryo numbers. Drawbacks include reduced accuracy in embryo selection and potential asynchrony with endometrial receptivity.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/29154194/"
+    ],
+    "related_to": [
+      "2-Cell Embryo",
+      "4-Cell Embryo",
+      "Embryo Grading",
+      "In Vitro Fertilization (IVF)"
+    ],
+    "category": "Embryo Transfer"
+  },
+  {
+    "topic": "Fresh Embryo Transfer - Day Five (Blastocyst Stage)",
+    "lay_explanation": "A fresh embryo transfer on day five means the embryo has been grown in the lab to the blastocyst stage before being placed into the uterus. This allows doctors to select embryos that have developed well and are ready to attach to the uterine lining. Many clinics prefer day-five transfers because they can better match the timing of natural implantation.",
+    "expert_summary": "Day-five fresh embryo transfer involves transferring blastocysts cultured in vitro for 5 days post-fertilization. Advantages include improved embryo selection via morphology and developmental kinetics, higher implantation rates per transfer, and better endometrial–embryo synchrony. Considerations include reduced number of transferable embryos in poor responders, risk of no blastocyst formation, and luteal phase support requirements.",
+    "reference": [
+      "https://www.asrm.org/",
+      "https://pubmed.ncbi.nlm.nih.gov/30769354/"
+    ],
+    "related_to": [
+      "Blastocyst",
+      "Embryo Grading",
+      "In Vitro Fertilization (IVF)"
+    ],
+    "category": "Embryo Transfer"
+  },
+  {
+    "topic": "Frozen Embryo Transfer (FET)",
+    "lay_explanation": "In FET, an embryo that was previously created and frozen is gently thawed in the lab. The thawing process uses special solutions to protect the embryo as it warms back up. Once ready, the embryo is placed into the uterus using a soft, thin tube that passes through the cervix. This can be done during your natural cycle or with hormone medicines to prepare the uterus lining so it's ready for the embryo to attach and grow.",
+    "expert_summary": "Frozen Embryo Transfer (FET) involves warming cryopreserved embryos and transferring them into the uterine cavity. Protocols include natural cycle and programmed FET.",
+    "reference": [
+      "https://www.asrm.org/topics/topics-index/frozen-embryo-transfer-fet/",
+      "https://rbej.biomedcentral.com/articles/10.1186/s12958-021-00869-z"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Embryo Cryopreservation"
+    ],
+    "category": "Embryo Transfer"
+  },
+  {
+    "topic": "Embryo Selection Strategy",
+    "lay_explanation": "Results from testing and grading are combined to pick the best embryo for transfer.",
+    "expert_summary": "Integrates morphology, development, and genetics; prioritizes euploid, top-quality blastocysts.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/34791759/"
+    ],
+    "related_to": [
+      "PGT-A",
+      "Embryo Grading"
+    ],
+    "category": "Embryo Transfer"
+  },
+  {
+    "topic": "Serum hCG Pregnancy Test & Follow-up",
+    "lay_explanation": "A blood test checks for pregnancy (hCG). Results guide next steps and early care.",
+    "expert_summary": "Quantitative serum hCG testing confirms biochemical pregnancy; serial rises inform viability; early progesterone/LH as appropriate.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/16996536/"
+    ],
+    "related_to": [
+      "Frozen Embryo Transfer (FET)",
+      "Fresh Embryo Transfer - Day Five (Blastocyst Stage)"
+    ],
+    "category": "Pregnancy testing"
+  },
+  {
+    "topic": "Sperm Cryopreservation",
+    "lay_explanation": "Sperm freezing stores sperm for later use. A sample is collected, mixed with a protective solution, and frozen quickly. It's stored in liquid nitrogen until needed for treatment like IUI or IVF.",
+    "expert_summary": "Cryopreservation with cryoprotectants, vapor or liquid phase nitrogen storage; indications include fertility preservation and donation.",
+    "reference": [
+      "https://www.asrm.org/topics/topics-index/sperm-cryopreservation/",
+      "https://academic.oup.com/humupd/article/21/2/153/672413"
+    ],
+    "related_to": [
+      "Intracytoplasmic Sperm Injection (ICSI)",
+      "Intrauterine Insemination (IUI)"
+    ],
+    "category": "Cryopreservation / Freezing"
+  },
+  {
+    "topic": "Embryo Cryopreservation",
+    "lay_explanation": "Embryos are frozen for future use using vitrification to prevent ice damage. They are stored in liquid nitrogen and later thawed for transfer.",
+    "expert_summary": "Vitrification offers high post-thaw survival and clinical outcomes compared to slow freezing.",
+    "reference": [
+      "https://academic.oup.com/humupd/article/23/2/139/2452289"
+    ],
+    "related_to": [
+      "Frozen Embryo Transfer (FET)",
+      "Blastocyst Culture"
+    ],
+    "category": "Cryopreservation / Freezing"
+  },
+  {
+    "topic": "Oocyte Cryopreservation (Egg Freezing)",
+    "lay_explanation": "Egg freezing lets a woman store eggs for the future. Medicines help several eggs grow at once. When ready, they are collected with a thin needle under sedation and frozen quickly using vitrification. The frozen eggs are stored in liquid nitrogen until they are needed.",
+    "expert_summary": "Involves controlled ovarian stimulation, retrieval, vitrification, and long-term storage of mature oocytes.",
+    "reference": [
+      "https://www.asrm.org/topics/topics-index/oocyte-cryopreservation/",
+      "https://academic.oup.com/humupd/article/27/3/400/6030430"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Ovarian Stimulation"
+    ],
+    "category": "Cryopreservation / Freezing"
+  },
+  {
+    "topic": "Ovarian Tissue Cryopreservation",
+    "lay_explanation": "A fertility preservation method where part or all of an ovary is removed, frozen, and stored for future use. Later, the tissue can be thawed and transplanted back to restore fertility or hormone function.",
+    "expert_summary": "Involves laparoscopic removal of cortical ovarian tissue, cryopreservation (usually via slow freezing), and later orthotopic or heterotopic transplantation. Particularly useful in prepubertal patients or those requiring urgent gonadotoxic therapy.",
+    "reference": [
+      "https://www.asrm.org/topics/topics-index/ovarian-tissue-cryopreservation/",
+      "https://pubmed.ncbi.nlm.nih.gov/31783124/"
+    ],
+    "related_to": [
+      "Fertility Preservation",
+      "Oocyte Cryopreservation (Egg Freezing)"
+    ],
+    "category": "Cryopreservation / Freezing"
+  },
+  {
+    "topic": "Ovarian Tissue Transplantation",
+    "lay_explanation": "Previously frozen ovarian tissue is transplanted back to restore hormones and fertility.",
+    "expert_summary": "Ovarian Tissue Transplantation: vitrification/controlled-rate freezing with cryoprotectants; post-thaw survival and utilization rates depend on cell type and protocol.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/31783124/"
+    ],
+    "related_to": [
+      "Ovarian Tissue Cryopreservation"
+    ],
+    "category": "Cryopreservation / Freezing"
+  },
+  {
+    "topic": "Testicular Tissue Cryopreservation",
+    "lay_explanation": "Small pieces of testicular tissue are frozen to preserve future fertility before puberty.",
+    "expert_summary": "Biopsy and cryostorage of spermatogonial stem cell-containing tissue; experimental.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/34343506/"
+    ],
+    "related_to": [
+      "Prepubertal Fertility Preservation"
+    ],
+    "category": "Cryopreservation / Freezing"
+  },
+  {
+    "topic": "Prepubertal Fertility Preservation",
+    "lay_explanation": "For children not yet producing mature eggs or sperm, tissue can be frozen for future options.",
+    "expert_summary": "Experimental protocols for ovarian/testicular tissue cryopreservation with future autotransplantation or IVM.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/34343506/"
+    ],
+    "related_to": [
+      "Ovarian Tissue Cryopreservation",
+      "Testicular Tissue Cryopreservation"
+    ],
+    "category": "Cryopreservation / Freezing"
+  },
+  {
+    "topic": "Clinical Use of Banked Sperm",
+    "lay_explanation": "Frozen sperm can later be used for IUI or IVF/ICSI depending on quality after thaw.",
+    "expert_summary": "Clinical Use of Banked Sperm: vitrification/controlled-rate freezing with cryoprotectants; post-thaw survival and utilization rates depend on cell type and protocol.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "Sperm Cryopreservation",
+      "Intrauterine Insemination (IUI)",
+      "In Vitro Fertilization (IVF)"
+    ],
+    "category": "Cryopreservation / Freezing"
+  },
+  {
+    "category": "Fertility Preservation for Medical Reasons",
+    "topic": "Before Autoimmune Disease Treatments",
+    "lay_explanation": "Freezing eggs or sperm before medications for autoimmune diseases that may harm reproductive cells.",
+    "expert_summary": "Certain immunosuppressive therapies (e.g., cyclophosphamide) can damage ovarian reserve or spermatogenesis, necessitating proactive cryopreservation.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Fertility Preservation for Medical Reasons",
+    "topic": "Before Cancer Treatment (Oncofertility)",
+    "lay_explanation": "Saving eggs, sperm, or reproductive tissue before chemotherapy, radiation, or surgery that may affect fertility.",
+    "expert_summary": "Oncofertility integrates oncology and reproductive medicine to offer cryopreservation of oocytes, sperm, embryos, or gonadal tissue before gonadotoxic therapy.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Fertility Preservation for Medical Reasons",
+    "topic": "Before Chemotherapy or Radiation for Non-Cancer Conditions",
+    "lay_explanation": "Freezing eggs, sperm, or tissue before treatment for diseases other than cancer that use similar drugs.",
+    "expert_summary": "Some non-malignant hematologic and autoimmune disorders require cytotoxic treatments that can impair fertility, warranting preservation strategies.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Fertility Preservation for Medical Reasons",
+    "topic": "Before Gender-Affirming Hormone Therapy or Surgery",
+    "lay_explanation": "Preserving fertility options for transgender and gender-diverse individuals before medical transition.",
+    "expert_summary": "Fertility preservation in transgender individuals includes cryopreservation of gametes or embryos before cross-sex hormones or gonadectomy, as these interventions can cause permanent infertility.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Fertility Preservation for Medical Reasons",
+    "topic": "Before Organ Transplantation",
+    "lay_explanation": "Preserving fertility before undergoing organ transplant and related immunosuppressive therapy.",
+    "expert_summary": "Organ transplant recipients may face infertility due to underlying illness, pre-transplant treatments, or lifelong immunosuppression; pre-treatment preservation can safeguard reproductive potential.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Fertility Preservation for Medical Reasons",
+    "topic": "Fertility Preservation in Adolescents",
+    "lay_explanation": "Special approaches for preserving fertility in young people who have not yet reached puberty.",
+    "expert_summary": "Prepubertal preservation relies on cryopreservation of ovarian or testicular tissue, with future potential for in vitro maturation or transplantation.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Pregnancy Loss & Recurrent Miscarriage",
+    "topic": "Antiphospholipid Antibody Syndrome",
+    "lay_explanation": "Antiphospholipid Antibody Syndrome explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
+    "expert_summary": "APS is characterized by antibodies to phospholipid-binding proteins, leading to thrombosis and recurrent miscarriage; treatment may include aspirin and heparin.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Pregnancy Loss & Recurrent Miscarriage",
+    "topic": "Causes of RPL",
+    "lay_explanation": "Causes of RPL explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
+    "expert_summary": "Etiologies include parental chromosomal rearrangements, uterine septum, luteal phase defect, APS, and thrombophilias.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Pregnancy Loss & Recurrent Miscarriage",
+    "topic": "Early Miscarriage",
+    "lay_explanation": "Early Miscarriage explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
+    "expert_summary": "Often caused by chromosomal abnormalities, early miscarriage may also result from uterine anomalies, hormonal imbalances, or immune factors.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Pregnancy Loss & Recurrent Miscarriage",
+    "topic": "Emotional Impact & Support",
+    "lay_explanation": "Emotional Impact & Support explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
+    "expert_summary": "Grief counseling, support groups, and psychological interventions improve coping and emotional recovery.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Pregnancy Loss & Recurrent Miscarriage",
+    "topic": "Miscarriage Workup & Testing",
+    "lay_explanation": "Miscarriage Workup & Testing explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
+    "expert_summary": "Includes karyotyping, ultrasound, hysteroscopy, hormonal evaluation, and thrombophilia screening.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Pregnancy Loss & Recurrent Miscarriage",
+    "topic": "Recurrent Pregnancy Loss (RPL)",
+    "lay_explanation": "Recurrent Pregnancy Loss (RPL) explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
+    "expert_summary": "RPL is defined as ≥2 consecutive pregnancy losses; evaluation includes genetic, anatomical, hormonal, and immunological assessments.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Pregnancy Loss & Recurrent Miscarriage",
+    "topic": "Thrombophilia & Pregnancy Loss",
+    "lay_explanation": "Thrombophilia & Pregnancy Loss explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
+    "expert_summary": "Inherited or acquired thrombophilias may impair placental blood flow, causing miscarriage or stillbirth.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Uterine & Endometrial Health",
+    "topic": "Endometrial Receptivity Testing (ERA)",
+    "lay_explanation": "Endometrial Receptivity Testing (ERA) focuses on issues affecting the uterus or lining that can influence implantation and pregnancy.",
+    "expert_summary": "ERA analyzes gene expression profiles to identify the optimal implantation window for personalized embryo transfer timing.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  },
+  {
+    "category": "Uterine & Endometrial Health",
+    "topic": "Uterine Polyps",
+    "lay_explanation": "Uterine Polyps focuses on issues affecting the uterus or lining that can influence implantation and pregnancy.",
+    "expert_summary": "Endometrial polyps can interfere with implantation and increase miscarriage risk; removal via hysteroscopic polypectomy improves outcomes.",
+    "reference": [
+      "https://www.asrm.org/"
+    ],
+    "related_to": [
+      "In Vitro Fertilization (IVF)",
+      "Intrauterine Insemination (IUI)"
+    ]
+  }
+]

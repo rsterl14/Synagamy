@@ -1,0 +1,1032 @@
+[
+  {
+    "id": "infertility_treatment",
+    "title": "Infertility Treatment",
+    "paths": [
+      {
+        "id": "gestational_carrier",
+        "title": "Surogacy",
+        "steps": [
+          {
+            "step": "Agency/Clinic Intake & Legal",
+            "overview": "Match with a screened carrier and complete medical/legal requirements.",
+            "topic_refs": [
+              "Surrogacy (Gestational Carrier)",
+              "Legal & Ethics in Third-Party Reproduction"
+            ]
+          },
+          {
+            "step": "Embryo Preparation",
+            "overview": "Use existing or newly created embryos; consider PGT based on indications.",
+            "topic_refs": [
+              "Embryo Selection Strategy",
+              "Embryo Biopsy Techniques",
+              "Preimplantation Genetic Testing for Aneuploidy (PGT-A)"
+            ]
+          },
+          {
+            "step": "Carrier Endometrial Preparation",
+            "overview": "Prepare the gestational carrier’s uterus for transfer.",
+            "topic_refs": [
+              "Endometrial Preparation for FET"
+            ]
+          },
+          {
+            "step": "Embryo Transfer & Follow-up",
+            "overview": "Transfer embryo(s) to the carrier; confirm pregnancy and transition to OB care.",
+            "topic_refs": [
+              "Frozen Embryo Transfer (FET)",
+              "Serum hCG Pregnancy Test & Follow-up"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "iui_donor_sperm",
+        "title": "IUI With Donor Sperm",
+        "steps": [
+          {
+            "step": "Referral, Counseling & Legal",
+            "overview": "Recipient evaluation, donor selection, and consent/legal steps completed before treatment.",
+            "topic_refs": [
+              "Referral to a Fertility Center (Female)",
+              "Donor Selection & Counseling",
+              "Recipient Evaluation for Donor Cycles",
+              "Legal & Ethics in Third-Party Reproduction"
+            ]
+          },
+          {
+            "step": "Screening & Baseline",
+            "overview": "Baseline ultrasound and labs for the recipient; infectious disease screening as required.",
+            "topic_refs": [
+              "Infectious Disease Screening (Female)"
+            ]
+          },
+          {
+            "step": "Cycle Type & Ovulation Strategy",
+            "overview": "Choose natural vs. medicated cycle to optimize timing.",
+            "topic_refs": [
+              "Ovulation Induction (Letrozole/Clomiphene)"
+            ]
+          },
+          {
+            "step": "Follicle Monitoring",
+            "overview": "Monitor follicle growth and lining to time insemination.",
+            "topic_refs": [
+              "Luteinizing Hormone (LH) Test",
+              "Estradiol (E2) Blood Test"
+            ]
+          },
+          {
+            "step": "Ovulation Timing",
+            "overview": "Use hCG trigger or natural LH surge to schedule IUI.",
+            "topic_refs": [
+              "Human Chorionic Gonadotropin (hCG) Trigger"
+            ]
+          },
+          {
+            "step": "Donor Sperm Thaw & Preparation",
+            "overview": "Thaw donor vial and prepare sample to concentrate motile sperm.",
+            "topic_refs": [
+              "Sperm Preparation (Density Gradient/Swim-Up)"
+            ]
+          },
+          {
+            "step": "IUI Procedure",
+            "overview": "Place prepared donor sperm into the uterine cavity via a thin catheter.",
+            "topic_refs": [
+              "Intrauterine Insemination (IUI)"
+            ]
+          },
+          {
+            "step": "Luteal Phase Support (if indicated",
+            "overview": "Progesterone may be used depending on protocol.",
+            "topic_refs": [
+              "Progesterone (Luteal Phase Support)"
+            ]
+          },
+          {
+            "step": "Pregnancy Test & Follow-up",
+            "overview": "Serum hCG test ~2 weeks after IUI; plan next steps from results.",
+            "topic_refs": [
+              "Serum hCG Pregnancy Test & Follow-up"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "iui_partner",
+        "title": "IUI With Partner Sperm",
+        "steps": [
+          {
+            "step": "Referral & Intake",
+            "overview": "Referral received, baseline history gathered, and plan set for a natural or medicated IUI cycle.",
+            "topic_refs": [
+              "Referral to a Fertility Center (Male)",
+              "Referral to a Fertility Center (Female)"
+            ]
+          },
+          {
+            "step": "Screening & Baseline",
+            "overview": "Early-cycle ultrasound and labs to confirm readiness; infectious disease screening per protocol.",
+            "topic_refs": [
+              "Infectious Disease Screening (Male)",
+              "Infectious Disease Screening (Female)"
+            ]
+          },
+          {
+            "step": "Cycle Type & Ovulation Strategy",
+            "overview": "Decide on natural monitoring vs. induction with oral medications to time ovulation precisely.",
+            "topic_refs": [
+              "Ovulation Induction (Letrozole/Clomiphene)"
+            ]
+          },
+          {
+            "step": "Follicle Monitoring",
+            "overview": "Track follicle growth and endometrial development using ultrasound and hormone levels.",
+            "topic_refs": [
+              "Luteinizing Hormone (LH) Test",
+              "Estradiol (E2) Blood Test"
+            ]
+          },
+          {
+            "step": "Ovulation Timing",
+            "overview": "Time insemination using either an hCG trigger or the natural LH surge.",
+            "topic_refs": [
+              "Human Chorionic Gonadotropin (hCG) Trigger"
+            ]
+          },
+          {
+            "step": "Sperm Collection & Preparation",
+            "overview": "Collect partner sample on the day of IUI; lab concentrates motile sperm and removes seminal plasma.",
+            "topic_refs": [
+              "Semen Analysis",
+              "Sperm Collection",
+              "Sperm Preparation (Density Gradient/Swim-Up)"
+            ]
+          },
+          {
+            "step": "IUI Procedure",
+            "overview": "Place prepared sperm into the uterine cavity using a thin catheter during a brief clinic visit.",
+            "topic_refs": [
+              "Intrauterine Insemination (IUI)"
+            ]
+          },
+          {
+            "step": "Luteal Phase Support (if indicated",
+            "overview": "Some protocols add progesterone support based on history and clinic preference.",
+            "topic_refs": [
+              "Progesterone (Luteal Phase Support)"
+            ]
+          },
+          {
+            "step": "Pregnancy Test & Follow-up",
+            "overview": "Serum hCG test ~2 weeks after IUI; results guide next steps.",
+            "topic_refs": [
+              "Serum hCG Pregnancy Test & Follow-up"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "IVF/ICSI With Donor Oocytes",
+        "steps": [
+          {
+            "step": "Recipient Evaluation, Counseling & Legal",
+            "overview": "Assess the recipient’s medical and uterine readiness; complete donor matching, counseling, and legal/ethical consents.",
+            "topic_refs": [
+              "Recipient Evaluation for Donor Cycles",
+              "Donor Selection & Counseling",
+              "Legal & Ethics in Third-Party Reproduction",
+              "Infectious Disease Screening (Female)"
+            ]
+          },
+          {
+            "step": "Recipient Evaluation & Counseling",
+            "overview": "Assess recipient health and uterine readiness; review medical, legal, and ethical aspects.",
+            "topic_refs": [
+              "Recipient Evaluation for Donor Cycles",
+              "Donor Selection & Counseling",
+              "Legal & Ethics in Third-Party Reproduction"
+            ]
+          },
+          {
+            "step": "Donor Oocyte Source (Fresh Retrieval or Thawed Oocytes",
+            "overview": "Proceed with a fresh donor retrieval coordinated with the recipient’s timeline or use previously cryopreserved (thawed) donor oocytes.",
+            "topic_refs": [
+              "Donor Egg IVF",
+              "Oocyte Cryopreservation (Egg Freezing)"
+            ]
+          },
+          {
+            "step": "Endometrial Preparation",
+            "overview": "Prepare the recipient’s endometrium for embryo transfer with a hormonally synchronized protocol.",
+            "topic_refs": [
+              "Endometrial Preparation for FET"
+            ]
+          },
+          {
+            "step": "Donor Egg IVF (Fresh or Thaw",
+            "overview": "Use fresh or thawed donor oocytes to create embryos via IVF/ICSI.",
+            "topic_refs": [
+              "Donor Egg IVF",
+              "In Vitro Fertilization (IVF)",
+              "Intracytoplasmic Sperm Injection (ICSI)"
+            ]
+          },
+          {
+            "step": "Fertilization (IVF/ICSI) & Culture",
+            "overview": "Fertilize donor oocytes with partner or donor sperm via IVF/ICSI; culture embryos to blastocyst with daily assessment.",
+            "topic_refs": [
+              "In Vitro Fertilization (IVF)",
+              "Intracytoplasmic Sperm Injection (ICSI)",
+              "Blastocyst Culture",
+              "Embryo Grading",
+              "Donor Sperm IVF",
+              "Semen Analysis"
+            ]
+          },
+          {
+            "step": "Embryo Culture & Selection",
+            "overview": "Culture embryos and select the best for transfer.",
+            "topic_refs": [
+              "Blastocyst Culture",
+              "Embryo Grading",
+              "Embryo Selection Strategy"
+            ]
+          },
+          {
+            "step": "Optional: Genetic Testing (PGT",
+            "overview": "If indicated, biopsy embryos and analyze (PGT-A/M/SR or non-invasive options) to inform transfer prioritization.",
+            "topic_refs": [
+              "Embryo Biopsy Techniques",
+              "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+              "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)",
+              "Preimplantation Genetic Testing for Structural Rearrangements (PGT-SR)",
+              "Non-Invasive PGT (niPGT)"
+            ]
+          },
+          {
+            "step": "Embryo Transfer (Fresh or FET",
+            "overview": "Transfer a selected embryo in a fresh synchronized cycle or in a subsequent frozen cycle (FET) based on the plan.",
+            "topic_refs": [
+              "Fresh Embryo Transfer — Day Five (Blastocyst Stage)",
+              "Frozen Embryo Transfer (FET)",
+              "Endometrial Preparation for FET"
+            ]
+          },
+          {
+            "step": "Embryo Transfer",
+            "overview": "Transfer embryo(s) to the recipient in a fresh or frozen cycle.",
+            "topic_refs": [
+              "Fresh Embryo Transfer — Day Five (Blastocyst Stage)",
+              "Frozen Embryo Transfer (FET)"
+            ]
+          },
+          {
+            "step": "Luteal Phase Support & Pregnancy Follow-up",
+            "overview": "Support the endometrium after transfer and check serum hCG; arrange early pregnancy monitoring.",
+            "topic_refs": [
+              "Progesterone (Luteal Phase Support)",
+              "Serum hCG Pregnancy Test & Follow-up"
+            ]
+          },
+          {
+            "step": "Luteal Support & Follow-up",
+            "overview": "Support the luteal phase and check for pregnancy.",
+            "topic_refs": [
+              "Progesterone (Luteal Phase Support)",
+              "Serum hCG Pregnancy Test & Follow-up"
+            ]
+          }
+        ],
+        "id": "donor_oocytes"
+      },
+      {
+        "id": "double_donation",
+        "title": "IVF/ICSI With Donor Oocytes + Donor Sperm",
+        "steps": [
+          {
+            "step": "Recipient Evaluation & Legal",
+            "overview": "Complete medical assessment and legal counseling for double-donor treatment.",
+            "topic_refs": [
+              "Recipient Evaluation for Donor Cycles",
+              "Donor Selection & Counseling",
+              "Legal & Ethics in Third-Party Reproduction"
+            ]
+          },
+          {
+            "step": "Create Embryos (Double Donor",
+            "overview": "Combine donor oocytes and donor sperm using IVF/ICSI.",
+            "topic_refs": [
+              "Donor Egg IVF",
+              "Donor Sperm IVF",
+              "In Vitro Fertilization (IVF)",
+              "Intracytoplasmic Sperm Injection (ICSI)"
+            ]
+          },
+          {
+            "step": "Endometrial Preparation",
+            "overview": "Prepare the recipient’s uterine lining for transfer.",
+            "topic_refs": [
+              "Endometrial Preparation for FET"
+            ]
+          },
+          {
+            "step": "Embryo Culture & Selection",
+            "overview": "Culture and select embryo(s) for transfer.",
+            "topic_refs": [
+              "Blastocyst Culture",
+              "Embryo Grading",
+              "Embryo Selection Strategy"
+            ]
+          },
+          {
+            "step": "Embryo Transfer & Follow-up",
+            "overview": "Perform transfer and support luteal phase; confirm pregnancy.",
+            "topic_refs": [
+              "Frozen Embryo Transfer (FET)",
+              "Progesterone (Luteal Phase Support)",
+              "Serum hCG Pregnancy Test & Follow-up"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "donor_sperm_ivf",
+        "title": "IVF/ICSI With Donor Sperm",
+        "steps": [
+          {
+            "step": "Consultation, Donor Selection & Testing",
+            "overview": "Plan the cycle; complete infectious/fertility testing and required donor consents/legal steps.",
+            "topic_refs": [
+              "Infectious Disease Screening (Female)",
+              "Donor Selection & Counseling",
+              "Recipient Evaluation for Donor Cycles",
+              "Legal & Ethics in Third-Party Reproduction"
+            ]
+          },
+          {
+            "step": "Ovarian Stimulation & Monitoring",
+            "overview": "Stimulate follicles with close monitoring until ready for trigger.",
+            "topic_refs": [
+              "Ovarian Stimulation"
+            ]
+          },
+          {
+            "step": "Final Maturation Trigger",
+            "overview": "Trigger final oocyte maturation to schedule retrieval.",
+            "topic_refs": [
+              "Ovulation Trigger (hCG/GnRH Agonist)"
+            ]
+          },
+          {
+            "step": "Oocyte Retrieval (OPU",
+            "overview": "Collect eggs via transvaginal aspiration under anesthesia.",
+            "topic_refs": [
+              "Oocyte Pickup (OPU)"
+            ]
+          },
+          {
+            "step": "Fertilization (ICSI with Donor Sperm",
+            "overview": "Perform ICSI with donor sperm based on clinic protocol and donor sample.",
+            "topic_refs": [
+              "Intracytoplasmic Sperm Injection (ICSI)",
+              "Donor Sperm IVF"
+            ]
+          },
+          {
+            "step": "Embryo Culture",
+            "overview": "Culture embryos to blastocyst stage with assessment.",
+            "topic_refs": [
+              "Blastocyst Culture",
+              "Embryo Grading"
+            ]
+          },
+          {
+            "step": "Optional: Genetic Testing (PGT",
+            "overview": "Biopsy and test embryos if indicated.",
+            "topic_refs": [
+              "Embryo Biopsy Techniques",
+              "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+              "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)",
+              "Preimplantation Genetic Testing for Structural Rearrangements (PGT-SR)",
+              "Non-Invasive PGT (niPGT)"
+            ]
+          },
+          {
+            "step": "Transfer Planning & Luteal Support",
+            "overview": "Plan fresh vs. frozen transfer and support the luteal phase.",
+            "topic_refs": [
+              "Embryo Selection Strategy",
+              "Progesterone (Luteal Phase Support)"
+            ]
+          },
+          {
+            "step": "Embryo Transfer",
+            "overview": "Transfer in a fresh or frozen cycle depending on plan.",
+            "topic_refs": [
+              "Fresh Embryo Transfer — Day Five (Blastocyst Stage)",
+              "Frozen Embryo Transfer (FET)",
+              "Endometrial Preparation for FET"
+            ]
+          },
+          {
+            "step": "Pregnancy Test & Follow-up",
+            "overview": "Check serum hCG and plan follow-up.",
+            "topic_refs": [
+              "Serum hCG Pregnancy Test & Follow-up"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "genetic_indications",
+        "title": "IVF/ICSI With Genetic Testing",
+        "steps": [
+          {
+            "step": "Consultation, Screening & Genetic Counseling",
+            "overview": "Plan an IVF cycle that includes PGT; complete fertility testing for both partners and meet with genetic counseling to confirm indications.",
+            "topic_refs": [
+              "Infectious Disease Screening (Female)",
+              "Infectious Disease Screening (Male)",
+              "Anti-Müllerian Hormone (AMH) Test",
+              "Antral Follicle Count (AFC) Ultrasound",
+              "Semen Analysis",
+              "Genetic Counseling"
+            ]
+          },
+          {
+            "step": "Stimulation & Monitoring",
+            "overview": "Use ovarian stimulation with ultrasound and labs to grow multiple follicles ahead of retrieval.",
+            "topic_refs": [
+              "Ovarian Stimulation"
+            ]
+          },
+          {
+            "step": "Final Maturation Trigger & Oocyte Retrieval",
+            "overview": "Trigger final oocyte maturation and perform the OPU procedure under light anesthesia.",
+            "topic_refs": [
+              "Ovulation Trigger (hCG/GnRH Agonist)",
+              "Oocyte Pickup (OPU)"
+            ]
+          },
+          {
+            "step": "Fertilization (IVF or ICSI) & Culture",
+            "overview": "Fertilize oocytes via IVF or ICSI based on semen parameters; culture embryos to blastocyst with daily assessment.",
+            "topic_refs": [
+              "In Vitro Fertilization (IVF)",
+              "Intracytoplasmic Sperm Injection (ICSI)",
+              "Blastocyst Culture",
+              "Embryo Grading"
+            ]
+          },
+          {
+            "step": "PGT Test Development (if PGT-M",
+            "overview": "For single-gene conditions, develop and validate the custom test before biopsy.",
+            "topic_refs": [
+              "PGT-M Test Development & Validation"
+            ]
+          },
+          {
+            "step": "Embryo Biopsy & Genetic Analysis",
+            "overview": "Biopsy trophectoderm cells and analyze with the selected platform (PGT-A/M/SR or niPGT).",
+            "topic_refs": [
+              "Embryo Biopsy Techniques",
+              "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+              "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)",
+              "Preimplantation Genetic Testing for Structural Rearrangements (PGT-SR)",
+              "Non-Invasive PGT (niPGT)"
+            ]
+          },
+          {
+            "step": "Results & Prioritization",
+            "overview": "Classify embryos (euploid, mosaic, aneuploid, or inconclusive) and prioritize for transfer.",
+            "topic_refs": [
+              "Euploid Embryo",
+              "Mosaic Embryo — Low-Level",
+              "Mosaic Embryo — High-Level",
+              "Aneuploid Embryo",
+              "No Result / Inconclusive",
+              "Embryo Selection Strategy"
+            ]
+          },
+          {
+            "step": "Embryo Transfer (Usually FET",
+            "overview": "Prepare the endometrium and transfer a selected embryo in a frozen cycle; fresh PGT transfers are uncommon.",
+            "topic_refs": [
+              "Endometrial Preparation for FET",
+              "Frozen Embryo Transfer (FET)",
+              "Fresh Embryo Transfer — Day Five (Blastocyst Stage)"
+            ]
+          },
+          {
+            "step": "Luteal Phase Support & Follow-up",
+            "overview": "Support the lining and check serum hCG; plan early pregnancy monitoring.",
+            "topic_refs": [
+              "Progesterone (Luteal Phase Support)",
+              "Serum hCG Pregnancy Test & Follow-up"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "personal_gametes_ivf",
+        "title": "IVF/ICSI With Personal Gametes",
+        "steps": [
+          {
+            "step": "Consultation & Pre-IVF Testing",
+            "overview": "Plan the cycle and complete baseline infectious and fertility testing for both partners.",
+            "topic_refs": [
+              "Infectious Disease Screening (Female)",
+              "Infectious Disease Screening (Male)",
+              "Anti-Müllerian Hormone (AMH) Test",
+              "Antral Follicle Count (AFC) Ultrasound",
+              "Semen Analysis"
+            ]
+          },
+          {
+            "step": "Stimulation Education & Baseline",
+            "overview": "Review medications, monitoring schedule, and start stimulation at baseline scan.",
+            "topic_refs": [
+              "Ovarian Stimulation"
+            ]
+          },
+          {
+            "step": "Controlled Ovarian Stimulation",
+            "overview": "Use injectable or oral medications to grow multiple follicles with close monitoring.",
+            "topic_refs": [
+              "Ovarian Stimulation"
+            ]
+          },
+          {
+            "step": "Final Maturation Trigger",
+            "overview": "Trigger final oocyte maturation to schedule retrieval.",
+            "topic_refs": [
+              "Ovulation Trigger (hCG/GnRH Agonist)"
+            ]
+          },
+          {
+            "step": "Oocyte Retrieval (OPU",
+            "overview": "Collect eggs via transvaginal ultrasound–guided aspiration under light anesthesia.",
+            "topic_refs": [
+              "Oocyte Pickup (OPU)"
+            ]
+          },
+          {
+            "step": "Fertilization (IVF vs ICSI",
+            "overview": "Use conventional IVF or ICSI based on semen parameters and history.",
+            "topic_refs": [
+              "In Vitro Fertilization (IVF)",
+              "Intracytoplasmic Sperm Injection (ICSI)"
+            ]
+          },
+          {
+            "step": "Embryo Culture",
+            "overview": "Grow embryos to cleavage or blastocyst stage with daily assessment.",
+            "topic_refs": [
+              "Blastocyst Culture",
+              "Embryo Grading"
+            ]
+          },
+          {
+            "step": "Optional: Genetic Testing (PGT",
+            "overview": "Biopsy embryos and analyze chromosomes/genes if indicated.",
+            "topic_refs": [
+              "Embryo Biopsy Techniques",
+              "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+              "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)",
+              "Preimplantation Genetic Testing for Structural Rearrangements (PGT-SR)",
+              "Non-Invasive PGT (niPGT)"
+            ]
+          },
+          {
+            "step": "Transfer Planning",
+            "overview": "Decide on fresh transfer vs. freeze-all based on response and testing.",
+            "topic_refs": [
+              "Embryo Selection Strategy"
+            ]
+          },
+          {
+            "step": "Embryo Transfer (Fresh or FET",
+            "overview": "Place an embryo into the uterus in a fresh cycle or a later frozen cycle.",
+            "topic_refs": [
+              "Fresh Embryo Transfer — Day Two or Three (Cleavage Stage)",
+              "Fresh Embryo Transfer — Day Five (Blastocyst Stage)",
+              "Frozen Embryo Transfer (FET)",
+              "Endometrial Preparation for FET"
+            ]
+          },
+          {
+            "step": "Luteal Phase Support",
+            "overview": "Support the uterine lining after transfer.",
+            "topic_refs": [
+              "Progesterone (Luteal Phase Support)"
+            ]
+          },
+          {
+            "step": "Pregnancy Test & Follow-up",
+            "overview": "Check serum hCG, then follow-up ultrasound per protocol.",
+            "topic_refs": [
+              "Serum hCG Pregnancy Test & Follow-up"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reciprocal_ivf",
+        "title": "Reciprocal IVF (Shared Motherhood",
+        "steps": [
+          {
+            "step": "Couple Consultation & Planning",
+            "overview": "Define roles: Partner A (egg source) undergoes stimulation/OPU; Partner B (gestational) prepares for transfer.",
+            "topic_refs": [
+              "Legal & Ethics in Third-Party Reproduction"
+            ]
+          },
+          {
+            "step": "Partner A: Stimulation & Retrieval",
+            "overview": "Stimulate ovaries and retrieve oocytes for IVF/ICSI.",
+            "topic_refs": [
+              "Ovarian Stimulation",
+              "Ovulation Trigger (hCG/GnRH Agonist)",
+              "Oocyte Pickup (OPU)"
+            ]
+          },
+          {
+            "step": "Fertilization & Culture",
+            "overview": "Fertilize oocytes and culture embryos to blastocyst.",
+            "topic_refs": [
+              "In Vitro Fertilization (IVF)",
+              "Intracytoplasmic Sperm Injection (ICSI)",
+              "Blastocyst Culture",
+              "Embryo Grading"
+            ]
+          },
+          {
+            "step": "Partner B: Endometrial Preparation",
+            "overview": "Prepare uterine lining for embryo transfer.",
+            "topic_refs": [
+              "Endometrial Preparation for FET"
+            ]
+          },
+          {
+            "step": "Embryo Transfer & Follow-up",
+            "overview": "Transfer embryo(s) to Partner B; support luteal phase and check pregnancy.",
+            "topic_refs": [
+              "Frozen Embryo Transfer (FET)",
+              "Progesterone (Luteal Phase Support)",
+              "Serum hCG Pregnancy Test & Follow-up"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fertility_preservation",
+    "title": "Fertility Preservation",
+    "paths": [
+      {
+        "id": "female_embryo_freezing",
+        "title": "Embryo Freezing",
+        "steps": [
+          {
+            "step": "Consultation & Baseline",
+            "overview": "Plan IVF/ICSI to create embryos, with testing as indicated.",
+            "topic_refs": [
+              "Anti-Müllerian Hormone (AMH) Test",
+              "Antral Follicle Count (AFC) Ultrasound",
+              "Semen Analysis"
+            ]
+          },
+          {
+            "step": "Retrieval & Fertilization",
+            "overview": "Retrieve oocytes and fertilize via IVF or ICSI.",
+            "topic_refs": [
+              "Oocyte Pickup (OPU)",
+              "In Vitro Fertilization (IVF)",
+              "Intracytoplasmic Sperm Injection (ICSI)"
+            ]
+          },
+          {
+            "step": "Culture & Assessment",
+            "overview": "Culture embryos to blastocyst and assess quality.",
+            "topic_refs": [
+              "Blastocyst Culture",
+              "Embryo Grading"
+            ]
+          },
+          {
+            "step": "Cryopreservation & Storage",
+            "overview": "Freeze embryos and store for future transfer.",
+            "topic_refs": [
+              "Embryo Cryopreservation"
+            ]
+          },
+          {
+            "step": "Future Use Options",
+            "overview": "Warm embryos and transfer in a frozen cycle after endometrial preparation; select embryo(s) based on grading/PGT when available.",
+            "topic_refs": [
+              "Embryo Cryopreservation",
+              "Frozen Embryo Transfer (FET)",
+              "Endometrial Preparation for FET",
+              "Embryo Selection Strategy"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Female Onco-Fertility Preservation",
+        "steps": [
+          {
+            "step": "Urgent Referral & Coordination",
+            "overview": "Coordinate with oncology to preserve fertility before chemotherapy, radiation, or surgery.",
+            "topic_refs": [
+              "Before Cancer Treatment (Oncofertility)"
+            ]
+          },
+          {
+            "step": "Baseline Testing & Plan",
+            "overview": "Assess ovarian reserve and plan a rapid stimulation protocol if time allows.",
+            "topic_refs": [
+              "Anti-Müllerian Hormone (AMH) Test",
+              "Antral Follicle Count (AFC) Ultrasound"
+            ]
+          },
+          {
+            "step": "Controlled Ovarian Stimulation",
+            "overview": "Use stimulation with close monitoring to grow multiple follicles quickly.",
+            "topic_refs": [
+              "Ovarian Stimulation"
+            ]
+          },
+          {
+            "step": "Trigger & Oocyte Retrieval",
+            "overview": "Trigger final maturation and retrieve oocytes via OPU under light anesthesia.",
+            "topic_refs": [
+              "Ovulation Trigger (hCG/GnRH Agonist)",
+              "Oocyte Pickup (OPU)"
+            ]
+          },
+          {
+            "step": "Option A: Oocyte Cryopreservation",
+            "overview": "Freeze unfertilized oocytes with vitrification for future use.",
+            "topic_refs": [
+              "Oocyte Cryopreservation (Egg Freezing)"
+            ]
+          },
+          {
+            "step": "Option B: Create & Freeze Embryos",
+            "overview": "If a partner or donor is chosen, fertilize oocytes via IVF/ICSI and cryopreserve embryos.",
+            "topic_refs": [
+              "In Vitro Fertilization (IVF)",
+              "Intracytoplasmic Sperm Injection (ICSI)",
+              "Embryo Cryopreservation"
+            ]
+          },
+          {
+            "step": "Time-Critical Alternative: Ovarian Tissue Cryopreservation",
+            "overview": "If there is insufficient time for stimulation, consider OTC as a rapid option.",
+            "topic_refs": [
+              "Ovarian Tissue Cryopreservation"
+            ]
+          },
+          {
+            "step": "Post-Preservation Coordination",
+            "overview": "Transition back to oncology and plan follow-up for future use of preserved material.",
+            "topic_refs": [
+              "Before Cancer Treatment (Oncofertility)"
+            ]
+          }
+        ],
+        "id": "female_onco_fertility_preservation"
+      },
+      {
+        "title": "Male Onco-Fertility Preservation",
+        "steps": [
+          {
+            "step": "Urgent Referral & Coordination",
+            "overview": "Coordinate rapidly with oncology to bank sperm before starting gonadotoxic therapy.",
+            "topic_refs": [
+              "Before Cancer Treatment (Oncofertility)"
+            ]
+          },
+          {
+            "step": "Infectious Disease Screening",
+            "overview": "Complete required infectious disease testing prior to cryostorage.",
+            "topic_refs": [
+              "Infectious Disease Screening (Male)"
+            ]
+          },
+          {
+            "step": "Sample Collection & Analysis",
+            "overview": "Collect one or more semen samples and review quality before freezing.",
+            "topic_refs": [
+              "Sperm Collection",
+              "Semen Analysis"
+            ]
+          },
+          {
+            "step": "Cryopreservation & Storage",
+            "overview": "Freeze and store sperm in a cryobank; consider multiple collections if time permits.",
+            "topic_refs": [
+              "Sperm Cryopreservation"
+            ]
+          }
+        ],
+        "id": "male_onco_fertility_preservation"
+      },
+      {
+        "id": "female_oocyte_freezing",
+        "title": "Oocyte Freezing",
+        "steps": [
+          {
+            "step": "Consultation & Baseline",
+            "overview": "Set goals, review testing, and plan stimulation.",
+            "topic_refs": [
+              "Anti-Müllerian Hormone (AMH) Test",
+              "Antral Follicle Count (AFC) Ultrasound"
+            ]
+          },
+          {
+            "step": "Controlled Ovarian Stimulation",
+            "overview": "Stimulate follicles with monitoring until ready for trigger.",
+            "topic_refs": [
+              "Ovarian Stimulation"
+            ]
+          },
+          {
+            "step": "Final Maturation Trigger & Retrieval",
+            "overview": "Trigger final maturation and retrieve oocytes.",
+            "topic_refs": [
+              "Ovulation Trigger (hCG/GnRH Agonist)",
+              "Oocyte Pickup (OPU)"
+            ]
+          },
+          {
+            "step": "Vitrification & Storage",
+            "overview": "Freeze oocytes with vitrification and store for future use.",
+            "topic_refs": [
+              "Oocyte Cryopreservation (Egg Freezing)"
+            ]
+          },
+          {
+            "step": "Future Use Options",
+            "overview": "Thaw oocytes for fertilization (often ICSI), culture to blastocyst, optional PGT, and transfer in a prepared frozen cycle.",
+            "topic_refs": [
+              "Oocyte Cryopreservation (Egg Freezing)",
+              "Intracytoplasmic Sperm Injection (ICSI)",
+              "In Vitro Fertilization (IVF)",
+              "Blastocyst Culture",
+              "Embryo Grading",
+              "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+              "Embryo Biopsy Techniques",
+              "Frozen Embryo Transfer (FET)",
+              "Endometrial Preparation for FET"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ovarian_tissue_freezing",
+        "title": "Ovarian Tissue Cryopreservation",
+        "steps": [
+          {
+            "step": "Consultation & Eligibility",
+            "overview": "Confirm indications, urgency, and suitability for ovarian tissue cryopreservation; align with oncology timeline.",
+            "topic_refs": [
+              "Before Cancer Treatment (Oncofertility)"
+            ]
+          },
+          {
+            "step": "Pre-Op Workup & Scheduling",
+            "overview": "Complete preoperative evaluation and infectious screening; schedule laparoscopic retrieval.",
+            "topic_refs": [
+              "Infectious Disease Screening (Female)"
+            ]
+          },
+          {
+            "step": "Surgical Retrieval (Laparoscopic Cortex Harvest",
+            "overview": "Remove cortical ovarian tissue via laparoscopy; minimize ischemia time and ensure safe transport to lab.",
+            "topic_refs": [
+              "Ovarian Tissue Cryopreservation"
+            ]
+          },
+          {
+            "step": "Pathology & Tissue Processing",
+            "overview": "Assess tissue quality; prepare thin cortical strips and load into cryoprotectant per protocol.",
+            "topic_refs": [
+              "Ovarian Tissue Cryopreservation"
+            ]
+          },
+          {
+            "step": "Cryostorage & Documentation",
+            "overview": "Vitrify or cryopreserve tissue and store with chain-of-custody and labeling for future use.",
+            "topic_refs": [
+              "Ovarian Tissue Cryopreservation"
+            ]
+          },
+          {
+            "step": "Future Use Options",
+            "overview": "Plan for autotransplantation or research/IVM pathways when clinically appropriate.",
+            "topic_refs": [
+              "Ovarian Tissue Transplantation"
+            ]
+          },
+          {
+            "step": "Long-Term Follow-up",
+            "overview": "Coordinate survivorship care, discuss timing of use, and update consent as needed.",
+            "topic_refs": [
+              "Before Cancer Treatment (Oncofertility)"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prepubertal_preservation",
+        "title": "Prepubertal Preservation (Testicular/Ovarian Tissue",
+        "steps": [
+          {
+            "step": "Specialist Consultation",
+            "overview": "Coordinate with pediatric fertility preservation team; obtain consent/assent.",
+            "topic_refs": [
+              "Prepubertal Fertility Preservation"
+            ]
+          },
+          {
+            "step": "Tissue Retrieval",
+            "overview": "Collect ovarian or testicular tissue for preservation.",
+            "topic_refs": [
+              "Prepubertal Fertility Preservation",
+              "Testicular Tissue Cryopreservation",
+              "Ovarian Tissue Cryopreservation"
+            ]
+          },
+          {
+            "step": "Cryostorage & Follow-up",
+            "overview": "Store tissue and plan long-term follow-up for future use.",
+            "topic_refs": [
+              "Prepubertal Fertility Preservation"
+            ]
+          },
+          {
+            "step": "Future Use Options",
+            "overview": "Potential future use includes ovarian tissue autotransplantation; experimental approaches for testicular tissue include SSC transplantation or in vitro maturation as science advances.",
+            "topic_refs": [
+              "Prepubertal Fertility Preservation",
+              "Ovarian Tissue Cryopreservation",
+              "Testicular Tissue Cryopreservation",
+              "Ovarian Tissue Transplantation"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "male_preservation",
+        "title": "Sperm Freezing (Adult/Adolescent",
+        "steps": [
+          {
+            "step": "Consultation & Consent",
+            "overview": "Review goals, timelines, and consent for sperm banking.",
+            "topic_refs": [
+              "Sperm Cryopreservation"
+            ]
+          },
+          {
+            "step": "Infectious Disease Screening",
+            "overview": "Complete required infectious disease testing before storage.",
+            "topic_refs": [
+              "Infectious Disease Screening (Male)"
+            ]
+          },
+          {
+            "step": "Sample Collection & Analysis",
+            "overview": "Collect semen sample and review quality before freezing.",
+            "topic_refs": [
+              "Sperm Collection",
+              "Semen Analysis"
+            ]
+          },
+          {
+            "step": "Cryopreservation & Storage",
+            "overview": "Freeze and store sperm in secure cryobank.",
+            "topic_refs": [
+              "Sperm Cryopreservation"
+            ]
+          },
+          {
+            "step": "Future Use Options",
+            "overview": "Use banked sperm for IUI, IVF, or ICSI depending on quality and goals; plan for shipping/consents and potential multiple cycles.",
+            "topic_refs": [
+              "Clinical Use of Banked Sperm",
+              "Intrauterine Insemination (IUI)",
+              "In Vitro Fertilization (IVF)",
+              "Intracytoplasmic Sperm Injection (ICSI)"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
