@@ -19,7 +19,8 @@
       "WebFetch(domain:cfas.ca)",
       "WebFetch(domain:www150.statcan.gc.ca)",
       "WebFetch(domain:www.cdc.gov)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(echo:*)"
     ],
     "deny": [],
     "ask": []

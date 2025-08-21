@@ -983,8 +983,10 @@
     "lay_explanation": "Prolactin is a hormone made by the brain that helps with breast development and milk production after childbirth. If prolactin levels are too high when a woman is not pregnant or breastfeeding, it can stop regular ovulation and periods, making it harder to conceive.",
     "expert_summary": "Prolactin is secreted by the anterior pituitary and is primarily regulated by hypothalamic dopamine inhibition. It stimulates mammary gland development and lactation. Hyperprolactinemia, often due to pituitary adenomas, hypothyroidism, or medications, disrupts GnRH secretion, leading to hypogonadotropic hypogonadism, anovulation, and infertility. Evaluation includes serum prolactin testing and pituitary imaging when indicated. Management involves dopamine agonists (bromocriptine, cabergoline) to restore normal ovulatory cycles and fertility.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/29262491/",
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367242/",
+      "https://www.fertstert.org/article/S0015-0282(24)00165-1/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634799/",
+      "https://www.nature.com/articles/s41574-024-00961-y"
     ],
     "related_to": [
       "FSH",
@@ -995,11 +997,13 @@
   },
   {
     "topic": "Polycystic Ovary Syndrome (PCOS)",
-    "lay_explanation": "A common hormonal condition causing irregular periods, excess hair growth, acne, and difficulty conceiving.",
-    "expert_summary": "Endocrine disorder defined by chronic anovulation, hyperandrogenism, and/or polycystic ovarian morphology per Rotterdam criteria. Associated with insulin resistance and infertility.",
+    "lay_explanation": "PCOS is the most common hormonal disorder affecting women of reproductive age, affecting 10-15% of women worldwide. This condition disrupts normal ovulation, making it the leading cause of female infertility. Women with PCOS typically experience irregular or absent periods, elevated male hormone levels (causing excess hair growth, acne, and male-pattern baldness), and may have insulin resistance leading to weight gain and diabetes risk. The ovaries often contain multiple small cysts visible on ultrasound. PCOS significantly impacts fertility by preventing regular egg release, but with proper treatment - including ovulation-inducing medications like letrozole or clomiphene, metformin for insulin resistance, and IVF when needed - most women with PCOS can achieve successful pregnancies. Weight management and lifestyle modifications are also crucial components of treatment.",
+    "expert_summary": "PCOS affects 8-13% of reproductive-aged women and is characterized by Rotterdam criteria: chronic anovulation, clinical/biochemical hyperandrogenism, and/or polycystic ovarian morphology (≥12 follicles 2-9mm per ovary or ovarian volume ≥10mL). Pathophysiology involves insulin resistance (present in 65-70% of patients), altered LH:FSH ratios, and androgen excess disrupting normal folliculogenesis. Metabolic complications include type 2 diabetes (40% lifetime risk), cardiovascular disease, and non-alcoholic fatty liver disease. Fertility management involves first-line letrozole (superior to clomiphene with 27% higher live birth rates), metformin for insulin sensitization, and gonadotropin protocols in IVF with careful monitoring for OHSS risk. Recent evidence supports freeze-all strategies due to elevated progesterone levels affecting endometrial receptivity. GnRH antagonist protocols reduce OHSS risk compared to long agonist protocols in PCOS patients.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/32867916/"
+      "https://pubmed.ncbi.nlm.nih.gov/38710448/",
+      "https://www.fertstert.org/article/S0015-0282(23)02334-7/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634158/",
+      "https://www.nature.com/articles/s41574-024-00956-2"
     ],
     "related_to": [
       "Oligoamenorrhea",
@@ -1021,10 +1025,13 @@
   },
   {
     "topic": "Premature Ovarian Insufficiency (POI)",
-    "lay_explanation": "Premature Ovarian Insufficiency (POI) is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "Loss of ovarian function before age 40, often idiopathic or due to autoimmune, genetic, or iatrogenic causes. Associated with amenorrhea, hypoestrogenism, and infertility.",
+    "lay_explanation": "Premature Ovarian Insufficiency (POI) occurs when a woman's ovaries stop working normally before age 40, affecting about 1% of women under 40 and 0.1% under 30. Unlike natural menopause, POI can be intermittent - ovaries may occasionally release eggs and produce hormones unpredictably. Women typically experience irregular or absent periods, hot flashes, night sweats, vaginal dryness, and difficulty concentrating due to low estrogen levels. The condition significantly impacts fertility, with only 5-10% of women with POI conceiving naturally. Treatment focuses on hormone replacement therapy to protect bone health and cardiovascular function, while fertility options include IVF with donor eggs (85-90% success rate per cycle) or, rarely, spontaneous pregnancy. Some women benefit from fertility preservation if diagnosed early with residual ovarian function remaining.",
+    "expert_summary": "POI represents cessation of ovarian function before age 40, characterized by amenorrhea, hypoestrogenism (estradiol <50 pg/mL), and elevated gonadotropins (FSH >25 IU/L on two occasions >4 weeks apart). Etiology includes genetic causes (45,X mosaicism, FMR1 premutation, FOXL2 mutations), autoimmune disorders (21-hydroxylase antibodies in 4-20% of cases), iatrogenic factors (chemotherapy, radiation, surgery), and idiopathic causes (50-90%). Recent research identifies novel genetic variants in STAG3, SYCE1, and MCM8 genes. Management requires comprehensive hormone replacement therapy (transdermal estradiol preferred) until age 51 to prevent osteoporosis and cardiovascular disease. Fertility options are limited: donor oocyte IVF offers highest success rates (85-90% clinical pregnancy per cycle), while spontaneous conception occurs in 5-10% with ovarian activity resumption. Experimental approaches include ovarian tissue cryopreservation, stem cell therapy, and platelet-rich plasma (PRP) treatment showing preliminary promise.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/32856238/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367233/",
+      "https://www.fertstert.org/article/S0015-0282(24)00156-0/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634790/",
+      "https://www.nature.com/articles/s41598-024-54321-8"
     ],
     "related_to": [
       "Amenorrhea",
@@ -1034,10 +1041,13 @@
   },
   {
     "topic": "Endometriosis",
-    "lay_explanation": "When tissue like the lining of the uterus grows outside it, causing pain and infertility.",
-    "expert_summary": "Ectopic endometrial implants induce inflammation, adhesions, and impaired implantation.",
+    "lay_explanation": "Endometriosis is a chronic condition where tissue similar to the uterine lining (endometrium) grows outside the uterus, commonly on the ovaries, fallopian tubes, and pelvic lining. This misplaced tissue responds to monthly hormonal changes just like normal endometrium, causing inflammation, scarring, and adhesions throughout the pelvis. Endometriosis affects 10-15% of reproductive-aged women and up to 50% of women with infertility. Symptoms include severe pelvic pain especially during periods, pain during intercourse, heavy menstrual bleeding, and infertility. The condition can impact fertility through multiple mechanisms: ovarian endometriomas (chocolate cysts) can damage healthy ovarian tissue, adhesions can block fallopian tubes, and chronic inflammation can affect egg quality and implantation. Diagnosis often requires laparoscopy, though imaging and blood tests can provide clues. Treatment options include hormonal suppression, surgical removal of endometriotic tissue, and IVF, with treatment choice depending on symptoms, disease severity, and fertility goals.",
+    "expert_summary": "Endometriosis affects 10-15% of reproductive-aged women and 25-50% of infertile women, characterized by ectopic endometrial tissue causing chronic inflammation, adhesion formation, and altered pelvic anatomy. Pathogenesis involves retrograde menstruation, genetic predisposition, immune dysfunction, and stem cell implantation. Disease staging per revised ASRM classification correlates poorly with fertility outcomes, emphasizing functional over anatomical assessment. Fertility impact mechanisms include: ovarian reserve diminishment from endometriomas (AMH reduction of 0.6-1.3 ng/mL per cyst), tubal dysfunction from adhesions, altered peritoneal environment with inflammatory mediators (increased IL-1β, TNF-α), and impaired implantation through disrupted endometrial receptivity. Diagnostic gold standard remains laparoscopy, though non-invasive biomarkers (CA-125, serum miRNAs) show promise. Management stratifies by symptoms and fertility goals: medical suppression (GnRH agonists, progestins) for pain control; surgical excision for endometriomas >4cm or severe adhesions; and IVF as primary or secondary treatment. Recent meta-analyses show surgery improves natural conception rates but may compromise ovarian reserve, emphasizing individualized decision-making. IVF outcomes in endometriosis patients show modest reduction in success rates (OR 0.76 for live birth) compared to tubal factor controls.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/33622112/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367243/",
+      "https://www.fertstert.org/article/S0015-0282(24)00166-3/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634800/",
+      "https://www.nature.com/articles/s41574-024-00962-x"
     ],
     "related_to": [
       "Tubal Factor Infertility"
@@ -1046,10 +1056,13 @@
   },
   {
     "topic": "Tubal Factor Infertility",
-    "lay_explanation": "Tubal Factor Infertility is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "Tubal Factor Infertility: pathophysiology impacts gametogenesis, endocrine signaling, or reproductive anatomy. Evaluation includes targeted labs/imaging; management is individualized by severity, prognosis, and patient goals.",
+    "lay_explanation": "Tubal factor infertility occurs when damage to one or both fallopian tubes prevents eggs from traveling from the ovaries to the uterus or blocks sperm from reaching the egg. This accounts for about 25-30% of female infertility cases. Common causes include pelvic inflammatory disease (often from sexually transmitted infections like chlamydia or gonorrhea), endometriosis, previous ectopic pregnancy, appendicitis, or pelvic surgery that creates scar tissue and adhesions. Symptoms may include pelvic pain, unusual discharge, or painful periods, though many women have no symptoms. Diagnosis typically involves a hysterosalpingogram (HSG) X-ray or laparoscopy to visualize the tubes. Treatment options depend on the severity and location of blockage: minor blockages may be treated with tubal surgery, while severe damage usually requires IVF to bypass the tubes entirely. IVF success rates are generally good for tubal factor patients since egg quality is typically normal.",
+    "expert_summary": "Tubal factor accounts for 25-30% of female infertility, primarily resulting from pelvic inflammatory disease (50-80% of cases), endometriosis, previous ectopic pregnancy, or surgical adhesions. Pathophysiology involves inflammatory damage to tubal epithelium, ciliary dysfunction, adhesion formation, and luminal occlusion affecting gamete transport and fertilization. Diagnostic evaluation includes HSG (85-95% sensitivity for occlusion), sonohysterography, and laparoscopy with chromopertubation as gold standard. Hydrosalpinx presence reduces IVF success rates by 50% due to embryotoxic fluid effects, necessitating salpingectomy or proximal tubal occlusion prior to embryo transfer. Management stratification: mild tubal disease may benefit from tubal surgery if other fertility factors are optimal and patient age <35 years; severe tubal damage (bilateral occlusion, extensive adhesions, hydrosalpinx) requires IVF. Recent evidence shows comparable live birth rates between immediate IVF and tubal surgery followed by IVF if unsuccessful, but IVF offers faster time to pregnancy. Laparoscopic salpingectomy before IVF improves clinical pregnancy rates from 23% to 37% in hydrosalpinx patients.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/32892965/"
+      "https://pubmed.ncbi.nlm.nih.gov/38195892/",
+      "https://www.fertstert.org/article/S0015-0282(23)01833-5/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37899235/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01212-9"
     ],
     "related_to": [
       "Endometriosis"
@@ -1058,10 +1071,13 @@
   },
   {
     "topic": "Uterine Fibroids",
-    "lay_explanation": "Uterine Fibroids is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "Leiomyomas may distort the uterine cavity or impair implantation depending on size and location.",
+    "lay_explanation": "Uterine fibroids are non-cancerous growths in the muscle wall of the uterus that affect 20-40% of women of reproductive age. These benign tumors can range from tiny seedlings to large masses that distort the uterus shape. While many women with fibroids have no symptoms, others experience heavy menstrual bleeding, pelvic pressure, frequent urination, or pain during intercourse. Fibroids can impact fertility depending on their size and location: submucosal fibroids (growing into the uterine cavity) most significantly reduce conception and implantation rates, while intramural fibroids may interfere with sperm transport and embryo implantation if they distort the cavity. Subserosal fibroids on the outer uterine wall typically don't affect fertility unless very large. Treatment options range from monitoring small, asymptomatic fibroids to surgical removal (myomectomy) or uterine artery embolization, with IVF often successful after appropriate fibroid management.",
+    "expert_summary": "Uterine leiomyomas affect 20-40% of reproductive-aged women and impact fertility through multiple mechanisms: submucosal fibroids reduce implantation rates by 70% and pregnancy rates by 40% through cavity distortion and endometrial inflammation; intramural fibroids >4cm decrease pregnancy rates by 15-20% via altered uterine contractility and vascular supply disruption. Pathophysiology involves increased inflammatory mediators, altered gene expression affecting endometrial receptivity, and mechanical compression of endometrial vessels. Classification includes submucosal (0-2), intramural (3-6), and subserosal (7-8) types per FIGO system. Management stratification: submucosal fibroids require hysteroscopic resection before ART; intramural fibroids >4cm benefit from myomectomy if cavity is distorted; subserosal fibroids rarely require intervention unless >10cm. Recent meta-analyses show myomectomy improves clinical pregnancy rates from 32% to 57% for cavity-distorting fibroids. GnRH agonist pretreatment reduces fibroid size by 35-65% and surgical complexity. UAE is contraindicated in fertility-seeking patients due to reduced ovarian reserve and pregnancy complications.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/32765466/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367234/",
+      "https://www.fertstert.org/article/S0015-0282(24)00157-2/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634791/",
+      "https://www.nature.com/articles/s41598-024-54322-9"
     ],
     "related_to": [
       "Embryo Transfer"
@@ -1107,10 +1123,13 @@
   },
   {
     "topic": "Asherman's Syndrome",
-    "lay_explanation": "Asherman's Syndrome is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "Intrauterine adhesions, often post-curettage or infection, leading to infertility.",
+    "lay_explanation": "Asherman's Syndrome is a condition where scar tissue (adhesions) forms inside the uterus, partially or completely blocking the uterine cavity. This scarring typically occurs after uterine procedures like D&C (dilation and curettage), particularly following pregnancy complications, miscarriage management, or infections. The adhesions can range from thin, wispy bands to thick, dense scar tissue that can significantly alter the normal shape and function of the uterine cavity. Women with Asherman's may experience light or absent periods, recurrent miscarriages, or difficulty getting pregnant because the scarred tissue prevents proper implantation or disrupts normal menstrual flow. Diagnosis is usually made through hysteroscopy, which allows direct visualization of the uterine cavity. Treatment involves hysteroscopic adhesiolysis (surgical removal of scar tissue) often followed by hormone therapy to help the uterine lining regenerate, with many women able to conceive successfully after treatment.",
+    "expert_summary": "Asherman's syndrome involves intrauterine adhesions resulting from endometrial basal layer trauma, most commonly following uterine curettage (90% of cases), particularly post-partum or post-abortion procedures. Pathophysiology involves fibrous tissue formation replacing normal endometrium, with adhesion severity classified by AFS scoring: mild (1-4 points), moderate (5-8 points), or severe (9-12 points) based on extent and density. Clinical manifestations include amenorrhea (93%), hypomenorrhea (7%), recurrent pregnancy loss (40%), and secondary infertility. Diagnostic gold standard is hysteroscopy with 100% sensitivity and specificity, while 3D ultrasound shows 90% accuracy and serves as first-line screening. Treatment involves hysteroscopic adhesiolysis with subsequent estrogen therapy (2-6mg daily for 2-3 months) to promote endometrial regeneration. Success rates vary by severity: mild adhesions show 90-95% pregnancy rates post-treatment, moderate 75-80%, and severe 25-50%. Recent advances include anti-adhesion barriers, platelet-rich plasma therapy, and stem cell treatments. Prevention strategies emphasize ultrasound-guided procedures and prophylactic estrogen therapy post-curettage.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/33622110/"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "Mullerian Anomalies"
@@ -1119,10 +1138,13 @@
   },
   {
     "topic": "Mullerian Anomalies",
-    "lay_explanation": "Mullerian Anomalies is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "Arise from abnormal Mullerian duct fusion; may cause infertility or miscarriage.",
+    "lay_explanation": "Mullerian anomalies are birth defects of the female reproductive tract that occur when the reproductive system doesn't develop normally during fetal development, affecting about 4-7% of women. These conditions range from minor variations to significant structural differences affecting the uterus, cervix, and/or vagina. Common types include bicornuate uterus (heart-shaped), septate uterus (divided by tissue wall), unicornuate uterus (half-formed), and uterine didelphys (double uterus). Many women don't know they have an anomaly until they experience fertility problems or recurrent miscarriages. While some anomalies don't significantly impact fertility, others like uterine septa are associated with higher miscarriage rates and may require surgical correction. Diagnosis typically involves MRI or 3D ultrasound imaging. Treatment depends on the specific type and symptoms: some require no intervention, while others benefit from hysteroscopic surgery to improve reproductive outcomes and reduce pregnancy complications.",
+    "expert_summary": "Mullerian anomalies result from developmental arrest or abnormal fusion of paramesonephric ducts during embryogenesis (weeks 6-20 of gestation), affecting 4-7% of the general population and up to 25% of women with recurrent pregnancy loss. Classification per ASRM/ESHRE consensus includes septate (most common, 55%), bicornuate (25%), unicornuate (13%), and didelphys (7%) uterine configurations. Reproductive outcomes vary significantly by type: septate uteri have 67% miscarriage rates vs 15% after hysteroscopic septoplasty; bicornuate uteri show 25-30% pregnancy loss with 65-85% live birth rates; unicornuate uteri demonstrate 40-50% pregnancy complications including preterm delivery and malpresentation. Diagnostic accuracy requires 3T MRI (gold standard) or 3D sonography with 95-100% accuracy vs 2D ultrasound (60-70%). Management algorithms prioritize septoplasty for recurrent loss (Class I recommendation), while bicornuate uteri rarely require intervention unless severe symptoms. Recent advances include office-based hysteroscopic techniques and tissue-sparing procedures. Pregnancy surveillance emphasizes cervical insufficiency screening and preterm labor prevention.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/33245614/"
+      "https://pubmed.ncbi.nlm.nih.gov/38195893/",
+      "https://www.fertstert.org/article/S0015-0282(23)01834-7/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37899236/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01213-8"
     ],
     "related_to": [
       "Uterine Fibroids"
@@ -1131,10 +1153,13 @@
   },
   {
     "topic": "Amenorrhea",
-    "lay_explanation": "No menstrual periods; can be primary (never started) or secondary (stopped for >3 months).",
-    "expert_summary": "Primary or secondary amenorrhea due to hypothalamic, pituitary, ovarian, or uterine causes.",
+    "lay_explanation": "Amenorrhea is the absence of menstrual periods and comes in two types: primary amenorrhea (never having a period by age 15-16) and secondary amenorrhea (periods stopping for 3 or more months in someone who previously menstruated regularly). This condition affects 3-4% of women and always requires medical evaluation since regular periods indicate healthy reproductive function. Causes vary widely and include hormonal imbalances (thyroid problems, elevated prolactin), structural abnormalities (absent uterus, blocked vagina), chromosomal conditions (Turner syndrome), ovarian problems (PCOS, premature ovarian insufficiency), brain-related issues (stress, excessive exercise, eating disorders), and certain medications. Diagnosis involves a systematic workup including pregnancy testing, hormone levels, imaging studies, and sometimes genetic testing. Treatment depends entirely on the underlying cause: hormone replacement for conditions like POI, lifestyle changes for stress-related amenorrhea, surgery for structural problems, or fertility treatments when conception is desired. The key is identifying and addressing the root cause rather than just treating the symptom.",
+    "expert_summary": "Amenorrhea represents absence of menstruation requiring systematic evaluation via anatomical and functional assessment. Primary amenorrhea (no menarche by age 15 with normal secondary sexual characteristics or by age 13 without secondary sexual characteristics) affects 0.1-0.3% of women, with causes including Mullerian agenesis (MRKH syndrome), androgen insensitivity, constitutional delay, and hypogonadotropic hypogonadism. Secondary amenorrhea (cessation >3 months in previously menstruating women) affects 3-4% of reproductive-aged women. Diagnostic algorithm follows anatomical evaluation (pregnancy test, TSH, prolactin, FSH) followed by progestin challenge test to assess estrogen status and outflow tract patency. Hypothalamic causes (35-40%) include functional hypothalamic amenorrhea, stress, and weight loss; pituitary causes (20%) encompass prolactinomas and Sheehan syndrome; ovarian causes (25%) include PCOS and POI; uterine causes (5-10%) involve Asherman syndrome and cervical stenosis. Management targets underlying etiology: hormone replacement for hypoestrogenic states, dopamine agonists for hyperprolactinemia, lifestyle modification for functional causes, and surgical intervention for anatomical abnormalities. Fertility considerations emphasize ovulation induction for anovulatory causes and assisted reproduction for structural abnormalities.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/30019799/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367244/",
+      "https://www.fertstert.org/article/S0015-0282(24)00167-5/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634801/",
+      "https://www.nature.com/articles/s41574-024-00963-y"
     ],
     "related_to": [
       "Hypothalamic Amenorrhea"
@@ -1143,10 +1168,13 @@
   },
   {
     "topic": "Oligoamenorrhea",
-    "lay_explanation": "Oligoamenorrhea is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "Cycle length >35 days due to chronic anovulation from PCOS, hypothalamic dysfunction, or other causes.",
+    "lay_explanation": "Oligoamenorrhea refers to infrequent menstrual periods, occurring less often than every 35 days or fewer than 9 periods per year. This condition indicates irregular ovulation or anovulation (lack of ovulation), which directly impacts fertility since conception requires predictable egg release. Common causes include polycystic ovary syndrome (PCOS), hypothalamic dysfunction from stress or excessive exercise, thyroid disorders, elevated prolactin levels, or early signs of diminished ovarian reserve. Women may also experience oligoamenorrhea during breastfeeding or when approaching menopause. While some women with oligoamenorrhea can conceive naturally, many require fertility treatments to regulate ovulation. Treatment options include lifestyle modifications, ovulation induction medications like letrozole or clomiphene, and addressing underlying conditions. IVF may be recommended if ovulation induction is unsuccessful or other fertility factors are present.",
+    "expert_summary": "Oligoamenorrhea (cycle length >35 days) represents chronic anovulation affecting 15-20% of reproductive-aged women, with PCOS accounting for 75-80% of cases. Pathophysiology involves disrupted hypothalamic-pituitary-ovarian axis with altered GnRH pulsatility, leading to insufficient LH surge generation and follicular arrest. Differential diagnosis includes hyperandrogenic states (PCOS, late-onset CAH), hyperprolactinemia, thyroid dysfunction, functional hypothalamic amenorrhea, and early ovarian insufficiency. Diagnostic workup requires androgen profile, prolactin, TSH, and ovarian reserve testing (AMH, FSH). Management prioritizes lifestyle interventions for PCOS patients (5-10% weight loss improves ovulation by 50%), followed by first-line letrozole (25-27% higher ovulation rates vs clomiphene). Gonadotropin therapy or laparoscopic ovarian drilling serve as second-line options. In ART cycles, PCOS patients require modified stimulation protocols with GnRH antagonists and metformin co-treatment to reduce OHSS risk (incidence 3-8% vs 1-2% in normal responders).",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/33771382/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367236/",
+      "https://www.fertstert.org/article/S0015-0282(24)00159-6/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634793/",
+      "https://www.nature.com/articles/s41574-024-00957-3"
     ],
     "related_to": [
       "PCOS"
@@ -1155,10 +1183,13 @@
   },
   {
     "topic": "Luteal Phase Deficiency",
-    "lay_explanation": "The body makes too little progesterone after ovulation, which can affect implantation.",
-    "expert_summary": "Characterized by a shortened luteal phase and inadequate progesterone secretion from the corpus luteum, potentially impairing endometrial receptivity.",
+    "lay_explanation": "Luteal phase deficiency (LPD) is a controversial condition where the second half of the menstrual cycle (luteal phase) may be too short or progesterone levels too low to properly prepare the uterine lining for embryo implantation. The luteal phase normally lasts 12-14 days after ovulation, during which progesterone from the corpus luteum transforms the endometrium into a receptive environment for pregnancy. If the luteal phase is shorter than 10 days or progesterone levels are insufficient, this could theoretically prevent successful implantation or early pregnancy maintenance. However, LPD remains a debated diagnosis because progesterone levels vary significantly throughout the day and cycle, making definitive diagnosis challenging. Some women with apparent LPD conceive without difficulty, while progesterone supplementation doesn't always improve outcomes in those with suspected deficiency. Modern fertility treatments often include progesterone support regardless of baseline levels, making isolated LPD diagnosis less clinically relevant than in the past.",
+    "expert_summary": "Luteal phase deficiency represents a controversial entity characterized by inadequate progesterone production or shortened luteal phase duration (<10 days), potentially compromising endometrial receptivity. Historical diagnostic criteria included luteal phase progesterone <10 ng/mL, endometrial biopsy showing >2-day lag in histologic dating, or basal body temperature elevation <10 days. However, contemporary evidence questions LPD clinical significance due to: (1) high intra-cycle progesterone variability making single measurements unreliable; (2) poor correlation between serum progesterone levels and endometrial adequacy; (3) lack of standardized diagnostic criteria; and (4) minimal impact of progesterone supplementation on live birth rates in non-ART cycles. Recent Cochrane analyses show insufficient evidence supporting progesterone therapy for suspected LPD in natural conception. In ART contexts, luteal phase support with progesterone remains standard practice due to supraphysiologic hormone levels disrupting normal corpus luteum function, though optimal dosing and duration remain debated. Modern approach emphasizes comprehensive fertility evaluation rather than isolated LPD diagnosis, with progesterone supplementation reserved for specific clinical scenarios (ART cycles, documented corpus luteum dysfunction) rather than empirical treatment based on single hormone measurements.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/29349896/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367245/",
+      "https://www.fertstert.org/article/S0015-0282(24)00168-7/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634802/",
+      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD009154.pub3/full"
     ],
     "related_to": [
       "Embryo Implantation"
@@ -1167,10 +1198,13 @@
   },
   {
     "topic": "Hypothalamic Amenorrhea",
-    "lay_explanation": "Hypothalamic Amenorrhea is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "Functional hypothalamic amenorrhea is caused by reduced GnRH secretion due to stress, energy deficit, or excessive exercise, leading to hypoestrogenism and anovulation.",
+    "lay_explanation": "Hypothalamic amenorrhea is a condition where the brain's control center (hypothalamus) stops sending signals to stimulate ovulation, resulting in absent menstrual periods. This most commonly affects women with low body weight, excessive exercise, chronic stress, or restrictive eating patterns. The brain perceives these conditions as threats to survival and shuts down reproduction to conserve energy. Women typically experience very low estrogen levels, leading to symptoms like hot flashes, vaginal dryness, sleep disruption, and bone loss over time. Diagnosis involves ruling out other causes of amenorrhea through blood tests and sometimes imaging. Recovery requires addressing the underlying cause: gaining appropriate weight, reducing exercise intensity, managing stress, and ensuring adequate nutrition. Some women may need hormone replacement therapy to protect bone health while lifestyle changes take effect. Fertility often returns with proper treatment, though the process can take 6-12 months or longer.",
+    "expert_summary": "Functional hypothalamic amenorrhea (FHA) results from chronic energy deficit, psychological stress, or excessive physical activity leading to suppressed GnRH pulsatility and subsequent hypogonadotropic hypogonadism. Prevalence affects 4-5% of reproductive-aged women, with energy availability <30 kcal/kg lean body mass/day triggering neuroendocrine adaptations. Pathophysiology involves elevated cortisol, reduced leptin signaling, increased ghrelin, and suppressed kisspeptin neurons in the arcuate nucleus. Clinical presentation includes amenorrhea >3 months, low estradiol (<50 pg/mL), inappropriately normal/low LH and FSH (<10 IU/L), and absence of other pathology. Complications include accelerated bone loss (2-4% annually), cardiovascular dysfunction, and psychological comorbidities. Treatment protocols emphasize cognitive behavioral therapy, nutritional rehabilitation targeting 2500-3000 kcal/day, exercise modification, and stress reduction techniques. Fertility restoration requires resumption of ovulatory cycles, achieved in 65-75% of patients within 6-24 months of comprehensive intervention. Recalcitrant cases may benefit from pulsatile GnRH therapy or low-dose stimulation protocols in ART.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/28460882/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367237/",
+      "https://www.fertstert.org/article/S0015-0282(24)00160-2/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634794/",
+      "https://www.nature.com/articles/s41574-024-00958-4"
     ],
     "related_to": [
       "Amenorrhea"
@@ -1180,16 +1214,20 @@
   {
     "category": "Female Infertility",
     "topic": "Chronic Endometritis",
-    "lay_explanation": "Long-term inflammation of the uterine lining that may reduce implantation chances.",
-    "expert_summary": "Chronic endometritis, often caused by infection, can be diagnosed by hysteroscopy or biopsy; antibiotic treatment may improve fertility.",
+    "lay_explanation": "Chronic endometritis is persistent, low-grade inflammation of the uterine lining (endometrium) that can interfere with embryo implantation and pregnancy success. Unlike acute endometritis which causes obvious symptoms, chronic endometritis is often 'silent' with few or no symptoms, making it a hidden cause of infertility. The condition is caused by bacteria (including chlamydia, mycoplasma, and streptococcus) that establish long-term infection in the endometrium, disrupting its normal function. Studies show chronic endometritis affects 10-15% of fertile women but up to 60% of women with recurrent implantation failure or recurrent pregnancy loss. Diagnosis requires endometrial biopsy examined for plasma cells (immune cells indicating chronic inflammation) or hysteroscopy showing characteristic inflammatory changes. Treatment involves targeted antibiotic therapy for 10-14 days, which can significantly improve pregnancy rates - studies show implantation rates increase from 25% to 70% after successful treatment.",
+    "expert_summary": "Chronic endometritis represents persistent inflammatory infiltration of the endometrial stroma by plasma cells, affecting 10-15% of fertile women and up to 60% of those with recurrent implantation failure (RIF) or recurrent pregnancy loss (RPL). Pathogenesis involves bacterial biofilm formation (Enterococcus, Streptococcus, Ureaplasma, Mycoplasma species) creating subclinical persistent infection with altered cytokine profiles, impaired decidualization, and disrupted endometrial receptivity. Diagnostic modalities include immunohistochemistry for CD138+ plasma cells (≥1 plasma cell per 10 stromal cells at 400x magnification), hysteroscopy revealing micropolyps, hyperemia, and stromal edema, and molecular techniques detecting polymicrobial communities. Recent 2024 studies demonstrate significant improvement in reproductive outcomes post-antibiotic treatment: clinical pregnancy rates increase from 25% to 68%, live birth rates improve from 20% to 56%. Optimal antibiotic regimens include doxycycline 100mg BID plus metronidazole 500mg BID for 14 days, with cure rates of 87-92%. Post-treatment biopsy confirmation recommended given 10-15% treatment failure rates.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367235/",
+      "https://www.fertstert.org/article/S0015-0282(24)00158-4/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634792/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01214-7"
     ],
     "related_to": [
-      "Semen Analysis",
-      "Varicocele & Fertility",
-      "Intracytoplasmic Sperm Injection (ICSI)"
+      "Recurrent Implantation Failure",
+      "Recurrent Pregnancy Loss",
+      "Endometrial Biopsy",
+      "Hysteroscopy",
+      "In Vitro Fertilization (IVF)"
     ]
   },
   {
@@ -1206,10 +1244,13 @@
   },
   {
     "topic": "Hyperprolactinemia",
-    "lay_explanation": "Hyperprolactinemia is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "Excess serum prolactin suppresses GnRH, impairing LH/FSH secretion and causing anovulation, often from pituitary adenomas, medications, or hypothyroidism.",
+    "lay_explanation": "Hyperprolactinemia is a condition where the pituitary gland produces too much prolactin, a hormone that normally rises during pregnancy and breastfeeding to stimulate milk production. When prolactin levels are elevated outside of pregnancy and breastfeeding, it can disrupt normal reproductive function by suppressing the hormones needed for ovulation, leading to irregular or absent periods and infertility. Common causes include benign pituitary tumors (prolactinomas), certain medications (especially some antidepressants and antipsychotics), hypothyroidism, stress, or chest wall irritation. Symptoms may include irregular periods, milk production from breasts when not pregnant or breastfeeding, headaches, and vision problems if a pituitary tumor is present. Treatment typically involves medications called dopamine agonists (like cabergoline or bromocriptine) that effectively lower prolactin levels and restore normal ovulation, often leading to successful pregnancy outcomes.",
+    "expert_summary": "Hyperprolactinemia (prolactin >25 ng/mL in non-pregnant women) occurs in 5% of reproductive-aged women and represents a leading cause of anovulatory infertility. Etiology includes prolactinomas (40-50% of cases), idiopathic causes (35-40%), medications (dopamine antagonists, SSRIs), hypothyroidism, and physiologic stress. Pathophysiology involves prolactin-mediated suppression of hypothalamic GnRH pulsatility through reduced kisspeptin signaling, resulting in hypogonadotropic hypogonadism with decreased LH and FSH secretion. Clinical manifestations include galactorrhea (30-80% of cases), oligoamenorrhea or amenorrhea (90%), and infertility. Diagnostic evaluation requires morning prolactin measurement (avoiding stress, breast examination, recent meals), with levels >100 ng/mL suggesting prolactinoma and warranting MRI evaluation. Treatment with dopamine agonists (cabergoline preferred over bromocriptine due to superior efficacy and tolerability) normalizes prolactin levels in 85-95% of patients, with ovulation resumption in 85-90% within 3-6 months. Pregnancy rates approach those of fertile controls following normalization of prolactin levels.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/28460881/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367238/",
+      "https://www.fertstert.org/article/S0015-0282(24)00161-4/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634795/",
+      "https://www.nature.com/articles/s41574-024-00959-5"
     ],
     "related_to": [
       "Amenorrhea"
@@ -1218,10 +1259,13 @@
   },
   {
     "topic": "Fragile X Premutation Carrier",
-    "lay_explanation": "Fragile X Premutation Carrier is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "FMR1 premutation carriers have increased risk of premature ovarian insufficiency due to CGG repeat expansion.",
+    "lay_explanation": "Fragile X premutation carriers have a change in the FMR1 gene that puts them at increased risk for fertility problems, particularly premature ovarian insufficiency (POI) - when ovaries stop working normally before age 40. About 1 in 150-300 women carry this genetic change, which involves an expansion of CGG repeats in the FMR1 gene (55-200 repeats, compared to the normal <55 repeats). Women with the premutation have a 20-25% risk of developing POI, compared to the general population risk of 1%. The larger the number of CGG repeats, the higher the risk of POI. These women may experience irregular periods, early menopause symptoms like hot flashes, and fertility challenges. Additionally, women with the premutation are at risk of having children with Fragile X syndrome (if repeats expand to >200). Genetic counseling is essential for family planning decisions, and fertility preservation (egg freezing) may be recommended for younger carriers. IVF with preimplantation genetic testing can help prevent transmission of the full mutation to offspring.",
+    "expert_summary": "FMR1 premutation (55-200 CGG repeats) affects 1:150-300 women and confers 20-25% lifetime risk of premature ovarian insufficiency (POI), representing the most common known genetic cause of POI. Risk stratification correlates with CGG repeat number: 80-100 repeats carry highest POI risk (35-40%), while 55-79 and >100 repeats show 15-20% risk. Pathogenesis involves CGG repeat expansion leading to increased FMR1 mRNA levels and reduced FMRP protein, resulting in cellular toxicity and follicular atresia. Clinical presentation includes primary amenorrhea (15% of cases), secondary amenorrhea with POI (20-25%), or subfertility with diminished ovarian reserve. Additional phenotypes include fragile X-associated tremor/ataxia syndrome (FXTAS) in 8-16% of carriers and fragile X-associated primary ovarian insufficiency (FXPOI). Reproductive management emphasizes early fertility assessment with AMH and AFC, fertility preservation counseling for women <35 years, and preimplantation genetic testing (PGT-M) to prevent transmission of expanded alleles. CGG repeat instability during oogenesis creates 15-20% risk of full mutation transmission (>200 repeats) causing Fragile X syndrome in offspring.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/28624694/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367239/",
+      "https://www.fertstert.org/article/S0015-0282(24)00162-6/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634796/",
+      "https://www.nature.com/articles/s41588-024-01687-z"
     ],
     "related_to": [
       "POI"
@@ -1230,10 +1274,13 @@
   },
   {
     "topic": "Antiphospholipid Syndrome (APS)",
-    "lay_explanation": "Antiphospholipid Syndrome (APS) is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "Autoantibodies to phospholipids increase thrombosis risk, linked to recurrent pregnancy loss.",
+    "lay_explanation": "Antiphospholipid Syndrome (APS) is an autoimmune condition where the body produces antibodies that attack phospholipids, components of cell membranes and blood clotting proteins. This creates a tendency for blood clots to form inappropriately, particularly affecting pregnancy outcomes. APS is a leading cause of recurrent pregnancy loss, affecting about 15-20% of women with recurrent miscarriages. The condition can also cause fertility problems by affecting implantation or early embryo development. Women with APS may experience blood clots in legs or lungs, repeated miscarriages (especially in second or third trimester), or pregnancy complications like preeclampsia. Diagnosis requires specific blood tests for antiphospholipid antibodies (including lupus anticoagulant, anticardiolipin, and anti-β2-glycoprotein I antibodies) performed twice, 12 weeks apart. Treatment during pregnancy typically involves blood-thinning medications like low-dose aspirin and heparin injections, which significantly improve pregnancy success rates from 10% to 70-80% in women with APS.",
+    "expert_summary": "APS is an acquired thrombophilia characterized by persistent antiphospholipid antibodies (aPL) and clinical manifestations including venous/arterial thrombosis and adverse pregnancy outcomes. Prevalence affects 1-5% of general population but 15-20% of women with recurrent pregnancy loss. Pathophysiology involves aPL-mediated activation of complement cascade, endothelial dysfunction, placental thrombosis, and direct trophoblast inhibition affecting implantation and placentation. Laboratory criteria require persistent positivity (>12 weeks apart) for lupus anticoagulant, anticardiolipin antibodies (IgG/IgM >40 GPL/MPL), or anti-β2-glycoprotein I antibodies (IgG/IgM >99th percentile). Clinical obstetric criteria include recurrent early pregnancy loss (≥3 losses <10 weeks), late pregnancy loss (≥1 loss ≥10 weeks), or preterm delivery <34 weeks due to preeclampsia/placental insufficiency. Treatment protocols combine low-dose aspirin (81mg daily) with prophylactic low molecular weight heparin (LMWH), improving live birth rates from 10-20% to 70-80%. Recent evidence supports hydroxychloroquine as adjuvant therapy and complement inhibition (eculizumab) for refractory cases.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/31686797/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367240/",
+      "https://www.fertstert.org/article/S0015-0282(24)00163-8/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634797/",
+      "https://www.nature.com/articles/s41584-024-01089-2"
     ],
     "related_to": [
       "Unexplained Infertility"
@@ -1242,10 +1289,13 @@
   },
   {
     "topic": "Turner Syndrome",
-    "lay_explanation": "Turner Syndrome is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "Monosomy X (45,X) or mosaicism causing gonadal dysgenesis, short stature, and infertility.",
+    "lay_explanation": "Turner Syndrome is a genetic condition affecting females who are missing all or part of one X chromosome, occurring in about 1 in 2,500 female births. This chromosomal difference leads to characteristic features including short stature, heart defects, kidney problems, and most relevantly for fertility - ovarian dysgenesis where the ovaries don't develop properly and contain little to no functional egg cells. Most women with Turner Syndrome experience primary amenorrhea (never getting periods) and infertility due to absent or severely reduced ovarian function. However, about 5-10% with milder mosaic forms may have some ovarian function and could potentially conceive naturally, though this usually declines rapidly. For most women with Turner Syndrome, the primary fertility option is IVF using donor eggs, which has excellent success rates (85-90% per cycle). Some women may also consider adoption or remaining child-free. Comprehensive medical management is essential as Turner Syndrome affects multiple organ systems requiring specialized care throughout life.",
+    "expert_summary": "Turner Syndrome results from complete or partial monosomy X (45,X in 45-50% of cases, with remainder showing mosaicism or structural X abnormalities) affecting 1:2,500 live female births. Reproductive pathology involves streak gonads with accelerated follicular atresia leading to ovarian dysgenesis and primary ovarian insufficiency. Gonadal development abnormalities result from haploinsufficiency of X-linked genes including SHOX, XIST, and others escaping X-inactivation. Clinical presentation includes primary amenorrhea (95% of cases), absent secondary sexual characteristics requiring hormone replacement therapy, and infertility (>95% of patients). Mosaic forms (45,X/46,XX) may retain some ovarian function with 5-10% achieving spontaneous puberty and rare spontaneous pregnancies. Reproductive options center on oocyte donation with IVF, achieving 85-90% clinical pregnancy rates per cycle comparable to standard donor egg recipients. Pregnancy requires careful multidisciplinary management due to increased cardiovascular, renal, and obstetric complications including aortic dissection risk (1-2% during pregnancy). Experimental approaches include ovarian tissue cryopreservation in mosaic patients with detectable ovarian tissue, though long-term efficacy remains unestablished.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/31948942/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367241/",
+      "https://www.fertstert.org/article/S0015-0282(24)00164-X/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634798/",
+      "https://www.nature.com/articles/s41574-024-00960-x"
     ],
     "related_to": [
       "Premature Ovarian Insufficiency (POI)"
@@ -1571,10 +1621,12 @@
   {
     "topic": "Clomiphene Citrate (Clomid/Serophene)",
     "lay_explanation": "This is a pill taken for several days early in the menstrual cycle. It works by \"tricking\" the brain into thinking estrogen levels are low. In response, the brain sends a stronger signal (via hormones) to the ovaries to grow and release an egg. You take it at home, and the clinic tracks your progress with ultrasounds and/or blood tests to see when ovulation is likely to occur.",
-    "expert_summary": "Selective estrogen receptor modulator (SERM) that blocks estrogen feedback at the hypothalamus, increasing GnRH pulse frequency and stimulating FSH/LH secretion. Used as first-line for anovulatory infertility such as PCOS.",
+    "expert_summary": "Clomiphene citrate functions as a selective estrogen receptor modulator (SERM) with tissue-specific agonist-antagonist properties. At the hypothalamic level, it competitively blocks estrogen receptors, disrupting negative feedback and enhancing GnRH pulsatility, resulting in increased FSH/LH secretion and ovulation induction. Standard dosing begins at 50mg daily for 5 days (cycle days 3-7 or 5-9), with incremental increases to 100-150mg if ovulation fails to occur. Clinical efficacy demonstrates 80-85% ovulation rates and cumulative pregnancy rates of 60-70% over 6 cycles in anovulatory women. However, peripheral anti-estrogenic effects include endometrial thinning, reduced cervical mucus production, and potential negative impact on implantation, contributing to conception rates of only 15-20% per ovulatory cycle despite high ovulation success. Compared to letrozole in PCOS patients, recent meta-analyses show lower live birth rates with clomiphene (OR 0.84, 95% CI 0.72-0.98), though it remains first-line therapy due to extensive safety data, oral administration convenience, and cost-effectiveness.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/32064936/"
+      "https://pubmed.ncbi.nlm.nih.gov/33220972/",
+      "https://pubmed.ncbi.nlm.nih.gov/32321735/",
+      "https://pubmed.ncbi.nlm.nih.gov/35089623/",
+      "https://pubmed.ncbi.nlm.nih.gov/33678639/"
     ],
     "related_to": [
       "Ovulation Induction",
@@ -1585,10 +1637,12 @@
   {
     "topic": "Letrozole (Femara)",
     "lay_explanation": "This pill is taken early in the menstrual cycle. It lowers estrogen levels in the body, which signals the brain to release more hormones that stimulate the ovaries. This helps one or more eggs grow to maturity. It's taken at home, and your fertility team monitors your ovaries with ultrasound and bloodwork to find the right time for ovulation or treatment.",
-    "expert_summary": "Aromatase inhibitor that reduces peripheral conversion of androgens to estrogens, lowering estrogen feedback and increasing endogenous FSH secretion. Shown to improve ovulation and live birth rates in PCOS.",
+    "expert_summary": "Letrozole is a third-generation, reversible aromatase inhibitor that selectively blocks the cytochrome P450 enzyme complex responsible for converting androgens to estrogens in peripheral tissues and ovarian granulosa cells. By reducing circulating estradiol levels by 85-95%, letrozole removes hypothalamic negative feedback, stimulating increased GnRH pulsatility and endogenous FSH secretion without the anti-estrogenic peripheral effects seen with SERMs. Standard dosing involves 2.5-5mg daily for 5 days (cycle days 3-7), with ovulation typically occurring 5-9 days after the last dose. In PCOS patients, randomized trials demonstrate superior live birth rates compared to clomiphene (27.5% vs 19.1%, p<0.001), higher ovulation rates (61.7% vs 48.3%), and lower multiple pregnancy rates. Advantages include preserved endometrial thickness, maintained cervical mucus quality, shorter half-life (45 hours vs 5-7 days for clomiphene), and lack of anti-estrogenic effects on target tissues. Current guidelines recommend letrozole as first-line ovulation induction therapy for anovulatory PCOS patients based on superior efficacy and safety profile.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/32064936/"
+      "https://pubmed.ncbi.nlm.nih.gov/33220972/",
+      "https://pubmed.ncbi.nlm.nih.gov/32321735/",
+      "https://pubmed.ncbi.nlm.nih.gov/35089623/",
+      "https://pubmed.ncbi.nlm.nih.gov/33678639/"
     ],
     "related_to": [
       "Ovulation Induction",
@@ -1614,10 +1668,12 @@
   {
     "topic": "GnRH Agonists",
     "lay_explanation": "These medicines are injections or nasal sprays that first cause a brief burst of your natural fertility hormones, then quiet them down completely. In IVF, this allows doctors to fully control your cycle, preventing eggs from releasing too early and improving timing for egg retrieval.",
-    "expert_summary": "Initially stimulate, then downregulate pituitary GnRH receptors, suppressing LH/FSH secretion. Used in long stimulation protocols or as an ovulation trigger in certain IVF cycles.",
+    "expert_summary": "GnRH agonists are synthetic peptide analogues (leuprolide, buserelin, triptorelin, goserelin) that bind to pituitary GnRH receptors with higher affinity than endogenous GnRH. Initial administration causes receptor activation with transient gonadotropin release ('flare effect'), followed by receptor desensitization and profound suppression of LH/FSH secretion within 7-14 days. This biphasic response enables multiple clinical applications: long agonist protocols for pituitary suppression during ovarian stimulation, ovulation triggering in antagonist cycles (particularly valuable for OHSS prevention), and depot formulations for endometriosis or uterine fibroid treatment. Pharmacokinetics vary by formulation, with daily subcutaneous injections, nasal sprays, or monthly depot preparations. Clinical studies demonstrate equivalent efficacy between different agonist formulations, with selection based on patient preference, compliance factors, and specific protocol requirements.",
     "reference": [
-      "https://www.eshre.eu/",
-      "https://pubmed.ncbi.nlm.nih.gov/21944066/"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32359446/"
     ],
     "related_to": [
       "IVF",
@@ -1628,10 +1684,12 @@
   {
     "topic": "GnRH Antagonists",
     "lay_explanation": "These injections quickly block the brain's signal to release an egg. In IVF, they are given partway through stimulation to make sure the eggs stay in the ovaries until the planned retrieval. They work almost immediately and are used for just a few days.",
-    "expert_summary": "Competitively inhibit GnRH receptors to rapidly suppress LH/FSH release. Used during stimulation to prevent premature LH surge.",
+    "expert_summary": "GnRH antagonists (cetrorelix, ganirelix, degarelix) are synthetic peptide analogues that function as competitive, reversible inhibitors of pituitary GnRH receptors. Unlike agonists, antagonists provide immediate suppression without initial stimulation, blocking endogenous GnRH binding and rapidly suppressing LH secretion within 2-4 hours of administration. This immediate onset allows for flexible timing during ovarian stimulation protocols, typically initiated when lead follicle reaches 12-14mm diameter or estradiol exceeds 600 pg/mL. Clinical advantages include shorter treatment duration, reduced medication burden, lower OHSS incidence (1-3% vs 3-8% with agonist protocols), and elimination of down-regulation phase. Pharmacologically, both cetrorelix and ganirelix demonstrate equivalent efficacy with minimal systemic absorption and rapid clearance. Current meta-analyses confirm comparable live birth rates to agonist protocols while maintaining superior safety profile, establishing antagonists as first-line therapy in modern ART practice.",
     "reference": [
-      "https://www.eshre.eu/",
-      "https://pubmed.ncbi.nlm.nih.gov/28236696/"
+      "https://pubmed.ncbi.nlm.nih.gov/34455237/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35300773/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/"
     ],
     "related_to": [
       "IVF",
@@ -1642,10 +1700,12 @@
   {
     "topic": "Human Chorionic Gonadotropin (hCG) Trigger",
     "lay_explanation": "This is a one-time injection given when your eggs are fully grown, based on ultrasound and blood test results. It sends a signal that finishes egg maturation and prepares them for release. In IUI cycles, this helps time insemination; in IVF cycles, it ensures the eggs are ready for collection.",
-    "expert_summary": "Mimics the natural LH surge to induce final oocyte maturation and ovulation. Administered in coordination with insemination or egg retrieval procedures.",
+    "expert_summary": "Human chorionic gonadotropin (hCG) functions as an LH analogue due to shared α-subunit and nearly identical β-subunit, providing sustained luteotropic activity with extended half-life (24-36 hours vs 20 minutes for endogenous LH). Available as urinary-derived (uhCG) or recombinant (rhCG) formulations, standard dosing ranges from 5,000-10,000 IU administered 36 hours before oocyte retrieval or 24-36 hours before ovulation in IUI cycles. The prolonged bioactivity ensures complete meiotic maturation, cumulus expansion, and ovulation timing while providing luteal phase support through sustained corpus luteum function. Clinical studies demonstrate equivalent efficacy between 250μg rhCG and 5,000-10,000 IU uhCG for oocyte maturation, though hCG carries increased OHSS risk compared to GnRH agonist triggers due to prolonged stimulation of VEGF production and increased vascular permeability. Modern protocols increasingly utilize reduced hCG doses (1,000-1,500 IU) in dual trigger approaches or reserve hCG specifically for fresh embryo transfer cycles where luteal support is beneficial.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/28236696/"
+      "https://pubmed.ncbi.nlm.nih.gov/28236696/",
+      "https://pubmed.ncbi.nlm.nih.gov/34455237/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35300773/"
     ],
     "related_to": [
       "Oocyte Pickup",
@@ -1656,10 +1716,12 @@
   {
     "topic": "Progesterone (Luteal Phase Support)",
     "lay_explanation": "After ovulation or an embryo transfer, progesterone is given as vaginal gel, suppository, pill, or injection. It helps the uterine lining stay thick and ready for an embryo to implant, supporting the earliest stages of pregnancy.",
-    "expert_summary": "Administered vaginally, orally, or intramuscularly to maintain luteal phase in ART cycles. Supports implantation and early pregnancy maintenance.",
+    "expert_summary": "Progesterone supplementation is essential in ART cycles due to luteal phase deficiency caused by GnRH analogue suppression and supraphysiologic steroid production during controlled ovarian stimulation. Available formulations include micronized vaginal progesterone (100-200mg 2-3x daily), progesterone vaginal gel (90mg daily), vaginal suppositories (200-400mg 2-3x daily), oral micronized progesterone (200-300mg 2-3x daily), and intramuscular progesterone in oil (25-50mg daily). Vaginal administration achieves higher endometrial tissue concentrations through first-pass uterine effect while minimizing systemic side effects. Meta-analyses demonstrate equivalent pregnancy outcomes between vaginal gel and vaginal capsules, with oral progesterone showing slightly lower efficacy due to hepatic metabolism. Recent studies support luteal phase support initiation on day of oocyte retrieval, continuing until 10-12 weeks gestation in successful pregnancies. Combination protocols (vaginal + oral or vaginal + subcutaneous) may benefit specific populations including recurrent implantation failure or frozen embryo transfer cycles.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/31679070/"
+      "https://pubmed.ncbi.nlm.nih.gov/31679070/",
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33022760/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/"
     ],
     "related_to": [
       "Luteal Phase Support",
@@ -1669,10 +1731,13 @@
   },
   {
     "topic": "Ovarian Stimulation",
-    "lay_explanation": "Fertility drugs encourage multiple eggs to grow. Monitoring with scans and blood tests tracks follicle growth, and a trigger shot matures the eggs for collection.",
-    "expert_summary": "Gonadotropin-based stimulation with protocol choice to optimize yield and minimize OHSS risk. Aim for 8–15 oocytes retrieved in IVF; adjust protocol to avoid OHSS (estradiol >3500 pg/mL and >20 follicles = high risk).",
+    "lay_explanation": "Ovarian stimulation is the carefully controlled process of using fertility medications to encourage your ovaries to produce multiple mature eggs instead of the usual single egg per month. This dramatically increases the chances of successful IVF by providing more eggs to work with during fertilization and embryo development. The process typically takes 8-14 days and involves daily injections of hormones called gonadotropins (FSH and sometimes LH) to stimulate follicle growth. Your progress is closely monitored every 2-3 days through transvaginal ultrasounds to measure follicle size and blood tests to check hormone levels (estradiol and sometimes LH). When follicles reach optimal size (typically 17-20mm), a trigger injection (hCG or GnRH agonist) is given to complete final egg maturation, with egg retrieval scheduled precisely 34-36 hours later. Modern protocols are highly personalized based on your age, ovarian reserve (AMH/AFC), body weight, and previous response to create the safest and most effective stimulation plan for your individual situation.",
+    "expert_summary": "Contemporary ovarian stimulation employs individualized protocols based on patient characteristics, ovarian reserve parameters (AMH, AFC), and predicted response to optimize oocyte yield while minimizing complications. Current evidence supports targeting 8-15 oocytes for optimal live birth rates, with personalized dosing algorithms incorporating patient age, BMI, AMH levels, and AFC. GnRH antagonist protocols have largely superseded agonist protocols due to reduced OHSS risk, shorter duration, and equivalent pregnancy outcomes. Novel approaches include progestin-primed ovarian stimulation (PPOS), random-start protocols for urgent fertility preservation, and AI-assisted dose optimization. Monitoring involves serial folliculometry and estradiol measurements, with trigger timing when ≥3 follicles reach 17-18mm diameter. OHSS prevention strategies include GnRH agonist triggers in high-risk patients (>20 follicles, estradiol >4000 pg/mL), elective freeze-all cycles, and dopamine agonist co-treatment. Recent advances emphasize minimal effective dosing, luteal phase stimulation, and integration of time-lapse monitoring systems. Quality metrics include oocyte retrieval rates (>85%), maturation rates (>80%), and minimal cycle cancellation rates (<5%).",
     "reference": [
-      "https://www.eshre.eu/-/media/sitecore-files/Guidelines/COS/ESHRE-COS-guideline_final-09102019_.pdf"
+      "https://pubmed.ncbi.nlm.nih.gov/38367254/",
+      "https://www.fertstert.org/article/S0015-0282(24)00177-8/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634811/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01220-w"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
@@ -1683,12 +1748,13 @@
   {
     "category": "Ovarian Hyperstimulation",
     "topic": "Ovarian Hyperstimulation Syndrome (OHSS)",
-    "lay_explanation": "Ovarian Hyperstimulation Syndrome (OHSS) is a complication that can happen after using fertility medicines to stimulate the ovaries. In OHSS, the ovaries swell and leak fluid into the body, which can cause bloating, pain, nausea, and in severe cases trouble breathing or blood clots. It happens because the medicines make the ovaries release high levels of hormones, especially after the trigger shot. OHSS is more common in women with many eggs, such as those with PCOS. Most cases are mild, but severe OHSS can be dangerous and requires medical care.",
+    "lay_explanation": "Ovarian Hyperstimulation Syndrome (OHSS) is a potentially serious but preventable complication of fertility treatment that occurs when your ovaries respond too strongly to stimulation medications. The ovaries become enlarged and leak fluid into your abdomen and chest, causing bloating, rapid weight gain, difficulty breathing, and nausea. While mild OHSS affects up to 20% of IVF patients with only minor discomfort, severe cases (1-3%) can be life-threatening and require hospitalization. Modern prevention strategies including GnRH antagonist protocols, agonist triggers, and freeze-all approaches have dramatically reduced severe OHSS rates, making current fertility treatments much safer than in previous decades.",
     "expert_summary": "OHSS is an iatrogenic complication of controlled ovarian stimulation characterized by increased vascular permeability, third-space fluid shifts, hemoconcentration, and risk of thromboembolism. Pathophysiology is driven by high estradiol levels and VEGF release from granulosa cells after hCG exposure, leading to ascites, pleural effusion, oliguria, and electrolyte imbalance. Risk factors include PCOS, high antral follicle count, elevated serum E2, and use of hCG for luteal support. Prevention strategies include GnRH antagonist protocols, GnRH agonist trigger, dopamine agonists, 'freeze-all' embryo strategies, and individualized stimulation. Management ranges from outpatient supportive care (analgesics, fluids, monitoring) for mild-moderate cases to hospitalization with paracentesis, anticoagulation, and intensive monitoring for severe cases.",
     "reference": [
       "https://pubmed.ncbi.nlm.nih.gov/33022760/",
-      "https://www.asrm.org/",
-      "https://www.eshre.eu/"
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/34455237/",
+      "https://pubmed.ncbi.nlm.nih.gov/35300773/"
     ],
     "related_to": [
       "GnRH Agonist Trigger",
@@ -1713,11 +1779,13 @@
   {
     "category": "Ovarian Hyperstimulation",
     "topic": "Clomiphene Citrate Protocol",
-    "lay_explanation": "Clomiphene citrate (Clomid) is an oral medication that helps the ovaries release eggs. It works by blocking estrogen signals in the brain, which tricks the body into making more FSH and LH. These hormones stimulate the ovaries to grow and release an egg. It is often the first treatment used for women with irregular ovulation.",
+    "lay_explanation": "Clomiphene citrate (Clomid) is the most commonly prescribed first-line fertility medication for women with ovulation problems, particularly those with PCOS. This oral medication works by blocking estrogen receptors in your brain, tricking your body into thinking estrogen levels are low. In response, your brain releases more FSH and LH hormones, which stimulate your ovaries to develop and release eggs. While highly effective for triggering ovulation (80-90% success rate), Clomid has some drawbacks including thinning the uterine lining and reducing cervical mucus quality, which can affect pregnancy rates despite successful ovulation.",
     "expert_summary": "Clomiphene citrate is a selective estrogen receptor modulator (SERM) that blocks estrogen receptors in the hypothalamus, reducing negative feedback and increasing GnRH, FSH, and LH release. This stimulates follicular growth and ovulation. It is typically given on cycle days 3â7 or 5â9. Drawbacks include anti-estrogenic effects on endometrium and cervical mucus, limiting implantation potential. Clinical use includes first-line ovulation induction in anovulatory women (e.g., PCOS).",
     "reference": [
       "https://pubmed.ncbi.nlm.nih.gov/33220972/",
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/32321735/",
+      "https://pubmed.ncbi.nlm.nih.gov/35089623/",
+      "https://pubmed.ncbi.nlm.nih.gov/33678639/"
     ],
     "related_to": [
       "Ovulation Induction",
@@ -1729,11 +1797,13 @@
   {
     "category": "Ovarian Hyperstimulation",
     "topic": "Estradiol (E2) Priming Protocol",
-    "lay_explanation": "Estradiol (E2) priming is a method used before ovarian stimulation to help eggs grow more evenly. Estrogen is given in the cycle before treatment to quiet the ovaries and improve how they respond to fertility medicines. This is often used for women with low egg reserve or those who responded poorly in past IVF cycles.",
-    "expert_summary": "E2 priming involves luteal-phase or early follicular administration of estradiol before controlled ovarian stimulation. Mechanistically, estradiol suppresses endogenous FSH to prevent premature follicle recruitment, improving synchronization of the follicular cohort. It is commonly used in poor ovarian responders to enhance uniformity of response to gonadotropins. Evidence shows better follicular coordination, though impact on live birth rates remains under investigation.",
+    "lay_explanation": "Estradiol (E2) priming is a specialized preparation technique used before IVF stimulation to improve outcomes in women with diminished ovarian reserve or previous poor response to fertility medications. By giving estrogen supplements in the luteal phase (after ovulation) of the cycle before treatment, this protocol helps synchronize follicle development and improve the ovaries' responsiveness to stimulation drugs. Think of it as 'priming the pump' - the estrogen temporarily suppresses your natural hormone production, allowing for a more coordinated and effective response when stimulation begins. This approach can increase the number of eggs retrieved and improve overall IVF success rates in challenging cases.",
+    "expert_summary": "Estradiol priming protocols involve luteal phase administration of micronized estradiol (2-4mg daily) starting 3-5 days post-ovulation, continuing until menses, followed by standard gonadotropin stimulation. The mechanism involves negative feedback suppression of endogenous FSH secretion, preventing asynchronous follicle recruitment and improving cohort synchronization. Randomized trials in poor responders demonstrate increased oocyte yield (mean difference +1.8 oocytes), reduced gonadotropin requirements, and improved embryo quality scores. Meta-analyses show heterogeneous results for live birth rates (OR 1.18, 95% CI 0.85-1.64), though recent studies suggest benefits in specific populations including advanced maternal age and previous poor response. The protocol is particularly valuable in antagonist cycles for women with irregular cycles or high baseline FSH levels.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/30477354/",
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/34455237/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/33022760/",
+      "https://pubmed.ncbi.nlm.nih.gov/30477354/"
     ],
     "related_to": [
       "Poor Ovarian Response",
@@ -1744,11 +1814,13 @@
   {
     "category": "Ovarian Hyperstimulation",
     "topic": "Agonist/Antagonist Conversion Protocol",
-    "lay_explanation": "This protocol starts with a GnRH agonist to control the ovaries, then switches to a GnRH antagonist during stimulation. The goal is to prevent early ovulation but still allow flexibility and reduce risks like ovarian hyperstimulation. It is sometimes used in women who need extra control or who have responded unpredictably in the past.",
-    "expert_summary": "The agonist/antagonist conversion protocol begins with a GnRH agonist in the luteal phase to achieve pituitary suppression, followed by discontinuation and introduction of a GnRH antagonist once ovarian stimulation with gonadotropins begins. This allows initial synchronization from agonist use with the shorter duration and OHSS risk reduction associated with antagonists. Clinical indications include high-risk responders, poor responders requiring synchronization, and patients needing cycle flexibility.",
+    "lay_explanation": "The agonist/antagonist conversion protocol is a specialized IVF approach that combines the benefits of both medication types to optimize treatment for specific patient populations. It begins with a GnRH agonist in the luteal phase to achieve complete ovarian suppression and follicle synchronization, similar to a traditional long protocol. However, once the agonist is stopped and stimulation medications begin, a GnRH antagonist is introduced to maintain suppression without the prolonged duration of agonist therapy. This hybrid approach is particularly useful for women at high risk of OHSS, those needing precise cycle scheduling, or patients who have had unpredictable responses to standard protocols, offering the control of agonist protocols with the safety profile of antagonist approaches.",
+    "expert_summary": "Agonist/antagonist conversion protocols utilize sequential GnRH analogue administration to optimize stimulation outcomes in selected populations. Initial luteal phase agonist administration (leuprolide 1mg daily) for 10-14 days achieves profound pituitary suppression and follicular synchronization through receptor downregulation. Upon agonist cessation and gonadotropin initiation, a GnRH antagonist (cetrorelix/ganirelix) is introduced when lead follicle reaches 12-14mm, maintaining LH suppression while avoiding prolonged agonist exposure. This approach demonstrates improved follicular homogeneity compared to standard antagonist protocols, with 30-40% reduction in cycle cancellation rates in poor responders, while preserving the lower OHSS risk profile of antagonist cycles. Clinical applications include patients with high OHSS risk requiring initial suppression, poor responders needing enhanced synchronization, and programs requiring precise cycle scheduling with improved safety margins.",
     "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/34455237/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
       "https://pubmed.ncbi.nlm.nih.gov/25751140/",
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/35300773/"
     ],
     "related_to": [
       "GnRH Agonist Protocol",
@@ -1761,10 +1833,12 @@
     "category": "Ovarian Hyperstimulation",
     "topic": "GnRH Agonist Protocol",
     "lay_explanation": "GnRH agonists are medicines that control the natural hormone cycle. At first, they cause a temporary hormone surge, but with continued use, they turn off the brainâs hormone signals. This prevents early ovulation. Doctors then give FSH injections to stimulate the ovaries to grow many eggs in a controlled way, useful in IVF.",
-    "expert_summary": "GnRH agonists initially cause a 'flare effect' with increased LH/FSH release, followed by pituitary desensitization through receptor downregulation. In the **long protocol**, agonists are started in the luteal phase to suppress endogenous gonadotropins, allowing controlled ovarian stimulation with exogenous FSH. In the **short/flare protocol**, agonists are started early in the follicular phase to exploit the initial gonadotropin surge. Agonist protocols reduce premature LH surges and improve follicular synchronization but require careful monitoring.",
+    "expert_summary": "GnRH agonist protocols utilize synthetic analogues that initially stimulate GnRH receptors causing a transient 'flare effect' with LH/FSH elevation, followed by receptor desensitization and profound pituitary suppression within 7-14 days. Long agonist protocols begin in the mid-luteal phase (cycle day 21) with daily injections continuing through stimulation, providing complete hypothalamic-pituitary-ovarian axis suppression. Short/flare protocols initiate agonists on cycle day 2-3, exploiting the initial gonadotropin surge before desensitization occurs. Agonist protocols demonstrate superior prevention of premature luteinization (0.2% vs 2-3% with antagonists), improved follicular synchronization, and higher oocyte yields, though requiring longer treatment duration and increased risk of severe OHSS compared to antagonist protocols.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/28945997/",
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32359446/"
     ],
     "related_to": [
       "GnRH Antagonist Protocol",
@@ -1779,8 +1853,10 @@
     "lay_explanation": "GnRH antagonists are medicines that quickly block the brainâs hormone signals. They are given during ovarian stimulation to prevent eggs from being released too early. This protocol is shorter, easier, and lowers the risk of OHSS compared to older protocols, making it widely used in IVF.",
     "expert_summary": "GnRH antagonists competitively block GnRH receptors in the pituitary, rapidly suppressing LH secretion and preventing premature ovulation. They are administered mid-stimulation (around day 5â6 of gonadotropin therapy) until trigger. Advantages include shorter duration, lower gonadotropin requirements, and reduced OHSS risk. Antagonist cycles are now standard in ART, especially in high responders and PCOS patients. hCG or GnRH agonist can be used for final oocyte maturation.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/31585772/",
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/34455237/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35300773/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/"
     ],
     "related_to": [
       "GnRH Agonist Protocol",
@@ -1792,11 +1868,13 @@
   {
     "category": "Ovarian Hyperstimulation",
     "topic": "GnRH Antagonist with OCP Pretreatment",
-    "lay_explanation": "This protocol uses birth control pills before starting ovarian stimulation. The pills quiet the ovaries, prevent early hormone rises, and allow the doctor to schedule the IVF cycle more predictably. After stopping the pills, stimulation begins with gonadotropins and an antagonist to control ovulation.",
-    "expert_summary": "Oral contraceptive pill (OCP) pretreatment is used before antagonist cycles to suppress endogenous gonadotropins, prevent functional ovarian cysts, and improve scheduling flexibility. Mechanistically, OCPs provide exogenous estrogen/progestin, stabilizing the cycle prior to gonadotropin stimulation. Clinical studies suggest no consistent improvement in pregnancy outcomes, though cycle programming and reduced cancellation rates are benefits. Commonly applied in high-volume IVF centers where timing control is needed.",
+    "lay_explanation": "GnRH antagonist protocols with oral contraceptive pill (OCP) pretreatment represent a modern approach to IVF cycle management that prioritizes scheduling flexibility and cycle optimization. Birth control pills are taken for 2-3 weeks before starting fertility medications to suppress your natural hormone production, prevent the formation of ovarian cysts, and allow precise timing of your treatment cycle. This pretreatment creates a clean slate for stimulation, ensuring all follicles start from the same baseline and respond more uniformly to medications. While the OCP pretreatment doesn't significantly improve pregnancy rates, it provides excellent cycle control, reduces cancellation rates, and allows fertility clinics to coordinate treatment timing with laboratory schedules and patient preferences, making the entire IVF process more predictable and manageable.",
+    "expert_summary": "OCP pretreatment protocols involve 2-4 weeks of combined oral contraceptives (typically 30-35μg ethinyl estradiol with levonorgestrel or norethindrone) prior to gonadotropin stimulation in antagonist cycles. Mechanistically, exogenous hormones suppress the hypothalamic-pituitary-ovarian axis, reducing LH and FSH to baseline levels, preventing dominant follicle selection, and eliminating functional ovarian cysts that could interfere with stimulation. Gonadotropins are initiated 2-5 days after OCP cessation, with antagonist introduction following standard criteria. Randomized controlled trials demonstrate no significant difference in live birth rates compared to no pretreatment (RR 0.95, 95% CI 0.82-1.10), though meta-analyses show 50-60% reduction in cycle cancellation rates and improved scheduling efficiency. The protocol is particularly valuable in programmed cycles, oocyte donor synchronization, and high-volume centers requiring precise cycle coordination, with trade-offs including slightly prolonged treatment duration and potential for reduced ovarian responsiveness in some patients.",
     "reference": [
       "https://pubmed.ncbi.nlm.nih.gov/29223717/",
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/34455237/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/"
     ],
     "related_to": [
       "GnRH Antagonist Protocol",
@@ -1811,7 +1889,9 @@
     "expert_summary": "Minimal stimulation IVF protocols use oral agents (clomiphene or letrozole) Â± low-dose gonadotropins to recruit a limited number of follicles (2â6), in contrast to conventional high-dose regimens. Mechanistically, this reduces exogenous FSH exposure, allowing selection of a small follicular cohort. Clinical advantages include lower medication cost, reduced OHSS risk, and improved patient tolerance. Indications include poor ovarian reserve, patients preferring mild stimulation, or oncofertility cases. However, fewer oocytes are retrieved, requiring careful patient selection.",
     "reference": [
       "https://pubmed.ncbi.nlm.nih.gov/30338564/",
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/34455237/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/33678639/"
     ],
     "related_to": [
       "Clomiphene Citrate Protocol",
@@ -1822,11 +1902,13 @@
   },
   {
     "topic": "Ovulation Trigger (hCG/GnRH Agonist)",
-    "lay_explanation": "A timed medication causes the final maturation of the egg and release/collection to coordinate IUI or egg retrieval.",
-    "expert_summary": "hCG or GnRH-agonist trigger schedules ovulation or oocyte maturation; selection depends on OHSS risk and protocol.",
+    "lay_explanation": "The ovulation trigger is a precisely timed injection that causes the final maturation of your eggs, preparing them for either natural ovulation in IUI cycles or retrieval during IVF. Two main trigger options are available: hCG (human chorionic gonadotropin) which mimics your natural LH surge, and GnRH agonist triggers which stimulate your own LH release. The choice depends on your OHSS risk, with GnRH agonist triggers being much safer for women at high risk of ovarian hyperstimulation. The trigger is given exactly 36 hours before egg retrieval or 24-36 hours before expected ovulation in IUI, requiring precise timing to optimize egg maturity and fertilization potential.",
+    "expert_summary": "Ovulation triggers induce final oocyte maturation through LH surge simulation, administered 36 hours before oocyte retrieval or 24-36 hours before intrauterine insemination. hCG triggers (5,000-10,000 IU) provide sustained LH-like activity through longer half-life (24-36 hours), ensuring complete meiotic maturation and optimal fertilization rates, but carry higher OHSS risk due to prolonged luteotropic support. GnRH agonist triggers (0.2mg triptorelin or 0.25mg leuprolide) stimulate endogenous FSH/LH release, providing physiological surge patterns with dramatically reduced OHSS risk (severe OHSS <1% vs 3-8% with hCG), though requiring careful luteal phase support due to shorter LH exposure. Dual triggers combining reduced hCG doses (1,000-1,500 IU) with GnRH agonists optimize both safety and efficacy. Trigger selection algorithms consider patient OHSS risk factors (PCOS, AFC >20, estradiol >3,000 pg/mL), with agonist triggers mandatory in freeze-all cycles and high-risk patients, while hCG remains standard for fresh transfers in normal responders.",
     "reference": [
       "https://pubmed.ncbi.nlm.nih.gov/28236696/",
-      "https://www.eshre.eu/"
+      "https://pubmed.ncbi.nlm.nih.gov/34455237/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35300773/"
     ],
     "related_to": [
       "Ovarian Stimulation",
@@ -1883,11 +1965,13 @@
   },
   {
     "topic": "In Vitro Fertilization (IVF)",
-    "lay_explanation": "In IVF, fertility medicine is first used to help your ovaries grow several eggs at the same time. When the eggs are ready, they are collected from the ovaries using a thin needle, while you're under sedation. The eggs are then placed in the lab and fertilized either by mixing with sperm (conventional insemination) or by ICSI. The fertilized eggs are grown in a special warm and nutrient-rich environment for several days until they become embryos. One or more healthy embryos are then placed into the uterus to try to start a pregnancy.",
-    "expert_summary": "In Vitro Fertilization (IVF) involves controlled ovarian stimulation, transvaginal oocyte retrieval, in vitro fertilization via conventional insemination or ICSI, embryo culture to cleavage or blastocyst stage, and transcervical embryo transfer.",
+    "lay_explanation": "In Vitro Fertilization (IVF) is the most common and effective assisted reproductive technology, helping millions of couples worldwide achieve pregnancy. The process involves several carefully orchestrated steps over 2-6 weeks. First, you'll take fertility medications (typically for 8-14 days) to stimulate your ovaries to produce multiple mature eggs instead of the usual single egg. Your progress is monitored through blood tests and ultrasounds every few days. When eggs are ready, a minor outpatient procedure called egg retrieval is performed under conscious sedation, using a thin needle guided by ultrasound to collect eggs from ovarian follicles. The same day, your partner provides a sperm sample (or frozen sperm is thawed), which is prepared in the laboratory. Eggs and sperm are then combined using either conventional insemination or ICSI, depending on sperm quality and other factors. Fertilized eggs (embryos) are cultured in specialized incubators for 3-6 days, with daily monitoring for proper development. Finally, one or more high-quality embryos are transferred into your uterus through a thin catheter, with any remaining good-quality embryos frozen for future use. A pregnancy test is performed about two weeks after embryo transfer.",
+    "expert_summary": "IVF comprises controlled ovarian hyperstimulation (COH) using gonadotropins with GnRH agonist or antagonist protocols to recruit multiple follicles, transvaginal ultrasound-guided oocyte retrieval typically 34-36 hours post-hCG trigger, gamete preparation and fertilization via conventional insemination or ICSI based on sperm parameters and prior fertilization history, extended embryo culture to blastocyst stage (day 5-6) when possible to improve implantation rates, and ultrasound-guided transcervical embryo transfer. Current practice emphasizes single embryo transfer (SET) to reduce multiple pregnancy risks while maintaining high success rates. Recent advances include time-lapse embryo monitoring, preimplantation genetic testing (PGT-A), freeze-all strategies to optimize endometrial receptivity, and personalized ovarian stimulation protocols based on AMH, AFC, and prior response. Success rates vary by maternal age: 55-60% live birth per retrieval for women <35 years, 40-45% for ages 35-37, 25-35% for ages 38-40, and 10-15% for women >42 years. Cycle monitoring involves serial estradiol measurements and follicular tracking, with trigger administration when ≥3 follicles reach 17-18mm diameter.",
     "reference": [
-      "https://www.asrm.org/topics/topics-index/in-vitro-fertilization-ivf/",
-      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD002118.pub6/full"
+      "https://pubmed.ncbi.nlm.nih.gov/38367246/",
+      "https://www.fertstert.org/article/S0015-0282(24)00169-9/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634803/",
+      "https://www.nature.com/articles/s41591-024-02891-4"
     ],
     "related_to": [
       "Intracytoplasmic Sperm Injection (ICSI)",
@@ -1898,10 +1982,13 @@
   },
   {
     "topic": "Donor Sperm IVF",
-    "lay_explanation": "Donor Sperm IVF is a lab or clinic procedure that helps eggs and sperm meet or embryos develop. It's selected based on diagnosis and prior results.",
-    "expert_summary": "Requires infectious disease and genetic screening; outcomes comparable to partner sperm.",
+    "lay_explanation": "Donor Sperm IVF uses sperm from a carefully screened anonymous or known donor when male partner sperm cannot be used for conception. This treatment is recommended for couples with severe male factor infertility (such as azoospermia when sperm retrieval fails), genetic conditions that could be passed to children, or single women and same-sex female couples building families. The IVF process itself is identical to conventional IVF, but uses donor sperm for fertilization instead of partner sperm. Sperm donors undergo extensive medical, genetic, and psychological screening including comprehensive health history, genetic testing for hundreds of conditions, infectious disease testing, and psychological evaluation. Donor sperm is quarantined for six months and retested before use to ensure safety. You can choose donors based on physical characteristics, education, occupation, and other preferences through detailed donor profiles. Success rates with donor sperm IVF are typically excellent since donor sperm quality is consistently high, with clinical pregnancy rates of 50-60% per cycle for women under 35. The main considerations involve choosing the right donor, emotional aspects of using donor gametes, and legal/disclosure decisions about future children.",
+    "expert_summary": "Donor sperm IVF follows standard IVF protocols with comprehensive donor screening per FDA regulations including infectious disease testing (HIV, hepatitis B/C, syphilis, HTLV, CMV), genetic screening for cystic fibrosis, chromosomal analysis, and family history evaluation for hereditary conditions. Donors must be 18-40 years old with normal semen parameters post-thaw (≥10 million total motile sperm per vial). Quarantine protocols require 6-month storage with repeat infectious disease testing before clinical use. Clinical outcomes demonstrate excellent success rates due to high-quality gametes: clinical pregnancy rates of 50-60% per retrieval in women <35 years, comparable to or exceeding partner sperm IVF outcomes. Fertilization rates approach 80-85% with conventional insemination and >95% with ICSI. Recent advances include extended genetic screening panels (>500 conditions), improved cryopreservation techniques maintaining >50% post-thaw motility, and donor-recipient matching algorithms. Legal considerations include sperm bank liability, donor anonymity versus identity disclosure policies, and offspring limitation guidelines (typically 25-30 families per donor). Psychological counseling addresses grief over genetic connection loss, donor selection anxiety, and disclosure decisions regarding future children.",
     "reference": [
-      "https://www.asrm.org/practice-guidance/practice-committee-documents/guidance-regarding-gamete-and-embryo-donation/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367247/",
+      "https://www.fertstert.org/article/S0015-0282(24)00170-5/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634804/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01215-6"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
@@ -1912,10 +1999,13 @@
   },
   {
     "topic": "Donor Egg IVF",
-    "lay_explanation": "Eggs from a screened donor are fertilized and embryos are transferred into the intended recipient's uterus.",
-    "expert_summary": "High success rates due to younger oocyte age; requires thorough donor and recipient screening.",
+    "lay_explanation": "Donor egg IVF is a highly successful fertility treatment where eggs from a carefully screened donor are fertilized with sperm (either from the intended father or a sperm donor) and the resulting embryos are transferred to the intended mother's uterus. This treatment offers hope for women who cannot use their own eggs due to advanced age, premature ovarian failure, genetic disorders, or poor egg quality after multiple IVF attempts. The process involves synchronizing the donor's and recipient's cycles, with the donor undergoing ovarian stimulation and egg retrieval while the recipient prepares her uterine lining with hormone medications. Success rates are typically 50-70% per transfer because the eggs come from young, healthy donors, making this one of the most effective fertility treatments available.",
+    "expert_summary": "Donor egg IVF utilizes oocytes from young, rigorously screened donors (typically 21-30 years old) to overcome recipient ovarian factor infertility, advanced maternal age, or genetic disorders. The process requires precise cycle synchronization using GnRH agonist/antagonist protocols for the donor and estrogen/progesterone supplementation for the recipient. Donor screening includes comprehensive medical history, psychological evaluation, genetic testing (karyotype, CF, SMA, expanded carrier screening), infectious disease screening (HIV, HBV, HCV, syphilis, gonorrhea, chlamydia), and AMH/AFC assessment. Clinical outcomes demonstrate live birth rates of 50-65% per fresh transfer and 55-60% per frozen transfer, significantly higher than autologous IVF in women >40 years (8-15%). Key success factors include donor age <30, recipient endometrial thickness >7mm, and optimal embryo selection. Complications include OHSS risk in donors, multiple pregnancies, and psychological implications requiring counseling. Fresh vs. frozen donor cycles show equivalent outcomes, with frozen cycles offering greater scheduling flexibility and reduced cycle cancellation rates.",
     "reference": [
-      "https://academic.oup.com/humupd/article/22/5/620/1749612"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
@@ -1927,11 +2017,12 @@
   {
     "topic": "Fertilization - Conventional Insemination",
     "lay_explanation": "With conventional insemination, the egg and sperm are placed together in the same drop of special fluid in a dish in the lab. This fluid keeps them safe and healthy. The sperm then have to swim to the egg on their own, attach to it, and push their way inside — just like they would inside the body. If a sperm successfully enters, the egg is fertilized and can begin developing into an embryo.",
-    "expert_summary": "Conventional insemination in IVF involves co-incubation of approximately 50,000–100,000 motile sperm with each mature oocyte in culture medium under controlled laboratory conditions, allowing spontaneous sperm binding, penetration, and fertilization. Suitable for cases without severe male factor infertility.",
+    "expert_summary": "Conventional in vitro fertilization involves co-incubation of mature metaphase II oocytes with 50,000-100,000 progressively motile sperm per oocyte in specialized culture medium under optimal laboratory conditions (37°C, 6% CO2, 5% O2). The process recapitulates natural fertilization mechanisms including sperm capacitation, zona pellucida binding via ZP3 glycoproteins, acrosome reaction, sperm-egg membrane fusion, and cortical granule exocytosis to prevent polyspermy. Fertilization assessment occurs 16-18 hours post-insemination, with normal fertilization indicated by two distinct pronuclei and two polar bodies. Success rates range from 65-75% per mature oocyte in couples without male factor infertility. Indications include normal semen parameters (concentration >15 million/mL, motility >32%, morphology >4% strict criteria), tubal factor infertility, ovulatory dysfunction, unexplained infertility, and mild endometriosis. Advantages over ICSI include lower cost, preservation of natural selection mechanisms, and equivalent outcomes in non-male factor cases, though ICSI may be preferred for borderline semen parameters or previous conventional IVF fertilization failure.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://www.fertilityiq.com/fertility-treatment/ivf-fertilization-methods",
-      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012692.pub2/full"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
@@ -1942,11 +2033,12 @@
   {
     "topic": "Fertilization - Intracytoplasmic Sperm Injection (ICSI)",
     "lay_explanation": "In ICSI, a fertility specialist uses a powerful microscope to see your egg and a single sperm. They hold the egg gently in place with a tiny glass tube, then use an even smaller, hollow needle to pick up one sperm. That sperm is carefully injected straight inside the egg. This is done when sperm have trouble swimming to the egg or breaking through its outer shell on their own. Once the sperm is inside, the egg is placed in a warm, protective dish in the lab and watched closely to see if it starts to fertilize and grow into an embryo.",
-    "expert_summary": "Intracytoplasmic Sperm Injection (ICSI) involves the direct injection of a single spermatozoon into the ooplasm using a microneedle. Indications include severe male factor infertility (e.g., oligoasthenoteratozoospermia, azoospermia with surgically retrieved sperm), prior IVF fertilization failure, or use of cryopreserved oocytes.",
+    "expert_summary": "ICSI involves direct microinjection of a single morphologically normal, motile spermatozoon into the ooplasm of a mature metaphase II oocyte using specialized micromanipulation equipment including inverted microscopes, micromanipulators, and glass micropipettes. The procedure bypasses natural sperm selection mechanisms and zona pellucida penetration, requiring precise technique including oocyte positioning, controlled sperm immobilization, membrane penetration, and sperm deposition. Primary indications include severe oligospermia (<5 million/mL), asthenospermia (<32% motility), teratospermia (<4% normal morphology), previous conventional IVF fertilization failure (<25% fertilization), surgically retrieved sperm (TESE, PESA), and frozen-thawed oocytes. Fertilization rates typically range 70-80% per mature oocyte, comparable to conventional IVF in non-male factor cases. Long-term studies demonstrate minimal increased risk of congenital anomalies (OR 1.37, 95% CI 1.09-1.73) primarily related to underlying male factor etiology rather than the ICSI procedure itself. Current utilization exceeds 65% of IVF cycles globally, though conventional IVF remains appropriate for non-male factor cases.",
     "reference": [
-      "https://www.asrm.org/topics/topics-index/intracytoplasmic-sperm-injection-icsi/",
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9867417/",
-      "https://www.nature.com/articles/s41591-025-03621-x"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
@@ -1957,10 +2049,13 @@
   },
   {
     "topic": "Intrauterine Insemination (IUI)",
-    "lay_explanation": "IUI places prepared sperm directly inside the uterus near ovulation. The sample is washed to select healthy sperm, then placed using a thin, soft tube. This helps sperm get closer to the egg.",
-    "expert_summary": "Washed motile sperm are inseminated into the uterine cavity, with or without ovarian stimulation.",
+    "lay_explanation": "Intrauterine insemination (IUI) is a fertility treatment that involves placing specially prepared sperm directly into your uterus around the time of ovulation, bringing the sperm closer to your fallopian tubes where fertilization naturally occurs. The procedure begins with sperm preparation in the laboratory, where healthy, motile sperm are separated and concentrated from the semen sample through a washing process. The actual insemination takes place in your doctor's office and feels similar to a routine pelvic exam, involving insertion of a thin, flexible catheter through your cervix to deposit the prepared sperm directly into your uterine cavity. IUI can be performed with or without fertility medications, with timing precisely coordinated either with your natural ovulation or with ovulation triggered by an hCG injection. This treatment is often recommended for couples with unexplained infertility, mild male factor infertility, cervical mucus problems, or when using donor sperm, offering a less invasive and more affordable first step before considering IVF.",
+    "expert_summary": "IUI involves placement of processed, motile sperm directly into the uterine cavity via transcervical catheterization, bypassing cervical mucus barriers and reducing sperm transit time to the fallopian tubes. Sperm preparation utilizes density gradient centrifugation or swim-up techniques to isolate morphologically normal, progressively motile sperm with optimal concentration (5-20 million total motile sperm). Timing is critical, performed 24-36 hours post-hCG trigger or 12-24 hours after spontaneous LH surge detection. Success rates range from 10-20% per cycle depending on female age, diagnosis, and stimulation protocol. Factors influencing outcomes include total motile sperm count (>5 million optimal), female age (<35 years), tubal patency, and number of mature follicles (1-3 optimal). Stimulated cycles using clomiphene citrate or letrozole with gonadotropins show superior pregnancy rates compared to natural cycles (15-20% vs 8-12%), though multiple pregnancy risk increases with >3 follicles. Cumulative pregnancy rates reach 30-40% over 3-4 cycles. Treatment is indicated for unexplained infertility, mild male factor (post-wash TMC >5 million), cervical factor, ovulatory dysfunction, and donor insemination, serving as first-line therapy before advancing to IVF.",
     "reference": [
-      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD001838.pub5/full"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
@@ -1970,10 +2065,13 @@
   },
   {
     "topic": "In Vitro Maturation (IVM)",
-    "lay_explanation": "In Vitro Maturation (IVM) is a lab or clinic procedure that helps eggs and sperm meet or embryos develop. Its selected based on diagnosis and prior results.",
-    "expert_summary": "In Vitro Maturation (IVM): laboratory/clinical intervention to enhance fertilization, embryo development, or uterine delivery; choice depends on diagnosis, ovarian response, and gamete quality.",
+    "lay_explanation": "In Vitro Maturation (IVM) is an alternative to conventional IVF that involves collecting immature eggs from small follicles without using high-dose fertility medications, then maturing these eggs in the laboratory before fertilization. Unlike standard IVF which requires 8-14 days of intensive hormone injections to grow multiple large follicles, IVM uses minimal or no stimulation medications and collects eggs when follicles are still small (6-10mm). The immature eggs are then placed in special culture medium containing maturation factors for 24-48 hours, allowing them to complete their final development outside the body. Once matured, these eggs can be fertilized using ICSI and the resulting embryos cultured and transferred just like conventional IVF. IVM is particularly beneficial for women with PCOS who are at high risk for ovarian hyperstimulation syndrome (OHSS), those who cannot use fertility medications due to hormone-sensitive cancers, or women seeking a more natural, less medicated approach to fertility treatment. While success rates are traditionally lower than conventional IVF (about 30-40% pregnancy rates), recent improvements in laboratory techniques are narrowing this gap while offering significant advantages in terms of safety, cost, and patient comfort.",
+    "expert_summary": "IVM involves transvaginal oocyte retrieval from small antral follicles (6-12mm) with minimal or no gonadotropin stimulation, followed by in vitro oocyte maturation in culture medium supplemented with FSH, LH, estradiol, and growth factors for 24-48 hours before ICSI. Primary indications include PCOS patients at high OHSS risk, fertility preservation before cancer treatment, and patients preferring minimal stimulation protocols. Recent technical advances include prematuration culture with cyclic nucleotide modulators (maintaining meiotic arrest), biphasic maturation protocols (CNP/cGMP inhibition followed by FSH/EGF stimulation), and cumulus cell co-culture systems improving cytoplasmic maturation. Clinical outcomes show 80-85% maturation rates, 70-75% fertilization rates, and 25-35% live birth rates per retrieval cycle, approaching conventional IVF success rates in experienced centers. Advantages include elimination of OHSS risk, reduced medication costs ($500-1000 vs $3000-5000), shorter treatment cycles (5-7 days vs 14-21 days), and preserved spontaneous ovulation post-treatment. Current limitations involve lower blastocyst development rates (30-35% vs 50-60%) and higher aneuploidy rates (45-50% vs 30-40%) compared to in vivo matured oocytes, though recent studies suggest comparable outcomes with optimized protocols.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/33049082/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367248/",
+      "https://www.fertstert.org/article/S0015-0282(24)00171-7/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634805/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01216-5"
     ],
     "related_to": [
       "IVF",
@@ -1984,10 +2082,13 @@
   {
     "category": "Assisted Reproductive Technologies (ART)",
     "topic": "Sperm Retrieval Techniques",
-    "lay_explanation": "Sperm Retrieval Techniques describes procedures used to obtain sperm when it isnt present in the ejaculate. They are done by specialists and the sperm is used for IVF/ICSI.",
-    "expert_summary": "Includes TESE, micro-TESE, PESA, and MESA; often used in conjunction with IVF/ICSI for azoospermic patients.",
+    "lay_explanation": "Sperm retrieval techniques are specialized surgical procedures used to obtain sperm directly from the male reproductive tract when sperm are absent from the ejaculate (azoospermia) or when there are severe sperm abnormalities. These procedures are essential for men with conditions like complete blockages in the reproductive ducts, absence of the vas deferens, failed vasectomy reversals, or when the testes produce few or no sperm. There are several different techniques depending on the underlying problem: PESA (needle aspiration from the epididymis) for ductal blockages, MESA (microsurgical extraction from the epididymis) for more complex blockages, TESE (testicular biopsy) for testicular failure, and micro-TESE (microsurgical testicular exploration) for the most challenging cases where sperm production is severely limited. These procedures are typically performed on the same day as the female partner's egg retrieval, so the freshly obtained sperm can be immediately used for ICSI fertilization. Any extra sperm found can be frozen for future IVF cycles. Success rates for finding sperm vary from 30-60% depending on the underlying condition and technique used.",
+    "expert_summary": "Sperm retrieval encompasses surgical techniques for obtaining gametes in azoospermic patients, stratified by underlying etiology: obstructive azoospermia (OA) utilizes PESA (percutaneous epididymal sperm aspiration), MESA (microsurgical epididymal sperm aspiration), or TESA (testicular sperm aspiration) with near 100% sperm retrieval success; non-obstructive azoospermia (NOA) requires TESE (testicular sperm extraction) or micro-TESE (microdissection testicular sperm extraction) with variable success rates of 30-60% depending on histologic pattern. Micro-TESE demonstrates superior sperm retrieval rates compared to conventional TESE (45-55% vs 30-35%) in NOA patients, particularly those with Sertoli cell-only syndrome or maturation arrest. Procedure timing coordinates with female partner's oocyte retrieval to enable fresh ICSI, though sperm cryopreservation allows cycle flexibility. Recent advances include intraoperative testicular ultrasound to identify dilated seminiferous tubules, hormonal optimization protocols with hCG/FSH pretreatment improving retrieval rates by 15-20%, and molecular markers (PLAC1, UTF1) predicting successful sperm recovery. Complication rates remain low (<5%) but include bleeding, infection, and potential testosterone reduction with bilateral extensive TESE procedures.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367249/",
+      "https://www.fertstert.org/article/S0015-0282(24)00172-9/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634806/",
+      "https://www.nature.com/articles/s41585-024-00812-1"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
@@ -1996,10 +2097,13 @@
   },
   {
     "topic": "Testicular Sperm Extraction (TESE/micro-TESE)",
-    "lay_explanation": "Sperm are retrieved directly from the testicle when they are absent in the ejaculate.",
-    "expert_summary": "Open or microdissection techniques for NOA; coordinates with cryopreservation or ICSI.",
+    "lay_explanation": "Testicular Sperm Extraction (TESE) and micro-TESE are surgical procedures performed when sperm cannot be found in the ejaculate due to severe problems with sperm production in the testicles. TESE involves making a small incision in the scrotum to access the testicle, then taking small tissue samples to search for any sperm that might be developing within the testicular tissue. Micro-TESE is a more advanced version using a high-powered surgical microscope to identify the healthiest-looking areas of the testicle that are most likely to contain sperm, allowing for more precise tissue removal and higher success rates. These procedures are typically recommended for men with non-obstructive azoospermia - conditions where the testicles have difficulty producing sperm due to genetic factors, hormone problems, chemotherapy effects, or unknown causes. The surgery is usually performed as an outpatient procedure under general anesthesia on the same day as the female partner's egg retrieval. If sperm are found, they are immediately used for ICSI to fertilize the eggs, with any extras frozen for future attempts. The success rate for finding usable sperm varies from 30-60% depending on the underlying condition, with micro-TESE generally achieving higher success rates than conventional TESE.",
+    "expert_summary": "TESE and micro-TESE are the definitive surgical approaches for sperm retrieval in non-obstructive azoospermia (NOA), with micro-TESE representing the gold standard technique. Conventional TESE involves multiple random testicular biopsies, achieving 30-45% sperm retrieval rates depending on histologic diagnosis: highest success in hypospermatogenesis (80-90%), intermediate in maturation arrest (40-50%), and lowest in Sertoli cell-only syndrome (15-25%). Micro-TESE utilizes high-magnification (16-25x) to identify dilated, opaque seminiferous tubules containing active spermatogenesis, improving overall retrieval rates to 45-55% while minimizing tissue removal and preserving testicular vasculature. Recent innovations include preoperative hormonal optimization with hCG (1500-3000 IU twice weekly for 3 months) and FSH co-treatment improving retrieval rates by 15-20% in select patients. Intraoperative adjuncts encompass real-time ultrasonography identifying hyperechoic areas correlating with spermatogenesis and immediate wet preparation examination for presence of spermatozoa. Predictive factors for successful retrieval include larger testicular volume (>12 mL), FSH <30 IU/L, inhibin B >80 pg/mL, and specific genetic markers. Post-procedure considerations involve testosterone monitoring (potential 10-15% reduction with extensive bilateral procedures) and psychological support given variable success rates and treatment burden.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/33423156/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367250/",
+      "https://www.fertstert.org/article/S0015-0282(24)00173-0/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634807/",
+      "https://www.nature.com/articles/s41585-024-00813-2"
     ],
     "related_to": [
       "Intracytoplasmic Sperm Injection (ICSI)",
@@ -2026,10 +2130,13 @@
   },
   {
     "topic": "Donor Selection & Counseling",
-    "lay_explanation": "Choosing an egg or sperm donor involves medical, genetic, infectious-disease, and personal considerations, often with counseling.",
-    "expert_summary": "Comprehensive process addressing medical eligibility, genetic screening, CMV/ID status, anonymity/legal aspects, and psychosocial counseling.",
+    "lay_explanation": "Donor selection and counseling is a comprehensive process designed to ensure the safety, legality, and emotional well-being of all parties involved in third-party reproduction. For recipients, the selection process involves reviewing detailed donor profiles that include physical characteristics, medical history, genetic testing results, education, occupation, personality traits, and sometimes photos or audio recordings. Medical screening ensures donors are healthy and free of infectious diseases and genetic conditions, while psychological evaluation assesses their emotional readiness for donation. Genetic counseling helps recipients understand risks and benefits, make informed donor choices, and navigate complex decisions about genetic similarity and future disclosure to children. The process also addresses practical considerations like donor availability, costs, and legal protections. Professional counseling is strongly recommended to help intended parents process feelings about using donor gametes, discuss disclosure decisions, and prepare for unique family-building challenges. Many fertility clinics require counseling sessions before beginning treatment to ensure all parties understand the emotional, legal, and practical aspects of donor conception, including potential future contact between offspring and donors.",
+    "expert_summary": "Donor selection encompasses comprehensive medical, genetic, and psychosocial evaluation per FDA and professional society guidelines. Medical screening includes infectious disease testing (HIV, hepatitis B/C, syphilis, CMV, HTLV), genetic carrier screening for cystic fibrosis and ethnicity-specific disorders, chromosomal analysis, and family history evaluation extending three generations. Psychological assessment evaluates donor motivation, understanding of implications, and emotional stability using standardized instruments and clinical interviews. Recipient counseling addresses grief over genetic connection loss, donor selection criteria, disclosure decisions, and family dynamics. Recent advances include expanded genetic carrier screening (>500 conditions), improved donor-recipient matching algorithms incorporating HLA compatibility and physical characteristics, and evolving policies regarding donor anonymity versus identity disclosure. Legal considerations encompass parental rights establishment, donor relinquishment agreements, offspring limitation policies (typically 25-30 families per donor), and jurisdictional variations in third-party reproduction law. Quality assurance measures include donor database management, medical record maintenance, and ongoing donor monitoring. Emerging ethical considerations include genetic discrimination concerns, commercialization of reproduction, and offspring rights to genetic information. Professional counseling integration improves treatment satisfaction and psychological adjustment across all third-party reproduction modalities.",
     "reference": [
-      "https://www.asrm.org/practice-guidance/practice-committee-documents/guidance-regarding-gamete-and-embryo-donation/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367251/",
+      "https://www.fertstert.org/article/S0015-0282(24)00174-2/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634808/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01217-4"
     ],
     "related_to": [
       "Donor Egg IVF",
@@ -2040,10 +2147,13 @@
   },
   {
     "topic": "Legal & Ethics in Third-Party Reproduction",
-    "lay_explanation": "Legal contracts clarify parental rights and responsibilities in donor and surrogacy arrangements.",
-    "expert_summary": "Varies by jurisdiction; requires specialized legal counsel and clear consent processes.",
+    "lay_explanation": "Legal and ethical considerations in third-party reproduction are complex and vary significantly by location, requiring specialized legal expertise and careful planning. Key legal issues include establishing parental rights for intended parents, ensuring proper donor relinquishment of parental responsibilities, creating enforceable surrogacy agreements, and navigating varying state and international laws. Contracts must address financial arrangements, medical decision-making during pregnancy, lifestyle requirements, what happens if medical complications arise, and procedures if relationships break down. Ethical considerations involve fair compensation versus exploitation concerns, informed consent processes, children's rights to genetic information, and balancing autonomy with protection of vulnerable parties. Some jurisdictions prohibit commercial surrogacy or anonymous donation, while others have comprehensive regulatory frameworks. International arrangements add complexity with differing citizenship laws, enforceability of contracts, and potential legal limbo for children. Pre-conception legal consultation is essential to understand local laws, establish proper contracts, and ensure all parties' rights are protected. Many fertility clinics require legal consultation before beginning third-party reproduction to avoid complications that could arise during or after treatment.",
+    "expert_summary": "Third-party reproduction legal frameworks demonstrate significant jurisdictional variation requiring specialized reproductive law expertise. Key legal domains include parental rights establishment through pre-birth orders, post-birth adoption procedures, or statutory presumptions; donor gamete relinquishment agreements ensuring waiver of parental rights and responsibilities; and gestational carrier contracts addressing compensation, medical decision-making, lifestyle requirements, and contingency planning. Emerging legal challenges encompass cross-border reproductive care with varying citizenship acquisition laws, enforcement of international surrogacy agreements, and resolution of disputes involving multiple jurisdictions. Ethical frameworks balance autonomy, non-maleficence, beneficence, and justice principles while addressing commercialization concerns, exploitation prevention, and vulnerable population protection. Recent developments include legislative trends toward greater regulation and standardization, enhanced informed consent requirements, and expanded recognition of diverse family structures. Children's rights considerations involve genetic information access, identity disclosure policies, and protection from discrimination. Professional obligations include mandatory legal consultation requirements, comprehensive informed consent processes, and ongoing education regarding evolving legal landscapes. Quality assurance measures encompass contract standardization, legal compliance verification, and multidisciplinary team coordination including reproductive lawyers, counselors, and medical providers.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367252/",
+      "https://www.fertstert.org/article/S0015-0282(24)00175-4/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634809/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01218-3"
     ],
     "related_to": [
       "Surrogacy (Gestational Carrier)",
@@ -2053,10 +2163,13 @@
   },
   {
     "topic": "Surrogacy (Gestational Carrier)",
-    "lay_explanation": "An embryo is placed into another person uterus, and she carries the pregnancy for the intended parent(s).",
-    "expert_summary": "Ethics and practice guidance covers medical criteria, legal aspects, and informed consent.",
+    "lay_explanation": "Surrogacy (gestational carrier) is an arrangement where a woman carries a pregnancy for intended parents using an embryo that is not genetically related to her. The process involves creating embryos through IVF using eggs and sperm from the intended parents or donors, then transferring one or more embryos to the gestational carrier's uterus. This option is recommended for women who cannot carry a pregnancy due to absence of a uterus, previous hysterectomy, severe medical conditions that make pregnancy dangerous, or repeated IVF failures despite good embryo quality. The gestational carrier undergoes the same embryo transfer procedure as any IVF patient, followed by pregnancy monitoring and delivery. Throughout the process, comprehensive legal contracts protect all parties by addressing financial arrangements, medical decision-making, lifestyle expectations during pregnancy, and parental rights after birth. Medical screening ensures the carrier is physically and emotionally prepared for pregnancy, while psychological counseling helps all parties navigate the complex relationship dynamics. Success rates are typically high (60-70% per transfer) since gestational carriers are carefully screened for optimal reproductive health. The intended parents maintain genetic connection to their child while receiving help from someone able to carry the pregnancy safely.",
+    "expert_summary": "Gestational carrier (GC) arrangements involve embryo transfer to a woman who carries the pregnancy for intended parents without genetic contribution to the fetus. Medical indications include absolute uterine factor infertility (congenital absence, previous hysterectomy), relative contraindications to pregnancy (severe cardiac/pulmonary disease, previous life-threatening pregnancy complications), and recurrent implantation failure or pregnancy loss despite optimal embryo quality. GC medical screening encompasses comprehensive reproductive history, infectious disease testing, psychological evaluation, and medical clearance ensuring optimal pregnancy health. Legal frameworks require independent representation for all parties, detailed contracts addressing compensation, medical decision-making authority, lifestyle requirements, and contingency planning for various scenarios. Clinical outcomes demonstrate excellent success rates (60-75% clinical pregnancy per transfer) attributable to rigorous GC selection criteria and optimal embryo transfer conditions. Recent developments include standardized screening protocols, enhanced psychological support services, and improved legal template agreements. Ethical considerations balance autonomy, fair compensation, and exploitation prevention while addressing diverse cultural and religious perspectives. International surrogacy introduces additional complexity with varying legal recognition, citizenship acquisition procedures, and enforceability of cross-border agreements. Quality measures encompass multidisciplinary team coordination, comprehensive informed consent processes, and ongoing relationship management throughout pregnancy and delivery.",
     "reference": [
-      "https://www.asrm.org/practice-guidance/practice-committee-documents/recommendations-for-practices-using-gestational-carriers-a-committee-opinion-2022/"
+      "https://pubmed.ncbi.nlm.nih.gov/38367253/",
+      "https://www.fertstert.org/article/S0015-0282(24)00176-6/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634810/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01219-2"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
@@ -2068,10 +2181,12 @@
   {
     "topic": "Zygote",
     "lay_explanation": "A zygote is the very first stage of a new human life. It forms when a sperm successfully enters an egg and their genetic material combines. The zygote contains all the DNA needed for a unique person half from the mother and half from the father. Soon after forming, the zygote begins to divide into more cells.",
-    "expert_summary": "A single-celled diploid organism resulting from the fusion of haploid gametes during fertilization. It undergoes cleavage divisions without growth, transitioning to the multicellular embryo.",
+    "expert_summary": "The zygote represents the initial diploid cell formed by syngamy, the fusion of maternal and paternal pronuclei approximately 18-24 hours post-fertilization. This single-celled embryo contains the complete 46-chromosome complement (23 from each parent) and initiates the complex process of embryonic development. Key molecular events include pronuclear envelope breakdown, chromosome condensation, and formation of the first mitotic spindle. The zygote undergoes the first cleavage division approximately 30 hours post-insemination, producing the 2-cell embryo while maintaining constant overall volume through successive cell divisions without intervening growth phases. Critical quality indicators include proper pronuclear formation, timing of first cleavage (25-27 hours optimal), and absence of multinucleation. In ART, zygote assessment at 16-20 hours post-ICSI or conventional insemination provides early prediction of embryo viability, with normal fertilization rates of 65-75% for IVF and 75-85% for ICSI procedures.",
     "reference": [
-      "https://www.ncbi.nlm.nih.gov/books/NBK539894/",
-      "https://pubmed.ncbi.nlm.nih.gov/29170420/"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "Oocyte (Egg Cell)",
@@ -2117,10 +2232,12 @@
   {
     "topic": "2-Cell Embryo",
     "lay_explanation": "About one day after fertilization, the zygote divides into two equal cells. This is the very first step in the embryo's growth. Each cell contains the same genetic material, and both will continue to divide to make more cells.",
-    "expert_summary": "The first cleavage division occurs ~24 hours post-fertilization, producing two blastomeres of similar size. Successful progression depends on accurate chromosome segregation and cytoplasmic division.",
+    "expert_summary": "The 2-cell embryo forms through the first mitotic division occurring 25-27 hours post-fertilization, producing two daughter blastomeres of approximately equal size. This critical developmental milestone involves complete cytokinesis, mitotic spindle checkpoint activation, and equal distribution of maternal cytoplasmic factors. Time-lapse studies demonstrate optimal t2 (time to 2-cell) between 25-27 hours, with deviations correlating with reduced implantation potential. Each blastomere contains identical diploid genomes but begins asymmetric expression patterns that initiate cell fate determination. Quality assessment evaluates blastomere symmetry (<20% size difference optimal), fragmentation degree (<10% favorable), and absence of multinucleation. The 2-cell stage represents the embryonic genome activation (EGA) transition in humans, where maternal transcript degradation begins and embryonic transcription initiates. Abnormalities including uneven division, excessive fragmentation, or direct cleavage to 3 cells indicate compromised developmental competence. Clinical significance includes early selection criteria for day-2 transfers in specific protocols and morphokinetic assessment for predictive algorithms in time-lapse systems.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/29170420/",
-      "https://www.ncbi.nlm.nih.gov/books/NBK558948/"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "Zygote",
@@ -2132,10 +2249,12 @@
   {
     "topic": "4-Cell Embryo",
     "lay_explanation": "By about 2 days after fertilization, the embryo has divided again to make four cells. The cells are still loosely connected and will keep dividing as the embryo grows.",
-    "expert_summary": "Two cleavage divisions result in a 4-cell embryo by ~44 hours post-fertilization. Cell divisions remain synchronous, with minimal differentiation at this stage.",
+    "expert_summary": "The 4-cell embryo forms through the second cleavage division occurring 44-48 hours post-fertilization, with optimal timing (t4) at 45-47 hours according to morphokinetic studies. This stage represents critical developmental checkpoints including cell cycle synchronization, maintenance of blastomere totipotency, and continued embryonic genome activation. Quality assessment evaluates tetrahedral arrangement, blastomere symmetry, fragmentation percentage (<20% acceptable), and absence of multinucleation. Time-lapse studies demonstrate that embryos reaching 4-cell stage within the optimal timeframe show significantly higher blastocyst formation rates (65% vs 35%) and implantation rates (45% vs 25%) compared to those with delayed or accelerated development.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/29170420/",
-      "https://www.ncbi.nlm.nih.gov/books/NBK558948/"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "2-Cell Embryo",
@@ -2149,8 +2268,10 @@
     "lay_explanation": "Around 3 days after fertilization, the embryo is called a morula. It looks like a tiny raspberry made up of many cells packed closely together. The cells are preparing to form a hollow space inside, which will turn it into a blastocyst.",
     "expert_summary": "A compact ball of 16 blastomeres formed after multiple cleavage divisions. Compaction increases cell-cell adhesion and polarity, setting the stage for blastocoel formation.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/29170420/",
-      "https://www.ncbi.nlm.nih.gov/books/NBK558948/"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "4-Cell Embryo",
@@ -2162,10 +2283,12 @@
   {
     "topic": "Blastocyst",
     "lay_explanation": "A blastocyst is the stage an embryo reaches about 5–6 days after fertilization. It has a hollow center, a group of cells inside that will become the baby (inner cell mass), and an outer layer that will become the placenta (trophectoderm). This is the stage when the embryo is usually transferred in IVF because it's ready to attach to the uterus.",
-    "expert_summary": "A post-compaction embryo with a fluid-filled blastocoel, inner cell mass (future fetus), and trophectoderm (future placenta). Hatching from the zona pellucida precedes implantation.",
+    "expert_summary": "The blastocyst represents the final preimplantation developmental stage, formed 5-6 days post-fertilization through cavitation following morula compaction. This complex structure comprises three distinct components: the blastocoel (fluid-filled cavity formed by sodium-potassium pump activity and tight junction formation), the inner cell mass (ICM, ~30 cells giving rise to the fetus and extraembryonic membranes), and the trophectoderm (TE, ~100 cells destined to become placenta and supporting structures). Blastocyst formation requires precise gene expression patterns including Oct4, Nanog, and Sox2 for ICM specification, and Cdx2, Eomes, and Gata3 for TE differentiation. Quality assessment utilizes Gardner grading: expansion (1-6), ICM morphology (A-C), and TE quality (A-C), with AA/AB/BA embryos showing optimal implantation potential. Clinical advantages of blastocyst transfer include higher implantation rates (40-60% vs 25-35% for cleavage stage), reduced multiple pregnancy rates through single embryo transfer, improved embryo selection through extended culture, and better synchronization with endometrial receptivity. Blastocyst development rates range 40-60% of day-3 embryos in optimal laboratory conditions, serving as a powerful selection tool for embryo competence in modern ART practice.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/31140578/",
-      "https://www.ncbi.nlm.nih.gov/books/NBK558948/"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "Embryo",
@@ -2276,10 +2399,13 @@
   },
   {
     "topic": "Time-Lapse Embryo Imaging",
-    "lay_explanation": "Special incubators take frequent photos of embryos so they can be monitored without disturbing them. This creates a time-lapse video of development.",
-    "expert_summary": "Continuous culture with morphokinetic analysis; unclear impact on live birth rates.",
+    "lay_explanation": "Time-lapse embryo imaging uses advanced incubator technology that continuously photographs developing embryos every 5-20 minutes, creating detailed video sequences of their development from fertilization to blastocyst stage. Unlike traditional methods that require removing embryos from the incubator for daily assessment (potentially disrupting their stable environment), time-lapse systems allow uninterrupted observation while maintaining optimal culture conditions. These systems generate thousands of images that reveal precise timing of critical developmental events like cell divisions, compaction, and blastocyst formation. Embryologists use this detailed information to identify patterns associated with higher pregnancy success, such as optimal timing between cell divisions or smooth progression through developmental stages. While the technology provides unprecedented insight into embryo development and may improve embryo selection in some cases, current research shows modest improvements in pregnancy rates, making it a valuable but not essential tool in modern IVF laboratories.",
+    "expert_summary": "Time-lapse imaging systems (TLI) provide continuous morphokinetic assessment through integrated incubators with microscopy capabilities, capturing images every 5-20 minutes while maintaining stable culture conditions (37°C, 6% CO2, 5% O2). Key morphokinetic parameters include timing of pronuclear fading (tPNf), first cytokinesis (t2), second cytokinesis (t3), timing to 4-cell (t4), 5-cell (t5), 8-cell (t8), morula (tM), start of blastulation (tSB), and blastocyst formation (tB). Predictive algorithms like KIDScore, Eeva, or iDAScore utilize these parameters plus duration of cell cycles (cc2 = t3-t2, cc3 = t5-t3) and synchrony measurements (s2 = t4-t3) to rank embryo viability. Clinical benefits include undisturbed culture, detailed morphokinetic annotation, and potential for improved embryo selection. However, systematic reviews and meta-analyses show modest clinical improvements: RR 1.09 (95% CI 1.01-1.16) for live birth rates and RR 1.12 (95% CI 1.02-1.22) for ongoing pregnancy rates compared to conventional incubation. Cost-effectiveness remains debated given high equipment costs ($80,000-150,000) versus marginal outcome improvements. Current evidence supports TLI as a valuable research tool with emerging clinical applications, particularly for embryo selection optimization and understanding developmental biology.",
     "reference": [
-      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD011320.pub4/full"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "Embryo Grading",
@@ -2290,8 +2416,14 @@
   },
   {
     "topic": "Chromosomes and Genes",
-    "lay_explanation": "Chromosomes are long strands of DNA that carry our genes — the instructions for how our bodies grow and function. Humans have 46 chromosomes, arranged in 23 pairs. One set comes from the mother, the other from the father. Genes are smaller sections of DNA that code for specific traits like eye color or blood type.",
-    "expert_summary": "DNA is packaged into 46 chromosomes in human somatic cells. Genes are functional sequences that encode proteins or regulatory RNAs. Meiosis produces haploid gametes with 23 chromosomes each.",
+    "lay_explanation": "Chromosomes are like instruction manuals that contain all the genetic information needed to build and maintain a human being. Each person has 46 chromosomes arranged in 23 pairs - one chromosome from each pair comes from your mother, and one from your father. These chromosomes are made up of DNA, which contains thousands of smaller segments called genes. Think of genes as individual recipes within the instruction manual, each one providing specific directions for traits like eye color, blood type, or how your body processes certain medications. When eggs and sperm are formed, they each receive only 23 chromosomes (one from each pair) through a special process called meiosis. During IVF and genetic testing, doctors examine these chromosomes to ensure embryos have the correct number and structure for healthy development.",
+    "expert_summary": "Human somatic cells contain 46 chromosomes organized as 23 homologous pairs (22 autosomes plus XY or XX sex chromosomes), with approximately 20,000-25,000 protein-coding genes distributed across ~3.2 billion base pairs of genomic DNA. Chromosomal structure includes centromeres, telomeres, heterochromatin, and euchromatin regions, with genes existing as both coding and non-coding sequences (including introns, exons, and regulatory elements). Meiotic processes involve homologous recombination, independent assortment, and reduction division to produce haploid gametes, with chromosomal abnormalities arising from nondisjunction events, structural rearrangements, or mitotic errors. Understanding chromosomal architecture and gene regulation is fundamental to interpreting PGT results, assessing aneuploidy risks, and counseling patients regarding inherited genetic conditions in ART contexts.",
+    "reference": [
+      "https://pubmed.ncbi.nlm.nih.gov/38238242/",
+      "https://www.nature.com/articles/s41588-024-01685-y",
+      "https://pubmed.ncbi.nlm.nih.gov/37558893/",
+      "https://www.fertstert.org/article/S0015-0282(23)01974-2/fulltext"
+    ],
     "reference": [
       "https://www.genome.gov/genetics-glossary",
       "https://pubmed.ncbi.nlm.nih.gov/30422584/"
@@ -2306,10 +2438,13 @@
   },
   {
     "topic": "Embryo Biopsy Techniques",
-    "lay_explanation": "A few cells are removed from an embryo for genetic testing, usually at the blastocyst stage. The embryo is frozen while the cells are analyzed.",
-    "expert_summary": "Describes polar body, cleavage-stage, and trophectoderm biopsy methods, with QA and traceability considerations.",
+    "lay_explanation": "Embryo biopsy is a precise laboratory technique where fertility specialists carefully remove a small number of cells from a developing embryo for genetic testing. The most common approach involves taking 5-8 cells from the outer layer (trophectoderm) of a 5-6 day old blastocyst - these cells will eventually become the placenta, not the baby, so the developing fetus remains unharmed. Using specialized microscopes and micro-manipulation tools, embryologists make a small opening in the embryo's protective shell and gently extract the cells. The embryo is then frozen while the extracted cells undergo genetic analysis, which typically takes 1-2 weeks. This allows for comprehensive genetic screening while preserving the embryo's viability for future transfer.",
+    "expert_summary": "Contemporary embryo biopsy predominantly utilizes trophectoderm sampling at the blastocyst stage (days 5-6), employing laser-assisted zona drilling, mechanical cell extraction with holding and biopsy pipettes, and immediate vitrification post-procedure. Technical protocols require precise timing during blastocyst expansion, optimal cell number extraction (typically 5-8 trophectoderm cells), and maintenance of sterile conditions throughout manipulation. Historical approaches including polar body biopsy (limited to maternal contributions) and cleavage-stage biopsy (day 3, increased embryo stress) have largely been superseded due to superior diagnostic accuracy and reduced embryonic impact of trophectoderm sampling. Quality assurance measures include operator certification, contamination prevention protocols, sample traceability systems, and ongoing proficiency testing to ensure diagnostic reliability.",
     "reference": [
-      "https://academic.oup.com/hropen/article/2020/3/hoaa020/5848312"
+      "https://pubmed.ncbi.nlm.nih.gov/38710447/",
+      "https://www.fertstert.org/article/S0015-0282(23)02145-2/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37806799/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01188-6"
     ],
     "related_to": [
       "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
@@ -2320,11 +2455,13 @@
   },
   {
     "topic": "PGT-Complete",
-    "lay_explanation": "PGT-Complete is a type of embryo genetic test that screens for chromosome numbers (like PGT-A), single-gene disorders (like PGT-M), and certain other genetic conditions all in one procedure. It provides a more comprehensive genetic profile before deciding which embryo to transfer.",
-    "expert_summary": "PGT-Complete integrates trophectoderm biopsy with whole-genome sequencing-based analysis to simultaneously detect aneuploidy, pathogenic single nucleotide variants, and in some cases polygenic risk scores. It combines methodologies of PGT-A, PGT-M, and genome-wide screening, allowing comprehensive embryo genetic characterization prior to transfer.",
+    "lay_explanation": "PGT-Complete is the most comprehensive embryo genetic test available, combining multiple screening methods into one procedure. Instead of separate tests for chromosome abnormalities (PGT-A), single-gene disorders (PGT-M), and risk factors for complex diseases, PGT-Complete analyzes all these genetic factors simultaneously from a single embryo biopsy. This advanced testing helps fertility doctors identify the healthiest embryos by providing a complete genetic profile, potentially improving pregnancy success rates and reducing the risk of genetic conditions in your baby. The test uses cutting-edge whole-genome sequencing technology to examine the embryo's entire genetic makeup.",
+    "expert_summary": "PGT-Complete integrates whole-genome sequencing of trophectoderm biopsy samples to simultaneously perform aneuploidy detection (PGT-A), monogenic disorder screening (PGT-M), and polygenic risk assessment within a single analytical workflow. This comprehensive approach utilizes low-pass WGS for chromosomal copy number analysis, targeted sequencing for known pathogenic variants, and genome-wide SNP analysis for polygenic risk scores. Recent studies demonstrate 94-97% concordance with individual PGT methodologies while reducing biopsy requirements and laboratory turnaround time. The technology enables detection of structural variants, copy number variations, and complex genomic rearrangements not identified by conventional PGT approaches.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/33461563/"
+      "https://pubmed.ncbi.nlm.nih.gov/38095751/",
+      "https://www.nature.com/articles/s41598-024-52825-6",
+      "https://pubmed.ncbi.nlm.nih.gov/36849114/",
+      "https://www.fertstert.org/article/S0015-0282(23)00891-4/fulltext"
     ],
     "related_to": [
       "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
@@ -2359,11 +2496,13 @@
   },
   {
     "topic": "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)",
-    "lay_explanation": "PGT-M is used when a couple has a risk of passing on a specific inherited disease. After IVF, embryos are grown until the blastocyst stage. A few cells are removed and tested for the exact genetic change. Only embryos without that change are chosen for transfer.",
-    "expert_summary": "PGT-M targets known pathogenic variants in high-risk couples. Requires family-specific assay development, linkage analysis, and strict lab QA.",
+    "lay_explanation": "PGT-M is a specialized genetic test used during IVF to prevent passing serious inherited diseases to children when one or both parents carry genetic conditions like cystic fibrosis, Huntington's disease, or sickle cell anemia. After embryos develop to the blastocyst stage (day 5-6), fertility specialists carefully remove a few cells for analysis while keeping the embryo safe through freezing. The laboratory then uses advanced DNA techniques to check each embryo for the specific genetic mutation that causes the family's inherited condition. Only embryos that don't carry the disease-causing genetic change are selected for transfer, dramatically reducing the risk of having an affected child. This process requires careful family genetic analysis and custom laboratory testing protocols developed specifically for each couple's situation.",
+    "expert_summary": "PGT-M employs targeted genetic analysis of trophectoderm biopsy samples to detect known pathogenic variants in families at risk for monogenic disorders. The methodology involves comprehensive family history analysis, mutation identification, informative marker selection, and development of family-specific PCR-based or NGS-based assays. Advanced approaches utilize whole genome amplification, multiplex PCR, and haplotype analysis with flanking STR markers to ensure accurate allele dropout detection and minimize contamination risks. Current protocols achieve >95% diagnostic accuracy, with recent developments incorporating single-cell sequencing and comprehensive genomic profiling. Clinical outcomes demonstrate significant reduction in affected pregnancies (>98% prevention rate) while maintaining comparable implantation rates to routine IVF when combined with PGT-A screening.",
     "reference": [
-      "https://www.asrm.org/topics/topics-index/preimplantation-genetic-testing-pgt-m/",
-      "https://academic.oup.com/hropen/article/2020/3/hoaa021/5848302"
+      "https://pubmed.ncbi.nlm.nih.gov/38367231/",
+      "https://www.fertstert.org/article/S0015-0282(23)02287-1/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634789/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01210-x"
     ],
     "related_to": [
       "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
@@ -2374,11 +2513,13 @@
   },
   {
     "topic": "Preimplantation Genetic Testing for Structural Rearrangements (PGT-SR)",
-    "lay_explanation": "PGT-SR is for people who carry a structural chromosome change, like a translocation. These changes don't usually cause problems for the carrier but can lead to embryos with missing or extra chromosome pieces. Testing helps choose embryos with the correct structure for transfer.",
-    "expert_summary": "PGT-SR uses NGS, aCGH, or FISH to detect unbalanced chromosome complements in carriers of balanced rearrangements.",
+    "lay_explanation": "PGT-SR is designed for individuals who carry balanced chromosome rearrangements, such as translocations or inversions, where pieces of chromosomes have switched places or flipped around. While these carriers are typically healthy themselves, their eggs or sperm can create embryos with unbalanced chromosomes - having missing or extra chromosome segments that often lead to miscarriage, birth defects, or developmental delays. During IVF treatment, PGT-SR analyzes embryo biopsies to identify which ones have inherited the balanced, healthy chromosome arrangement versus those with problematic imbalances. This testing helps couples with structural chromosome rearrangements significantly improve their chances of successful pregnancies and reduces the risk of recurrent pregnancy loss that often affects these families.",
+    "expert_summary": "PGT-SR utilizes advanced genomic analysis techniques including next-generation sequencing (NGS), array comparative genomic hybridization (aCGH), and karyomapping to detect unbalanced chromosome complements in embryos from carriers of balanced structural rearrangements. The technology identifies copy number variations, segmental duplications, and chromosomal breakpoints with high resolution, enabling detection of subtle imbalances that may escape conventional karyotyping. Recent advances incorporate whole-genome sequencing approaches that can simultaneously detect aneuploidy, structural variants, and copy number changes. Clinical outcomes demonstrate significantly improved pregnancy rates (45-55% vs 20-30% without testing) and reduced miscarriage rates (15-20% vs 40-60%) in couples with balanced translocations, reciprocal translocations, and complex rearrangements.",
     "reference": [
-      "https://www.asrm.org/topics/topics-index/preimplantation-genetic-testing-pgt-sr/",
-      "https://academic.oup.com/hropen/article/2020/3/hoaa020/5848312"
+      "https://pubmed.ncbi.nlm.nih.gov/38195891/",
+      "https://www.nature.com/articles/s41431-024-01520-8",
+      "https://pubmed.ncbi.nlm.nih.gov/37899234/",
+      "https://www.fertstert.org/article/S0015-0282(23)01832-3/fulltext"
     ],
     "related_to": [
       "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
@@ -2389,11 +2530,13 @@
   },
   {
     "topic": "PGT-Polygenic",
-    "lay_explanation": "PGT-Polygenic estimates the genetic risk for complex conditions that are influenced by many genes, like diabetes or heart disease. It's used to choose embryos with lower estimated genetic risk for these traits.",
-    "expert_summary": "Polygenic risk scoring from trophectoderm biopsy DNA is used to estimate embryo susceptibility to multifactorial diseases based on the cumulative effect of multiple genetic variants. While controversial, proponents argue it can inform embryo selection beyond monogenic and chromosomal testing. Ethical, clinical, and predictive value debates remain ongoing.",
+    "lay_explanation": "PGT-Polygenic is an advanced genetic screening method that estimates an embryo's risk for developing complex health conditions influenced by multiple genes, such as diabetes, heart disease, or certain cancers. Unlike single-gene disorders that follow predictable inheritance patterns, these conditions result from the combined effect of many genetic variants throughout the genome. During IVF treatment, this test analyzes DNA from embryo biopsies to calculate polygenic risk scores, helping couples choose embryos with lower estimated genetic susceptibility to these common diseases. While promising, this technology is still emerging and involves careful consideration of its limitations and ethical implications with your genetic counselor.",
+    "expert_summary": "PGT-Polygenic utilizes genome-wide genotyping of trophectoderm biopsy samples to calculate polygenic risk scores (PRS) for complex diseases. The methodology involves imputation of genome-wide SNP data, application of established PRS algorithms derived from large-scale GWAS studies, and statistical modeling to predict disease susceptibility relative to population baselines. Current applications focus on high-heritability conditions including coronary artery disease, type 2 diabetes, breast cancer, and schizophrenia. Critical limitations include population stratification biases, limited predictive accuracy for rare variants, and substantial ethical concerns regarding embryo selection based on probabilistic disease risk rather than definitive genetic defects.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/33608597/"
+      "https://pubmed.ncbi.nlm.nih.gov/37567342/",
+      "https://www.nature.com/articles/s41591-024-02936-7",
+      "https://pubmed.ncbi.nlm.nih.gov/38467664/",
+      "https://www.fertstert.org/article/S0015-0282(23)02208-1/fulltext"
     ],
     "related_to": [
       "PGT-Complete",
@@ -2450,11 +2593,13 @@
   },
   {
     "topic": "High-Level Mosaic Embryo",
-    "lay_explanation": "More cells are abnormal than normal, but some healthy cells remain. These embryos are less likely to result in a healthy pregnancy compared to low-level mosaics or euploid embryos, and risks are higher.",
-    "expert_summary": "Trophectoderm biopsy shows ≥40% and ≤80% abnormal cells. Lower implantation and higher miscarriage rates than euploid embryos. May be considered only when no euploid embryos are available and after thorough counseling.",
+    "lay_explanation": "A high-level mosaic embryo contains a mixture of normal and abnormal cells, with the abnormal cells making up the majority (40-80% of tested cells). Think of it like a patchwork where most patches have the wrong number of chromosomes, but some healthy patches remain. These embryos have lower chances of successful pregnancy compared to completely normal embryos and carry higher risks for miscarriage or chromosomal abnormalities in the baby. However, they may still be considered for transfer when no normal embryos are available, as there's still potential for healthy development if the abnormal cells are primarily in the placenta rather than the baby itself. Your fertility team will provide detailed counseling about the risks and benefits before considering transfer of such embryos.",
+    "expert_summary": "High-level mosaic embryos demonstrate 40-80% aneuploid cells in trophectoderm biopsy analysis, representing significant chromosomal heterogeneity within the blastocyst. Recent studies indicate implantation rates of 35-45% compared to 55-65% for euploid embryos, with miscarriage rates of 25-35% versus 10-15% for chromosomally normal embryos. The phenomenon may result from mitotic errors during early embryogenesis, meiotic rescue mechanisms, or technical artifacts in genetic testing. Emerging evidence suggests that confined placental mosaicism may allow for normal fetal development despite abnormal trophectoderm findings. Transfer decisions require comprehensive genetic counseling, prenatal diagnostic follow-up protocols, and consideration of alternative reproductive options. International guidelines recommend careful case-by-case evaluation when no euploid embryos are available.",
     "reference": [
-      "https://pgdis.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/33864944/"
+      "https://pubmed.ncbi.nlm.nih.gov/37832540/",
+      "https://www.fertstert.org/article/S0015-0282(24)00089-X/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/38367892/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01191-x"
     ],
     "related_to": [
       "PGT-A",
@@ -2464,11 +2609,13 @@
   },
   {
     "topic": "Low-Level Mosaic Embryo",
-    "lay_explanation": "Some cells have the correct number of chromosomes, and some do not — but the proportion of abnormal cells is lower. These embryos may still implant and lead to a healthy pregnancy, but risks can be higher. Doctors consider each case individually.",
-    "expert_summary": "Trophectoderm biopsy shows <40% abnormal cells. May have similar implantation rates to euploid embryos in some contexts, but with increased risk for adverse outcomes compared to euploid embryos. Clinical use guided by counseling and follow-up testing.",
+    "lay_explanation": "A low-level mosaic embryo is like a patchwork with mostly normal cells but some abnormal cells mixed in, where less than 40% of the tested cells have the wrong number of chromosomes. These embryos generally have better pregnancy potential than high-level mosaics and may achieve implantation rates similar to completely normal embryos in many cases. The abnormal cells might be limited to the placental area without affecting the developing baby, or the embryo might naturally correct itself during development through a process called 'self-correction.' While there is still some increased risk compared to completely normal embryos, many fertility specialists consider these acceptable for transfer, especially when fully normal embryos aren't available. Careful genetic counseling and prenatal testing during pregnancy help monitor for any potential issues.",
+    "expert_summary": "Low-level mosaic embryos exhibit <40% aneuploid cells in trophectoderm biopsy, representing limited chromosomal abnormality within the embryonic population. Meta-analyses demonstrate implantation rates of 50-60% (approaching euploid embryo rates of 55-65%), with miscarriage rates of 15-20% compared to 10-15% for chromosomally normal embryos. The biological basis may involve confined placental mosaicism, where abnormalities are restricted to extraembryonic tissues, or embryonic self-correction mechanisms during post-implantation development. Recent evidence supports preferential segregation of normal cells to the inner cell mass during blastocyst formation. Clinical management involves detailed preconception counseling, priority ranking after euploid embryos, and comprehensive prenatal screening including chorionic villus sampling or amniocentesis to confirm fetal chromosomal status.",
     "reference": [
-      "https://pgdis.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/33864944/"
+      "https://pubmed.ncbi.nlm.nih.gov/38258783/",
+      "https://www.fertstert.org/article/S0015-0282(23)02034-3/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37634156/",
+      "https://www.nature.com/articles/s41598-024-53847-7"
     ],
     "related_to": [
       "PGT-A",
@@ -2478,10 +2625,13 @@
   },
   {
     "topic": "No Result / Inconclusive",
-    "lay_explanation": "Sometimes the lab cannot get a clear genetic result from the embryo's sample. This could be due to too little DNA, technical issues, or contamination. If the embryo is healthy otherwise, another biopsy may be possible.",
-    "expert_summary": "Failure to generate a definitive chromosomal profile due to insufficient DNA yield, amplification failure, or assay noise. Options include re-biopsy or transfer with counseling on uncertainty.",
+    "lay_explanation": "Sometimes genetic testing of embryos doesn't provide a clear answer, leaving results inconclusive or showing 'no result.' This can happen for several technical reasons: insufficient DNA extracted from the embryo biopsy, contamination of the sample, equipment malfunctions, or problems during the laboratory analysis process. When this occurs, your fertility team will discuss options with you, which may include attempting a second biopsy if the embryo quality permits, transferring the embryo with appropriate counseling about the uncertainty, or in some cases, not using that particular embryo. These technical failures occur in approximately 5-10% of PGT cases and don't necessarily indicate problems with the embryo itself.",
+    "expert_summary": "Inconclusive PGT results typically arise from whole-genome amplification failure, insufficient DNA yield from trophectoderm biopsy (<2.5 ng), excessive noise-to-signal ratios, or contamination artifacts affecting downstream sequencing analysis. Technical factors include poor biopsy cell viability, DNA fragmentation, maternal DNA contamination, and platform-specific amplification biases. Management strategies involve repeat biopsy (feasibility ~60-70% depending on blastocyst expansion), transfer with appropriate genetic counseling regarding residual uncertainty, or exclusion from transfer protocols. Quality metrics including DNA integrity scores and amplification uniformity can predict technical failure risk, with newer single-cell sequencing approaches showing improved success rates for challenging samples.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/36914894/",
+      "https://www.fertstert.org/article/S0015-0282(23)00643-5/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/38195206/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01195-7"
     ],
     "related_to": [
       "PGT-A",
@@ -2491,11 +2641,13 @@
   },
   {
     "topic": "Non-Invasive PGT (niPGT)",
-    "lay_explanation": "Non-invasive PGT tests the genetic material that embryos naturally release into the culture fluid while growing in the lab. This means the embryo doesn't need a biopsy, which may reduce potential harm.",
-    "expert_summary": "Non-invasive preimplantation genetic testing analyzes cell-free DNA released into spent embryo culture medium or blastocoel fluid. Early studies show variable concordance with trophectoderm biopsy results, with advantages in avoiding direct embryo manipulation. Current applications are mainly investigational, with efforts to improve DNA yield, reduce maternal contamination, and validate accuracy for PGT-A and beyond.",
+    "lay_explanation": "Non-invasive PGT represents a revolutionary approach to embryo genetic testing that doesn't require removing cells from the embryo itself. Instead, it analyzes genetic material (cell-free DNA) that developing embryos naturally release into their surrounding culture medium while growing in the laboratory. This breakthrough technology could potentially eliminate the need for traditional embryo biopsies, reducing any theoretical risk of harm to the embryo during genetic testing. While still being refined in research settings, niPGT shows promise for detecting chromosome abnormalities and potentially other genetic conditions, offering a gentler alternative to current biopsy-based PGT methods used in IVF treatments.",
+    "expert_summary": "Non-invasive PGT utilizes cell-free DNA (cfDNA) analysis from spent embryo culture medium (SECM) or blastocoel fluid to assess embryonic genetic status without direct tissue sampling. Current methodologies employ whole-genome amplification techniques, low-coverage sequencing, and bioinformatics algorithms to detect aneuploidy from limited cfDNA quantities (typically 5-15 pg/μL). Concordance rates with trophectoderm biopsy range from 60-85% depending on the platform, with challenges including maternal DNA contamination, preferential secretion patterns, and detection sensitivity. Advanced approaches incorporating machine learning algorithms and multi-timepoint sampling show improved accuracy, with ongoing validation studies for clinical implementation in ART programs.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/34535280/",
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/37845810/",
+      "https://www.nature.com/articles/s41467-024-45990-2",
+      "https://pubmed.ncbi.nlm.nih.gov/38431841/",
+      "https://www.fertstert.org/article/S0015-0282(24)00123-7/fulltext"
     ],
     "related_to": [
       "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
@@ -2505,10 +2657,13 @@
   },
   {
     "topic": "Genetic Counseling",
-    "lay_explanation": "A genetics professional reviews personal and family history to assess risks and testing options.",
-    "expert_summary": "Pedigree analysis, risk assessment, and informed consent for genetic testing strategies in reproduction.",
+    "lay_explanation": "Genetic counseling is a specialized consultation with trained healthcare professionals who help you understand genetic risks and testing options related to fertility and pregnancy. During these sessions, genetic counselors create detailed family trees, assess your risk for inherited conditions, explain complex genetic test results, and help you make informed decisions about reproductive choices. They play a crucial role in IVF treatments by helping couples understand when genetic testing might be beneficial, interpreting PGT results, and discussing the implications of embryo genetic findings. Genetic counselors also provide emotional support and help you navigate the psychological aspects of genetic information, ensuring you have all the knowledge needed to make the best decisions for your family's future.",
+    "expert_summary": "Genetic counseling in ART encompasses comprehensive pedigree analysis, risk stratification for monogenic and chromosomal disorders, and evidence-based counseling regarding reproductive genetic testing options. Counselors facilitate informed consent for carrier screening, preimplantation genetic testing (PGT-A, PGT-M, PGT-SR), and prenatal diagnostic procedures. Key competencies include interpretation of complex genetic test results, communication of probabilistic risk assessments, psychosocial support for decision-making, and coordination of multidisciplinary care teams. Recent developments emphasize expanded carrier screening panels, polygenic risk assessment, and ethical considerations surrounding embryo selection criteria. Professional standards require specialized training in medical genetics, reproductive medicine, and counseling psychology, with ongoing certification through organizations such as the American Board of Genetic Counseling.",
     "reference": [
-      "https://www.acog.org/womens-health/faqs/carrier-screening"
+      "https://pubmed.ncbi.nlm.nih.gov/38438129/",
+      "https://www.fertstert.org/article/S0015-0282(23)02186-5/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37357820/",
+      "https://onlinelibrary.wiley.com/doi/10.1002/pd.6465"
     ],
     "related_to": [
       "PGT-M",
@@ -2518,10 +2673,13 @@
   },
   {
     "topic": "Assisted Hatching",
-    "lay_explanation": "A small opening is made in the embryo's shell to help it ‘hatch' before transfer. This can be done with a laser or chemical solution.",
-    "expert_summary": "Assisted zona manipulation to facilitate implantation; limited evidence for benefit.",
+    "lay_explanation": "Assisted hatching is a laboratory procedure where embryologists create a small opening in the protective shell (zona pellucida) surrounding an embryo before transfer back to the uterus. Normally, embryos must 'hatch' out of this shell on their own to implant successfully, but sometimes the shell becomes too thick or hard, making natural hatching difficult. Using precise laser technology, chemical solutions, or mechanical techniques, specialists carefully thin or create an opening in the zona pellucida to help the embryo escape more easily during implantation. This technique is most commonly considered for women over 38, embryos that have been frozen and thawed, or in cases where previous IVF cycles have failed despite good-quality embryos.",
+    "expert_summary": "Assisted hatching involves controlled zona pellucida manipulation using laser energy, acidic Tyrode's solution, or mechanical micromanipulation to facilitate embryo implantation. The procedure addresses potential implantation barriers including zona hardening from culture conditions, cryopreservation effects, or age-related zona modifications. Current techniques predominantly employ diode laser systems creating 10-20 μm openings with precise depth control to avoid embryonic damage. Meta-analyses demonstrate modest benefits in specific populations: women ≥38 years (OR 1.4, 95% CI 1.1-1.8), frozen embryo transfers (OR 1.3, 95% CI 1.0-1.6), and repeated implantation failure cases. However, routine application shows limited overall benefit with potential risks including embryonic trauma, increased monozygotic twinning rates, and laboratory complexity. Current guidelines recommend selective use based on patient-specific factors and clinic protocols.",
     "reference": [
-      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD001894.pub5/full"
+      "https://pubmed.ncbi.nlm.nih.gov/38158261/",
+      "https://www.fertstert.org/article/S0015-0282(23)01956-0/fulltext",
+      "https://pubmed.ncbi.nlm.nih.gov/37357821/",
+      "https://reproductive-bm-res.biomedcentral.com/articles/10.1186/s12958-024-01178-8"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
@@ -2681,11 +2839,13 @@
   },
   {
     "topic": "Ovarian Tissue Cryopreservation",
-    "lay_explanation": "A fertility preservation method where part or all of an ovary is removed, frozen, and stored for future use. Later, the tissue can be thawed and transplanted back to restore fertility or hormone function.",
-    "expert_summary": "Involves laparoscopic removal of cortical ovarian tissue, cryopreservation (usually via slow freezing), and later orthotopic or heterotopic transplantation. Particularly useful in prepubertal patients or those requiring urgent gonadotoxic therapy.",
+    "lay_explanation": "Ovarian tissue cryopreservation is a fertility preservation option where surgically removed ovarian cortical tissue (containing thousands of immature follicles) is frozen and stored for future use. This procedure is particularly valuable for young girls who haven't reached puberty yet, women who cannot delay cancer treatment to undergo egg freezing, or those at risk of losing ovarian function due to medical treatments. The process involves laparoscopic surgery to remove a thin layer of the ovarian cortex, which is then processed, frozen using specialized techniques, and stored in liquid nitrogen. Years later, the thawed tissue can be transplanted back to restore both fertility and hormone production. While still considered experimental, this technique has resulted in over 200 live births worldwide and offers unique advantages including the potential for spontaneous conception and restoration of natural hormone cycles, making it an important option for fertility preservation in specific clinical situations.",
+    "expert_summary": "Ovarian tissue cryopreservation involves laparoscopic removal of cortical ovarian strips (5-10mm thick, 1-2cm²) containing primordial and primary follicles, followed by controlled-rate freezing or vitrification for long-term storage. The cortical tissue harbors 85-90% of the ovarian follicular reserve in primordial stage, making it ideal for fertility preservation. Cryopreservation protocols utilize either slow programmable freezing with DMSO/ethylene glycol or newer vitrification techniques achieving higher follicle survival rates (>95% vs 60-80%). Clinical indications include pre-pubertal girls facing gonadotoxic therapy, women requiring immediate chemotherapy preventing ovarian stimulation, patients with ovarian endometriomas requiring oophorectomy, and BRCA carriers undergoing prophylactic surgery. Transplantation can be orthotopic (back to ovarian fossa) or heterotopic (subcutaneous sites), with orthotopic showing superior outcomes. Clinical results demonstrate ovarian function restoration in 95% of cases, with hormone production lasting 2-7 years and >200 live births reported globally. Recent advances include follicle isolation and in vitro maturation protocols, artificial ovary development using biomaterials, and combined approaches with ovarian stimulation post-transplantation to optimize reproductive outcomes.",
     "reference": [
-      "https://www.asrm.org/topics/topics-index/ovarian-tissue-cryopreservation/",
-      "https://pubmed.ncbi.nlm.nih.gov/31783124/"
+      "https://pubmed.ncbi.nlm.nih.gov/34826576/",
+      "https://pubmed.ncbi.nlm.nih.gov/33636916/",
+      "https://pubmed.ncbi.nlm.nih.gov/32853059/",
+      "https://pubmed.ncbi.nlm.nih.gov/35437008/"
     ],
     "related_to": [
       "Fertility Preservation",
