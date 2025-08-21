@@ -11,7 +11,15 @@
       "Bash(do echo \"Fixing $file\")",
       "Bash(sed:*)",
       "Bash(done)",
-      "Bash(do sed -i '' '/@StateObject.*PerformanceOptimizer/d; /private let.*PerformanceOptimizer/d' \"$file\")"
+      "Bash(do sed -i '' '/@StateObject.*PerformanceOptimizer/d; /private let.*PerformanceOptimizer/d' \"$file\")",
+      "Bash(timeout 60 xcodebuild:*)",
+      "Bash(cat:*)",
+      "Bash(timeout 30 xcodebuild:*)",
+      "WebSearch",
+      "WebFetch(domain:cfas.ca)",
+      "WebFetch(domain:www150.statcan.gc.ca)",
+      "WebFetch(domain:www.cdc.gov)",
+      "Bash(python3:*)"
     ],
     "deny": [],
     "ask": []

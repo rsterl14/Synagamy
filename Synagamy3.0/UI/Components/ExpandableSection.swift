@@ -116,8 +116,8 @@ struct ExpandableSection<Content: View>: View {
 }
 
 #Preview {
-    @State var showReferences = false
-    @State var showRelated = false
+    @Previewable @State var showReferences = false
+    @Previewable @State var showRelated = false
     
     return ScrollView {
         VStack(spacing: 20) {

@@ -81,7 +81,7 @@ final class AppLaunchModel: ObservableObject {
         // If you change AppData to async/throwing later, you can pivot to async here.
         let topics = AppData.topics
         let pathways = AppData.pathways
-        let questions = AppData.questions
+        _ = AppData.questions
 
         // Warm a topic index so step→topic sheet opens instantly later.
         // We ignore the result here; it’s just to build any internal caches.

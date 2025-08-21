@@ -27,7 +27,6 @@
 		8353AF672E4E7D8D004E14FA /* Synagamy3.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Synagamy3.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8353AF752E4E7D90004E14FA /* Synagamy3.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Synagamy3.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8353AF7F2E4E7D90004E14FA /* Synagamy3.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Synagamy3.0UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8393EA1B2E5020C900B383C0 /* Synagamy3.0 2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Synagamy3.0 2.xcodeproj"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -80,7 +79,6 @@
 				8353AF782E4E7D90004E14FA /* Synagamy3.0Tests */,
 				8353AF822E4E7D90004E14FA /* Synagamy3.0UITests */,
 				8353AF682E4E7D8D004E14FA /* Products */,
-				8393EA1B2E5020C900B383C0 /* Synagamy3.0 2.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,13 +88,6 @@
 				8353AF672E4E7D8D004E14FA /* Synagamy3.0.app */,
 				8353AF752E4E7D90004E14FA /* Synagamy3.0Tests.xctest */,
 				8353AF7F2E4E7D90004E14FA /* Synagamy3.0UITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		8393EAE92E5020D700B383C0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,12 +198,6 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8353AF682E4E7D8D004E14FA /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 8393EAE92E5020D700B383C0 /* Products */;
-					ProjectRef = 8393EA1B2E5020C900B383C0 /* Synagamy3.0 2.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8353AF662E4E7D8D004E14FA /* Synagamy3.0 */,

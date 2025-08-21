@@ -69,19 +69,13 @@ struct CommonQuestionsView: View {
 
         // Load data once. We guard against surprises and surface a friendly message on failure.
         .task {
-            do {
-                // If AppData.questions could ever throw, wrap here. It’s static now,
-                // but we still defensively handle the “empty” case and unusual states.
-                let loaded = AppData.questions
-                if loaded.isEmpty {
-                    // Not an error per se, but we can optionally inform the user elsewhere.
-                    // We keep UI responsive with the empty-state card above.
-                }
-                questions = loaded
-            } catch {
-                // In case you switch to async/throwing loading in the future, this is ready.
-                errorMessage = "We couldn’t load questions right now."
+            // Load questions from static data
+            let loaded = AppData.questions
+            if loaded.isEmpty {
+                // Not an error per se, but we can optionally inform the user elsewhere.
+                // We keep UI responsive with the empty-state card above.
             }
+            questions = loaded
         }
 
         // Q&A detail sheet

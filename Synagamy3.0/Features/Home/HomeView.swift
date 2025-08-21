@@ -42,7 +42,7 @@ struct HomeView: View {
         ),
         HomeItem(
             title: "Outcome Predictor",
-            subtitle: "Managing Expectation for an Oocyte Retrieval",
+            subtitle: "Managing Expectation in IVF",
             systemIcon: "chart.line.uptrend.xyaxis",
             route: .outcome
         ),

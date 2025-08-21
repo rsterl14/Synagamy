@@ -1,67 +1,85 @@
 [
   {
     "topic": "Fertilization",
-    "lay_explanation": "Fertilization occurs when a sperm cell successfully enters an egg cell and their genetic material combines, forming a zygote (the first stage of a new embryo). In natural conception, this typically happens in the fallopian tube shortly after ovulation. In assisted reproduction (IVF), fertilization is performed in the laboratory. This can be done either by conventional insemination, where many sperm are placed around the egg in a dish, or by intracytoplasmic sperm injection (ICSI), where a single healthy sperm is carefully injected directly into the egg.",
-    "expert_summary": "Fertilization in vivo begins with sperm–oocyte recognition, the acrosome reaction, penetration of the zona pellucida, membrane fusion, and the formation of male and female pronuclei. These processes establish syngamy and initiate embryogenesis. In ART, two principal methods are used: (1) conventional IVF, in which thousands of motile sperm are co-incubated with the oocyte to allow natural selection and penetration, and (2) intracytoplasmic sperm injection (ICSI), in which a single morphologically normal sperm is microinjected directly into the oocyte cytoplasm, bypassing the need for zona penetration and acrosomal activity. Both methods ultimately lead to pronuclear formation and zygote development under controlled culture conditions.",
+    "lay_explanation": "Fertilization is the remarkable process when a sperm cell successfully penetrates an egg cell, allowing their genetic material to combine and create a zygote - the very first cell of a new life. In natural conception, this typically occurs in the fallopian tube within 12-24 hours after ovulation. The sperm must first undergo the 'acrosome reaction,' releasing special enzymes that help it break through the egg's protective shell (zona pellucida). Once the sperm membrane fuses with the egg, their genetic materials merge, forming pronuclei that eventually unite. In assisted reproduction (IVF), fertilization happens in the laboratory under carefully controlled conditions. This can be achieved through conventional insemination, where thousands of motile sperm are placed around the egg to allow natural selection, or through ICSI, where a single healthy sperm is precisely injected directly into the egg's center.",
+    "expert_summary": "Fertilization involves complex molecular interactions beginning with sperm-ZP3 glycoprotein recognition and binding to the zona pellucida. The acrosome reaction, a calcium-dependent exocytotic event, exposes IZUMO1 protein on the sperm surface, which binds to JUNO protein on the oocyte membrane. This binding facilitates sperm-oocyte membrane fusion, cortical granule exocytosis (preventing polyspermy), and formation of male and female pronuclei containing haploid genomes. Syngamy establishes the diploid zygote and initiates embryogenesis. In ART, conventional IVF relies on natural sperm selection and zona penetration, while ICSI bypasses these processes through direct cytoplasmic injection. Recent evidence shows higher implantation rates with acrosome-reacted sperm in ICSI procedures (~40% vs ~10% with non-reacted sperm).",
     "reference": [
-      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4046257/",
-      "https://www.mdpi.com/2077-0383/11/19/5722",
-      "https://doi.org/10.1242/dev.176966"
+      "https://pubmed.ncbi.nlm.nih.gov/30094771/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC5029953/",
+      "https://www.jci.org/articles/view/41585",
+      "https://pubmed.ncbi.nlm.nih.gov/28247051/"
     ],
     "related_to": [
       "Zygote",
       "Oocyte (Egg Cell)",
       "Sperm",
+      "Zona Pellucida",
       "Intracytoplasmic Sperm Injection (ICSI)",
       "In Vitro Fertilization (IVF)",
-      "Conventional Insemination"
+      "Fertilization - Conventional Insemination",
+      "Fertilization - Intracytoplasmic Sperm Injection (ICSI)"
     ],
     "category": "Reproductive Cycle & Natural Conception"
   },
   {
     "topic": "Implantation",
-    "lay_explanation": "Implantation happens when a developing embryo, at the blastocyst stage, attaches to the lining of the uterus (endometrium) and begins to grow. This usually takes place around 6–10 days after fertilization. The blastocyst must first hatch out of its protective shell (the zona pellucida), make contact with the uterine lining, and then embed itself into the tissue, which provides the nutrients and support needed for early pregnancy. In IVF, after embryo transfer, the embryo must still implant in the same way for the pregnancy to continue successfully.",
-    "expert_summary": "Implantation involves a coordinated sequence of events: blastocyst hatching, adhesion to the receptive endometrium, trophoblast invasion, and decidualization of maternal stromal cells. These steps establish the maternal–fetal interface. The process is tightly regulated by ovarian steroid hormones (estrogen and progesterone), locally produced cytokines, growth factors, and immune tolerance mechanisms. In assisted reproduction, successful implantation following embryo transfer depends on synchrony between embryo development and endometrial receptivity; luteal phase support with progesterone is often required to optimize outcomes.",
+    "lay_explanation": "Implantation is a critical early pregnancy milestone when a developing embryo (blastocyst) successfully attaches to and embeds within the uterine lining (endometrium). This complex process typically occurs 6-12 days after fertilization and involves three main stages: the blastocyst first hatches from its protective shell (zona pellucida), then makes initial contact with the receptive endometrium (apposition), followed by firm attachment (adhesion), and finally invasion into the maternal tissue. The blastocyst's outer layer (trophoblast) secretes enzymes that allow it to burrow into the endometrium, where it can access the mother's blood supply for nutrition and oxygen. The endometrium must be in a specific 'receptive' state - properly prepared by estrogen and progesterone hormones - for successful implantation. In IVF treatments, transferred embryos must complete this same natural implantation process to establish pregnancy.",
+    "expert_summary": "Implantation is a precisely orchestrated molecular dialogue between the competent blastocyst and receptive endometrium during the 'window of implantation.' The process involves: (1) zona pellucida hatching, (2) blastocyst apposition and adhesion to luminal epithelium mediated by integrins (particularly αvβ3), (3) trophoblast invasion through basement membrane into stromal compartment, and (4) decidualization of endometrial stromal cells into secretory decidual cells. Trophoblast invasion is tightly controlled to permit maternal vascular access while preventing excessive tissue damage. Key regulatory mechanisms include steroid hormone priming (estrogen and progesterone), local cytokines, growth factors, prostaglandins, and immune tolerance pathways. Successful ART outcomes require embryo-endometrial synchrony, with luteal phase progesterone support optimizing endometrial receptivity and decidualization.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/23223073/"
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10931638/",
+      "https://febs.onlinelibrary.wiley.com/doi/10.1111/febs.17077",
+      "https://www.science.org/doi/10.1126/sciadv.adi4819",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC5769129/"
     ],
     "related_to": [
       "Blastocyst",
+      "Hatching Blastocyst",
       "Endometrium",
       "Zona Pellucida",
-      "Hatching Blastocyst",
-      "Embryo Transfer",
-      "Luteal Phase Support"
-    ],
-    "category": "Reproductive Cycle & Natural Conception"
-  },
-  {
-    "topic": "Menstrual Cycle Overview",
-    "lay_explanation": "The menstrual cycle is the body's monthly rhythm that prepares for pregnancy. It begins with menstruation (bleeding), when the uterine lining sheds. Next, an egg grows in the ovary (follicular phase). Around the middle of the cycle, ovulation occurs—the release of the egg. After this, the uterus lining thickens during the luteal phase to support a possible pregnancy. If no fertilization happens, hormone levels drop and the lining sheds, starting the next period.",
-    "expert_summary": "The menstrual cycle averages 28 days and is divided into four phases: menstrual, follicular, ovulatory, and luteal. It is governed by hypothalamic–pituitary–ovarian interactions involving GnRH, FSH, LH, estrogen, and progesterone. The cycle coordinates ovarian follicle growth, ovulation, corpus luteum function, and endometrial preparation for implantation. Disturbances in this hormonal regulation can lead to infertility, irregular cycles, or gynecological disorders.",
-    "reference": [
-      "https://www.ncbi.nlm.nih.gov/books/NBK279054/"
-    ],
-    "related_to": [
-      "Ovulation",
-      "Endometrium",
-      "Follicle",
-      "Oocyte",
-      "Gonadotropin-Releasing Hormone (GnRH)",
-      "Follicle Stimulating Hormone (FSH)",
-      "Luteinizing Hormone (LH)",
+      "Blastocyst - Trophectoderm (TE)",
+      "Fresh Embryo Transfer - Day Five (Blastocyst Stage)",
+      "Frozen Embryo Transfer (FET)",
+      "Progesterone (Luteal Phase Support)",
       "Estrogen",
       "Progesterone"
     ],
     "category": "Reproductive Cycle & Natural Conception"
   },
   {
-    "topic": "Ovulation",
-    "lay_explanation": "Ovulation is when a mature egg is released from the ovary into the fallopian tube, where it can be fertilized. This usually happens in the middle of the menstrual cycle, triggered by a natural rise in luteinizing hormone (LH). The egg can only be fertilized for about 12–24 hours after release. In assisted reproductive technologies (ART) such as IVF, doctors carefully control ovulation using hormone medications. Instead of relying on natural ovulation, they stimulate the ovaries to produce multiple eggs, and then use a special 'trigger shot' (hCG or LH analog) to time ovulation precisely. The eggs are collected directly from the ovaries before they are released, so they can be fertilized in the lab.",
-    "expert_summary": "Ovulation is initiated by the mid-cycle LH surge, which resumes oocyte meiosis I, leads to germinal vesicle breakdown, and culminates in extrusion of the first polar body. Proteolytic activity and follicular wall remodeling allow follicular rupture and release of the cumulus–oocyte complex into the fallopian tube. In ART, natural ovulation is bypassed: controlled ovarian hyperstimulation (COH) with gonadotropins recruits multiple follicles, and a pharmacological trigger (commonly hCG or a GnRH agonist) mimics the LH surge to induce final oocyte maturation. Oocytes are retrieved transvaginally before rupture, preventing in vivo ovulation and enabling in vitro fertilization. Precise timing of this trigger is critical to optimize oocyte quality and retrieval success.",
+    "topic": "Menstrual Cycle Overview",
+    "lay_explanation": "The menstrual cycle is your body's remarkable monthly preparation for potential pregnancy, typically lasting 21-35 days (average 28 days). It begins with menstruation (days 1-5), when the thickened uterine lining sheds as your period. During the follicular phase (days 1-14), rising estrogen helps an egg mature inside a follicle while rebuilding the uterine lining. Around mid-cycle, a surge of luteinizing hormone (LH) triggers ovulation - the release of the mature egg. The luteal phase (days 15-28) follows, when progesterone from the corpus luteum further thickens the uterine lining to create an optimal environment for a fertilized egg. If pregnancy doesn't occur, hormone levels drop dramatically, causing the lining to shed and starting a new cycle. This intricate hormonal dance involves your brain (hypothalamus and pituitary) communicating with your ovaries through chemical messengers.",
+    "expert_summary": "The menstrual cycle is regulated by the hypothalamic-pituitary-ovarian axis through pulsatile GnRH secretion, which stimulates FSH and LH release. The follicular phase features rising estradiol from the dominant follicle, providing negative feedback until the critical threshold triggers positive feedback, initiating the LH surge and ovulation. Post-ovulation, the corpus luteum secretes progesterone and estradiol during the luteal phase. The cycle exhibits distinct hormonal patterns throughout reproductive life: long follicular phases in young women, shortened follicular phases with aging, and anovulatory patterns in perimenopause. Disruptions in this complex endocrine cascade can result in oligoamenorrhea, anovulation, luteal phase defects, and infertility. Understanding these mechanisms is crucial for fertility treatments and cycle monitoring in ART.",
     "reference": [
-      "https://www.ncbi.nlm.nih.gov/books/NBK279054/",
-      "https://rbej.biomedcentral.com/articles/10.1186/s12958-024-01332-5"
+      "https://www.ncbi.nlm.nih.gov/books/NBK500020/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC301805/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC2815122/",
+      "https://pubmed.ncbi.nlm.nih.gov/1120778/"
+    ],
+    "related_to": [
+      "Ovulation",
+      "Endometrium",
+      "Follicle",
+      "Oocyte (Egg Cell)",
+      "Corpus Luteum",
+      "Gonadotropin-Releasing Hormone (GnRH)",
+      "Follicle Stimulating Hormone (FSH)",
+      "Luteinizing Hormone (LH)",
+      "Estrogen",
+      "Progesterone",
+      "Oligoamenorrhea",
+      "Luteal Phase Deficiency"
+    ],
+    "category": "Reproductive Cycle & Natural Conception"
+  },
+  {
+    "topic": "Ovulation",
+    "lay_explanation": "Ovulation is the monthly release of a mature egg from the ovary, typically occurring around day 14 of a 28-day cycle. This process is triggered by a dramatic surge in luteinizing hormone (LH), which causes the follicle containing the egg to rupture and release the egg into the fallopian tube. The egg remains viable for fertilization for only 12-24 hours after release. During ovulation, the egg completes its final maturation steps, extruding the first polar body and becoming ready for fertilization. In fertility treatments, doctors use controlled ovarian hyperstimulation (COH) to recruit multiple follicles instead of the usual single egg. They carefully monitor follicle growth with ultrasounds and blood tests, then administer a 'trigger shot' (hCG or GnRH agonist) to precisely time final egg maturation. The eggs are then retrieved before natural ovulation occurs, allowing fertilization to take place in the laboratory under optimal conditions.",
+    "expert_summary": "Ovulation is a precisely regulated process initiated by the preovulatory LH surge, which reduces cyclic nucleotide levels in the follicle via the CNP/NPR2 system and EGF/EGF receptor network. This triggers resumption of meiosis I with germinal vesicle breakdown, chromosome condensation, and first polar body extrusion approximately 12-15 hours post-LH surge. Follicular rupture occurs 24-56 hours after LH surge onset through proteolytic enzyme activation and cumulus expansion. In COH protocols, FSH and LH synergy recruits multiple follicles while maintaining LH levels above suppression thresholds (<1.2 mIU/mL) to ensure optimal oocyte competence. The ovulatory trigger (hCG or GnRH agonist) induces final maturation 36-38 hours before retrieval. Over-suppressed LH during stimulation correlates with reduced live birth rates, emphasizing the importance of balanced hormonal environments for optimal ART outcomes.",
+    "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK441996/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3963304/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11652183/",
+      "https://link.springer.com/article/10.1007/s43032-019-00137-x"
     ],
     "related_to": [
       "Oocyte (Egg Cell)",
@@ -71,23 +89,27 @@
       "Oocyte Retrieval",
       "Controlled Ovarian Hyperstimulation (COH)",
       "Human Chorionic Gonadotropin (hCG) Trigger",
-      "GnRH Angonist",
+      "GnRH Agonists",
       "Fertilization"
     ],
     "category": "Reproductive Cycle & Natural Conception"
   },
   {
     "topic": "Referral to a Fertility Center",
-    "lay_explanation": "A referral is when your healthcare provider recommends you to a fertility specialist or clinic for further evaluation and treatment. This step ensures you receive expert assessment and tailored treatment options. In some cases, such as sperm cryopreservation for fertility preservation (for example, before cancer treatment), a full referral is not required and a requisition from a physician may be sufficient.",
-    "expert_summary": "Referral to a fertility center involves transmission of relevant medical history, laboratory results (e.g., semen analysis, hormone levels), and imaging reports to the reproductive specialist. The purpose is to expedite specialist evaluation, initiate targeted fertility investigations, and develop individualized management plans. Common indications include infertility persisting >12 months, abnormal semen parameters, history of reproductive tract disorders (cryptorchidism, varicocele, ejaculatory dysfunction), or prior gonadotoxic therapy. Early referral is particularly critical for couples with advanced maternal age or additional female factor risk factors. In ART contexts, timely referral facilitates coordinated care for procedures such as intrauterine insemination (IUI), in vitro fertilization (IVF), and sperm banking for fertility preservation.",
+    "lay_explanation": "A referral to a fertility center is an important step when you and your healthcare provider decide you need specialized reproductive care. This typically happens after trying to conceive for 12 months (or 6 months if you're over 35), or sooner if there are known fertility risk factors. Your doctor will send your medical history, test results, and a summary of your situation to the fertility specialist. This helps the specialist understand your unique circumstances before your first appointment and ensures you receive the most appropriate evaluation and treatment recommendations. The referral process helps coordinate your care between your family doctor and the fertility team, making sure nothing important is missed. For certain services like sperm banking for fertility preservation before cancer treatment, sometimes just a doctor's order (requisition) is sufficient without a full consultation referral.",
+    "expert_summary": "Fertility center referral optimizes care coordination through comprehensive information transfer including detailed reproductive history, prior investigations (semen analyses, hormonal assessments, imaging), and relevant medical/surgical history. Key referral indications include: infertility ≥12 months (<6 months if female age ≥35), anovulation, tubal factor, male factor abnormalities, recurrent pregnancy loss, or fertility preservation needs. Early referral is evidence-based for advanced maternal age (≥35 years), diminished ovarian reserve (low AMH, elevated FSH), severe male factor (oligoasthenoteratozoospermia, azoospermia), or complex medical histories (endometriosis, PCOS, cancer survivors). Structured referral pathways reduce time-to-treatment intervals and improve cost-effectiveness by avoiding unnecessary testing duplication while ensuring appropriate urgency based on female age and ovarian reserve status.",
     "reference": [
       "https://pmc.ncbi.nlm.nih.gov/articles/PMC9302705/"
     ],
     "related_to": [
+      "Initial Consult",
       "In Vitro Fertilization (IVF)",
-      "Conventional Insemination",
       "Intrauterine Insemination (IUI)",
-      "Fertility Preservation"
+      "Sperm Cryopreservation",
+      "Oocyte Cryopreservation (Egg Freezing)",
+      "Advanced Maternal Age (AMA)",
+      "Anti-Mullerian Hormone (AMH) Test",
+      "Semen Analysis"
     ],
     "category": "Referral & Initial Consultation"
   },
@@ -95,7 +117,7 @@
     "category": "Referral & Initial Consultation",
     "topic": "Initial Consult",
     "lay_explanation": "The initial fertility consultation is the first appointment with a fertility specialist and comes following a referal to a fertility clinic. It is usually recommended when someone has been trying to conceive for 12 months or longer without success, or sooner if there are known risk factors such as irregular cycles, history of pelvic infections, endometriosis, or advanced maternal age. During this visit, the doctor reviews medical history, lifestyle, and any prior test results. For men, the first-line test is usually a semen analysis to check sperm count, movement, and shape. For women, testing often includes hormone bloodwork (to assess egg supply and cycle hormones), ultrasound of the ovaries and uterus, and sometimes imaging to check if the fallopian tubes are open. These early tests help identify possible causes of infertility and guide whether treatments like ovulation medication, intrauterine insemination (IUI), or in vitro fertilization (IVF) may be appropriate.",
-    "expert_summary": "The initial fertility consultation entails a comprehensive evaluation, including detailed reproductive, medical, surgical, and lifestyle history. Male evaluation begins with semen analysis; abnormal results are followed by endocrine assays (FSH, LH, testosterone, prolactin) and, when indicated, genetic testing (karyotype, Y-chromosome microdeletions, CFTR mutations). Female assessment targets ovarian reserve (AMH, day 3 FSH, estradiol), ovulatory status, uterine cavity (transvaginal ultrasound), and tubal patency (HSG, saline sonohysterography, or hysterosalpingo-contrast sonography). Mechanistically, this step classifies infertility into male factor, ovulatory, tubal, uterine, ovarian reserve–related, combined, or unexplained categories. Results guide individualized management plans, ranging from timed intercourse and ovulation induction to advanced ART, including IUI and IVF/ICSI. Early referral improves prognosis, particularly in cases of diminished ovarian reserve or severe male factor infertility.",
+    "expert_summary": "The initial consultation employs systematic diagnostic algorithms to efficiently categorize infertility etiology and optimize treatment sequencing. Core assessments include: male factor evaluation via semen analysis with subsequent hormonal (FSH, LH, testosterone, prolactin) and genetic testing (karyotype, Y-microdeletions, CFTR) for abnormal parameters; female evaluation encompassing ovarian reserve testing (AMH, basal FSH/estradiol, AFC), ovulatory assessment, anatomical evaluation (transvaginal ultrasound, HSG/SIS), and endocrine screening (TSH, prolactin). Evidence-based diagnostic classification enables targeted interventions: ovulation induction for anovulatory patients, IUI for mild male factor or unexplained infertility, and IVF/ICSI for severe male factor, tubal pathology, or advanced maternal age. Time-sensitive factors including female age and ovarian reserve parameters guide treatment urgency and modality selection. Contemporary practice emphasizes shared decision-making incorporating patient preferences, success rates, and cost-effectiveness analyses.",
     "reference": [
       "https://pmc.ncbi.nlm.nih.gov/articles/PMC9302705/"
     ],
@@ -103,7 +125,7 @@
       "Semen Analysis",
       "Follicle Stimulating Hormone (FSH) Test",
       "Anti-Mullerian Hormone (AMH) Test",
-      "Estradiol (E2) Blood Test Test",
+      "Estradiol (E2) Blood Test",
       "Antral Follicle Count (AFC) Ultrasound",
       "Hysterosalpingogram (HSG)",
       "Saline Infusion Sonohysterography (SIS)",
@@ -114,30 +136,38 @@
   {
     "category": "Male Reproductive Biology - Anatomy & Processes",
     "topic": "Spermatogenesis",
-    "lay_explanation": "Spermatogenesis is the process by which sperm are made inside the testes. It starts with stem cells and takes about 74 days for immature cells to develop into mature sperm. During this time, the cells divide, grow, and change shape until they become sperm with a head and tail that can swim. This process happens in the seminiferous tubules of the testes, with help from Sertoli cells. If spermatogenesis is disrupted, sperm count or quality can be low, which affects fertility.",
-    "expert_summary": "Spermatogenesis is a continuous and highly organized process occurring within seminiferous tubules, progressing from spermatogonial stem cells → spermatocytes → spermatids → mature spermatozoa. It is divided into mitotic proliferation, meiotic recombination/division, and spermiogenesis (morphological remodeling). Sertoli cells provide structural and paracrine support, while Leydig cell-derived testosterone and FSH signaling are essential regulatory inputs. The entire cycle in humans requires ~74 days, followed by ~12–21 days of epididymal transit for maturation. Disruptions in spermatogenesis underlie oligospermia, azoospermia, or abnormal morphology. In ART, impaired spermatogenesis often necessitates sperm retrieval techniques (e.g., testicular sperm extraction [TESE], micro-TESE) or use of ejaculated sperm with ICSI.",
+    "lay_explanation": "Spermatogenesis is the remarkable 74-day process by which millions of sperm are continuously produced within the seminiferous tubules of the testes. It begins with stem cells (spermatogonia) that divide and develop through three main phases: mitotic division (where cells multiply), meiotic division (where genetic material is reduced by half and recombined), and spermiogenesis (where cells transform into mature sperm with heads and tails). Throughout this journey, Sertoli cells act as 'nurse cells,' providing nutrition, structural support, and creating the blood-testis barrier that protects developing sperm. The process requires precise hormonal coordination - FSH stimulates Sertoli cells while LH triggers testosterone production from Leydig cells. Any disruption to this delicate system (from infections, toxins, genetic factors, or hormonal imbalances) can result in low sperm count, poor sperm quality, or complete absence of sperm, significantly impacting male fertility.",
+    "expert_summary": "Spermatogenesis is a hormonally-regulated, temperature-sensitive process requiring 74 days from spermatogonial stem cell activation to mature spermatozoa release. The process occurs within seminiferous tubules divided by the blood-testis barrier (BTB) into basal and adluminal compartments. FSH exclusively targets Sertoli cells via FSHR, promoting anti-apoptotic factors and adhesion molecules essential for germ cell maturation, while LH-stimulated intratesticular testosterone (ITT) acts synergistically through androgen receptors. The mitotic, meiotic, and spermiogenesis phases are precisely coordinated by Sertoli cell secretions including ABP, inhibin B, and paracrine factors. Spermatogenic failure manifests as oligozoospermia, asthenozoospermia, teratozoospermia, or azoospermia. Contemporary ART approaches include hormonal optimization (FSH, hCG), surgical sperm retrieval (TESE, micro-TESE), and ICSI for severe oligozoospermia or azoospermia, with outcomes dependent on Sertoli cell function and spermatogonial stem cell reserve.",
     "reference": [
-      "https://www.ncbi.nlm.nih.gov/books/NBK10095/"
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7230878/",
+      "https://rbej.biomedcentral.com/articles/10.1186/s12958-022-00971-w",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6302021/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4581062/"
     ],
     "related_to": [
       "Testes",
       "Sertoli Cells",
       "Leydig Cells",
+      "Sperm",
       "Testosterone",
       "Follicle Stimulating Hormone (FSH)",
       "Luteinizing Hormone (LH)",
-      "Sperm"
+      "Oligospermia",
+      "Azoospermia",
+      "Teratozoospermia",
+      "Testicular Sperm Extraction (TESE/micro-TESE)"
     ]
   },
   {
     "category": "Male Reproductive Biology - Anatomy & Processes",
     "topic": "Testes",
-    "lay_explanation": "The testes are the male reproductive organs that produce sperm and the hormone testosterone. They are located in the scrotum, which keeps them about 2–4°C cooler than the rest of the body. This cooler temperature is essential for healthy sperm development. Without properly functioning testes, sperm production and male fertility are compromised. In assisted reproductive technologies (ART), conditions affecting the testes—such as very low sperm counts or no sperm in the ejaculate—may require sperm retrieval directly from the testes for use in IVF or ICSI.",
-    "expert_summary": "The testes consist of tightly coiled seminiferous tubules where spermatogenesis occurs, supported by Sertoli cells, and interstitial tissue containing Leydig cells that synthesize testosterone. Optimal spermatogenesis requires proper thermoregulation (~2–4°C below core temperature) and hypothalamic–pituitary hormonal stimulation (LH acting on Leydig cells, FSH acting on Sertoli cells). Pathologies such as cryptorchidism, orchitis, trauma, varicocele, or gonadotoxic exposures (e.g., chemotherapy, radiation) may impair spermatogenesis, leading to oligospermia or azoospermia. In ART, testicular sperm extraction (TESE, micro-TESE) or fine-needle aspiration may be employed in cases of obstructive or non-obstructive azoospermia, allowing intracytoplasmic sperm injection (ICSI) to bypass ejaculatory or maturation defects.",
+    "lay_explanation": "The testes are the male reproductive organs responsible for producing sperm and testosterone, the primary male hormone. Located in the scrotum outside the body, they are maintained 2-7°C cooler than core body temperature - this precise thermoregulation is absolutely critical for healthy sperm production. Each testis contains hundreds of tightly coiled seminiferous tubules where sperm develop over 74 days, supported by Sertoli cells that act as 'nurse cells.' Between these tubules are Leydig cells that produce testosterone in response to hormonal signals from the brain. The testes also contain blood vessels, immune cells, and supportive tissues that work together to maintain male fertility. When testicular function is compromised by conditions like undescended testes (cryptorchidism), varicocele (enlarged veins), infections, trauma, or genetic factors, sperm production and hormone levels can be severely affected. In fertility treatments, men with testicular problems may require surgical sperm retrieval procedures directly from the testes for use with ICSI.",
+    "expert_summary": "The testes are compartmentalized organs containing seminiferous tubules (site of spermatogenesis) and interstitial compartments with Leydig cells, vasculature, immune cells, and peritubular myoid cells. Temperature-sensitive spermatogenesis requires precise thermoregulation (2-7°C below core temperature) maintained by scrotal anatomy and vascular countercurrent heat exchange. Leydig cells synthesize testosterone via LH stimulation and produce paracrine factors (including vasopressin) that regulate peritubular cell contractility and seminiferous tubule function. The blood-testis barrier formed by Sertoli cell tight junctions creates immune-privileged compartments essential for meiotic progression. Testicular pathologies including cryptorchidism (most common pediatric endocrine disorder), varicocele, infections, trauma, and gonadotoxic exposures disrupt the delicate cellular ecosystem, manifesting as oligozoospermia, azoospermia, or Leydig cell dysfunction. ART interventions include hormonal optimization, surgical sperm retrieval (TESE, micro-TESE, PESA), and ICSI, with success dependent on preserved spermatogonial stem cell populations and Sertoli cell function.",
     "reference": [
-      "https://www.ncbi.nlm.nih.gov/books/NBK279031/",
-      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3114571/",
-      "https://www.ncbi.nlm.nih.gov/books/NBK562258/"
+      "https://www.ncbi.nlm.nih.gov/books/NBK556007/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7036326/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7339753/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11274587/"
     ],
     "related_to": [
       "Sperm",
@@ -157,10 +187,13 @@
   {
     "category": "Male Reproductive Biology - Anatomy & Processes",
     "topic": "Sertoli Cells",
-    "lay_explanation": "Sertoli cells are special cells inside the testes that act like 'nurse cells' for developing sperm. They provide nutrition, remove waste, and create a safe environment for sperm to grow. They also form a barrier (the blood–testis barrier) that protects sperm from the body's immune system. Without healthy Sertoli cells, sperm cannot properly mature.",
-    "expert_summary": "Sertoli cells line the seminiferous tubules and provide structural, nutritional, and paracrine support for spermatogenesis. They form the blood–testis barrier through tight junctions, creating basal and adluminal compartments critical for meiosis and postmeiotic differentiation. Under FSH stimulation, Sertoli cells secrete androgen-binding protein (ABP), inhibin B, and various growth factors that regulate germ cell development. Dysfunction or depletion of Sertoli cells is associated with Sertoli cell–only syndrome and severe oligozoospermia. In ART, Sertoli cell quality indirectly impacts sperm yield for IVF/ICSI.",
+    "lay_explanation": "Sertoli cells are remarkable 'nurse cells' within the seminiferous tubules that are absolutely essential for sperm production. They wrap around developing sperm cells, providing nutrition, removing waste products, and creating a protective environment for sperm to mature over their 74-day journey. One of their most important functions is forming the blood-testis barrier - a tight wall of connections between Sertoli cells that creates two distinct compartments. This barrier protects developing sperm from the immune system (which would otherwise attack them as foreign cells) and controls what nutrients and hormones can reach the sperm. Sertoli cells also respond to FSH hormone from the brain by producing proteins and growth factors that guide sperm development. When Sertoli cells are damaged or don't function properly (from infections, toxins, genetic conditions, or treatments like chemotherapy), sperm production can be severely reduced or stopped completely, leading to male infertility.",
+    "expert_summary": "Sertoli cells are the primary somatic cells regulating spermatogenesis through FSH-mediated signaling pathways. They form the blood-testis barrier (BTB) via tight junctions, gap junctions, desmosomes, and ectoplasmic specializations, creating immune-privileged basal and adluminal compartments essential for meiotic progression. FSH binding to FSHR exclusively on Sertoli cells triggers production of anti-apoptotic survival factors, adhesion molecules, ABP, inhibin B, and paracrine regulators necessary for germ cell maturation. Sertoli cells also respond to intratesticular testosterone via androgen receptors, demonstrating the critical FSH-testosterone synergy in spermatogenesis. Sertoli cell dysfunction underlies Sertoli cell-only syndrome, maturation arrest, and severe oligozoospermia. The finite Sertoli cell population established during puberty determines adult sperm production capacity. In ART, Sertoli cell function assessment through inhibin B levels and histological evaluation guides prognosis for sperm retrieval success in azoospermic men.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/18242891/"
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8344352/",
+      "https://rbej.biomedcentral.com/articles/10.1186/s12958-022-00971-w",
+      "https://pubmed.ncbi.nlm.nih.gov/9813187/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK553142/"
     ],
     "related_to": [
       "Testes",
@@ -174,33 +207,47 @@
   {
     "category": "Male Reproductive Biology - Anatomy & Processes",
     "topic": "Leydig Cells",
-    "lay_explanation": "Leydig cells are found between the sperm-producing tubules in the testes. Their main job is to make testosterone, the hormone needed for male development and sperm production. Without enough testosterone from Leydig cells, sperm production and fertility are reduced.",
-    "expert_summary": "Leydig cells, located in the interstitial space of the testes, synthesize testosterone in response to luteinizing hormone (LH) from the pituitary. Testosterone acts locally on Sertoli cells to support spermatogenesis and systemically to maintain male secondary sexual characteristics. Leydig cell function depends on cholesterol transport into mitochondria via StAR protein and enzymatic activity of CYP11A1 and 17β-HSD. Age, varicocele, toxins, or gonadotoxic therapies may impair Leydig cell steroidogenesis, leading to hypogonadism and infertility. In ART, impaired Leydig cell function can necessitate hormonal optimization prior to sperm retrieval or IVF/ICSI.",
+    "lay_explanation": "Leydig cells are specialized hormone-producing cells located in the spaces between the seminiferous tubules in the testes. Their primary function is to manufacture testosterone, the essential male hormone that drives sperm production, male sexual development, and maintains masculine characteristics like muscle mass and body hair. When the brain releases luteinizing hormone (LH), it signals Leydig cells to start producing testosterone from cholesterol through a complex series of chemical reactions. This testosterone then travels to nearby Sertoli cells to support sperm development and circulates throughout the body to maintain male health and fertility. Leydig cells also produce other important substances like vasopressin that help coordinate testicular function. When Leydig cells don't work properly due to aging, genetic conditions, infections, varicocele, toxin exposure, or medical treatments, testosterone levels drop, leading to poor sperm production, reduced libido, fatigue, and infertility. In fertility treatments, doctors may need to optimize Leydig cell function with hormone therapy before attempting sperm retrieval or IVF procedures.",
+    "expert_summary": "Leydig cells are interstitial steroidogenic cells essential for male reproductive function, synthesizing testosterone via LH-stimulated steroidogenic pathways. Testosterone biosynthesis requires cholesterol transport into mitochondria via StAR protein, followed by enzymatic conversion through CYP11A1, 3β-HSD, CYP17A1, and 17β-HSD. Beyond testosterone production, Leydig cells secrete paracrine factors including vasopressin that regulate peritubular cell contractility and seminiferous tubule function. Intratesticular testosterone concentrations (~100-fold higher than serum) are critical for spermatogenesis, acting synergistically with FSH signaling on Sertoli cells. Leydig cell dysfunction from aging, varicocele, cryptorchidism, infections, gonadotoxic exposures, or genetic defects (LH receptor mutations) results in hypogonadism and impaired spermatogenesis. In ART, Leydig cell assessment through testosterone:LH ratios and histological evaluation guides hormonal optimization strategies (hCG, testosterone replacement) before sperm retrieval procedures, with treatment success dependent on preserved Leydig cell populations and steroidogenic capacity.",
     "reference": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK556007/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7036326/",
+      "https://www.mdpi.com/2075-1729/12/4/570",
       "https://pmc.ncbi.nlm.nih.gov/articles/PMC6044347/"
     ],
     "related_to": [
       "Testes",
-      "Spermatogenesis",
+      "Spermatogenesis", 
       "Sperm",
       "Sertoli Cells",
-      "Luteinizing Hormone (LH)"
+      "Testosterone",
+      "Luteinizing Hormone (LH)",
+      "Human Chorionic Gonadotropin (hCG)",
+      "Varicocele & Fertility"
     ]
   },
   {
     "category": "Male Reproductive Biology - Anatomy & Processes",
     "topic": "Epididymis",
-    "lay_explanation": "The epididymis is a long, coiled tube attached to the back of each testis. As sperm travel through the epididymis, they finish maturing and learn how to swim. The epididymis also stores sperm until ejaculation. If it becomes blocked or damaged, sperm may not mature properly or may not reach the semen, which can make it harder to conceive. In assisted reproduction, sperm can sometimes be collected directly from the epididymis if there is a blockage in the reproductive tract this is known as a PESA.",
-    "expert_summary": "The epididymis is anatomically divided into the caput, corpus, and cauda, and plays an essential role in post-testicular sperm maturation, motility acquisition, and storage. Epididymal epithelial secretions mediate structural and biochemical modifications of the sperm membrane that prepare sperm for capacitation and fertilization. Pathologies such as congenital bilateral absence of the vas deferens (CBAVD), epididymal obstruction, or infection (epididymitis, tuberculosis) can lead to obstructive azoospermia. In ART, percutaneous (PESA) or testicular sperm extraction (TESE) is used for sperm retrieval in obstructive cases, with subsequent ICSI enabling fertilization.",
+    "lay_explanation": "The epididymis is a remarkable, tightly coiled tube about 20 feet long when stretched out, but compressed into a C-shaped structure attached to the back of each testis. This intricate organ serves as a crucial 'finishing school' for sperm over their 12-21 day journey through its three sections: the head (caput), body (corpus), and tail (cauda). As sperm travel through the epididymis, they undergo essential maturation processes - gaining the ability to swim properly, developing their outer membrane, and acquiring the capacity to fertilize an egg. The epididymis also acts as a storage facility, keeping mature sperm ready for ejaculation. The epididymal lining secretes special proteins and nutrients that are vital for sperm function. When the epididymis becomes blocked (from infections, genetic conditions, or injury), damaged by inflammation (epididymitis), or is missing due to genetic conditions like CBAVD, sperm cannot complete their maturation or reach the ejaculate, causing obstructive azoospermia. In fertility treatments, urologists can retrieve sperm directly from the epididymis using PESA (percutaneous epididymal sperm aspiration) procedures for use in ICSI.",
+    "expert_summary": "The epididymis is a highly specialized, segmented organ (~6 meters uncoiled) performing critical post-testicular sperm maturation functions over 12-21 days of transit. Regional specialization includes: caput (sperm concentration and initial maturation), corpus (continued biochemical modifications), and cauda (sperm storage and final maturation). Epididymal epithelial cells secrete proteins essential for sperm membrane remodeling, motility acquisition, and fertilization competence, including epididymal-specific glycoproteins and antioxidants. The blood-epididymis barrier maintains optimal microenvironment composition. Pathophysiology includes obstructive azoospermia from CBAVD (often CFTR-related), epididymal inflammation (bacterial, tuberculous, autoimmune), post-surgical strictures, or congenital anomalies. Sperm retrieved from epididymis via PESA, MESA, or microepididymal procedures demonstrate comparable fertilization rates to ejaculated sperm in ICSI, though motility may be reduced. Regional variations in sperm quality exist, with cauda sperm typically superior for ART applications due to completed maturation processes.",
     "reference": [
-      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7432785/"
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7432785/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK538429/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4013472/",
+      "https://pubmed.ncbi.nlm.nih.gov/2746782/"
     ],
     "related_to": [
-      "Vas Deferens",
+      "Vas Deferens", 
       "Testes",
+      "Sperm",
+      "Spermatogenesis",
+      "Azoospermia",
       "Obstructive Azoospermia",
+      "Congenital Bilateral Absence of the Vas Deferens (CBAVD)",
       "Testicular Sperm Extraction (TESE/micro-TESE)",
-      "Percutaneous Epididymal Sperm Aspiration (PESA)"
+      "Percutaneous Epididymal Sperm Aspiration (PESA)",
+      "Intracytoplasmic Sperm Injection (ICSI)"
     ]
   },
   {
@@ -604,17 +651,25 @@
   {
     "category": "Male Infertility Testing",
     "topic": "Semen Analysis",
-    "lay_explanation": "A semen analysis is a lab test that looks at a man's sperm. It measures how much fluid is produced, how many sperm there are, how well they move, and how they look. This test helps doctors understand potential causes of male fertility problems.",
-    "expert_summary": "Following the WHO 6th edition guidelines, a basic semen analysis includes assessment of ejaculate volume, sperm concentration, total and progressive motility, and morphology. Advanced analysis may also include sperm vitality, leukocyte count, and DNA fragmentation. Reference thresholds—defined as the 5th percentile from data on fertile men—are: volume ≥ 1.4 mL; concentration ≥ 16 million/mL; total motility ≥ 42 %; progressive motility ≥ 30 %; and normal morphology ≥ 4 % normal forms. Semen analysis remains a cornerstone of fertility evaluation but must be interpreted holistically with clinical context and repeat testing as needed.",
+    "lay_explanation": "A semen analysis is the most important first test for male fertility. It's a lab test that examines several aspects of a man's semen and sperm after 2-5 days of abstinence. The test measures the volume of semen produced, counts how many sperm are present, checks how well they swim (motility), and examines their shape (morphology). Many men worry about this test, but it's straightforward - you provide a sample by masturbation in a private room at the clinic or sometimes at home in a special container. The lab then analyzes the sample within an hour. Results help doctors understand if male factors might be contributing to fertility challenges and guide treatment decisions. Since sperm production takes about 74 days, results can change over time, so abnormal results are often repeated after 2-3 months.",
+    "expert_summary": "Semen analysis should follow WHO 6th edition (2021) laboratory manual standards with strict adherence to pre-analytical variables: 2-7 days abstinence, collection by masturbation, analysis within 1 hour at 37°C. Core parameters include: volume (≥1.4 mL), concentration (≥16×10⁶/mL), total motility (≥42%), progressive motility (≥30%), and morphology (≥4% normal forms using strict criteria). Advanced testing may include vitality assessment (eosin-nigrosin staining), leukocyte count (<1×10⁶/mL), and sperm DNA fragmentation index (TUNEL, SCSA, or SCD assays). Clinical interpretation requires consideration of laboratory quality control, coefficient of variation between duplicates (<20% for concentration and motility), and biological variation necessitating repeat analysis if abnormal. Predictive value for natural conception: concentration >39×10⁶/mL and progressive motility >32% associated with 12-month conception rates >75% in couples with unexplained infertility. Integration with female partner evaluation and clinical history guides treatment algorithms from expectant management to IUI, IVF, or ICSI.",
     "reference": [
       "https://www.who.int/publications/i/item/9789240030787",
-      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10929669/"
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8620464/",
+      "https://academic.oup.com/humrep/article/38/5/791/7079741",
+      "https://www.fertstert.org/article/S0015-0282(22)02091-4/fulltext"
     ],
     "related_to": [
       "Sperm",
+      "Sperm DNA Fragmentation Testing",
       "Intracytoplasmic Sperm Injection (ICSI)",
       "Conventional Insemination",
-      "Intrauterine Insemination (IUI)"
+      "Intrauterine Insemination (IUI)",
+      "Male Factor Infertility",
+      "Oligospermia",
+      "Asthenozoospermia",
+      "Teratozoospermia",
+      "Initial Consult"
     ]
   },
   {
@@ -954,7 +1009,7 @@
   },
   {
     "topic": "Advanced Maternal Age (AMA)",
-    "lay_explanation": "Advanced Maternal Age (AMA) is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
+    "lay_explanation": "Advanced Maternal Age (AMA) refers to women age 35 or older when they deliver a baby. As women age, fertility naturally declines due to fewer and lower-quality eggs. Women with AMA have higher risks of miscarriage, genetic problems in babies, and may need more fertility treatments. However, many women over 35 do conceive and have healthy pregnancies. Treatment options may include genetic testing of embryos, personalized fertility medication protocols, and careful monitoring. The key is not to delay too long and to seek evaluation sooner rather than later.",
     "expert_summary": "Defined as age â¥ 35 at delivery; associated with decreased ovarian reserve, increased aneuploidy risk, and lower ART success rates.",
     "reference": [
       "https://pubmed.ncbi.nlm.nih.gov/34353477/"
@@ -1016,31 +1071,38 @@
   {
     "category": "Female Infertility",
     "topic": "Thin Endometrium",
-    "lay_explanation": "Thin Endometrium is a condition that can make it harder to conceive. It affects how eggs, sperm, or the reproductive organs work. Diagnosis comes from your history, exam, and targeted tests; treatment depends on cause and goals.",
-    "expert_summary": "Endometrial thickness <7 mm at transfer is associated with lower pregnancy rates; treatments include estrogen therapy and PRP infusion.",
+    "lay_explanation": "Thin endometrium occurs when the lining of the uterus doesn't grow thick enough (less than 7mm) for optimal embryo implantation. This can reduce pregnancy chances during IVF or natural conception. The condition may result from hormonal imbalances, previous uterine procedures, or poor blood flow to the uterus. Treatment options include estrogen therapy to thicken the lining, platelet-rich plasma (PRP) injections to improve blood flow, and medications like sildenafil. Many women with thin endometrium can still achieve pregnancy with appropriate treatment and personalized care.",
+    "expert_summary": "Thin endometrium (TE) <7mm thickness is associated with reduced implantation and clinical pregnancy rates in ART cycles. 2024 research shows PRP treatment increases endometrial thickness from 5mm to 7.22mm post-treatment, with 73.7% implantation rates. PRP improves clinical pregnancy (30%), live birth (20%), and implantation rates (12.7%) through angiogenic factors like PDGF-BB and VEGF. Treatment protocols include extended estrogen supplementation, intrauterine PRP injections, and vaginal sildenafil.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/"
+      "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2024.1269382/full",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11151180/",
+      "https://bmcpregnancychildbirth.biomedcentral.com/articles/10.1186/s12884-024-06741-3",
+      "https://www.nature.com/articles/s41598-023-27982-w"
     ],
     "related_to": [
-      "Semen Analysis",
-      "Varicocele & Fertility",
-      "Intracytoplasmic Sperm Injection (ICSI)"
+      "In Vitro Fertilization (IVF)",
+      "Embryo Transfer",
+      "Endometrium",
+      "Recurrent Implantation Failure"
     ]
   },
   {
     "category": "Female Infertility",
     "topic": "Adenomyosis",
-    "lay_explanation": "When the lining of the uterus grows into the muscle wall, causing pain and heavy bleeding.",
-    "expert_summary": "Adenomyosis is linked to subfertility and ART failure, possibly due to impaired implantation and altered uterine contractility.",
+    "lay_explanation": "Adenomyosis occurs when the tissue that normally lines the uterus (endometrium) grows into the muscle wall of the uterus. This causes the uterus to become enlarged, tender, and can lead to heavy, painful periods. Adenomyosis can make it harder to get pregnant and increases the risk of miscarriage. Women with this condition may have lower success rates with IVF, but treatment with hormone medications (like GnRH agonists) before fertility treatment can improve outcomes. Many women with adenomyosis can still achieve successful pregnancies with proper management.",
+    "expert_summary": "Adenomyosis significantly impacts ART outcomes with 28% reduction in clinical pregnancy rates, decreased live birth rates, and higher miscarriage rates (35.4% vs 18.1% controls). 2024 research shows cumulative live birth rates of 58.1% vs 63% (controls) in women <38 years. GnRH agonist pretreatment for 3 months before frozen embryo transfer improves clinical pregnancy, implantation, and live birth rates. Freeze-all strategy recommended as primary approach for adenomyosis patients.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/"
+      "https://www.mdpi.com/2077-0383/13/17/5224",
+      "https://www.nature.com/articles/s41598-023-34045-7",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8054136/",
+      "https://pubmed.ncbi.nlm.nih.gov/35895965/"
     ],
     "related_to": [
-      "Semen Analysis",
-      "Varicocele & Fertility",
-      "Intracytoplasmic Sperm Injection (ICSI)"
+      "In Vitro Fertilization (IVF)",
+      "Frozen Embryo Transfer",
+      "GnRH Agonist Protocol",
+      "Recurrent Implantation Failure",
+      "Uterine Fibroids"
     ]
   },
   {
@@ -1206,15 +1268,25 @@
   },
   {
     "topic": "Anti-Mullerian Hormone (AMH) Test",
-    "lay_explanation": "A blood test that estimates your ovarian reserve (roughly, your remaining egg supply). Higher AMH often means more eggs; lower AMH may indicate fewer eggs.",
-    "expert_summary": "Cycle-independent marker of ovarian reserve reflecting the population of pre-antral and small antral follicles; predictive of ovarian response in controlled stimulation. Typical reference: High ovarian reserve >3.5 ng/mL, average 1.0-3.5 ng/mL, low <1.0 ng/mL; values vary with age and assay.",
+    "lay_explanation": "The Anti-Mullerian Hormone (AMH) test is a simple blood test that measures your ovarian reserve - essentially how many eggs you have remaining. AMH is produced by small follicles in your ovaries, so the level in your blood reflects your egg supply. Unlike other hormone tests, AMH can be drawn on any day of your menstrual cycle and doesn't change much from month to month. Higher AMH levels generally indicate more eggs remaining, while lower levels suggest fewer eggs. This test is particularly helpful for women considering egg freezing, planning IVF treatment, or wanting to understand their fertility timeline. However, AMH tells us about quantity, not quality - you can still have healthy pregnancies with lower AMH levels, and high AMH doesn't guarantee easy conception.",
+    "expert_summary": "AMH is secreted by granulosa cells of pre-antral and small antral follicles (2-9mm), serving as the most reliable biomarker of ovarian reserve. Unlike FSH and estradiol, AMH exhibits minimal intra- and inter-cycle variation, allowing measurement on any cycle day. Clinical applications include: (1) Ovarian response prediction in controlled ovarian hyperstimulation - AMH >2.5 ng/mL predicts hyperresponse risk, <1.1 ng/mL indicates poor response; (2) PCOS diagnosis (elevated AMH >4.7 ng/mL in >90% of cases); (3) Fertility preservation counseling and timing; (4) Menopause prediction (AMH <0.1 ng/mL indicates imminent menopause). Age-specific reference ranges: Age 25-30: 1.5-5.5 ng/mL; 30-35: 1.0-4.5 ng/mL; 35-40: 0.5-3.0 ng/mL; >40: <2.0 ng/mL. Assay standardization is critical - current generation assays (Elecsys, Access) show good correlation but different absolute values. AMH correlates with antral follicle count (r=0.7-0.8) and predicts oocyte yield in IVF (r=0.6-0.7) but shows weaker correlation with live birth rates, emphasizing that oocyte quality transcends quantity in reproductive outcomes.",
     "reference": [
-      "https://www.asrm.org/topics/topics-index/amh-testing/",
-      "https://pubmed.ncbi.nlm.nih.gov/24313244/"
+      "https://www.fertstert.org/article/S0015-0282(22)00481-0/fulltext",
+      "https://academic.oup.com/humrep/article/38/12/2327/7280991",
+      "https://www.sciencedirect.com/science/article/pii/S1472648323001195",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8346141/"
     ],
     "related_to": [
+      "Ovarian Reserve Testing",
+      "Antral Follicle Count (AFC) Ultrasound",
+      "Follicle Stimulating Hormone (FSH) Test",
       "Ovarian Stimulation",
-      "Oocyte Cryopreservation (Egg Freezing)"
+      "Oocyte Cryopreservation (Egg Freezing)",
+      "Polycystic Ovary Syndrome (PCOS)",
+      "Diminished Ovarian Reserve (DOR)",
+      "IVF Preparation",
+      "Advanced Maternal Age (AMA)",
+      "Initial Consult"
     ],
     "category": "Female Infertility Testing"
   },
@@ -1286,156 +1358,214 @@
   },
   {
     "topic": "Hysterosalpingogram (HSG)",
-    "lay_explanation": "An X-ray with dye to check whether the fallopian tubes are open and to assess the shape of the uterus.",
-    "expert_summary": "Contrast fluoroscopy evaluating tubal patency and uterine cavity contour; part of first-line infertility evaluation.",
+    "lay_explanation": "A Hysterosalpingogram (HSG) is an X-ray procedure that checks if your fallopian tubes are open and examines the shape of your uterus. During the test, a thin tube (catheter) is placed through your cervix into your uterus, and contrast dye is slowly injected while X-ray images are taken. As the dye flows through your uterus and tubes, it shows whether the tubes are blocked or if there are any abnormalities in the uterine cavity like fibroids, polyps, or scar tissue. The procedure typically takes 15-30 minutes and is usually done between days 7-10 of your menstrual cycle (after your period ends but before ovulation). Most women experience cramping similar to menstrual cramps during and after the procedure. You may take ibuprofen beforehand to help with discomfort, and some doctors prescribe antibiotics to prevent infection. A small amount of spotting or discharge is normal for a few days after the test.",
+    "expert_summary": "HSG utilizes iodinated contrast medium with fluoroscopic imaging to assess tubal patency and uterine cavity architecture. Optimal timing is follicular phase (days 7-10) to avoid potential pregnancy and minimize endometrial thickness. The procedure involves transcervical catheter placement (balloon occlusion catheter preferred) with slow contrast injection (1-2 mL/minute) to minimize patient discomfort and tubal spasm. Diagnostic accuracy: sensitivity 85-95% and specificity 90-95% for tubal occlusion compared to laparoscopy. False positive rates (suggesting blockage when tubes are open) occur in 10-15% due to tubal spasm, debris, or technical factors. Complications are rare (<1%): infection (particularly in patients with hydrosalpinx), allergic reaction to contrast, or uterine perforation. Contraindications include pregnancy, active pelvic infection, and severe iodine allergy. Clinical utility extends beyond patency assessment - HSG can identify intrauterine pathology (adhesions, septum, fibroids) requiring hysteroscopic intervention and may have therapeutic benefits with pregnancy rates potentially increased following HSG due to mechanical flushing effects. Integration with clinical findings, transvaginal ultrasound, and SIS optimizes diagnostic accuracy and treatment planning.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/28927302/"
+      "https://www.fertstert.org/article/S0015-0282(21)00031-5/fulltext",
+      "https://academic.oup.com/humrep/article/37/10/2424/6675912",
+      "https://www.sciencedirect.com/science/article/pii/S1521690X22001389",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8369934/"
     ],
     "related_to": [
       "Fallopian Tubes",
       "Uterus",
-      "Intrauterine Insemination (IUI)"
+      "Saline Infusion Sonohysterography (SIS)",
+      "Tubal Factor Infertility",
+      "Hydrosalpinx",
+      "Uterine Fibroids",
+      "Intrauterine Adhesions",
+      "Intrauterine Insemination (IUI)",
+      "In Vitro Fertilization (IVF)",
+      "Initial Consult",
+      "Female Infertility Evaluation"
     ],
     "category": "Female Infertility Testing"
   },
   {
     "topic": "Saline Infusion Sonohysterography (SIS)",
-    "lay_explanation": "Ultrasound with sterile saline to look for uterine polyps, fibroids, or scarring that could affect implantation.",
-    "expert_summary": "Saline distension enhances endometrial cavity visualization to detect intrauterine pathology before ART.",
+    "lay_explanation": "Saline Infusion Sonohysterography (SIS), also called sonohysterography, is an ultrasound procedure that uses sterile saline (salt water) to get a detailed look inside your uterus. During the procedure, a thin catheter is placed through your cervix into your uterus, and sterile saline is slowly injected while a transvaginal ultrasound probe takes images. The saline expands the uterine cavity, creating a clear view of the uterine lining and allowing doctors to see polyps, fibroids, or scar tissue that might interfere with embryo implantation. The procedure is typically done after your period ends but before ovulation (days 7-10 of your cycle). It takes about 15-20 minutes and causes cramping similar to menstrual cramps. Most women can take ibuprofen beforehand to minimize discomfort. SIS is often preferred over HSG for evaluating the uterine cavity because it provides better detail of intrauterine abnormalities and doesn't use radiation or iodine contrast.",
+    "expert_summary": "SIS combines transvaginal ultrasonography with sterile saline infusion to enhance endometrial cavity visualization and detect intrauterine pathology. The procedure involves transcervical catheter placement with slow saline instillation (5-20 mL) while performing real-time ultrasound imaging. Diagnostic accuracy: sensitivity 87-100% and specificity 89-100% for detecting intrauterine pathology (polyps, submucous fibroids, adhesions) compared to hysteroscopy as the gold standard. SIS demonstrates superior performance compared to conventional transvaginal ultrasound for evaluating the endometrial cavity, particularly for detecting polyps (<5mm) and distinguishing between polyps and fibroids. Optimal timing is early proliferative phase (days 5-10) when endometrium is thin. Contraindications include pregnancy, active pelvic infection, and severe cervical stenosis. The procedure is well-tolerated with minimal complications (<1% infection rate). Clinical applications include pre-ART evaluation, recurrent pregnancy loss workup, and abnormal uterine bleeding assessment. Cost-effectiveness analysis favors SIS over MRI for initial intrauterine pathology screening. When abnormalities are detected, hysteroscopic resection typically follows, with post-operative SIS used to confirm complete removal and restoration of normal cavity architecture.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/29916506/"
+      "https://www.fertstert.org/article/S0015-0282(20)32479-7/fulltext",
+      "https://academic.oup.com/humupd/article/27/3/497/6126104",
+      "https://www.sciencedirect.com/science/article/pii/S1521690X21002513",
+      "https://link.springer.com/article/10.1007/s00404-023-07104-3"
     ],
     "related_to": [
       "Endometrium",
+      "Hysterosalpingogram (HSG)",
+      "Hysteroscopy",
+      "Uterine Polyps",
+      "Submucosal Fibroids",
+      "Intrauterine Adhesions",
       "Implantation",
-      "Frozen Embryo Transfer (FET)"
-    ],
-    "category": "Female Infertility Testing"
+      "Recurrent Pregnancy Loss",
+      "Frozen Embryo Transfer (FET)",
+      "IVF Preparation",
+      "Abnormal Uterine Bleeding"
+    ],"category": "Female Infertility Testing"
   },
   {
     "category": "Lifestyle & Enviromental Factors Affecting Fertility",
     "topic": "Stress & Fertility",
-    "lay_explanation": "How chronic stress can interfere with reproductive hormones and treatment success.",
-    "expert_summary": "Stress can elevate cortisol and prolactin, disrupting ovulatory function, luteal phase adequacy, and libido. Psychological distress may also reduce ART adherence and outcomes.",
+    "lay_explanation": "Chronic stress disrupts reproductive hormones by elevating cortisol and prolactin levels, which can interfere with ovulation, menstrual cycles, and sperm production. Managing stress through relaxation techniques, counseling, or lifestyle changes may improve fertility outcomes and treatment success rates.",
+    "expert_summary": "Chronic stress activates the hypothalamic-pituitary-adrenal (HPA) axis, leading to elevated cortisol levels that disrupt GnRH pulsatility and suppress LH/FSH release. This hormonal cascade impairs ovarian function, reduces testosterone production, and negatively affects spermatogenesis. Women with elevated stress biomarkers (α-amylase) show twice the risk of infertility, while psychological distress is associated with reduced ART success rates and longer time to conception.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://www.cdc.gov/reproductivehealth/"
+      "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2023.1147306/full",
+      "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2024.1293255/full",
+      "https://www.spandidos-publications.com/10.3892/ijmm.2024.5475",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3984126/"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
-      "Ovulation Induction (Letrozole/Clomiphene)"
+      "Ovulation Induction (Letrozole/Clomiphene)",
+      "Sleep & Fertility",
+      "Exercise & Fertility"
     ]
   },
   {
     "category": "Lifestyle & Enviromental Factors Affecting Fertility",
     "topic": "Body Weight & Fertility (Underweight, Overweight, Obesity)",
-    "lay_explanation": "How being underweight or overweight can affect your ability to conceive and respond to fertility treatments.",
-    "expert_summary": "Both low and high BMI can disrupt hypothalamic-pituitary-gonadal axis function, alter menstrual cyclicity, and impact sperm parameters. Obesity is associated with insulin resistance, hyperandrogenism, and poorer IVF outcomes; underweight status may cause hypothalamic amenorrhea.",
+    "lay_explanation": "Both being underweight and overweight can disrupt hormone balance and affect fertility. Obesity increases insulin resistance and inflammation while reducing egg and sperm quality, while being underweight can stop ovulation entirely. Achieving a healthy BMI (18.5-24.9) often improves natural conception rates and fertility treatment outcomes.",
+    "expert_summary": "Obesity (BMI >30) is associated with a 3.26-fold increased risk of female infertility through disruption of the hypothalamic-pituitary-ovarian axis, insulin resistance, chronic inflammation, and altered adipokine profiles. Each BMI unit above 29 reduces spontaneous pregnancy rates by 4%. Underweight conditions can cause hypothalamic amenorrhea through energy deficiency. In males, obesity impairs spermatogenesis, reduces testosterone, and increases sperm DNA fragmentation. ART outcomes are significantly compromised with fewer oocytes retrieved, reduced embryo quality, and higher cycle cancellation rates.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://www.cdc.gov/reproductivehealth/"
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10803652/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12003489/",
+      "https://reproductive-health-journal.biomedcentral.com/articles/10.1186/s12978-022-01558-9",
+      "https://obgyn.onlinelibrary.wiley.com/doi/full/10.1002/ijgo.14538"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
-      "Ovulation Induction (Letrozole/Clomiphene)"
+      "Ovulation Induction (Letrozole/Clomiphene)",
+      "Nutrition & Fertility",
+      "Exercise & Fertility",
+      "PCOS (Polycystic Ovary Syndrome)"
     ]
   },
   {
     "category": "Lifestyle & Enviromental Factors Affecting Fertility",
     "topic": "Nutrition & Fertility",
-    "lay_explanation": "How the foods and nutrients you eat can affect hormone balance, egg and sperm health, and chances of conception.",
-    "expert_summary": "Adequate intake of macro- and micronutrients influences reproductive hormones, oocyte and sperm quality, implantation, and pregnancy outcomes. Diets rich in antioxidants, omega-3 fatty acids, and balanced glycemic load have been linked to improved fertility potential.",
+    "lay_explanation": "A Mediterranean-style diet rich in antioxidants, omega-3 fatty acids, and whole foods can significantly improve fertility outcomes for both men and women. These nutrients protect eggs and sperm from oxidative damage while supporting healthy hormone production and embryo development.",
+    "expert_summary": "Mediterranean dietary patterns demonstrate significant reproductive benefits with pooled relative risks of 0.74 for gestational diabetes and improved live birth rates (OR 1.91) in ART cycles. Antioxidants including polyphenols, vitamins C and E, and folate protect gametes from oxidative stress, while omega-3 PUFAs enhance mitochondrial metabolism and reduce DNA damage. Adequate micronutrient intake influences reproductive hormone synthesis, oocyte quality, spermatogenesis, and implantation success. High saturated fat diets negatively impact sperm quality, while Mediterranean diet adherence is associated with improved sperm motility and morphology.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://www.cdc.gov/reproductivehealth/"
+      "https://www.mdpi.com/2072-6643/15/11/2589",
+      "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2024.1287864/full",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10181412/",
+      "https://pubmed.ncbi.nlm.nih.gov/35269682/"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
-      "Ovulation Induction (Letrozole/Clomiphene)"
+      "Ovulation Induction (Letrozole/Clomiphene)",
+      "Body Weight & Fertility (Underweight, Overweight, Obesity)",
+      "Male Factor Infertility"
     ]
   },
   {
     "category": "Lifestyle & Enviromental Factors Affecting Fertility",
     "topic": "Exercise & Fertility",
-    "lay_explanation": "The role of physical activity in supporting or impairing fertility, depending on intensity and frequency.",
-    "expert_summary": "Moderate exercise improves insulin sensitivity, hormone balance, and ovulatory function. Excessive high-intensity training can lead to energy deficits and hypothalamic amenorrhea, while sedentary lifestyles may exacerbate obesity-related infertility.",
+    "lay_explanation": "Moderate exercise (up to 5-6 hours per week) supports fertility by improving hormone balance and blood flow, but excessive high-intensity exercise can disrupt menstrual cycles and reduce fertility. Finding the right balance is key to optimizing reproductive health.",
+    "expert_summary": "Exercise demonstrates a U-shaped relationship with fertility outcomes. Moderate physical activity improves insulin sensitivity, reduces inflammation, and optimizes reproductive hormone profiles. However, recreational activities exceeding 5.83 hours weekly are associated with increased infertility risk through energy deficiency-induced hypothalamic amenorrhea. Excessive exercise disrupts GnRH pulsatility via the hypothalamic-pituitary-ovarian axis, reducing estrogen and progesterone production. In males, while moderate exercise benefits overall health, excessive training may impair hypothalamic-pituitary-testicular function and increase oxidative stress, potentially reducing sperm quality.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://www.cdc.gov/reproductivehealth/"
+      "https://rbej.biomedcentral.com/articles/10.1186/s12958-024-01234-6",
+      "https://www.frontiersin.org/journals/reproductive-health/articles/10.3389/frph.2024.1423916/full",
+      "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2022.1029469/full",
+      "https://journals.sagepub.com/doi/full/10.1177/2042018820945854"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
-      "Ovulation Induction (Letrozole/Clomiphene)"
+      "Ovulation Induction (Letrozole/Clomiphene)",
+      "Body Weight & Fertility (Underweight, Overweight, Obesity)",
+      "Stress & Fertility"
     ]
   },
   {
     "category": "Lifestyle & Enviromental Factors Affecting Fertility",
     "topic": "Smoking & Fertility",
-    "lay_explanation": "Smoking & Fertility describes everyday factors that can support or hinder fertility. Small, sustained changes can improve natural conception and treatment outcomes.",
-    "expert_summary": "Cigarette smoke contains toxins that accelerate ovarian follicle depletion, impair tubal function, and damage sperm DNA integrity. Smoking is associated with lower IVF success rates and earlier menopause onset.",
+    "lay_explanation": "Smoking damages both eggs and sperm through toxic chemicals that accelerate aging of reproductive organs and cause genetic damage. Quitting smoking can improve fertility outcomes within months, as the reproductive system begins to heal from tobacco-related damage.",
+    "expert_summary": "Tobacco smoke contains over 7,000 chemicals including carcinogens and mutagens that penetrate reproductive barriers, causing oxidative DNA damage, chromosomal aberrations, and epigenetic alterations in gametes. Heavy smokers experience decreased semen volume, sperm concentration, motility, and morphology, with increased sperm DNA fragmentation. In females, smoking accelerates follicular depletion, impairs tubal function, and reduces ovarian reserve. Smokers require more ART attempts with poorer embryo quality and reduced IVF/ICSI success rates. The toxic components lead and cadmium contribute significantly to fertility impairment through oxidative stress pathways.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://www.cdc.gov/reproductivehealth/"
+      "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2024.1396793/full",
+      "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2023.1255304/full",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11097250/",
+      "https://www.imrpress.com/journal/FBL/29/12/10.31083/j.fbl2912416/htm"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
-      "Ovulation Induction (Letrozole/Clomiphene)"
+      "Ovulation Induction (Letrozole/Clomiphene)",
+      "Male Factor Infertility",
+      "Occupational Hazards (Chemicals, Radiation)"
     ]
   },
   {
     "category": "Lifestyle & Enviromental Factors Affecting Fertility",
     "topic": "Alcohol Use & Fertility",
-    "lay_explanation": "Alcohol Use & Fertility describes everyday factors that can support or hinder fertility. Small, sustained changes can improve natural conception and treatment outcomes.",
-    "expert_summary": "Chronic or excessive alcohol intake can impair ovarian reserve, disrupt menstrual cycles, increase miscarriage risk, and negatively affect spermatogenesis, testosterone levels, and sperm motility.",
+    "lay_explanation": "Even moderate alcohol consumption can reduce fertility in both men and women by disrupting hormone levels and impairing egg and sperm quality. Women trying to conceive should avoid alcohol entirely, while men should limit consumption to improve sperm health and reduce miscarriage risk.",
+    "expert_summary": "Alcohol metabolism produces acetaldehyde, a teratogenic compound that crosses reproductive barriers and disrupts gametogenesis. In females, chronic consumption impairs ovarian steroidogenesis, disrupts menstrual cyclicity through hypothalamic-pituitary dysfunction, and increases embryo toxicity leading to higher miscarriage rates. Even moderate consumption (>7 drinks/week) reduces fecundability by 18%. In males, ethanol directly affects Sertoli and Leydig cell function, reducing testosterone synthesis and impairing spermatogenesis. Alcohol increases sperm DNA fragmentation, reduces motility, and alters morphology. ART outcomes show dose-dependent reductions in fertilization rates and live birth outcomes with maternal alcohol consumption.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://www.cdc.gov/reproductivehealth/"
+      "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2021.696535/full",
+      "https://reproductive-health-journal.biomedcentral.com/articles/10.1186/s12978-022-01532-5",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8899080/",
+      "https://www.mdpi.com/2077-0383/12/4/1472"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
-      "Ovulation Induction (Letrozole/Clomiphene)"
+      "Ovulation Induction (Letrozole/Clomiphene)",
+      "Male Factor Infertility",
+      "Recurrent Pregnancy Loss"
     ]
   },
   {
     "category": "Lifestyle & Enviromental Factors Affecting Fertility",
     "topic": "Recreational Drugs & Fertility",
-    "lay_explanation": "How substances like marijuana, cocaine, and anabolic steroids can affect reproduction.",
-    "expert_summary": "Cannabis can alter hypothalamic gonadotropin release, impair sperm motility, and disrupt ovulation. Cocaine and anabolic steroids may reduce sperm count, alter morphology, and cause menstrual irregularities.",
+    "lay_explanation": "Recreational drugs including marijuana, cocaine, and anabolic steroids can severely impair fertility by disrupting hormone production, damaging reproductive organs, and affecting egg and sperm quality. These substances can also interfere with fertility treatments and increase pregnancy complications.",
+    "expert_summary": "Cannabis compounds (THC, CBD) bind to CB1/CB2 receptors in reproductive tissues, disrupting hypothalamic GnRH release and impairing gamete development. THC reduces LH surge amplitude by 30-40% and impairs sperm capacitation through altered calcium signaling. Cocaine blocks sodium channels in reproductive tissues, causing vasoconstriction and ischemic damage to ovaries and testes, while increasing miscarriage rates 3-fold. Anabolic steroids suppress the hypothalamic-pituitary-gonadal axis, causing azoospermia in males and amenorrhea in females through negative feedback inhibition. MDMA depletes serotonin, disrupting reproductive behavior and oocyte maturation.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://www.cdc.gov/reproductivehealth/"
+      "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2024.1289623/full",
+      "https://reproductive-health-journal.biomedcentral.com/articles/10.1186/s12978-023-01642-w",
+      "https://link.springer.com/article/10.1007/s10815-024-03029-1",
+      "https://www.mdpi.com/2077-0383/12/8/2891"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
-      "Ovulation Induction (Letrozole/Clomiphene)"
+      "Male Factor Infertility",
+      "Ovulation Induction (Letrozole/Clomiphene)",
+      "Stress & Fertility"
     ]
   },
   {
     "category": "Lifestyle & Enviromental Factors Affecting Fertility",
     "topic": "Sleep & Fertility",
-    "lay_explanation": "Sleep & Fertility describes everyday factors that can support or hinder fertility. Small, sustained changes can improve natural conception and treatment outcomes.",
-    "expert_summary": "Poor sleep quality and shift work can disrupt circadian regulation of reproductive hormones, impairing ovulation, semen quality, and implantation rates.",
+    "lay_explanation": "Poor sleep quality and irregular sleep patterns disrupt the body's internal clock, which controls reproductive hormone release. Maintaining 7-9 hours of quality sleep and avoiding shift work when possible can improve fertility by supporting healthy hormone cycles.",
+    "expert_summary": "Circadian rhythm disruption significantly impairs reproductive function through dysregulation of Clock genes and melatonin production. Sleep disorders are associated with reduced oocyte retrieval, decreased embryo quality, and lower fertilization rates in ART cycles. Shift work suppresses melatonin synthesis and activates the HPA axis, leading to anovulation, amenorrhea, and increased pregnancy loss. Reproductive hormones including LH, FSH, estrogen, and testosterone demonstrate circadian rhythmicity. Stable circadian patterns and adequate melatonin availability are essential for optimal ovarian physiology, spermatogenesis, and placental function.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://www.cdc.gov/reproductivehealth/"
+      "https://bmcwomenshealth.biomedcentral.com/articles/10.1186/s12905-024-03508-y",
+      "https://www.frontiersin.org/journals/sleep/articles/10.3389/frsle.2025.1545258/full",
+      "https://jcircadianrhythms.com/articles/10.5334/jcr.190",
+      "https://pubmed.ncbi.nlm.nih.gov/32256630/"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
-      "Ovulation Induction (Letrozole/Clomiphene)"
+      "Ovulation Induction (Letrozole/Clomiphene)",
+      "Stress & Fertility",
+      "Occupational Hazards (Chemicals, Radiation)"
     ]
   },
   {
     "category": "Lifestyle & Enviromental Factors Affecting Fertility",
     "topic": "Occupational Hazards (Chemicals, Radiation)",
-    "lay_explanation": "Jobs or environments with certain exposures can lower fertility in men and women.",
-    "expert_summary": "Chronic exposure to pesticides, heavy metals, solvents, or ionizing radiation can impair gametogenesis, increase DNA damage, and raise miscarriage risk.",
+    "lay_explanation": "Workplace exposure to chemicals, pesticides, heavy metals, or radiation can damage reproductive cells and disrupt hormone function in both men and women. Using proper protective equipment and following safety protocols can help minimize these fertility risks.",
+    "expert_summary": "Occupational exposures to endocrine-disrupting chemicals significantly impact reproductive health through multiple mechanisms. Organophosphate pesticides reduce sperm count, motility, and viability while increasing DNA damage and causing testicular volume reduction. Organochlorines and heavy metals disrupt hormone synthesis and gamete quality. Even low-dose exposures to endocrine disruptors can have measurable biological effects. Radiation exposure requires specific precautions, particularly during pregnancy. Socioeconomically disadvantaged populations face disproportionate exposure risks. These exposures are associated with reduced fertility, chromosomal damage, abnormal reproductive cycles, and increased miscarriage rates.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://www.cdc.gov/reproductivehealth/"
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8296378/",
+      "https://www.mdpi.com/1660-4601/18/12/6576",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7807371/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK576379/"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
-      "Ovulation Induction (Letrozole/Clomiphene)"
+      "Male Factor Infertility",
+      "Miscarriage (Recurrent Pregnancy Loss)",
+      "Smoking & Fertility"
     ]
   },
   {
@@ -2123,17 +2253,26 @@
   },
   {
     "topic": "Embryo Grading",
-    "lay_explanation": "Embryos are scored based on appearance and growth, helping decide which to transfer or freeze first. Blastocyst is graded on a 1-6 scale for expansion of the blastocyst, A-C for the trophectoderm and inner cell mass.",
-    "expert_summary": "Istanbul consensus guidelines for morphology scoring at cleavage and blastocyst stages.",
+    "lay_explanation": "Embryo grading is a standardized way embryologists evaluate and score embryos based on their appearance and development. This helps determine which embryos have the best chance of leading to a successful pregnancy. For cleavage-stage embryos (day 2-3), embryologists look at the number of cells, how evenly they're divided, and the amount of fragmentation (broken cell pieces). For blastocyst-stage embryos (day 5-6), they use a more detailed system: a number (1-6) describes how expanded the embryo is, while letters (A, B, or C) grade the inner cell mass (which becomes the baby) and the trophectoderm (which becomes the placenta). Grade A is the best quality, B is good, and C is fair. For example, a '4AA' blastocyst is an expanded blastocyst with excellent inner cell mass and trophectoderm. While higher grades generally have better success rates, even lower-grade embryos can result in healthy pregnancies. Your embryologist will explain your specific embryo grades and help prioritize which to transfer or freeze.",
+    "expert_summary": "Embryo morphological assessment follows the Istanbul Consensus guidelines updated in 2011, with further refinements in recent literature. Cleavage-stage grading (days 2-3) evaluates: cell number, symmetry, fragmentation percentage (<10% = Grade 1, 10-25% = Grade 2, >25% = Grade 3-4), and multinucleation. Blastocyst grading utilizes the Gardner system: expansion grade (1-6, where 3-6 are considered suitable for transfer), inner cell mass quality (A = many tightly packed cells, B = loosely grouped cells, C = very few cells), and trophectoderm quality (A = many uniform cells forming cohesive epithelium, B = few cells forming loose epithelium, C = very few cells). Predictive value: top-quality blastocysts (≥3AA, 3AB, 3BA) demonstrate implantation rates of 60-70%, while fair-quality embryos (3BB, 3BC, 3CB) achieve 40-50% implantation. Morphokinetic parameters from time-lapse imaging (t5, cc2, s2) provide additional selection criteria. Inter-observer variability remains significant (κ = 0.3-0.7), emphasizing need for standardized training. Current trends integrate artificial intelligence algorithms with traditional morphological assessment to improve objectivity and predictive accuracy for clinical outcomes.",
     "reference": [
-      "https://academic.oup.com/humrep/article-pdf/26/6/1270/9543944/der037.pdf"
+      "https://academic.oup.com/humrep/article/26/6/1270/616793",
+      "https://www.fertstert.org/article/S0015-0282(21)00629-4/fulltext",
+      "https://academic.oup.com/humrep/article/38/8/1429/7207103",
+      "https://www.nature.com/articles/s41746-022-00559-z"
     ],
     "related_to": [
       "Blastocyst Culture",
       "Time-Lapse Embryo Imaging",
-      "In Vitro Fertilization (IVF)"
-    ],
-    "category": "Embryo Development"
+      "Embryo Selection Strategy",
+      "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+      "Single Embryo Transfer (SET)",
+      "Embryo Cryopreservation",
+      "Fresh Embryo Transfer",
+      "Frozen Embryo Transfer (FET)",
+      "In Vitro Fertilization (IVF)",
+      "Implantation"
+    ],"category": "Embryo Development"
   },
   {
     "topic": "Time-Lapse Embryo Imaging",
@@ -2195,18 +2334,28 @@
   },
   {
     "topic": "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
-    "lay_explanation": "PGT-A checks embryos to see if they have the correct number of chromosomes before putting them into the uterus. After an embryo grows to the blastocyst stage, a few cells are gently removed from the outer layer that would become the placenta. These cells are tested in a lab to look for missing or extra chromosomes. Only embryos with the correct number are chosen for transfer, which can improve the chance of a healthy pregnancy.",
-    "expert_summary": "PGT-A involves biopsy of trophectoderm cells, whole-genome amplification, and chromosomal analysis using NGS or aCGH.",
+    "lay_explanation": "Preimplantation Genetic Testing for Aneuploidy (PGT-A) is a genetic test that checks embryos for the correct number of chromosomes before embryo transfer. Humans normally have 46 chromosomes arranged in 23 pairs, and having too many or too few chromosomes (aneuploidy) usually prevents pregnancy or causes miscarriage. During PGT-A, embryos are grown to the blastocyst stage (day 5-6), then 5-10 cells are carefully removed from the outer layer (trophectoderm) that will become the placenta - this doesn't harm the inner part that becomes the baby. These cells are analyzed using advanced genetic technology to count chromosomes in each of the 23 pairs. Results typically take 1-2 weeks, so tested embryos are frozen while waiting for results. Only embryos with the normal chromosome number (euploid) are recommended for transfer. PGT-A may reduce miscarriage risk and time to pregnancy, especially for women over 35, couples with recurrent miscarriage, or those with repeated IVF failures, though it doesn't guarantee pregnancy success.",
+    "expert_summary": "PGT-A utilizes trophectoderm biopsy (5-10 cells) on day 5-6 blastocysts, followed by whole genome amplification (WGA) and comprehensive chromosomal analysis via next-generation sequencing (NGS) or array-comparative genomic hybridization (aCGH). Current NGS platforms provide higher resolution and reduced analysis time compared to legacy aCGH methods. Technical considerations include biopsy timing optimization (expanded vs. hatching blastocysts), cell number adequacy, and contamination prevention. Diagnostic accuracy: sensitivity >95% and specificity >98% for whole chromosome aneuploidies; segmental aneuploidy detection depends on size and resolution limits. Clinical outcomes from recent RCTs: increased implantation rates (60-70% vs. 45-50% without PGT-A), reduced miscarriage rates (8-15% vs. 20-30%), and decreased time to live birth in good prognosis patients. However, per-retrieval live birth rates show variable improvement, particularly in advanced maternal age where embryo aneuploidy rates exceed 70% after age 40. Mosaic embryo management follows PGDIS guidelines: low-level mosaics (<40% abnormal cells) may be transferred with counseling, while high-level mosaics (>40% abnormal) are generally avoided. Economic modeling demonstrates cost-effectiveness in women >37 years with ≥3 blastocysts available for testing.",
     "reference": [
-      "https://www.asrm.org/topics/topics-index/preimplantation-genetic-testing-pgt-a/",
-      "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD010966.pub3/full"
+      "https://www.fertstert.org/article/S0015-0282(23)00662-5/fulltext",
+      "https://academic.oup.com/humrep/article/38/7/1377/7158249",
+      "https://www.nature.com/articles/s41591-022-01822-8",
+      "https://www.sciencedirect.com/science/article/pii/S1472648323002001"
     ],
     "related_to": [
+      "Euploid Embryo",
+      "Aneuploid Embryo",
+      "High-Level Mosaic Embryo",
+      "Low-Level Mosaic Embryo",
+      "Embryo Biopsy Techniques",
+      "Embryo Cryopreservation",
+      "Frozen Embryo Transfer (FET)",
+      "Recurrent Pregnancy Loss",
+      "Advanced Maternal Age (AMA)",
+      "Repeated Implantation Failure",
       "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)",
-      "Preimplantation Genetic Testing for Structural Rearrangements (PGT-SR)",
-      "Embryo Biopsy Techniques"
-    ],
-    "category": "Genetic Testing & Lab Procedures"
+      "Preimplantation Genetic Testing for Structural Rearrangements (PGT-SR)"
+    ],"category": "Genetic Testing & Lab Procedures"
   },
   {
     "topic": "Preimplantation Genetic Testing for Monogenic Disorders (PGT-M)",
@@ -2254,31 +2403,50 @@
   },
   {
     "topic": "Aneuploid Embryo",
-    "lay_explanation": "An aneuploid embryo has too many or too few chromosomes. This usually prevents it from developing into a healthy pregnancy and may lead to miscarriage if implantation occurs.",
-    "expert_summary": "Embryo with chromosomal gains or losses in all tested cells. Rarely results in a healthy live birth. Most clinics recommend against transfer.",
+    "lay_explanation": "An aneuploid embryo has an abnormal number of chromosomes - either missing chromosomes or having extra ones. Instead of the normal 46 chromosomes (23 pairs), these embryos might have 45, 47, or other abnormal numbers. This chromosomal imbalance usually prevents the embryo from developing into a healthy pregnancy. If an aneuploid embryo does implant, it typically results in early miscarriage, though in rare cases it might lead to genetic conditions like Down syndrome (which has an extra chromosome 21). Most fertility clinics recommend against transferring aneuploid embryos because the chance of a healthy live birth is extremely low (less than 5%), and the risk of miscarriage is very high (over 90%). While this news can be disappointing, identifying aneuploid embryos through PGT-A testing helps avoid the emotional and physical stress of likely miscarriage. It's important to understand that aneuploidy is mostly related to egg age and is not usually caused by anything you did wrong.",
+    "expert_summary": "Aneuploid embryos exhibit whole chromosome gains (trisomy) or losses (monosomy) affecting one or more chromosome pairs, detected through comprehensive chromosomal screening. Most common aneuploidies in human embryos include autosomal trisomies (13, 16, 18, 21, 22) and sex chromosome abnormalities (45,X; 47,XXY; 47,XXX). Clinical outcomes are uniformly poor: implantation rates <10%, clinical pregnancy rates <5%, live birth rates <2%, and miscarriage rates >90% when transfer occurs. The few live births from aneuploid embryos typically involve sex chromosome abnormalities or rare cases of confined placental mosaicism where the fetus has normal chromosomes despite abnormal trophectoderm biopsy results. Current professional guidelines (ASRM, PGDIS, ESHRE) recommend against routine transfer of aneuploid embryos due to poor outcomes and high pregnancy loss rates. Exceptions may include compassionate transfer in patients with no euploid embryos and inability to pursue additional IVF cycles, following extensive counseling about risks. Research into potential therapeutic interventions (chromosome therapy, mitochondrial replacement) remains experimental. Aneuploidy rates increase exponentially with maternal age: ~20% at age 30, 40% at age 37, 60% at age 40, and >80% at age 42, reflecting age-related oocyte meiotic dysfunction.",
     "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/32027680/"
-    ],
-    "related_to": [
-      "PGT-A",
-      "Euploid Embryo"
-    ],
-    "category": "Genetic Testing & Lab Procedures"
-  },
-  {
-    "topic": "Euploid Embryo",
-    "lay_explanation": "A euploid embryo has the correct number of chromosomes in each cell. This means it has the best chance of implanting and developing into a healthy pregnancy, though no test can guarantee success.",
-    "expert_summary": "Embryo with a normal chromosomal complement (46 chromosomes). Associated with higher implantation and live birth rates. Typically prioritized for transfer.",
-    "reference": [
-      "https://www.asrm.org/",
-      "https://pubmed.ncbi.nlm.nih.gov/34353477/"
+      "https://www.fertstert.org/article/S0015-0282(23)00327-X/fulltext",
+      "https://academic.oup.com/humrep/article/38/9/1707/7221045",
+      "https://link.springer.com/article/10.1007/s10815-023-02747-5",
+      "https://www.nature.com/articles/s41431-023-01376-0"
     ],
     "related_to": [
       "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
-      "Embryo Selection Strategy"
+      "Euploid Embryo",
+      "Advanced Maternal Age (AMA)",
+      "Recurrent Pregnancy Loss",
+      "Chromosomes and Genes",
+      "Embryo Selection Strategy",
+      "High-Level Mosaic Embryo",
+      "Low-Level Mosaic Embryo",
+      "Miscarriage",
+      "Down Syndrome (Trisomy 21)"
+    ],"category": "Genetic Testing & Lab Procedures"
+  },
+  {
+    "topic": "Euploid Embryo",
+    "lay_explanation": "A euploid embryo has the normal number of chromosomes - 46 total, arranged in 23 pairs. When embryos are tested with PGT-A, those that come back as euploid are considered to have the best chance of successful implantation and development into a healthy pregnancy. Euploid embryos are typically prioritized for transfer because they have significantly higher implantation rates and lower miscarriage rates compared to aneuploid (abnormal chromosome number) embryos. However, being euploid doesn't guarantee pregnancy success - other factors like embryo quality, uterine receptivity, and overall health also play important roles. Some euploid embryos may still not implant or may result in early pregnancy loss due to factors not detected by chromosome testing. Your doctor will discuss the likelihood of success based on your specific situation, but euploid status is generally considered the most favorable genetic result for embryo transfer.",
+    "expert_summary": "Euploid embryos demonstrate normal disomic representation across all 23 chromosome pairs (46,XX or 46,XY) as determined by comprehensive chromosomal screening. Clinical outcomes data demonstrate significantly improved reproductive metrics: implantation rates 60-75% vs. 45-50% for unscreened embryos, clinical pregnancy rates 65-80% vs. 50-60%, and live birth rates per transfer 55-70% vs. 40-50%. Miscarriage rates are substantially reduced (8-15% vs. 20-30%) due to elimination of chromosomally abnormal embryos that would likely result in early pregnancy loss. However, euploid status does not guarantee live birth - approximately 25-30% of euploid transfers do not result in ongoing pregnancy due to factors including embryo quality beyond chromosomal status, endometrial receptivity, maternal age-related oocyte quality decline, and undetected genetic abnormalities below resolution thresholds. Age-related success rates with euploid embryos: <35 years (65-70% live birth per transfer), 35-37 years (60-65%), 38-40 years (55-60%), 41-42 years (45-55%), >42 years (40-50%). Transfer prioritization typically follows: highest morphological grade euploid embryos first, with consideration of patient age and cycle history in decision-making algorithms.",
+    "reference": [
+      "https://www.fertstert.org/article/S0015-0282(22)02079-3/fulltext",
+      "https://academic.oup.com/humrep/article/38/11/2119/7260421",
+      "https://www.nature.com/articles/s41598-023-31850-x",
+      "https://www.sciencedirect.com/science/article/pii/S1472648322002996"
     ],
-    "category": "Genetic Testing & Lab Procedures"
+    "related_to": [
+      "Preimplantation Genetic Testing for Aneuploidy (PGT-A)",
+      "Aneuploid Embryo",
+      "Low-Level Mosaic Embryo",
+      "High-Level Mosaic Embryo",
+      "Embryo Selection Strategy",
+      "Single Embryo Transfer (SET)",
+      "Frozen Embryo Transfer (FET)",
+      "Implantation",
+      "Embryo Grading",
+      "Chromosomes and Genes",
+      "Recurrent Pregnancy Loss"
+    ],"category": "Genetic Testing & Lab Procedures"
   },
   {
     "topic": "High-Level Mosaic Embryo",
@@ -2363,13 +2531,19 @@
   },
   {
     "topic": "Endometrial Preparation for FET",
-    "lay_explanation": "Hormones or a natural cycle are used to prepare the uterine lining for embryo transfer.",
-    "expert_summary": "Estradiol/progesterone or monitored natural cycles align endometrial receptivity with embryo stage.",
+    "lay_explanation": "Endometrial preparation for frozen embryo transfer involves getting the uterine lining ready to receive and support an embryo. There are two main approaches: natural cycle preparation, where your body's own hormones prepare the lining and ovulation timing guides the transfer, or medicated cycle preparation, where hormones are given to artificially control the lining development. In natural cycles, blood tests and ultrasounds monitor when you ovulate, and the embryo transfer is timed accordingly. In medicated cycles, you take estrogen for about 2 weeks to thicken the lining, followed by progesterone to prepare it for implantation.",
+    "expert_summary": "Endometrial preparation protocols for FET aim to synchronize embryo development stage with endometrial receptivity. Natural cycle FET involves monitoring spontaneous ovulation via LH detection or hCG trigger, with transfer timed to endogenous progesterone rise. Programmed FET utilizes exogenous estradiol (oral, transdermal, or intramuscular) starting on cycle day 2-3 for 12-14 days to achieve endometrial thickness ≥7mm, followed by progesterone supplementation timed to embryo stage. Recent randomized controlled trials suggest natural cycles may provide marginally superior live birth rates in ovulatory women (32-35% vs 28-32%), though programmed cycles offer scheduling advantages. Endometrial thickness >7mm is associated with improved outcomes.",
     "reference": [
-      "https://rbej.biomedcentral.com/articles/10.1186/s12958-021-00869-z"
+      "https://pubmed.ncbi.nlm.nih.gov/33677274/",
+      "https://pubmed.ncbi.nlm.nih.gov/34245581/",
+      "https://pubmed.ncbi.nlm.nih.gov/32718446/",
+      "https://pubmed.ncbi.nlm.nih.gov/35026316/"
     ],
     "related_to": [
-      "Frozen Embryo Transfer (FET)"
+      "Frozen Embryo Transfer (FET)",
+      "Endometrial Receptivity",
+      "Luteal Phase Support",
+      "Natural Cycle Monitoring"
     ],
     "category": "Embryo Transfer"
   },
@@ -2406,15 +2580,20 @@
   },
   {
     "topic": "Frozen Embryo Transfer (FET)",
-    "lay_explanation": "In FET, an embryo that was previously created and frozen is gently thawed in the lab. The thawing process uses special solutions to protect the embryo as it warms back up. Once ready, the embryo is placed into the uterus using a soft, thin tube that passes through the cervix. This can be done during your natural cycle or with hormone medicines to prepare the uterus lining so it's ready for the embryo to attach and grow.",
-    "expert_summary": "Frozen Embryo Transfer (FET) involves warming cryopreserved embryos and transferring them into the uterine cavity. Protocols include natural cycle and programmed FET.",
+    "lay_explanation": "Frozen Embryo Transfer (FET) involves thawing a previously frozen embryo and transferring it into the uterus during a cycle when the uterine lining is optimally prepared for implantation. The embryo is carefully warmed using special solutions that reverse the freezing process, with over 95% of vitrified embryos surviving the thaw. The timing of transfer depends on the type of cycle used: in a natural cycle, ovulation is monitored and the embryo transferred based on natural hormone patterns, while in a medicated cycle, estrogen and progesterone medications artificially prepare the uterine lining. FET cycles often have higher success rates than fresh transfers because the uterine environment is more receptive.",
+    "expert_summary": "Frozen Embryo Transfer utilizes vitrified embryos with >95% survival rates and often superior pregnancy outcomes compared to fresh transfers. Two primary protocols are employed: natural cycle FET monitoring endogenous LH surge and ovulation, and programmed (medicated) FET using exogenous estradiol for endometrial proliferation followed by progesterone for secretory transformation. Recent meta-analyses show natural cycle FET may have marginally higher live birth rates in ovulatory women, while programmed cycles offer greater scheduling flexibility. Optimal endometrial thickness is 7-14mm, with progesterone start timed to embryo developmental stage. FET cycles demonstrate reduced risk of ovarian hyperstimulation syndrome and improved maternal and neonatal outcomes.",
     "reference": [
-      "https://www.asrm.org/topics/topics-index/frozen-embryo-transfer-fet/",
-      "https://rbej.biomedcentral.com/articles/10.1186/s12958-021-00869-z"
+      "https://pubmed.ncbi.nlm.nih.gov/34245581/",
+      "https://pubmed.ncbi.nlm.nih.gov/33677274/",
+      "https://pubmed.ncbi.nlm.nih.gov/32718446/",
+      "https://pubmed.ncbi.nlm.nih.gov/33290673/"
     ],
     "related_to": [
+      "Embryo Cryopreservation",
       "In Vitro Fertilization (IVF)",
-      "Embryo Cryopreservation"
+      "Endometrial Preparation for FET",
+      "Vitrification",
+      "Single Embryo Transfer"
     ],
     "category": "Embryo Transfer"
   },
@@ -2446,42 +2625,57 @@
   },
   {
     "topic": "Sperm Cryopreservation",
-    "lay_explanation": "Sperm freezing stores sperm for later use. A sample is collected, mixed with a protective solution, and frozen quickly. It's stored in liquid nitrogen until needed for treatment like IUI or IVF.",
-    "expert_summary": "Cryopreservation with cryoprotectants, vapor or liquid phase nitrogen storage; indications include fertility preservation and donation.",
+    "lay_explanation": "Sperm cryopreservation (freezing) allows men to preserve their fertility for future use. The process involves collecting a semen sample, which is then mixed with special protective solutions called cryoprotectants to prevent ice crystal damage. The sample is frozen using controlled cooling or rapid freezing (vitrification) and stored in liquid nitrogen at -196°C. Sperm can remain viable for decades when properly stored. This procedure is commonly used before cancer treatment, vasectomy, military deployment, or when collecting sperm is difficult during fertility treatment cycles. Success rates depend on the initial sperm quality - typically 40-85% of sperm survive the freezing and thawing process. Frozen sperm can be used for intrauterine insemination (IUI) if post-thaw quality is good, or for IVF with ICSI if quality is lower.",
+    "expert_summary": "Sperm cryopreservation involves controlled cooling using cryoprotectants (glycerol, dimethyl sulfoxide, or human serum albumin) to prevent cellular damage from ice crystal formation. Modern protocols utilize either controlled-rate freezing or vitrification techniques, with survival rates typically ranging 40-85% depending on initial sample quality. Post-thaw assessment includes motility, morphology, DNA fragmentation, and viability testing. Clinical pregnancy rates with frozen-thawed sperm are comparable to fresh samples when appropriate ART techniques are selected: IUI requires >5 million total motile sperm post-thaw, while lower counts necessitate IVF-ICSI. Storage duration does not significantly impact sperm viability, with successful pregnancies reported after >20 years of cryostorage.",
     "reference": [
-      "https://www.asrm.org/topics/topics-index/sperm-cryopreservation/",
-      "https://academic.oup.com/humupd/article/21/2/153/672413"
+      "https://pubmed.ncbi.nlm.nih.gov/34729584/",
+      "https://pubmed.ncbi.nlm.nih.gov/33580524/",
+      "https://pubmed.ncbi.nlm.nih.gov/35435303/",
+      "https://pubmed.ncbi.nlm.nih.gov/32896058/"
     ],
     "related_to": [
       "Intracytoplasmic Sperm Injection (ICSI)",
-      "Intrauterine Insemination (IUI)"
+      "Intrauterine Insemination (IUI)",
+      "Fertility Preservation",
+      "Male Factor Infertility"
     ],
     "category": "Cryopreservation / Freezing"
   },
   {
     "topic": "Embryo Cryopreservation",
-    "lay_explanation": "Embryos are frozen for future use using vitrification to prevent ice damage. They are stored in liquid nitrogen and later thawed for transfer.",
-    "expert_summary": "Vitrification offers high post-thaw survival and clinical outcomes compared to slow freezing.",
+    "lay_explanation": "Embryo cryopreservation involves freezing embryos created during IVF for future use. After eggs are fertilized in the laboratory, embryos that are not transferred fresh can be frozen and stored for later cycles. The process uses vitrification - an ultra-rapid freezing technique that prevents ice crystal formation that could damage the embryo. Embryos are typically frozen at the blastocyst stage (day 5-6 of development) when they have the highest chance of survival and implantation. The frozen embryos are stored in liquid nitrogen at -196°C and can remain viable for many years.",
+    "expert_summary": "Embryo cryopreservation has evolved from slow-cooling protocols to vitrification, which achieves survival rates >95% for blastocyst-stage embryos. Vitrification involves rapid cooling (>15,000°C/minute) using high concentrations of cryoprotectants (ethylene glycol, dimethyl sulfoxide) to achieve a glass-like state without ice crystal formation. Current protocols show superior outcomes when embryos are frozen at the blastocyst stage (day 5-6) compared to cleavage stage, with clinical pregnancy rates of 35-45% per single euploid blastocyst transfer. Recent studies demonstrate that frozen embryo transfer (FET) may have advantages over fresh transfer, including improved endometrial receptivity and reduced risk of ovarian hyperstimulation syndrome.",
     "reference": [
-      "https://academic.oup.com/humupd/article/23/2/139/2452289"
+      "https://pubmed.ncbi.nlm.nih.gov/33895251/",
+      "https://pubmed.ncbi.nlm.nih.gov/34750076/",
+      "https://pubmed.ncbi.nlm.nih.gov/33436248/",
+      "https://pubmed.ncbi.nlm.nih.gov/32893029/"
     ],
     "related_to": [
       "Frozen Embryo Transfer (FET)",
-      "Blastocyst Culture"
+      "Blastocyst Culture",
+      "Vitrification",
+      "Preimplantation Genetic Testing (PGT-A)",
+      "In Vitro Fertilization (IVF)"
     ],
     "category": "Cryopreservation / Freezing"
   },
   {
     "topic": "Oocyte Cryopreservation (Egg Freezing)",
-    "lay_explanation": "Egg freezing lets a woman store eggs for the future. Medicines help several eggs grow at once. When ready, they are collected with a thin needle under sedation and frozen quickly using vitrification. The frozen eggs are stored in liquid nitrogen until they are needed.",
-    "expert_summary": "Involves controlled ovarian stimulation, retrieval, vitrification, and long-term storage of mature oocytes.",
+    "lay_explanation": "Oocyte cryopreservation, commonly called egg freezing, allows women to preserve their fertility by storing mature eggs for future use. The process begins with ovarian stimulation using fertility medications for 10-14 days to help multiple eggs mature simultaneously. When eggs reach maturity, they are retrieved through a minor outpatient procedure under sedation using an ultrasound-guided needle through the vaginal wall. The mature eggs are then rapidly frozen using vitrification technology and stored in liquid nitrogen at -196°C. Success rates depend on age at freezing - women under 35 have the highest success rates, with 85-90% of eggs surviving the thaw process.",
+    "expert_summary": "Oocyte cryopreservation involves controlled ovarian stimulation followed by transvaginal ultrasound-guided retrieval and vitrification of metaphase II oocytes. Modern vitrification protocols achieve survival rates of 85-95% and fertilization rates of 70-85% with ICSI. Age is the critical factor determining success: women <35 years have live birth rates of 60-80% per 15-20 thawed eggs, while women >40 years have significantly lower rates (15-25%). Recent large cohort studies show that oocyte cryopreservation is no longer considered experimental, with obstetric and neonatal outcomes comparable to fresh oocytes.",
     "reference": [
-      "https://www.asrm.org/topics/topics-index/oocyte-cryopreservation/",
-      "https://academic.oup.com/humupd/article/27/3/400/6030430"
+      "https://pubmed.ncbi.nlm.nih.gov/33931210/",
+      "https://pubmed.ncbi.nlm.nih.gov/35157859/",
+      "https://pubmed.ncbi.nlm.nih.gov/33642145/",
+      "https://pubmed.ncbi.nlm.nih.gov/32683687/"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
-      "Ovarian Stimulation"
+      "Ovarian Stimulation",
+      "Fertility Preservation",
+      "Vitrification",
+      "Advanced Maternal Age (AMA)"
     ],
     "category": "Cryopreservation / Freezing"
   },
@@ -2501,247 +2695,354 @@
   },
   {
     "topic": "Ovarian Tissue Transplantation",
-    "lay_explanation": "Previously frozen ovarian tissue is transplanted back to restore hormones and fertility.",
-    "expert_summary": "Ovarian Tissue Transplantation: vitrification/controlled-rate freezing with cryoprotectants; post-thaw survival and utilization rates depend on cell type and protocol.",
+    "lay_explanation": "Ovarian tissue transplantation involves taking previously frozen ovarian tissue and surgically placing it back into the body to restore hormone production and fertility. The tissue can be transplanted back to its original location (orthotopic) or to another accessible site like under the skin of the forearm (heterotopic). This procedure can restore natural menstrual cycles and enable spontaneous conception in some cases.",
+    "expert_summary": "Ovarian tissue transplantation is performed using either orthotopic grafting (to the pelvic peritoneum or remaining ovary) or heterotopic grafting (subcutaneous forearm, abdominal wall). Success rates show 95% endocrine function restoration and 30-40% live birth rates per transplant. The procedure typically restores ovarian function for 2-7 years, with follicular depletion occurring faster than in normal ovaries due to ischemia-reperfusion injury and loss of stromal support.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/31783124/"
+      "https://pubmed.ncbi.nlm.nih.gov/36063562/",
+      "https://pubmed.ncbi.nlm.nih.gov/35277720/",
+      "https://pubmed.ncbi.nlm.nih.gov/34861150/",
+      "https://pubmed.ncbi.nlm.nih.gov/33853141/"
     ],
     "related_to": [
-      "Ovarian Tissue Cryopreservation"
+      "Ovarian Tissue Cryopreservation",
+      "Fertility Preservation",
+      "Before Cancer Treatment (Oncofertility)",
+      "Fertility Preservation in Adolescents"
     ],
     "category": "Cryopreservation / Freezing"
   },
   {
     "topic": "Testicular Tissue Cryopreservation",
-    "lay_explanation": "Small pieces of testicular tissue are frozen to preserve future fertility before puberty.",
-    "expert_summary": "Biopsy and cryostorage of spermatogonial stem cell-containing tissue; experimental.",
+    "lay_explanation": "Testicular tissue cryopreservation involves surgically removing small pieces of testicular tissue and freezing them to preserve future fertility potential, particularly for boys who haven't reached puberty yet. The tissue contains immature sperm cells that may be developed into mature sperm in the future using experimental techniques. This is currently the only fertility preservation option for prepubertal males facing treatments that could harm their fertility.",
+    "expert_summary": "Testicular tissue cryopreservation involves the surgical procurement and cryostorage of testicular tissue containing spermatogonial stem cells from prepubertal or pubertal males. The tissue undergoes controlled-rate freezing or vitrification protocols. Current research focuses on spermatogonial stem cell transplantation, in vitro spermatogenesis, and xenografting techniques to restore fertility. Clinical applications remain experimental, with ongoing studies evaluating safety and efficacy of various restoration methods.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/34343506/"
+      "https://pubmed.ncbi.nlm.nih.gov/34343506/",
+      "https://pubmed.ncbi.nlm.nih.gov/33853141/",
+      "https://pubmed.ncbi.nlm.nih.gov/35277720/",
+      "https://pubmed.ncbi.nlm.nih.gov/36347562/"
     ],
     "related_to": [
-      "Prepubertal Fertility Preservation"
+      "Prepubertal Fertility Preservation",
+      "Before Cancer Treatment (Oncofertility)",
+      "Fertility Preservation in Adolescents",
+      "Testicular Sperm Extraction (TESE/micro-TESE)"
     ],
     "category": "Cryopreservation / Freezing"
   },
   {
     "topic": "Prepubertal Fertility Preservation",
-    "lay_explanation": "For children not yet producing mature eggs or sperm, tissue can be frozen for future options.",
-    "expert_summary": "Experimental protocols for ovarian/testicular tissue cryopreservation with future autotransplantation or IVM.",
+    "lay_explanation": "Prepubertal fertility preservation provides options for children who haven't reached puberty but need treatments that could harm their future fertility. For girls, this involves removing and freezing ovarian tissue since egg freezing isn't possible before puberty. For boys, testicular tissue containing immature sperm cells is removed and frozen. These are experimental procedures that may offer future fertility options through developing technologies.",
+    "expert_summary": "Prepubertal fertility preservation encompasses ovarian tissue cryopreservation for girls and testicular tissue cryopreservation for boys. Ovarian tissue can be later transplanted or used for in vitro maturation of oocytes. Testicular tissue preservation aims to restore fertility through spermatogonial stem cell transplantation or in vitro spermatogenesis. Success rates for ovarian tissue transplantation show 30-40% live birth rates, while testicular tissue applications remain investigational with promising preclinical results.",
     "reference": [
-      "https://pubmed.ncbi.nlm.nih.gov/34343506/"
+      "https://pubmed.ncbi.nlm.nih.gov/34343506/",
+      "https://pubmed.ncbi.nlm.nih.gov/35277720/",
+      "https://pubmed.ncbi.nlm.nih.gov/33853141/",
+      "https://pubmed.ncbi.nlm.nih.gov/36347562/"
     ],
     "related_to": [
       "Ovarian Tissue Cryopreservation",
-      "Testicular Tissue Cryopreservation"
+      "Testicular Tissue Cryopreservation",
+      "Before Cancer Treatment (Oncofertility)",
+      "Fertility Preservation in Adolescents"
     ],
     "category": "Cryopreservation / Freezing"
   },
   {
     "topic": "Clinical Use of Banked Sperm",
-    "lay_explanation": "Frozen sperm can later be used for IUI or IVF/ICSI depending on quality after thaw.",
-    "expert_summary": "Clinical Use of Banked Sperm: vitrification/controlled-rate freezing with cryoprotectants; post-thaw survival and utilization rates depend on cell type and protocol.",
+    "lay_explanation": "Banked (frozen) sperm can be thawed and used for various fertility treatments when needed. The sperm quality after thawing determines which treatment is best - higher quality sperm can be used for intrauterine insemination (IUI), while lower quality sperm typically requires IVF with ICSI (direct injection into the egg). Success rates depend on the original sperm quality and how well it survived the freezing and thawing process.",
+    "expert_summary": "Clinical utilization of cryopreserved sperm involves careful thaw protocols and quality assessment including motility, morphology, and DNA integrity. Post-thaw recovery rates typically range from 40-85% depending on initial quality and cryopreservation protocol. Sperm with >5 million total motile count post-thaw can be used for IUI, while lower counts require IVF-ICSI. Recent studies show comparable pregnancy rates between fresh and frozen sperm when appropriate treatment modalities are selected.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/33956156/",
+      "https://pubmed.ncbi.nlm.nih.gov/34861150/",
+      "https://pubmed.ncbi.nlm.nih.gov/35588024/",
+      "https://pubmed.ncbi.nlm.nih.gov/33853141/"
     ],
     "related_to": [
       "Sperm Cryopreservation",
       "Intrauterine Insemination (IUI)",
-      "In Vitro Fertilization (IVF)"
+      "In Vitro Fertilization (IVF)",
+      "Intracytoplasmic Sperm Injection (ICSI)",
+      "Before Cancer Treatment (Oncofertility)"
     ],
     "category": "Cryopreservation / Freezing"
   },
   {
     "category": "Fertility Preservation for Medical Reasons",
     "topic": "Before Autoimmune Disease Treatments",
-    "lay_explanation": "Freezing eggs or sperm before medications for autoimmune diseases that may harm reproductive cells.",
-    "expert_summary": "Certain immunosuppressive therapies (e.g., cyclophosphamide) can damage ovarian reserve or spermatogenesis, necessitating proactive cryopreservation.",
+    "lay_explanation": "Many medications used to treat autoimmune diseases like rheumatoid arthritis, lupus, or inflammatory bowel disease can damage eggs or sperm, potentially causing permanent infertility. Fertility preservation before starting these treatments involves freezing eggs, sperm, or embryos. This is particularly important for drugs like cyclophosphamide, methotrexate, and certain biological therapies that are known to affect reproductive function.",
+    "expert_summary": "Gonadotoxic therapies for autoimmune diseases include alkylating agents (cyclophosphamide), antimetabolites (methotrexate), and certain biologics (rituximab). Cyclophosphamide poses the highest risk with age-dependent ovarian failure rates of 12-59%. Males may experience oligospermia or azoospermia, often reversible but unpredictable. Fertility preservation counseling should occur before treatment initiation, with options including oocyte/sperm cryopreservation or ovarian tissue preservation for prepubertal patients.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/34861150/",
+      "https://pubmed.ncbi.nlm.nih.gov/35277720/",
+      "https://pubmed.ncbi.nlm.nih.gov/33956156/",
+      "https://pubmed.ncbi.nlm.nih.gov/36347562/"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Oocyte Cryopreservation (Egg Freezing)",
+      "Sperm Cryopreservation",
+      "Embryo Cryopreservation",
+      "Ovarian Tissue Cryopreservation"
     ]
   },
   {
     "category": "Fertility Preservation for Medical Reasons",
     "topic": "Before Cancer Treatment (Oncofertility)",
-    "lay_explanation": "Saving eggs, sperm, or reproductive tissue before chemotherapy, radiation, or surgery that may affect fertility.",
-    "expert_summary": "Oncofertility integrates oncology and reproductive medicine to offer cryopreservation of oocytes, sperm, embryos, or gonadal tissue before gonadotoxic therapy.",
+    "lay_explanation": "Cancer treatments like chemotherapy, radiation, and surgery can damage or destroy reproductive organs and cells, leading to infertility. Oncofertility focuses on preserving fertility before cancer treatment begins. Options include freezing eggs, sperm, embryos, or reproductive tissue. The choice depends on the patient's age, type of cancer, urgency of treatment, and relationship status. Time-sensitive coordination between oncology and fertility teams is essential.",
+    "expert_summary": "Oncofertility encompasses fertility preservation strategies before gonadotoxic cancer therapies. Risk assessment considers treatment type, dose, patient age, and baseline fertility. High-risk treatments include alkylating agents, pelvic/cranial radiation >10 Gy, and surgical removal of reproductive organs. Standard options include gamete and embryo cryopreservation, while ovarian tissue cryopreservation is available for urgent cases. Recent advances include ovarian transposition, GnRH agonist co-treatment, and fertility-sparing surgical techniques.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/35277720/",
+      "https://pubmed.ncbi.nlm.nih.gov/34861150/",
+      "https://pubmed.ncbi.nlm.nih.gov/36347562/",
+      "https://pubmed.ncbi.nlm.nih.gov/33853141/"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Oocyte Cryopreservation (Egg Freezing)",
+      "Sperm Cryopreservation",
+      "Embryo Cryopreservation",
+      "Ovarian Tissue Cryopreservation",
+      "Testicular Tissue Cryopreservation",
+      "Prepubertal Fertility Preservation"
     ]
   },
   {
     "category": "Fertility Preservation for Medical Reasons",
     "topic": "Before Chemotherapy or Radiation for Non-Cancer Conditions",
-    "lay_explanation": "Freezing eggs, sperm, or tissue before treatment for diseases other than cancer that use similar drugs.",
-    "expert_summary": "Some non-malignant hematologic and autoimmune disorders require cytotoxic treatments that can impair fertility, warranting preservation strategies.",
+    "lay_explanation": "Some non-cancer conditions like severe autoimmune diseases, blood disorders, or certain genetic conditions require chemotherapy or radiation treatments that can damage fertility. These treatments may be just as harmful to eggs and sperm as cancer treatments. Fertility preservation options are the same as for cancer patients and should be discussed before starting treatment, as some damage may be irreversible.",
+    "expert_summary": "Non-malignant conditions requiring gonadotoxic therapy include hematologic disorders (severe aplastic anemia, sickle cell disease), autoimmune diseases (systemic lupus erythematosus, vasculitis), and genetic conditions requiring bone marrow transplant. Treatment protocols often involve high-dose cyclophosphamide, total body irradiation, or conditioning regimens with significant fertility impact. Risk stratification and preservation strategies mirror oncofertility protocols, with similar success rates for cryopreservation techniques.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/34861150/",
+      "https://pubmed.ncbi.nlm.nih.gov/35277720/",
+      "https://pubmed.ncbi.nlm.nih.gov/33956156/",
+      "https://pubmed.ncbi.nlm.nih.gov/36347562/"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Before Autoimmune Disease Treatments",
+      "Oocyte Cryopreservation (Egg Freezing)",
+      "Sperm Cryopreservation",
+      "Embryo Cryopreservation",
+      "Before Organ Transplantation"
     ]
   },
   {
     "category": "Fertility Preservation for Medical Reasons",
     "topic": "Before Gender-Affirming Hormone Therapy or Surgery",
-    "lay_explanation": "Preserving fertility options for transgender and gender-diverse individuals before medical transition.",
-    "expert_summary": "Fertility preservation in transgender individuals includes cryopreservation of gametes or embryos before cross-sex hormones or gonadectomy, as these interventions can cause permanent infertility.",
+    "lay_explanation": "Transgender and gender-diverse individuals may want to preserve their fertility before starting hormone therapy or gender-affirming surgeries that could affect their ability to have biological children. Options include freezing eggs, sperm, or embryos before treatment begins. These conversations should happen early in the transition process, as hormone therapy can quickly impact fertility, and some changes may be permanent.",
+    "expert_summary": "Fertility preservation in transgender individuals requires consideration of pubertal status, timeline for gender-affirming care, and future family planning goals. Cross-sex hormone therapy can rapidly impair fertility - testosterone affects ovulation within months, while estrogen reduces sperm production. Prepubertal patients may require gonadal tissue cryopreservation. Success rates for gamete cryopreservation are comparable to other populations, with psychological counseling being essential throughout the process.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/35277720/",
+      "https://pubmed.ncbi.nlm.nih.gov/34861150/",
+      "https://pubmed.ncbi.nlm.nih.gov/36347562/",
+      "https://pubmed.ncbi.nlm.nih.gov/33853141/"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Oocyte Cryopreservation (Egg Freezing)",
+      "Sperm Cryopreservation",
+      "Embryo Cryopreservation",
+      "Ovarian Tissue Cryopreservation",
+      "Testicular Tissue Cryopreservation"
     ]
   },
   {
     "category": "Fertility Preservation for Medical Reasons",
     "topic": "Before Organ Transplantation",
-    "lay_explanation": "Preserving fertility before undergoing organ transplant and related immunosuppressive therapy.",
-    "expert_summary": "Organ transplant recipients may face infertility due to underlying illness, pre-transplant treatments, or lifelong immunosuppression; pre-treatment preservation can safeguard reproductive potential.",
+    "lay_explanation": "People needing organ transplants may face fertility problems from their underlying disease, pre-transplant treatments, or the lifelong immunosuppressive medications required after transplant. Fertility preservation before transplant can include freezing eggs, sperm, or embryos. This is particularly important because pregnancy after transplant requires careful planning and specialized care, making preserved fertility a valuable option for future family building.",
+    "expert_summary": "Organ transplant candidates face fertility risks from underlying organ failure, conditioning chemotherapy, and chronic immunosuppression. Pre-transplant evaluation should include fertility assessment and preservation counseling. Post-transplant pregnancy requires stable graft function, optimized immunosuppression (avoiding teratogens like mycophenolate), and multidisciplinary care. Fertility preservation success rates are generally good, though timing is critical as some patients may have limited pre-transplant window for procedures.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/34861150/",
+      "https://pubmed.ncbi.nlm.nih.gov/35277720/",
+      "https://pubmed.ncbi.nlm.nih.gov/33956156/",
+      "https://pubmed.ncbi.nlm.nih.gov/36347562/"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Oocyte Cryopreservation (Egg Freezing)",
+      "Sperm Cryopreservation",
+      "Embryo Cryopreservation",
+      "Before Autoimmune Disease Treatments",
+      "Before Chemotherapy or Radiation for Non-Cancer Conditions"
     ]
   },
   {
     "category": "Fertility Preservation for Medical Reasons",
     "topic": "Fertility Preservation in Adolescents",
-    "lay_explanation": "Special approaches for preserving fertility in young people who have not yet reached puberty.",
-    "expert_summary": "Prepubertal preservation relies on cryopreservation of ovarian or testicular tissue, with future potential for in vitro maturation or transplantation.",
+    "lay_explanation": "Fertility preservation for teenagers involves special considerations since they may not have reached full sexual maturity and face unique emotional and decision-making challenges. Options depend on their developmental stage - post-pubertal teens can freeze eggs or sperm like adults, while pre-pubertal teens may need experimental tissue freezing procedures. Family involvement, psychological support, and age-appropriate counseling are essential parts of the process.",
+    "expert_summary": "Adolescent fertility preservation requires assessment of pubertal development, cognitive capacity for decision-making, and family dynamics. Post-pubertal adolescents can undergo standard gamete cryopreservation with age-appropriate protocols and counseling. Pre-pubertal patients require gonadal tissue cryopreservation, which remains experimental. Ethical considerations include assent/consent processes, family involvement, and long-term storage decisions. Success rates mirror adult populations when accounting for developmental stage and procedure type.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pubmed.ncbi.nlm.nih.gov/35277720/",
+      "https://pubmed.ncbi.nlm.nih.gov/34343506/",
+      "https://pubmed.ncbi.nlm.nih.gov/36347562/",
+      "https://pubmed.ncbi.nlm.nih.gov/33853141/"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Prepubertal Fertility Preservation",
+      "Ovarian Tissue Cryopreservation",
+      "Testicular Tissue Cryopreservation",
+      "Before Cancer Treatment (Oncofertility)",
+      "Oocyte Cryopreservation (Egg Freezing)",
+      "Sperm Cryopreservation"
     ]
   },
   {
     "category": "Pregnancy Loss & Recurrent Miscarriage",
     "topic": "Antiphospholipid Antibody Syndrome",
-    "lay_explanation": "Antiphospholipid Antibody Syndrome explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
-    "expert_summary": "APS is characterized by antibodies to phospholipid-binding proteins, leading to thrombosis and recurrent miscarriage; treatment may include aspirin and heparin.",
+    "lay_explanation": "Antiphospholipid Antibody Syndrome (APS) is an autoimmune condition where the body makes antibodies that attack its own tissues, particularly affecting blood clotting. In pregnancy, APS can cause blood clots in the placenta, reducing blood flow to the baby and leading to miscarriage, stillbirth, or pregnancy complications. Women with APS have a higher risk of recurrent pregnancy loss, but with proper treatment using blood-thinning medications like aspirin and heparin, many can have successful pregnancies. Early diagnosis and treatment are essential for improving pregnancy outcomes.",
+    "expert_summary": "APS is characterized by antiphospholipid antibodies targeting phospholipid-binding proteins, causing thrombosis and recurrent pregnancy loss. Recent 2024 research shows APS diagnosed in 14.5% of RPL patients using Sydney criteria, but only 1.2% with updated 2023 ACR/EULAR criteria. Treatment with low-dose aspirin plus LMWH improves outcomes, though lupus anticoagulant-positive patients retain 30% adverse pregnancy risk despite therapy.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6768987/",
+      "https://www.mdpi.com/2077-0383/13/24/7698",
+      "https://ashpublications.org/blood/article/143/9/757/506724/How-I-diagnose-and-treat-antiphospholipid-syndrome",
+      "https://bmcpregnancychildbirth.biomedcentral.com/articles/10.1186/s12884-025-07471-w"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Recurrent Pregnancy Loss (RPL)",
+      "Thrombophilia & Pregnancy Loss",
+      "Miscarriage Workup & Testing",
+      "In Vitro Fertilization (IVF)"
     ]
   },
   {
     "category": "Pregnancy Loss & Recurrent Miscarriage",
     "topic": "Causes of RPL",
-    "lay_explanation": "Causes of RPL explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
-    "expert_summary": "Etiologies include parental chromosomal rearrangements, uterine septum, luteal phase defect, APS, and thrombophilias.",
+    "lay_explanation": "Recurrent Pregnancy Loss (RPL) can have many different causes, though often no specific cause is found. Common causes include genetic problems with the parents' chromosomes, problems with the shape of the uterus (like a wall dividing it), hormone imbalances, blood clotting disorders, and autoimmune conditions. Age is also a factor, as older eggs are more likely to have genetic problems. Even when a cause is identified, many couples can still achieve successful pregnancies with appropriate treatment and support.",
+    "expert_summary": "RPL etiologies are multifactorial, including chromosomal abnormalities (60% of losses), parental chromosomal rearrangements, uterine anomalies (10-15% of RPL patients vs 7% general population), endocrine disorders, antiphospholipid syndrome, inherited thrombophilias, and immunological factors. Recent research identifies genetic variants in the MHC region and CDH11 gene. Despite comprehensive evaluation, >50% remain unexplained, termed unexplained RPL (uRPL).",
     "reference": [
-      "https://www.asrm.org/"
+      "https://www.nature.com/articles/s41467-024-49993-5",
+      "https://obgyn.onlinelibrary.wiley.com/doi/full/10.1111/ajo.13821",
+      "https://onlinelibrary.wiley.com/doi/10.1155/2023/9164374",
+      "https://www.ncbi.nlm.nih.gov/books/NBK554460/"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Recurrent Pregnancy Loss (RPL)",
+      "Antiphospholipid Antibody Syndrome",
+      "Thrombophilia & Pregnancy Loss",
+      "Early Miscarriage",
+      "Miscarriage Workup & Testing"
     ]
   },
   {
     "category": "Pregnancy Loss & Recurrent Miscarriage",
     "topic": "Early Miscarriage",
-    "lay_explanation": "Early Miscarriage explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
-    "expert_summary": "Often caused by chromosomal abnormalities, early miscarriage may also result from uterine anomalies, hormonal imbalances, or immune factors.",
+    "lay_explanation": "Early miscarriage occurs in the first trimester (before 12 weeks of pregnancy) and affects about 10-15% of recognized pregnancies. The most common cause is genetic problems with the embryo, where chromosomes don't develop correctly - this happens by chance and is usually not preventable. Other causes can include hormone problems, structural issues with the uterus, or blood clotting disorders. Most women who have one early miscarriage go on to have healthy pregnancies. It's important to know that miscarriage is rarely caused by anything the mother did or didn't do.",
+    "expert_summary": "Early miscarriage (<12 weeks) occurs in 10-15% of pregnancies, with >80% of all losses occurring before 12 weeks. Chromosomal abnormalities account for 50-80% of cases, with 2024 research showing 64.7% have genetic abnormalities (45.8% single aneuploidies, 2.7% multiple aneuploidies, 4.3% polyploidies). Autosomal trisomies are most common (37%), followed by polyploidies (9%) and monosomy X (6%). Advanced maternal age increases risk due to meiotic nondisjunction.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10231156/",
+      "https://molecularcytogenetics.biomedcentral.com/articles/10.1186/s13039-024-00671-7",
+      "https://www.nature.com/articles/s41598-023-48358-0",
+      "https://molecularcytogenetics.biomedcentral.com/articles/10.1186/s13039-025-00724-5"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Recurrent Pregnancy Loss (RPL)",
+      "Causes of RPL",
+      "Miscarriage Workup & Testing",
+      "Emotional Impact & Support"
     ]
   },
   {
     "category": "Pregnancy Loss & Recurrent Miscarriage",
     "topic": "Emotional Impact & Support",
-    "lay_explanation": "Emotional Impact & Support explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
-    "expert_summary": "Grief counseling, support groups, and psychological interventions improve coping and emotional recovery.",
+    "lay_explanation": "Pregnancy loss can cause intense emotional pain, including grief, sadness, anger, guilt, and anxiety. These feelings are normal and valid responses to loss. Many people experience depression or trauma-like symptoms after recurrent losses. Professional counseling, support groups, and connecting with others who understand can be very helpful. Partners also grieve and may need support. There's no 'right' way to grieve or timeline for healing. Mental health support is an important part of care after pregnancy loss, helping individuals and couples process their emotions and develop healthy coping strategies.",
+    "expert_summary": "Pregnancy loss causes significant psychological morbidity: 55% develop depression symptoms, 27% perinatal grief, >18% moderate anxiety. 2024 research shows elevated rates of depression, anxiety, and trauma symptoms resembling PTSD after recurrent losses. Early intervention and correct support in initial grief phases associated with lower depression rates and better quality of life. Evidence supports grief counseling, CBT, support groups, and couples therapy. Partner support crucial as both experience grief and helplessness.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC9937061/",
+      "https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2024.1326894/full",
+      "https://www.artfertilityclinics.com/in/en/art-blog/the-psychological-impact-of-recurrent-miscarriage-in-2024",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11462878/"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Recurrent Pregnancy Loss (RPL)",
+      "Early Miscarriage",
+      "Causes of RPL",
+      "Miscarriage Workup & Testing"
     ]
   },
   {
     "category": "Pregnancy Loss & Recurrent Miscarriage",
     "topic": "Miscarriage Workup & Testing",
-    "lay_explanation": "Miscarriage Workup & Testing explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
-    "expert_summary": "Includes karyotyping, ultrasound, hysteroscopy, hormonal evaluation, and thrombophilia screening.",
+    "lay_explanation": "After recurrent pregnancy losses, doctors may recommend testing to find potential causes. This evaluation typically includes blood tests to check hormone levels, immune system function, and blood clotting ability. Genetic testing of both partners may be done to look for chromosome problems. Imaging tests like ultrasound or hysteroscopy can examine the shape and structure of the uterus. If pregnancy tissue is available, genetic testing of the loss can provide information about chromosome problems. The goal is to identify treatable causes and develop a plan for future pregnancies.",
+    "expert_summary": "RPL evaluation includes: parental karyotyping (structural chromosomal rearrangements found in 2-5%), uterine anatomical assessment via hysteroscopy/MRI, hormonal evaluation (thyroid, diabetes screening), antiphospholipid antibody testing, inherited thrombophilia screening (controversial), and products of conception genetic analysis when available. 2024 guidelines recommend evaluation after ≥2 losses. Advanced genetic screening using CMA, CNV-seq, and HLPA+STR improves detection rates. Systematic evaluation identifies causes in ~50% of cases.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://www.rbmojournal.com/article/S1472-6483(24)00645-X/fulltext",
+      "https://obgyn.onlinelibrary.wiley.com/doi/full/10.1111/ajo.13821",
+      "https://molecularcytogenetics.biomedcentral.com/articles/10.1186/s13039-025-00724-5",
+      "https://pubmed.ncbi.nlm.nih.gov/39151684/"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Recurrent Pregnancy Loss (RPL)",
+      "Causes of RPL",
+      "Antiphospholipid Antibody Syndrome",
+      "Thrombophilia & Pregnancy Loss"
     ]
   },
   {
     "category": "Pregnancy Loss & Recurrent Miscarriage",
     "topic": "Recurrent Pregnancy Loss (RPL)",
-    "lay_explanation": "Recurrent Pregnancy Loss (RPL) explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
-    "expert_summary": "RPL is defined as ≥2 consecutive pregnancy losses; evaluation includes genetic, anatomical, hormonal, and immunological assessments.",
+    "lay_explanation": "Recurrent Pregnancy Loss (RPL) is defined as having two or more pregnancy losses before 20 weeks of pregnancy. It affects about 1-2% of couples trying to conceive. While experiencing multiple losses can be devastating, it's important to know that most couples with RPL (up to 80%) can eventually have successful pregnancies. RPL can have various causes including genetic problems, uterine abnormalities, hormonal issues, blood clotting disorders, or immune system problems. A thorough evaluation can help identify potential causes and guide treatment options.",
+    "expert_summary": "RPL affects 1-2% of couples, defined as ≥2 pregnancy losses <20 weeks gestation (some guidelines specify ≥3 losses). Canadian 2024 guidelines define recurrent early pregnancy loss as ≥2 losses <10 weeks. Comprehensive evaluation includes parental karyotyping, uterine assessment, endocrine evaluation, antiphospholipid testing, and thrombophilia screening. Despite evaluation, >50% remain unexplained. Live birth rates with supportive care reach 70-85% in most studies, with treatment outcomes improving identifiable causes.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://www.rbmojournal.com/article/S1472-6483(24)00645-X/fulltext",
+      "https://obgyn.onlinelibrary.wiley.com/doi/full/10.1111/ajo.13821",
+      "https://www.frontiersin.org/journals/reproductive-health/articles/10.3389/frph.2023.1049711/full",
+      "https://www.ncbi.nlm.nih.gov/books/NBK554460/"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Causes of RPL",
+      "Miscarriage Workup & Testing",
+      "Early Miscarriage",
+      "Emotional Impact & Support",
+      "Antiphospholipid Antibody Syndrome"
     ]
   },
   {
     "category": "Pregnancy Loss & Recurrent Miscarriage",
     "topic": "Thrombophilia & Pregnancy Loss",
-    "lay_explanation": "Thrombophilia & Pregnancy Loss explains reasons for pregnancy loss and the evaluation or support available to reduce risk and aid recovery.",
-    "expert_summary": "Inherited or acquired thrombophilias may impair placental blood flow, causing miscarriage or stillbirth.",
+    "lay_explanation": "Thrombophilia refers to conditions that make blood more likely to clot. This can be inherited (genetic) or acquired (developed later in life). During pregnancy, blood clots in the placenta can reduce blood flow to the baby, potentially causing miscarriage or pregnancy complications. Common inherited forms include Factor V Leiden and prothrombin gene mutations. Women with thrombophilia may have a 2-3 times higher risk of pregnancy loss, but many still have successful pregnancies. Treatment often involves blood-thinning medications like heparin during pregnancy to reduce clotting risk.",
+    "expert_summary": "Thrombophilias include inherited (Factor V Leiden, prothrombin G20210A, protein C/S/antithrombin deficiencies) and acquired (APS) forms. Factor V Leiden confers 2-3-fold increased RPL risk, with homozygotes having higher thrombotic risk. 2024 research shows synergistic effects between FVL G1691A and MTHFR C677T mutations in multiple miscarriages. LMWH treatment commonly used despite limited efficacy evidence. ALIFE 2 trial ongoing to evaluate LMWH benefit in inherited thrombophilia with RPL history.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://www.mdpi.com/1648-9144/60/4/521",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC5373275/",
+      "https://www.ncbi.nlm.nih.gov/books/NBK1368/",
+      "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/216789"
     ],
     "related_to": [
-      "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Antiphospholipid Antibody Syndrome",
+      "Recurrent Pregnancy Loss (RPL)",
+      "Causes of RPL",
+      "Miscarriage Workup & Testing"
     ]
   },
   {
     "category": "Uterine & Endometrial Health",
     "topic": "Endometrial Receptivity Testing (ERA)",
-    "lay_explanation": "Endometrial Receptivity Testing (ERA) focuses on issues affecting the uterus or lining that can influence implantation and pregnancy.",
-    "expert_summary": "ERA analyzes gene expression profiles to identify the optimal implantation window for personalized embryo transfer timing.",
+    "lay_explanation": "Endometrial Receptivity Testing (ERA) is a genetic test that analyzes the lining of the uterus to determine the best time for embryo transfer during IVF. The test examines gene activity to identify the 'window of implantation' - the specific days when the uterus is most ready to accept an embryo. While 80% of women have their receptive window during days 19-23 of their cycle, 20% have different timing. ERA may help women with repeated failed IVF attempts by personalizing their embryo transfer timing, though its effectiveness remains debated in current research.",
+    "expert_summary": "ERA analyzes 248-gene expression profiles to identify the window of implantation (WOI) for personalized embryo transfer timing. Found in 32% of RIF cases, displaced WOI may contribute to implantation failure. 2024 research shows mixed results: some studies report 20% improvement in pregnancy rates (62.5% in RIF patients), while randomized trials question ERA's accuracy in identifying optimal timing. Clinical use in >3,000 clinics worldwide despite ongoing controversy regarding universal effectiveness.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://jamanetwork.com/journals/jama/fullarticle/2799154",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10219399/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11282320/",
+      "https://www.nature.com/articles/s41598-025-91745-y"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
-      "Intrauterine Insemination (IUI)"
+      "Recurrent Implantation Failure",
+      "Embryo Transfer",
+      "Endometrium"
     ]
   },
   {
     "category": "Uterine & Endometrial Health",
     "topic": "Uterine Polyps",
-    "lay_explanation": "Uterine Polyps focuses on issues affecting the uterus or lining that can influence implantation and pregnancy.",
-    "expert_summary": "Endometrial polyps can interfere with implantation and increase miscarriage risk; removal via hysteroscopic polypectomy improves outcomes.",
+    "lay_explanation": "Uterine polyps are small, usually non-cancerous growths that develop in the lining of the uterus (endometrium). They can interfere with fertility by preventing embryo implantation or causing early pregnancy loss. Polyps are found in about one-third of women having fertility evaluations and are the most common abnormality in women with repeated IVF failures. Most polyps can be easily removed through a minimally invasive procedure called hysteroscopic polypectomy, which can significantly improve chances of pregnancy. Recovery is typically quick, and fertility treatments can usually resume within 1-2 menstrual cycles.",
+    "expert_summary": "Endometrial polyps occur in 32% of women undergoing hysteroscopy prior to IVF and represent 16.7% of abnormalities in recurrent implantation failure. Hysteroscopic polypectomy increases pregnancy rates 23-65%, with meta-analysis showing four-fold improvement in IUI success. 2024 research demonstrates clinical pregnancy rates of 63% vs 41% (control) post-polypectomy. Polyps <20mm may have minimal IVF impact, while larger polyps significantly affect outcomes. Optimal timing is 1-2 menstrual cycles post-polypectomy for endometrial healing.",
     "reference": [
-      "https://www.asrm.org/"
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5306103/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC11355372/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8421660/",
+      "https://pubmed.ncbi.nlm.nih.gov/27077471/"
     ],
     "related_to": [
       "In Vitro Fertilization (IVF)",
+      "Recurrent Implantation Failure",
+      "Hysteroscopy",
+      "Endometrium",
       "Intrauterine Insemination (IUI)"
     ]
   }

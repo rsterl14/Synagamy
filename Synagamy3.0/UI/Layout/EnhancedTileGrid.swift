@@ -190,7 +190,7 @@ struct EnhancedTileGrid<Data: RandomAccessCollection, Content: View>: View where
         
         let delay = animationStyle.delay(for: index)
         
-        withAnimation(Brand.Motion.springGentle.delay(delay)) {
+        let _ = withAnimation(Brand.Motion.springGentle.delay(delay)) {
             visibleIndices.insert(index)
         }
     }

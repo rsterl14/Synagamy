@@ -190,14 +190,17 @@ private final class FallbackViewController: UIViewController {
         stackView.addArrangedSubview(detailLabel)
         
         // Add retry button if handler provided
-        if let onRetry = onRetry {
+        if onRetry != nil {
             let retryButton = UIButton(type: .system)
             retryButton.setTitle("Try Again", for: .normal)
             retryButton.titleLabel?.font = .preferredFont(forTextStyle: .headline)
             retryButton.backgroundColor = .systemBlue
             retryButton.setTitleColor(.white, for: .normal)
             retryButton.layer.cornerRadius = 8
-            retryButton.contentEdgeInsets = UIEdgeInsets(top: 12, left: 24, bottom: 12, right: 24)
+            // Use modern UIButton configuration instead of deprecated contentEdgeInsets
+            var config = UIButton.Configuration.filled()
+            config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 24, bottom: 12, trailing: 24)
+            retryButton.configuration = config
             
             retryButton.addTarget(self, action: #selector(retryTapped), for: .touchUpInside)
             stackView.addArrangedSubview(retryButton)

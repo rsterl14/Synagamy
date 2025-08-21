@@ -189,7 +189,7 @@ struct EducationView: View {
         }
         
         // Clear search when closing
-        .onChange(of: isSearching) { newValue in
+        .onChange(of: isSearching) { _, newValue in
             if !newValue {
                 searchText = ""
             }

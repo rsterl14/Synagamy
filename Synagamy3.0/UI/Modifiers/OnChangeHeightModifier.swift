@@ -71,7 +71,7 @@ extension View {
         to height: CGFloat,
         epsilon: CGFloat = 0.5
     ) -> some View {
-        self.modifier(OnChangeHeightModifier(currentHeight: currentHeight.wrappedValue as! Binding<CGFloat>, height: height, epsilon: epsilon))
+        self.modifier(OnChangeHeightModifier(currentHeight: currentHeight, height: height, epsilon: epsilon))
     }
 }
 

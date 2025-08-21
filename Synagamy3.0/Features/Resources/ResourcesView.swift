@@ -22,6 +22,7 @@ struct ResourcesView: View {
     @State private var selectedResource: Resource? = nil   // drives the detail sheet
     @State private var resources: [Resource] = []          // loaded from JSON
     @StateObject private var errorHandler = ErrorHandler.shared
+    // Note: DataCache will be injected via environment when available
 
     var body: some View {
         StandardPageLayout(
@@ -89,6 +90,7 @@ struct ResourcesView: View {
     // MARK: - Data Loading
     
     private func loadResources() {
+        // Load resources from JSON (will be optimized with cache when integrated)
         resources = Resource.loadFromJSON()
         validateAllResources()
     }

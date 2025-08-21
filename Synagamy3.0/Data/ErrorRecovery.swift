@@ -64,15 +64,15 @@ final class ErrorRecoveryManager: ObservableObject {
             recoveryProgress = 1.0
         }
         
-        logger.info("Starting recovery for error: \(error.localizedDescription ?? "unknown")")
+        logger.info("Starting recovery for error: \(error.localizedDescription)")
         
         let strategy = recoveryStrategy(for: error)
         let success = await executeRecoveryStrategy(strategy, for: error)
         
         if success {
-            logger.info("Recovery successful for: \(error.localizedDescription ?? "unknown")")
+            logger.info("Recovery successful for: \(error.localizedDescription)")
         } else {
-            logger.error("Recovery failed for: \(error.localizedDescription ?? "unknown")")
+            logger.error("Recovery failed for: \(error.localizedDescription)")
         }
         
         return success

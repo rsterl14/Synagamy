@@ -366,7 +366,10 @@ final class ErrorHandler: ObservableObject {
     @Published private(set) var shouldAttemptAutoRecovery = true
     
     private let logger = Logger(subsystem: "com.synagamy.app", category: "ErrorHandler")
-    private let recoveryManager = ErrorRecoveryManager.shared
+    @MainActor
+    private var recoveryManager: ErrorRecoveryManager {
+        ErrorRecoveryManager.shared
+    }
     
     // Error tracking for analytics and debugging
     private var errorHistory: [ErrorHistoryEntry] = []
@@ -403,29 +406,29 @@ final class ErrorHandler: ObservableObject {
     }
     
     func handleError(_ error: Error, context: String = "") {
-        let synagamyError: SynagamyError
-        
-        // Convert common Swift errors to SynagamyError
-        if let decodingError = error as? DecodingError {
-            synagamyError = .dataCorrupted(resource: context, details: decodingError.localizedDescription)
-        } else if let urlError = error as? URLError {
-            switch urlError.code {
-            case .notConnectedToInternet:
-                synagamyError = .networkUnavailable
-            case .timedOut:
-                synagamyError = .requestTimeout(url: context)
-            case .resourceUnavailable:
-                synagamyError = .resourceNotFound(url: context)
-            default:
-                synagamyError = .networkUnavailable
-            }
-        } else if error is CocoaError {
-            synagamyError = .dataLoadFailed(resource: context, underlying: error)
-        } else {
-            synagamyError = .criticalSystemError(details: error.localizedDescription)
-        }
-        
         Task { @MainActor in
+            let synagamyError: SynagamyError
+            
+            // Convert common Swift errors to SynagamyError
+            if let decodingError = error as? DecodingError {
+                synagamyError = .dataCorrupted(resource: context, details: decodingError.localizedDescription)
+            } else if let urlError = error as? URLError {
+                switch urlError.code {
+                case .notConnectedToInternet:
+                    synagamyError = .networkUnavailable
+                case .timedOut:
+                    synagamyError = .requestTimeout(url: context)
+                case .resourceUnavailable:
+                    synagamyError = .resourceNotFound(url: context)
+                default:
+                    synagamyError = .networkUnavailable
+                }
+            } else if error is CocoaError {
+                synagamyError = .dataLoadFailed(resource: context, underlying: error)
+            } else {
+                synagamyError = .criticalSystemError(details: error.localizedDescription)
+            }
+            
             handle(synagamyError)
         }
     }
@@ -492,7 +495,7 @@ final class ErrorHandler: ObservableObject {
         // Check for repeated errors (potential infinite loops or systematic issues)
         for (error, occurrences) in errorCounts {
             if occurrences.count >= 3 {
-                logger.warning("Repeated error detected: \(error.localizedDescription ?? "unknown") (\(occurrences.count) times)")
+                logger.warning("Repeated error detected: \(error.localizedDescription) (\(occurrences.count) times)")
                 
                 // Disable auto recovery for this error temporarily
                 if case let currentError = error, canAutoRecover(currentError) {
