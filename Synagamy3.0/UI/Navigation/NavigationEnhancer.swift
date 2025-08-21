@@ -57,7 +57,7 @@ final class NavigationEnhancer: ObservableObject {
         cacheCurrentState(for: route)
         
         // Use standard animation
-        let animation = Brand.Animation.standard
+        let animation = Brand.Motion.pageTransition
         
         withAnimation(animation) {
             // Perform the navigation
@@ -101,7 +101,7 @@ final class NavigationEnhancer: ObservableObject {
     // MARK: - Transition Animations
     
     var standardTransition: AnyTransition {
-        let animation = Brand.Animation.standard
+        let animation = Brand.Motion.pageTransition
         
         return AnyTransition.asymmetric(
             insertion: .move(edge: .trailing).combined(with: .opacity),
@@ -111,7 +111,7 @@ final class NavigationEnhancer: ObservableObject {
     }
     
     var modalTransition: AnyTransition {
-        let animation = Brand.Animation.smooth
+        let animation = Brand.Motion.springGentle
         
         return AnyTransition.asymmetric(
             insertion: .move(edge: .bottom).combined(with: .opacity),
@@ -156,7 +156,7 @@ struct EnhancedNavigationLink<Label: View, Destination: View>: View {
         .buttonStyle(.plain)
         .scaleEffect(isPressed ? 0.98 : 1.0)
         .animation(
-                Brand.Animation.quick,
+                Brand.Motion.userInteraction,
             value: isPressed
         )
         .onTapGesture {
@@ -190,8 +190,8 @@ struct GestureNavigationModifier: ViewModifier {
         content
             .offset(x: dragOffset.width)
             .scaleEffect(isDragging ? 0.98 : 1.0)
-            .animation(Brand.Animation.smooth, value: dragOffset)
-            .animation(Brand.Animation.quick, value: isDragging)
+            .animation(Brand.Motion.springGentle, value: dragOffset)
+            .animation(Brand.Motion.userInteraction, value: isDragging)
             .gesture(
                 DragGesture(coordinateSpace: .global)
                     .onChanged { value in
@@ -206,7 +206,7 @@ struct GestureNavigationModifier: ViewModifier {
                             onBack?()
                         }
                         
-                        withAnimation(Brand.Animation.bouncy) {
+                        withAnimation(Brand.Motion.springBouncy) {
                             dragOffset = .zero
                             isDragging = false
                         }

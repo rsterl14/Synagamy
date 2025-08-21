@@ -196,18 +196,6 @@ struct ResourceDetailSheet: View {
                 }
                 .padding()
             }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.body.weight(.semibold))
-                    }
-                    .tint(Color("BrandPrimary"))
-                    .accessibilityLabel("Close")
-                }
-            }
         }
         .tint(Color("BrandPrimary"))
 

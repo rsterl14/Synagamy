@@ -200,23 +200,99 @@ struct ClinicFinderView: View {
             } else {
                 // If the URL is malformed, show a helpful fallback instead of crashing.
                 NavigationStack {
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text(clinic.name)
-                            .font(.title2.bold())
-                        Text("We couldn’t open this clinic’s website. Please try again later or visit it manually:")
-                            .foregroundStyle(.secondary)
-                        Text(clinic.website)
-                            .textSelection(.enabled)
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                            .lineLimit(3)
-                            .minimumScaleFactor(0.8)
-                        Spacer()
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 20) {
+                            
+                            // MARK: - Enhanced header matching app style
+                            VStack(alignment: .leading, spacing: 12) {
+                                // Category badge
+                                HStack {
+                                    Image(systemName: "building.2.fill")
+                                        .font(.caption2)
+                                    
+                                    Text("CLINIC")
+                                        .font(.caption2.weight(.bold))
+                                        .tracking(0.5)
+                                }
+                                .foregroundColor(Brand.ColorSystem.primary)
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 5)
+                                .background(
+                                    Capsule()
+                                        .fill(Brand.ColorSystem.primary.opacity(0.12))
+                                        .overlay(
+                                            Capsule()
+                                                .strokeBorder(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
+                                        )
+                                )
+                                
+                                // Main title
+                                Text(clinic.name)
+                                    .font(.largeTitle.bold())
+                                    .foregroundColor(Brand.ColorSystem.primary)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .accessibilityAddTraits(.isHeader)
+                            }
+                            .padding(.bottom, 4)
+                            
+                            // Divider
+                            Rectangle()
+                                .fill(Brand.ColorSystem.primary.opacity(0.2))
+                                .frame(height: 1)
+                                .padding(.bottom, 4)
+
+                            // MARK: - Error content with enhanced design
+                            VStack(alignment: .leading, spacing: 10) {
+                                HStack(spacing: 8) {
+                                    Image(systemName: "exclamationmark.triangle.fill")
+                                        .font(.body)
+                                        .foregroundColor(.orange)
+                                    
+                                    Text("Website Unavailable")
+                                        .font(.subheadline.weight(.semibold))
+                                        .foregroundColor(Brand.ColorSystem.primary)
+                                }
+                                
+                                VStack(alignment: .leading, spacing: 12) {
+                                    Text("We couldn't open this clinic's website. Please try again later or visit it manually:")
+                                        .font(.callout)
+                                        .foregroundColor(.primary)
+                                        .lineSpacing(4)
+                                        .multilineTextAlignment(.leading)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                    
+                                    Text(clinic.website)
+                                        .font(.callout)
+                                        .foregroundColor(Brand.ColorSystem.primary)
+                                        .textSelection(.enabled)
+                                        .lineLimit(3)
+                                        .minimumScaleFactor(0.8)
+                                        .padding(12)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                                .fill(Brand.ColorSystem.primary.opacity(0.1))
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                                        .strokeBorder(Brand.ColorSystem.primary.opacity(0.3), lineWidth: 1)
+                                                )
+                                        )
+                                }
+                                .padding(16)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                        .fill(.ultraThinMaterial)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                                .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
+                                        )
+                                )
+                            }
+                        }
+                        .padding()
                     }
-                    .padding()
-                    .navigationTitle("Clinic")
-                    .navigationBarTitleDisplayMode(.inline)
                 }
+                .tint(Brand.ColorSystem.primary)
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
             }

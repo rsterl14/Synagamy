@@ -22,6 +22,7 @@ struct CommonQuestionsView: View {
     @State private var selected: CommonQuestion? = nil      // drives the sheet
     @State private var errorMessage: String? = nil          // user-friendly alert text
     @State private var expandedRelatedTopics: Set<String> = []  // tracks which related topics are expanded
+    @State private var showReferences = false  // tracks if references section is expanded
 
     var body: some View {
         StandardPageLayout(
@@ -89,28 +90,10 @@ struct CommonQuestionsView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
                         
-                        // MARK: - Enhanced header matching TopicDetailContent style
+                        // MARK: - Enhanced header using CategoryBadge component
                         VStack(alignment: .leading, spacing: 12) {
                             // Category badge
-                            HStack {
-                                Image(systemName: "questionmark.circle.fill")
-                                    .font(.caption2)
-                                
-                                Text("COMMON QUESTION")
-                                    .font(.caption2.weight(.bold))
-                                    .tracking(0.5)
-                            }
-                            .foregroundColor(Brand.ColorSystem.primary)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 5)
-                            .background(
-                                Capsule()
-                                    .fill(Brand.ColorSystem.primary.opacity(0.12))
-                                    .overlay(
-                                        Capsule()
-                                            .strokeBorder(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
-                                    )
-                            )
+                            CategoryBadge(text: "Common Question", icon: "questionmark.circle.fill")
                             
                             // Main question
                             Text(q.question)
@@ -128,18 +111,8 @@ struct CommonQuestionsView: View {
                             .frame(height: 1)
                             .padding(.bottom, 4)
 
-                        // MARK: - Answer content with enhanced design
-                        VStack(alignment: .leading, spacing: 10) {
-                            HStack(spacing: 8) {
-                                Image(systemName: "lightbulb.fill")
-                                    .font(.body)
-                                    .foregroundColor(Brand.ColorSystem.primary)
-                                
-                                Text("Answer")
-                                    .font(.subheadline.weight(.semibold))
-                                    .foregroundColor(Brand.ColorSystem.primary)
-                            }
-                            
+                        // MARK: - Answer content using EnhancedContentBlock
+                        EnhancedContentBlock(title: "Answer", icon: "lightbulb.fill") {
                             Text(q.detailedAnswer)
                                 .font(.callout)
                                 .foregroundColor(.primary)
@@ -147,15 +120,6 @@ struct CommonQuestionsView: View {
                                 .multilineTextAlignment(.leading)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .textSelection(.enabled)
-                                .padding(16)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                        .fill(.ultraThinMaterial)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                                .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
-                                        )
-                                )
                         }
 
                         // Related topics with enhanced design
@@ -283,19 +247,14 @@ struct CommonQuestionsView: View {
                             }
                         }
 
-                        // References with enhanced design
+                        // References using ExpandableSection component
                         if !q.reference.isEmpty {
-                            VStack(alignment: .leading, spacing: 10) {
-                                HStack(spacing: 8) {
-                                    Image(systemName: "book.fill")
-                                        .font(.body)
-                                        .foregroundColor(Brand.ColorSystem.primary)
-                                    
-                                    Text("References")
-                                        .font(.subheadline.weight(.semibold))
-                                        .foregroundColor(Brand.ColorSystem.primary)
-                                }
-                                
+                            ExpandableSection(
+                                title: "References",
+                                subtitle: "\(q.reference.count) source\(q.reference.count == 1 ? "" : "s")",
+                                icon: "doc.text.magnifyingglass",
+                                isExpanded: $showReferences
+                            ) {
                                 VStack(alignment: .leading, spacing: 8) {
                                     ForEach(q.reference, id: \.self) { link in
                                         if let url = URL(string: link) {
@@ -343,18 +302,6 @@ struct CommonQuestionsView: View {
                         }
                     }
                     .padding()
-                }
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button {
-                            selected = nil
-                        } label: {
-                            Image(systemName: "xmark")
-                                .font(.body.weight(.semibold))
-                        }
-                        .tint(Brand.ColorSystem.primary)
-                        .accessibilityLabel("Close")
-                    }
                 }
             }
             .tint(Brand.ColorSystem.primary)

@@ -92,12 +92,10 @@ struct TopicListView: View {
             NavigationStack {
                 ScrollView {
                     TopicDetailContent(topic: t)
-                        .padding(.horizontal, 16)
-                        .padding(.top, 24)
+                        .padding()
                 }
-                .navigationTitle("")
-                .navigationBarTitleDisplayMode(.inline)
             }
+            .tint(Brand.ColorSystem.primary)
             .presentationDetents([.medium, .large])
             .presentationDragIndicator(.visible)
         }

@@ -199,6 +199,7 @@ struct InfertilityView: View {
                 }
                 .padding()
             }
+            .tint(Brand.ColorSystem.primary)
             .presentationDetents([.medium, .large])
             .presentationDragIndicator(.visible)
         }

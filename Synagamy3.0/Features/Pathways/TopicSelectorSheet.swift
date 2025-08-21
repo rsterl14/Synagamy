@@ -281,21 +281,8 @@ struct TopicSelectorSheet: View {
                 }
             }
             // NAV
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.body.weight(.semibold))
-                    }
-                    .tint(Color("BrandPrimary"))
-                    .accessibilityLabel("Close")
-                }
-            }
         }
-        .tint(Color("BrandPrimary"))
+        .tint(Brand.ColorSystem.primary)
 
         // Keep selection index valid for current topics list at key moments.
         .onAppear(perform: clampSelection)

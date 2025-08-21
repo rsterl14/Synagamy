@@ -64,15 +64,6 @@ enum Brand {
 // Use Brand.Motion from EnhancedTheme.swift instead of these legacy animations
 
 extension Brand {
-    // MARK: Legacy Animation Support (use Brand.Motion instead)
-    @available(*, deprecated, message: "Use Brand.Motion instead")
-    enum Animation {
-        static let quick = Brand.Motion.userInteraction
-        static let standard = Brand.Motion.pageTransition
-        static let smooth = Brand.Motion.springGentle
-        static let bouncy = Brand.Motion.springBouncy
-        static let fade = SwiftUI.Animation.easeOut(duration: 0.2)
-    }
     
     // MARK: Shadows
     enum Shadow {
@@ -150,7 +141,7 @@ extension View {
                 Brand.Haptic.light.impactOccurred()
             }
         }
-        .animation(Brand.Animation.quick, value: UUID())
+        .animation(Brand.Motion.userInteraction, value: UUID())
     }
     
     /// Consistent floating header background.
@@ -184,7 +175,7 @@ extension View {
             insertion: .move(edge: .trailing).combined(with: .opacity),
             removal: .move(edge: .leading).combined(with: .opacity)
         ))
-        .animation(Brand.Animation.standard, value: UUID())
+        .animation(Brand.Motion.pageTransition, value: UUID())
     }
     
     /// Consistent list row animation.
@@ -193,7 +184,7 @@ extension View {
             insertion: .scale(scale: 0.95).combined(with: .opacity),
             removal: .scale(scale: 0.95).combined(with: .opacity)
         ))
-        .animation(Brand.Animation.smooth.delay(delay), value: UUID())
+        .animation(Brand.Motion.springGentle.delay(delay), value: UUID())
     }
 }
 
