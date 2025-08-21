@@ -33,7 +33,8 @@ struct ClinicFinderView: View {
     @State private var selectedRegion: String = "Canada"     // segmented control
     @State private var selectedClinic: Clinic? = nil         // drives the detail sheet
     @State private var headerHeight: CGFloat = 64            // reserved for floating header
-    @State private var errorMessage: String? = nil           // user-friendly alert text
+    @StateObject private var errorHandler = ErrorHandler.shared
+    @State private var mapLoadError: Bool = false
 
     // MARK: - Data model for a clinic pin (includes simple region tag for filtering)
     struct Clinic: Identifiable {
@@ -58,75 +59,119 @@ struct ClinicFinderView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            // Region picker row
-            HStack {
-                Picker("Region", selection: $selectedRegion) {
-                    ForEach(regions, id: \.self) { region in
-                        Text(region)
+        StandardPageLayout(
+            primaryImage: "SynagamyLogoTwo",
+            secondaryImage: "ClinicLogo",
+            showHomeButton: true,
+            usePopToRoot: true
+        ) {
+            VStack(spacing: 12) {
+                // Enhanced region selector header
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack(spacing: 8) {
+                        Image(systemName: "location.fill")
+                            .font(.body)
+                            .foregroundColor(Brand.ColorSystem.primary)
+                        
+                        Text("Select Region")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundColor(Brand.ColorSystem.primary)
+                    }
+                    
+                    // Custom region selector with brand styling
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(regions, id: \.self) { region in
+                                Button(action: {
+                                    selectedRegion = region
+                                }) {
+                                    Text(region)
+                                        .font(.callout.weight(.medium))
+                                        .foregroundColor(selectedRegion == region ? .white : Brand.ColorSystem.primary)
+                                        .padding(.horizontal, 16)
+                                        .padding(.vertical, 8)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                                .fill(selectedRegion == region ? Brand.ColorSystem.primary : Brand.ColorSystem.primary.opacity(0.1))
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                                        .strokeBorder(Brand.ColorSystem.primary.opacity(0.3), lineWidth: 1)
+                                                )
+                                        )
+                                }
+                                .buttonStyle(.plain)
+                                .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectedRegion)
+                            }
+                        }
+                        .padding(.horizontal, 4)
                     }
                 }
-                .pickerStyle(.segmented)
-            }
-            .padding(.horizontal)
-            .padding(.top, 8)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .background(
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(.ultraThinMaterial)
+                )
 
-            // Map or an empty state if no clinics for region
-            if clinicsForRegion.isEmpty {
-                ScrollView {
+                // Map with reasonable height
+                if clinicsForRegion.isEmpty {
                     EmptyStateView(
                         icon: "mappin.slash",
                         title: "No clinics in this region",
                         message: "Try a different region or select Canada to see all."
                     )
-                    .padding(.horizontal, 16)
-                    .padding(.top, 24)
-                }
-                .scrollIndicators(.hidden)
-                .background(Color(.systemBackground))
-            } else {
-                Map(position: $cameraPosition) {
-                    ForEach(clinicsForRegion) { clinic in
-                        Annotation(clinic.name, coordinate: clinic.coordinate) {
-                            Image(systemName: "mappin.circle.fill")
-                                .font(.title)
-                                .foregroundStyle(.red)
-                                .onTapGesture { selectedClinic = clinic }
-                                .accessibilityLabel(Text("\(clinic.name). Tap to open website."))
+                    .frame(height: 320)
+                } else {
+                    if mapLoadError {
+                        // Map failed to load - show error state
+                        VStack(spacing: 16) {
+                            Image(systemName: "map.circle.fill")
+                                .font(.system(size: 48))
+                                .foregroundColor(.orange)
+                            
+                            Text("Map Unavailable")
+                                .font(.headline)
+                                .foregroundColor(.primary)
+                            
+                            Text("The map couldn't load. You can still browse clinic information below.")
+                                .font(.body)
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                            
+                            Button("Try Again") {
+                                mapLoadError = false
+                            }
+                            .buttonStyle(.borderedProminent)
+                        }
+                        .padding()
+                        .frame(height: 320)
+                        .frame(maxWidth: .infinity)
+                        .background(Color(.systemGray6))
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                    } else {
+                        Map(position: $cameraPosition) {
+                            ForEach(clinicsForRegion) { clinic in
+                                Annotation(clinic.name, coordinate: clinic.coordinate) {
+                                    Image(systemName: "mappin.circle.fill")
+                                        .font(.title)
+                                        .foregroundStyle(Brand.ColorSystem.primary)
+                                        .onTapGesture { 
+                                            handleClinicSelection(clinic)
+                                        }
+                                        .accessibilityLabel(Text("\(clinic.name). Tap to open website."))
+                                }
+                            }
+                        }
+                        .mapControls { MapCompass() }
+                        .frame(height: 320)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .onAppear {
+                            // Validate map can load
+                            validateMapAccess()
                         }
                     }
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 16))
-                .padding(.horizontal)
-                .mapControls { MapCompass() }
-                .frame(minHeight: 360)
-                .background(Color(.systemBackground))
             }
-        }
-        // Standard hidden nav style used throughout the app
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.hidden, for: .navigationBar)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) { HomeButton() }
-        }
-
-        // Reserve space equal to the floating header height
-        .safeAreaInset(edge: .top) {
-            Color.clear.frame(height: headerHeight)
-        }
-
-        // Floating header overlay + dynamic height sync
-        .overlay(alignment: .top) {
-            FloatingLogoHeader(primaryImage: "SynagamyLogoTwo", secondaryImage: "ClinicLogo")
-                .background(
-                    GeometryReader { geo in
-                        Color.clear
-                            .onAppear { headerHeight = geo.size.height }
-                            .modifier(OnChangeHeightModifier(currentHeight: $headerHeight,
-                                                             height: geo.size.height))
-                    }
-                )
         }
 
         // Move/zoom camera when the user changes region
@@ -136,12 +181,16 @@ struct ClinicFinderView: View {
             }
         }
 
-        // Friendly, non-technical alert for recoverable errors
-        .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {
-            Button("OK", role: .cancel) { errorMessage = nil }
-        }, message: {
-            Text(errorMessage ?? "Please try again.")
-        })
+        // Centralized error handling
+        .errorAlert(
+            onRetry: {
+                mapLoadError = false
+                validateMapAccess()
+            },
+            onNavigateHome: {
+                // Navigation handled by parent
+            }
+        )
 
         // Detail sheet: open the clinic website (safely)
         .sheet(item: $selectedClinic) { clinic in
@@ -170,6 +219,50 @@ struct ClinicFinderView: View {
                 }
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
+            }
+        }
+    }
+    
+    // MARK: - Error Handling Methods
+    
+    private func handleClinicSelection(_ clinic: Clinic) {
+        // Validate clinic URL before selection
+        guard URL(string: clinic.website) != nil else {
+            let error = SynagamyError.urlInvalid(url: clinic.website)
+            errorHandler.handle(error)
+            return
+        }
+        
+        selectedClinic = clinic
+    }
+    
+    private func validateMapAccess() {
+        // Basic check for map functionality
+        // This is a placeholder - in a real app you might check location permissions,
+        // network connectivity for map tiles, etc.
+        
+        // Simulate map loading check
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            // In a real implementation, you would check if MapKit is available
+            // For now, we'll assume it works unless there's a specific issue
+            
+            // You could add actual validation here such as:
+            // - Check if device supports MapKit
+            // - Check network connectivity for map tiles
+            // - Validate coordinate data
+            
+            let invalidClinics = clinicsForRegion.filter { clinic in
+                clinic.coordinate.latitude < -90 || clinic.coordinate.latitude > 90 ||
+                clinic.coordinate.longitude < -180 || clinic.coordinate.longitude > 180
+            }
+            
+            if !invalidClinics.isEmpty {
+                let error = SynagamyError.dataValidationFailed(
+                    resource: "Clinic Locations",
+                    issues: invalidClinics.map { "Invalid coordinates for \($0.name)" }
+                )
+                errorHandler.handle(error)
+                mapLoadError = true
             }
         }
     }

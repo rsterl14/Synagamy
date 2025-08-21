@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xcodebuild:*)",
+      "Bash(mkdir:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(git restore:*)",
+      "Bash(for:*)",
+      "Bash(do echo \"Fixing $file\")",
+      "Bash(sed:*)",
+      "Bash(done)",
+      "Bash(do sed -i '' '/@StateObject.*PerformanceOptimizer/d; /private let.*PerformanceOptimizer/d' \"$file\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

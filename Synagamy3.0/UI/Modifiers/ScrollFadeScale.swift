@@ -19,18 +19,24 @@ import SwiftUI
 
 private struct AppearFadeScale: ViewModifier {
     @State private var appeared = false
+    
     var initialOpacity: Double = 0.0
     var initialScale: CGFloat = 0.98
-    var animation: Animation = .easeOut(duration: 0.25)
+    
+    private var animation: Animation {
+        .easeOut(duration: 0.25)
+    }
 
     func body(content: Content) -> some View {
         content
             .opacity(appeared ? 1 : initialOpacity)
             .scaleEffect(appeared ? 1.0 : initialScale)
             .onAppear {
-                withAnimation(animation) { appeared = true }
+                withAnimation(animation) { 
+                    appeared = true 
+                }
             }
-    }
+                }
 }
 
 // MARK: - Offset-driven version (optional, for fancy scroll effects)
@@ -59,6 +65,7 @@ private struct ScrollFadeScale: ViewModifier {
 // MARK: - Vanish-into-page (TOP ONLY, with blur protection at the top)
 
 private struct VanishIntoPage: ViewModifier {
+    
     /// How far *below the top threshold* before the tile fully fades.
     var vanishDistance: CGFloat = 260
     /// Minimum scale when near the top.
@@ -76,9 +83,10 @@ private struct VanishIntoPage: ViewModifier {
     func body(content: Content) -> some View {
         GeometryReader { geo in
             let frame = geo.frame(in: .global)
+            let settings = (shouldAnimate: true, duration: 0.25)
 
             // Distance from the *top threshold* (0 + topInset).
-            // We ramp the effect as the item’s top approaches that threshold.
+            // We ramp the effect as the item's top approaches that threshold.
             let relativeY = frame.minY - topInset
 
             // Normalize into [0, 1]:
@@ -92,33 +100,44 @@ private struct VanishIntoPage: ViewModifier {
             let opacity = 1 - eased
             let scale = 1 - eased * (1 - minScale)
 
-            // --- Blur protection for the top-most tile ---
-            // Only allow blur to ramp in AFTER the tile has moved a bit ABOVE the top threshold.
-            // When `relativeY` is near 0 (tile at the top), blur = 0.
-            // As it goes further negative (off the top), blur smoothly increases.
+            // --- Performance-aware blur handling ---
             let overshoot = max(0, -relativeY) // points above the top threshold
             let blurRamp = min(1, overshoot / max(1, blurKickIn))
-            let blur = (eased * maxBlur) * blurRamp
+            let effectiveBlur = (eased * maxBlur) * blurRamp
             // --------------------------------------------
 
             let yOffset = eased * maxYOffset
+            
+            let animationDuration = settings.duration
 
             content
-                .frame(width: geo.size.width, height: geo.size.height) // keep original layout
                 .opacity(opacity)
                 .scaleEffect(scale)
-                .blur(radius: blur)
+                .blur(radius: effectiveBlur)
                 .offset(y: yOffset)
-                .compositingGroup() // ensure blur/opacity composite correctly
-                .animation(.easeOut(duration: 0.22), value: raw)
-                .animation(.easeOut(duration: 0.22), value: blurRamp)
+                .conditionalCompositingGroup(enabled: settings.shouldAnimate)
+                .animation(.easeOut(duration: animationDuration), value: raw)
+                .animation(.easeOut(duration: animationDuration), value: blurRamp)
         }
-    }
+            }
 
     // Simple cubic ease-out to keep motion feeling natural
     private func cubicEaseOut(_ x: CGFloat) -> CGFloat {
         let inv = 1 - x
         return 1 - inv * inv * inv
+    }
+}
+
+// MARK: - Helper Extensions
+
+extension View {
+    @ViewBuilder
+    fileprivate func conditionalCompositingGroup(enabled: Bool) -> some View {
+        if enabled {
+            self.compositingGroup()
+        } else {
+            self
+        }
     }
 }
 

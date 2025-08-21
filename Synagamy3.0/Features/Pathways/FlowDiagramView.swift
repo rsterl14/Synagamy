@@ -50,7 +50,7 @@ struct FlowDiagramView: View {
 
             } else {
                 ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 0) {
+                    LazyVStack(alignment: .leading, spacing: 8) {
                         // Use indices as stable identity — avoids duplicate-ID issues.
                         ForEach(Array(steps.enumerated()), id: \.offset) { idx, step in
                             StepRowCard(
@@ -67,8 +67,8 @@ struct FlowDiagramView: View {
                             .accessibilityAddTraits(.isButton)
                         }
                     }
-                    .padding(.horizontal, 0)
-                    .padding(.vertical, 6) // tighter outer vertical padding (requested earlier)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 12)
                 }
                 .scrollIndicators(.hidden)
             }
@@ -119,40 +119,60 @@ private struct StepRowCard: View {
 
     /// Called when the row is tapped.
     var action: () -> Void
+    
+    @State private var isPressed = false
 
     var body: some View {
         Button(action: action) {
-            HStack(alignment: .top, spacing: 8) {
+            HStack(alignment: .top, spacing: 12) {
                 // Left-side vertical rail + node circle (timeline visual)
                 TimelineRail(isFirst: isFirst, isLast: isLast)
 
-                // Main text/content container
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(title)
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                // Main text/content container with enhanced styling
+                HStack(spacing: 12) {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(title)
+                            .font(.body.weight(.semibold))
+                            .foregroundColor(.primary)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
 
-                    HStack(spacing: 4) {
-                        Image(systemName: "book")
-                        Text("Tap to view related topics")
+                        HStack(spacing: 4) {
+                            Image(systemName: "text.book.closed.fill")
+                                .font(.caption2)
+                            Text("View related topics")
+                                .font(.caption)
+                        }
+                        .foregroundColor(Brand.ColorSystem.secondary)
                     }
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right.circle")
+                        .font(.body)
+                        .foregroundColor(Brand.ColorSystem.primary.opacity(0.6))
                 }
-                .padding(10)
+                .padding(14)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .overlay(
-                    // Subtle card stroke to fit the brand style
-                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .stroke(Color("BrandPrimary").opacity(0.08), lineWidth: 1)
+                .background(
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .fill(.ultraThinMaterial)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                                .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
+                        )
                 )
+                .scaleEffect(isPressed ? 0.98 : 1.0)
             }
-            .contentShape(Rectangle()) // ensures full-row hit target
-            .padding(.vertical, 4)     // compact inter-row spacing
+            .contentShape(Rectangle())
+            .padding(.vertical, 6)
         }
         .buttonStyle(.plain)
+        .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                isPressed = pressing
+            }
+        }, perform: {})
     }
 }
 
@@ -166,32 +186,42 @@ private struct TimelineRail: View {
         VStack(spacing: 0) {
             // Upper rail (hidden for first item)
             Rectangle()
-                .fill(Color.secondary.opacity(isFirst ? 0 : 0.22))
-                .frame(width: 2)
+                .fill(Brand.ColorSystem.primary.opacity(isFirst ? 0 : 0.3))
+                .frame(width: 3)
                 .frame(maxHeight: .infinity, alignment: .bottom)
 
-            // Node (white inner, branded ring, filled dot)
+            // Enhanced node with BrandPrimary
             ZStack {
+                // Outer glow
                 Circle()
-                    .fill(Color(.systemBackground))
+                    .fill(Brand.ColorSystem.primary.opacity(0.2))
+                    .frame(width: 20, height: 20)
+                    .blur(radius: 2)
+                
+                // Main circle
+                Circle()
+                    .fill(Brand.ColorSystem.primary)
                     .frame(width: 16, height: 16)
+                    .overlay(
+                        Circle()
+                            .strokeBorder(.white.opacity(0.3), lineWidth: 1)
+                    )
+                
+                // Inner dot
                 Circle()
-                    .stroke(Color("BrandSecondary"), lineWidth: 2)
-                    .frame(width: 16, height: 16)
-                Circle()
-                    .fill(Color("BrandSecondary"))
-                    .frame(width: 5, height: 5)
+                    .fill(.white)
+                    .frame(width: 6, height: 6)
             }
-            .padding(.vertical, 1)
+            .padding(.vertical, 2)
 
             // Lower rail (hidden for last item)
             Rectangle()
-                .fill(Color.secondary.opacity(isLast ? 0 : 0.22))
-                .frame(width: 2)
+                .fill(Brand.ColorSystem.primary.opacity(isLast ? 0 : 0.3))
+                .frame(width: 3)
                 .frame(maxHeight: .infinity, alignment: .top)
         }
-        .frame(width: 18)        // slimmer gutter
-        .padding(.vertical, 4)   // compact vertical padding around node
+        .frame(width: 22)
+        .padding(.vertical, 4)
         .accessibilityHidden(true)
     }
 }

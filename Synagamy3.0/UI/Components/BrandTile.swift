@@ -60,58 +60,101 @@ struct BrandTile: View {
     }
 
     var body: some View {
-        HStack(alignment: .center, spacing: 12) {
-
-            // MARK: - Leading icon (asset first, otherwise SF Symbol, otherwise placeholder)
-            iconView
-                .frame(width: isCompact ? 40 : 48, height: isCompact ? 40 : 48)
+        Group {
+            if isCompact {
+                // Compact layout: HStack with icon on left, content on right
+                HStack(alignment: .center, spacing: 12) {
+                    // Icon on the left
+                    iconView
+                        .frame(width: 24, height: 24)
+                        .background(
+                            Circle()
+                                .fill(Brand.ColorToken.primary.opacity(0.15))
+                        )
+                        .overlay(
+                            Circle()
+                                .stroke(Brand.ColorToken.primary.opacity(0.25), lineWidth: 1)
+                        )
+                    
+                    // Content on the right
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(title)
+                            .font(.headline.weight(.semibold))
+                            .foregroundColor(.primary)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(2)
+                        
+                        if let subtitle, !subtitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                            Text(subtitle)
+                                .font(.subheadline)
+                                .foregroundStyle(Brand.ColorToken.secondary)
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(1)
+                        }
+                    }
+                    
+                    Spacer()
+                }
+                .padding(.vertical, 12)
+                .padding(.horizontal, 16)
+                .frame(maxWidth: .infinity)
                 .background(
-                    Circle()
-                        .fill(Color("BrandPrimary").opacity(0.15))
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .fill(Brand.ColorToken.surface)
+                        .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 4)
                 )
                 .overlay(
-                    Circle()
-                        .stroke(Color("BrandPrimary").opacity(0.10), lineWidth: 1)
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .stroke(Brand.ColorToken.primary.opacity(0.15), lineWidth: 1)
                 )
-                .accessibilityHidden(true)
+            } else {
+                // Regular layout: VStack with icon at top, text below
+                VStack(spacing: 20) {
+                    
+                    // MARK: - Icon at the top
+                    iconView
+                        .frame(width: 80, height: 80)
+                        .background(
+                            Circle()
+                                .fill(Brand.ColorToken.primary.opacity(0.15))
+                        )
+                        .overlay(
+                            Circle()
+                                .stroke(Brand.ColorToken.primary.opacity(0.25), lineWidth: 2)
+                        )
 
-            // MARK: - Text stack
-            VStack(alignment: .leading, spacing: 4) {
-                Text(title)
-                    .font(isCompact ? .headline : .title3.weight(.semibold))
-                    .foregroundColor(.primary)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.leading)
+                    // MARK: - Text content
+                    VStack(spacing: 8) {
+                        Text(title)
+                            .font(.title2.weight(.bold))
+                            .foregroundColor(.primary)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(3)
 
-                if let subtitle, !subtitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    Text(subtitle)
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(2)
-                        .multilineTextAlignment(.leading)
+                        if let subtitle, !subtitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                            Text(subtitle)
+                                .font(.headline)
+                                .foregroundStyle(Brand.ColorToken.secondary)
+                                .multilineTextAlignment(.center)
+                                .lineLimit(2)
+                        }
+                    }
                 }
+                .padding(35)
+                .frame(maxWidth: .infinity)
+                .frame(minHeight: 240)
+                .background(
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .fill(Brand.ColorToken.surface)
+                        .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .stroke(Brand.ColorToken.primary.opacity(0.2), lineWidth: 2)
+                )
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-
-            // MARK: - Chevron affordance (non-interactive)
-            Image(systemName: "chevron.right")
-                .font(.footnote.weight(.semibold))
-                .foregroundStyle(.secondary)
-                .accessibilityHidden(true)
         }
-        .padding(.horizontal, isCompact ? 12 : 14)
-        .padding(.vertical, isCompact ? 10 : 12)
-        .background(
-            RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
-                .fill(Color(.secondarySystemBackground))
-                .shadow(color: .black.opacity(isPressed ? 0.08 : 0.12), radius: isPressed ? 6 : 10, x: 0, y: isPressed ? 2 : 4)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
-                .stroke(Color("BrandPrimary").opacity(isPressed ? 0.18 : 0.10), lineWidth: 1)
-        )
-        .scaleEffect(isPressed ? 0.98 : 1.0)
-        .animation(.spring(response: 0.25, dampingFraction: 0.88), value: isPressed)
+        .contentShape(Rectangle())
         .accessibilityElement(children: .combine)
         .accessibilityAddTraits(.isButton)
         .accessibilityLabel(Text(accessibilityLabel))
@@ -121,22 +164,23 @@ struct BrandTile: View {
 
     @ViewBuilder
     private var iconView: some View {
-        if let asset = assetIcon, !asset.isEmpty, UIImage(named: asset) != nil {
-            // Asset icon (renders the provided image if it exists in the asset catalog)
+        if let asset = assetIcon, !asset.isEmpty {
             Image(asset)
                 .resizable()
                 .scaledToFit()
-                .padding(8)
+                .padding(isCompact ? 4 : 16)
         } else if let symbol = systemIcon, !symbol.isEmpty {
             // SF Symbol fallback
             Image(systemName: symbol)
-                .font(.system(size: isCompact ? 18 : 22, weight: .semibold))
-                .foregroundColor(Color("BrandPrimary"))
+                .font(.system(size: isCompact ? 16 : 40, weight: .semibold))
+                .foregroundColor(Brand.ColorToken.primary)
+                .symbolRenderingMode(.hierarchical)
         } else {
             // Minimal placeholder to keep layout consistent if no icon provided
             Image(systemName: "square.grid.2x2")
-                .font(.system(size: isCompact ? 18 : 22, weight: .semibold))
-                .foregroundColor(Color("BrandPrimary"))
+                .font(.system(size: isCompact ? 16 : 40, weight: .semibold))
+                .foregroundColor(Brand.ColorToken.primary)
+                .symbolRenderingMode(.hierarchical)
         }
     }
 

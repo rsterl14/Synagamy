@@ -1,0 +1,79 @@
+[
+  {
+    "title": "CFAS",
+    "subtitle": "Canadian Fertility & Andrology Society",
+    "description": "Canada's professional society for reproductive medicine. Publishes guidance statements, hosts the annual conference, and supports practice standards, education, and research across clinics and labs.",
+    "url": "https://cfas.ca",
+    "systemImage": "person.2.wave.2"
+  },
+  {
+    "title": "Fertility Matters Canada",
+    "subtitle": "Patient education & support",
+    "description": "National patient organization offering evidence-based information, peer support, advocacy, webinars, and community resources for those facing infertility.",
+    "url": "https://fertilitymatters.ca",
+    "systemImage": "heart.text.square"
+  },
+  {
+    "title": "CARTR-BORN Stats",
+    "subtitle": "National IVF outcomes (BORN Ontario)",
+    "description": "Public reporting portal summarizing assisted reproduction activity and outcomes contributed by Canadian clinics to CARTR-BORN. Useful for understanding trends at a national level.",
+    "url": "https://www.bornontario.ca/en/about-born/data-and-reports/cartr-born.aspx",
+    "systemImage": "chart.bar.doc.horizontal"
+  },
+  {
+    "title": "Health Canada – AHR",
+    "subtitle": "Regulations & safety notices",
+    "description": "Assisted Human Reproduction (AHR) regulatory information, including safety of sperm/egg/embryo handling, inspections, guidance documents, and compliance updates.",
+    "url": "https://www.canada.ca/en/health-canada/services/drugs-health-products/assisted-human-reproduction.html",
+    "systemImage": "checkmark.shield"
+  },
+  {
+    "title": "SOGC",
+    "subtitle": "Clinical guidelines & statements",
+    "description": "Society of Obstetricians and Gynaecologists of Canada. Access clinical practice guidelines, committee opinions, and patient resources related to reproductive health.",
+    "url": "https://sogc.org",
+    "systemImage": "doc.text.magnifyingglass"
+  },
+  {
+    "title": "Fertility Funding by Province",
+    "subtitle": "Government & insurance support",
+    "description": "Overview of provincial programs, employer benefits, drug coverage and tax credits that can help pay for fertility treatment in Canada.",
+    "url": "https://fertilitymatters.ca/learn/funding/",
+    "systemImage": "creditcard"
+  },
+  {
+    "title": "Find Support & Professionals",
+    "subtitle": "Counsellors, clinics, legal & groups",
+    "description": "Directory from Fertility Matters Canada to find mental health providers, support groups, clinics, legal help, and more.",
+    "url": "https://fertilitymatters.ca/support/find/",
+    "systemImage": "person.3.sequence"
+  },
+  {
+    "title": "Canadian Cancer Society",
+    "subtitle": "Fertility & cancer side effects",
+    "description": "Evidence-based info on how cancer treatments affect fertility and options for preservation before therapy.",
+    "url": "https://cancer.ca/en/treatments/side-effects/fertility-problems",
+    "systemImage": "bandage"
+  },
+  {
+    "title": "Young Adult Cancer Canada",
+    "subtitle": "Oncofertility resources & stories",
+    "description": "Articles and lived experiences focused on fertility issues for adolescents and young adults with cancer.",
+    "url": "https://youngadultcancer.ca/tag/fertility/",
+    "systemImage": "figure.2.and.child.holdinghands"
+  },
+  {
+    "title": "MyFertilityChoices",
+    "subtitle": "Options & preservation primer",
+    "description": "Canadian site with plain-language guides on fertility testing, preservation (egg/sperm/embryo), and treatment pathways.",
+    "url": "https://myfertilitychoices.com/",
+    "systemImage": "books.vertical"
+  },
+  {
+    "title": "Fertility in Focus Podcast",
+    "subtitle": "Fertility Matters Canada",
+    "description": "Interviews with specialists and patient stories on infertility and fertility preservation—listen on your preferred platform.",
+    "url": "https://fertilitymatters.ca/involve/programs/podcast/",
+    "systemImage": "mic"
+  }
+]

@@ -5,111 +5,176 @@
 //  Categories → Topics flow.
 //  • Lists unique categories as BrandTiles (with topic counts).
 //  • Tapping a category navigates to TopicListView scoped to that category.
-//  • Keeps floating header, vanish effect, and empty/error states.
-//
-//  Expects:
-//  - AppData.topics : [EducationTopic]
-//  - BrandTile, EmptyStateView, HomeButton, FloatingLogoHeader
-//  - OnChangeHeightModifier, .vanishIntoPage
 //
 
 import SwiftUI
 
 struct EducationView: View {
     // MARK: - Data
-    @State private var allTopics: [EducationTopic] = []   // loaded in .task
+    @State private var allTopics: [EducationTopic] = []
 
     // MARK: - UI State
-    @State private var headerHeight: CGFloat = 64
     @State private var errorMessage: String? = nil
+    @State private var isSearching = false
+    @State private var searchText = ""
 
     // MARK: - Derived: categories + lookup
-    private var categories: [(name: String, count: Int)] {
-        let grouped = Dictionary(grouping: allTopics, by: { $0.category })
-        return grouped
-            .map { ($0.key, $0.value.count) }
-            .sorted { a, b in
-                a.name.localizedCaseInsensitiveCompare(b.name) == .orderedAscending
+    private var searchResults: (exact: [EducationTopic], partial: [EducationTopic], explanation: [EducationTopic], category: [EducationTopic]) {
+        if searchText.isEmpty {
+            return ([], [], [], [])
+        }
+        
+        let search = searchText.lowercased()
+        
+        // Separate exact title matches from other matches
+        var exactTitleMatches: [EducationTopic] = []
+        var partialTitleMatches: [EducationTopic] = []
+        var layExplanationMatches: [EducationTopic] = []
+        var categoryMatches: [EducationTopic] = []
+        
+        for topic in allTopics {
+            let topicTitle = topic.topic.lowercased()
+            
+            if topicTitle == search {
+                // Exact title match
+                exactTitleMatches.append(topic)
+            } else if topicTitle.contains(search) {
+                // Partial title match
+                partialTitleMatches.append(topic)
+            } else if topic.layExplanation.lowercased().contains(search) {
+                // Found in lay explanation
+                layExplanationMatches.append(topic)
+            } else if topic.category.lowercased().contains(search) {
+                // Found in category
+                categoryMatches.append(topic)
             }
+        }
+        
+        return (exactTitleMatches, partialTitleMatches, layExplanationMatches, categoryMatches)
+    }
+    
+    private var filteredTopics: [EducationTopic] {
+        if searchText.isEmpty {
+            return allTopics
+        }
+        let results = searchResults
+        return results.exact + results.partial + results.explanation + results.category
+    }
+    
+    private var categories: [(name: String, count: Int)] {
+        let grouped = Dictionary(grouping: filteredTopics, by: { $0.category })
+        // Preserve the original order from the JSON by using the first occurrence of each category
+        var seen = Set<String>()
+        var orderedCategories: [(name: String, count: Int)] = []
+        
+        for topic in filteredTopics {
+            if !seen.contains(topic.category) {
+                seen.insert(topic.category)
+                let count = grouped[topic.category]?.count ?? 0
+                orderedCategories.append((topic.category, count))
+            }
+        }
+        
+        return orderedCategories
     }
 
     private var topicsByCategory: [String: [EducationTopic]] {
-        Dictionary(grouping: allTopics, by: { $0.category })
+        Dictionary(grouping: filteredTopics, by: { $0.category })
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            ScrollView {
-                if allTopics.isEmpty {
-                    EmptyStateView(
-                        icon: "book",
-                        title: "No topics available",
-                        message: "Please check back later. You can still explore Pathways."
-                    )
-                    .padding(.horizontal, 16)
-                    .padding(.top, 24)
-                } else {
-                    LazyVStack(spacing: 75) {
-                        ForEach(categories, id: \.name) { cat in
-                            // Push into TopicListView scoped to this category
-                            NavigationLink {
-                                TopicListView(
-                                    title: cat.name,
-                                    topics: topicsByCategory[cat.name] ?? [],
-                                    enableSearch: true
-                                )
-                            } label: {
-                                BrandTile(
-                                    title: cat.name,
-                                    subtitle: "\(cat.count) topic\(cat.count == 1 ? "" : "s")",
-                                    systemIcon: "square.grid.2x2.fill",
-                                    assetIcon: nil,
-                                    isCompact: true
-                                )
-                                .vanishIntoPage(
-                                    vanishDistance: 350,
-                                    minScale: 0.88,
-                                    maxBlur: 2.5,
-                                    topInset: 0,
-                                    blurKickIn: 14
-                                )
-                            }
-                            .buttonStyle(.plain)
-                            .padding(.horizontal, 16)
-                            .accessibilityLabel(Text("\(cat.name). \(cat.count) topics. Tap to view."))
-                        }
+        ZStack {
+            StandardPageLayout(
+                primaryImage: "SynagamyLogoTwo",
+                secondaryImage: "EducationLogo",
+                showHomeButton: true,
+                usePopToRoot: true
+            ) {
+                VStack(alignment: .leading, spacing: 12) {
+                    // Search bar when searching
+                    if isSearching {
+                        EducationSearchBar(searchText: $searchText)
+                            .transition(.move(edge: .top).combined(with: .opacity))
+                            .animation(.spring(response: 0.4, dampingFraction: 0.8), value: isSearching)
                     }
-                    .padding(.vertical, 14)
+                    
+                    if allTopics.isEmpty {
+                        EmptyStateView(
+                            icon: "book",
+                            title: "No topics available",
+                            message: "Please check back later. You can still explore Pathways."
+                        )
+                        .padding(.top, 8)
+                    } else if filteredTopics.isEmpty && !searchText.isEmpty {
+                        EmptyStateView(
+                            icon: "magnifyingglass",
+                            title: "No results found",
+                            message: "Try searching with different keywords"
+                        )
+                        .padding(.top, 40)
+                    } else if !searchText.isEmpty {
+                        // Search results view with section headers
+                        let results = searchResults
+                        
+                        LazyVStack(alignment: .leading, spacing: Brand.Spacing.lg) {
+                            // Exact matches section
+                            if !results.exact.isEmpty {
+                                SearchResultSection(title: "Exact Match", topics: results.exact)
+                            }
+                            
+                            // Partial title matches section
+                            if !results.partial.isEmpty {
+                                SearchResultSection(title: "Title Matches", topics: results.partial)
+                            }
+                            
+                            // Explanation matches section
+                            if !results.explanation.isEmpty {
+                                SearchResultSection(title: "Found in Explanation", topics: results.explanation)
+                            }
+                            
+                            // Category matches section
+                            if !results.category.isEmpty {
+                                SearchResultSection(title: "Category Matches", topics: results.category)
+                            }
+                        }
+                        .padding(.top, 4)
+                    } else {
+                        // Normal category view
+                        LazyVStack(spacing: Brand.Spacing.xl) {
+                            ForEach(categories, id: \.name) { cat in
+                                NavigationLink {
+                                    TopicListView(
+                                        title: cat.name,
+                                        topics: topicsByCategory[cat.name] ?? []
+                                    )
+                                } label: {
+                                    BrandTile(
+                                        title: cat.name,
+                                        subtitle: "\(cat.count) topic\(cat.count == 1 ? "" : "s")",
+                                        systemIcon: "square.grid.2x2.fill",
+                                        assetIcon: nil,
+                                        isCompact: true
+                                    )
+                                }
+                                .buttonStyle(BrandTileButtonStyle())
+                                .accessibilityLabel(Text("\(cat.name). \(cat.count) topics. Tap to view."))
+                            }
+                        }
+                        .padding(.top, 4)
+                    }
                 }
             }
-            .scrollIndicators(.hidden)
-            .background(Color(.systemBackground))
-        }
-
-        // MARK: - Nav & Toolbar
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.hidden, for: .navigationBar)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                HomeButton(usePopToRoot: true)
+            
+            // Floating search button
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    FloatingSearchButton(isSearching: $isSearching)
+                        .padding(.trailing, 20)
+                        .padding(.bottom, 20)
+                }
             }
-        }
-
-        // MARK: - Floating header space reservation
-        .safeAreaInset(edge: .top) { Color.clear.frame(height: headerHeight) }
-        .overlay(alignment: .top) {
-            FloatingLogoHeader(primaryImage: "SynagamyLogoTwo", secondaryImage: "EducationLogo")
-                .background(
-                    GeometryReader { geo in
-                        Color.clear
-                            .onAppear { headerHeight = geo.size.height }
-                            .modifier(OnChangeHeightModifier(
-                                currentHeight: $headerHeight,
-                                height: geo.size.height
-                            ))
-                    }
-                )
         }
 
         // MARK: - Alerts
@@ -119,10 +184,77 @@ struct EducationView: View {
 
         // MARK: - Load data once
         .task {
-            let topics = AppData.topics.sorted {
-                $0.topic.localizedCaseInsensitiveCompare($1.topic) == .orderedAscending
+            // Keep original order from JSON
+            allTopics = AppData.topics
+        }
+        
+        // Clear search when closing
+        .onChange(of: isSearching) { newValue in
+            if !newValue {
+                searchText = ""
             }
-            allTopics = topics
+        }
+    }
+}
+
+// MARK: - Search Result Section Component
+
+private struct SearchResultSection: View {
+    let title: String
+    let topics: [EducationTopic]
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            // Section header
+            Text(title)
+                .font(.caption)
+                .fontWeight(.semibold)
+                .foregroundColor(Brand.ColorSystem.secondary)
+                .textCase(.uppercase)
+                .padding(.horizontal, 4)
+            
+            // Topic list
+            VStack(spacing: Brand.Spacing.sm) {
+                ForEach(topics, id: \.id) { topic in
+                    NavigationLink {
+                        ScrollView {
+                            TopicDetailContent(topic: topic)
+                                .padding()
+                        }
+                        .navigationBarTitleDisplayMode(.inline)
+                    } label: {
+                        HStack(alignment: .center, spacing: 12) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(topic.topic)
+                                    .font(.headline)
+                                    .foregroundColor(.primary)
+                                    .multilineTextAlignment(.leading)
+                                
+                                Text(topic.category)
+                                    .font(.caption)
+                                    .foregroundColor(Brand.ColorSystem.secondary)
+                            }
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(Brand.ColorSystem.secondary.opacity(0.5))
+                        }
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(.ultraThinMaterial)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                        .stroke(Brand.ColorToken.hairline, lineWidth: 1)
+                                )
+                        )
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
         }
     }
 }

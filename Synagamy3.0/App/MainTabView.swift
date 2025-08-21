@@ -20,12 +20,12 @@ import SwiftUI
 struct MainTabView: View {
     // MARK: - Tab enumeration for type-safe selection & testability
     enum Tab: Hashable {
-        case home, education, pathways, clinics, resources, questions, community
+        case home, education, pathways, clinics, predictor, resources, questions, community
     }
 
     // MARK: - UI state
     @State private var selectedTab: Tab = .home
-    @State private var errorMessage: String? = nil   // user-facing, non-technical alert text
+    @StateObject private var errorHandler = ErrorHandler.shared
 
     // MARK: - Per-tab navigation paths (so each tab keeps its own history)
     @State private var homePath = NavigationPath()
@@ -81,12 +81,12 @@ struct MainTabView: View {
             .accessibilityLabel(Text("Clinics"))
             
             NavigationStack(path: $outcomePath) {
-                EducationView()
+                OutcomePredictorView()
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbarBackground(.hidden, for: .navigationBar)
             }
-            .tabItem { Label("Education", systemImage: "book.fill") }
-            .tag(Tab.education)
+            .tabItem { Label("Predictor", systemImage: "chart.line.uptrend.xyaxis") }
+            .tag(Tab.predictor)
             .accessibilityLabel(Text("Outcome Predictor"))
 
             // RESOURCES
@@ -122,18 +122,81 @@ struct MainTabView: View {
         // Global tint/brand color for selected tab & prominent buttons
         .tint(Color("BrandPrimary"))
 
-        // Friendly, non-technical alert that you can reuse for recoverable issues
-        .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {
-            Button("OK", role: .cancel) { errorMessage = nil }
-        }, message: {
-            Text(errorMessage ?? "Please try again.")
-        })
+        // Centralized error handling with recovery actions
+        .errorAlert(
+            onRetry: {
+                // Perform health check or reload data
+                performHealthCheck()
+            },
+            onNavigateHome: {
+                // Navigate to home tab
+                selectedTab = .home
+                // Clear all navigation paths
+                homePath = NavigationPath()
+                educationPath = NavigationPath()
+                pathwaysPath = NavigationPath()
+                clinicsPath = NavigationPath()
+                resourcesPath = NavigationPath()
+                questionsPath = NavigationPath()
+                communityPath = NavigationPath()
+                outcomePath = NavigationPath()
+            }
+        )
 
-        // Example defensive hook: if something in your environment indicates a bad state,
-        // you can surface it here without crashing UI (kept idle by default).
+        // Health check and error detection
         .task {
-            // Leave this empty or wire to a lightweight health check if you add one later.
-            // If a problem is detected, set `errorMessage = "…"`.
+            performHealthCheck()
         }
+        
+        // Listen for home button notifications
+        .onReceive(NotificationCenter.default.publisher(for: .goHome)) { _ in
+            withAnimation(.easeInOut(duration: 0.3)) {
+                selectedTab = .home
+                clearAllNavigationPaths()
+            }
+        }
+    }
+    
+    // MARK: - Health Check
+    
+    private func performHealthCheck() {
+        // Check if core data is available
+        let topics = AppData.topics
+        let pathways = AppData.pathways
+        let questions = AppData.questions
+        
+        // Validate core content is available
+        if topics.isEmpty && pathways.isEmpty && questions.isEmpty {
+            let error = SynagamyError.dataLoadFailed(
+                resource: "core content", 
+                underlying: nil
+            )
+            errorHandler.handle(error)
+            return
+        }
+        
+        // Check for partial data loss
+        var missingContent: [String] = []
+        if topics.isEmpty { missingContent.append("education topics") }
+        if pathways.isEmpty { missingContent.append("pathways") }
+        if questions.isEmpty { missingContent.append("questions") }
+        
+        if !missingContent.isEmpty {
+            let error = SynagamyError.contentEmpty(section: missingContent.joined(separator: ", "))
+            errorHandler.handle(error)
+        }
+    }
+    
+    // MARK: - Navigation Helper
+    
+    private func clearAllNavigationPaths() {
+        homePath = NavigationPath()
+        educationPath = NavigationPath()
+        pathwaysPath = NavigationPath()
+        clinicsPath = NavigationPath()
+        resourcesPath = NavigationPath()
+        questionsPath = NavigationPath()
+        communityPath = NavigationPath()
+        outcomePath = NavigationPath()
     }
 }

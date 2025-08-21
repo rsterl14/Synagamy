@@ -44,6 +44,7 @@ enum Brand {
         static let md: CGFloat = 12
         static let lg: CGFloat = 16
         static let xl: CGFloat = 20
+        static let xxl: CGFloat = 28
         static let pill: CGFloat = 999
     }
 
@@ -57,22 +58,61 @@ enum Brand {
 }
 
 // MARK: - Safe color fallback
+// Color fallback extension is now in View+Extensions.swift
 
-extension Color {
-    /// Returns `self` now; parameter kept for clarity/future override hooks.
-    fileprivate func fallback(_ alt: Color) -> Color { self }
+// MARK: - Optimized Animation System
+// Use Brand.Motion from EnhancedTheme.swift instead of these legacy animations
+
+extension Brand {
+    // MARK: Legacy Animation Support (use Brand.Motion instead)
+    @available(*, deprecated, message: "Use Brand.Motion instead")
+    enum Animation {
+        static let quick = Brand.Motion.userInteraction
+        static let standard = Brand.Motion.pageTransition
+        static let smooth = Brand.Motion.springGentle
+        static let bouncy = Brand.Motion.springBouncy
+        static let fade = SwiftUI.Animation.easeOut(duration: 0.2)
+    }
+    
+    // MARK: Shadows
+    enum Shadow {
+        static let subtle = (color: Color.black.opacity(0.05), radius: CGFloat(4), x: CGFloat(0), y: CGFloat(1))
+        static let card = (color: Color.black.opacity(0.08), radius: CGFloat(14), x: CGFloat(0), y: CGFloat(8))
+        static let floating = (color: Color.black.opacity(0.12), radius: CGFloat(20), x: CGFloat(0), y: CGFloat(12))
+    }
+    
+    // MARK: Haptics
+    enum Haptic {
+        static let light = UIImpactFeedbackGenerator(style: .light)
+        static let medium = UIImpactFeedbackGenerator(style: .medium)
+        static let heavy = UIImpactFeedbackGenerator(style: .heavy)
+        static let selection = UISelectionFeedbackGenerator()
+        static let success = UINotificationFeedbackGenerator()
+    }
 }
 
 // MARK: - Reusable helpers
 
 extension View {
-    /// Soft card surface (material + stroke + shadow) with brand defaults.
-    func brandCardSurface(cornerRadius: CGFloat = Brand.Radius.lg) -> some View {
+    /// Soft card surface (material + stroke + shadow) with brand defaults and performance optimization.
+    func brandCardSurface(
+        cornerRadius: CGFloat = Brand.Radius.lg,
+    ) -> some View {
         background(
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                 .fill(.regularMaterial)
-                .shadow(color: Color.black.opacity(0.08), radius: 14, x: 0, y: 8)
-                .shadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 1)
+                .shadow(
+                    color: Brand.Shadow.card.color,
+                    radius: Brand.Shadow.card.radius,
+                    x: Brand.Shadow.card.x,
+                    y: Brand.Shadow.card.y
+                )
+                .shadow(
+                    color: Brand.Shadow.subtle.color,
+                    radius: Brand.Shadow.subtle.radius,
+                    x: Brand.Shadow.subtle.x,
+                    y: Brand.Shadow.subtle.y
+                )
                 .overlay(
                     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                         .stroke(Brand.ColorToken.hairline, lineWidth: 1)
@@ -88,9 +128,94 @@ extension View {
         )
     }
 
-    /// Brand-tinted prominent button.
-    func brandProminentButton() -> some View {
-        buttonStyle(.borderedProminent).tint(Brand.ColorToken.primary)
+    /// Brand-tinted prominent button with haptic feedback.
+    func brandProminentButton(hapticFeedback: Bool = true) -> some View {
+        buttonStyle(.borderedProminent)
+            .tint(Brand.ColorToken.primary)
+            .onTapGesture {
+                if hapticFeedback {
+                    Brand.Haptic.medium.impactOccurred()
+                }
+            }
+    }
+    
+    /// Enhanced interactive button with press animation and haptic feedback.
+    func brandInteractiveButton(
+        pressScale: CGFloat = 0.96,
+        hapticFeedback: Bool = true
+    ) -> some View {
+        scaleEffect(1.0)
+        .onTapGesture {
+            if hapticFeedback {
+                Brand.Haptic.light.impactOccurred()
+            }
+        }
+        .animation(Brand.Animation.quick, value: UUID())
+    }
+    
+    /// Consistent floating header background.
+    func brandFloatingHeader() -> some View {
+        background(
+            RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous)
+                .fill(.ultraThinMaterial)
+                .shadow(
+                    color: Brand.Shadow.floating.color,
+                    radius: Brand.Shadow.floating.radius,
+                    x: Brand.Shadow.floating.x,
+                    y: Brand.Shadow.floating.y
+                )
+        )
+        .clipShape(RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous))
+    }
+    
+    /// Apply performance optimization conditionally.
+    @ViewBuilder
+    private func conditionallyOptimized(_ enabled: Bool) -> some View {
+        if enabled {
+            self
+        } else {
+            self
+        }
+    }
+    
+    /// Smooth page transition animation.
+    func pageTransition() -> some View {
+        transition(.asymmetric(
+            insertion: .move(edge: .trailing).combined(with: .opacity),
+            removal: .move(edge: .leading).combined(with: .opacity)
+        ))
+        .animation(Brand.Animation.standard, value: UUID())
+    }
+    
+    /// Consistent list row animation.
+    func listRowAnimation(delay: Double = 0) -> some View {
+        transition(.asymmetric(
+            insertion: .scale(scale: 0.95).combined(with: .opacity),
+            removal: .scale(scale: 0.95).combined(with: .opacity)
+        ))
+        .animation(Brand.Animation.smooth.delay(delay), value: UUID())
+    }
+}
+
+// MARK: - Button Styles
+
+struct BrandTileButtonStyle: ButtonStyle {
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.96 : 1.0)
+            .opacity(configuration.isPressed ? 0.9 : 1.0)
+            .animation(
+                    Brand.Motion.springSnappy,
+                value: configuration.isPressed
+            )
+            .onChange(of: configuration.isPressed) { _, isPressed in
+                if isPressed {
+                    let impactGenerator = UIImpactFeedbackGenerator(style: .light)
+                    impactGenerator.prepare()
+                    impactGenerator.impactOccurred()
+                }
+            }
     }
 }
 

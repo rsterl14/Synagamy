@@ -56,78 +56,44 @@ struct InfertilityView: View {
 
     // MARK: - UI state
     @State private var selectedTopic: InfoItem? = nil   // drives the details sheet
-    @State private var headerHeight: CGFloat = 64       // reserved space for floating header
     @State private var errorMessage: String? = nil      // user-friendly alert text
 
     var body: some View {
-        VStack(spacing: 0) {
-            ScrollView {
+        StandardPageLayout(
+            primaryImage: "SynagamyLogoTwo",
+            secondaryImage: "StartingPointLogo",
+            showHomeButton: true,
+            usePopToRoot: true
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
                 if topics.isEmpty {
-                    // Friendly empty-state instead of a blank screen
                     EmptyStateView(
                         icon: "info.circle",
                         title: "No info available",
                         message: "Please check back later or explore Education topics."
                     )
-                    .padding(.horizontal, 16)
-                    .padding(.top, 24)
+                    .padding(.top, 8)
                 } else {
-                    LazyVStack(spacing: 75) {
+                    LazyVStack(spacing: Brand.Spacing.xl) {
                         ForEach(topics) { item in
                             Button {
-                                selectedTopic = item // safe state update to present sheet
+                                selectedTopic = item
                             } label: {
                                 BrandTile(
                                     title: item.title,
                                     subtitle: item.subtitle,
                                     systemIcon: item.systemIcon,
-                                    assetIcon: nil
+                                    assetIcon: nil,
+                                    isCompact: true
                                 )
-                                .vanishIntoPage(vanishDistance: 350,
-                                                minScale: 0.88,
-                                                maxBlur: 2.5,
-                                                topInset: 0,
-                                                blurKickIn: 14)
                             }
-                            .buttonStyle(.plain)
-                            .padding(.horizontal, 16)
+                            .buttonStyle(BrandTileButtonStyle())
                             .accessibilityLabel(Text("\(item.title). \(item.subtitle). Tap to read more."))
                         }
                     }
-                    .padding(.vertical, 12)
+                    .padding(.top, 4)
                 }
             }
-            .scrollIndicators(.hidden)
-            .background(Color(.systemBackground))
-        }
-        // MARK: - Global nav style and Home button
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.hidden, for: .navigationBar)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) { HomeButton() }
-        }
-
-        // Reserve space equal to the floating header height
-        .safeAreaInset(edge: .top) {
-            Color.clear.frame(height: headerHeight)
-        }
-
-        // Floating header overlay + dynamic height sync via shared modifier
-        .overlay(alignment: .top) {
-            FloatingLogoHeader(primaryImage: "SynagamyLogoTwo", secondaryImage: "StartingPointLogo")
-                .background(
-                    GeometryReader { geo in
-                        Color.clear
-                            .onAppear { headerHeight = geo.size.height } // initial value
-                            .modifier(
-                                OnChangeHeightModifier(                 // keep synced on rotation, etc.
-                                    currentHeight: $headerHeight,
-                                    height: geo.size.height
-                                )
-                            )
-                    }
-                )
         }
 
         // Friendly, non-technical alert for recoverable issues
@@ -137,15 +103,99 @@ struct InfertilityView: View {
             Text(errorMessage ?? "Please try again.")
         })
 
-        // Detail sheet (short, readable summary)
+        // Detail sheet (styled like TopicDetailContent)
         .sheet(item: $selectedTopic) { topic in
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    Text(topic.title)
-                        .font(.title2.bold())
-                        .foregroundColor(Color("BrandPrimary"))
-                    Text(topic.description)
-                        .fixedSize(horizontal: false, vertical: true)
+                VStack(alignment: .leading, spacing: 20) {
+                    // Title and subtitle header matching TopicDetailContent
+                    VStack(alignment: .leading, spacing: 12) {
+                        // Category badge
+                        HStack {
+                            Image(systemName: "info.circle.fill")
+                                .font(.caption2)
+                            
+                            Text(topic.subtitle.uppercased())
+                                .font(.caption2.weight(.bold))
+                                .tracking(0.5)
+                        }
+                        .foregroundColor(Brand.ColorSystem.primary)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(
+                            Capsule()
+                                .fill(Brand.ColorSystem.primary.opacity(0.12))
+                                .overlay(
+                                    Capsule()
+                                        .strokeBorder(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
+                                )
+                        )
+                        
+                        // Main title with gradient
+                        Text(topic.title)
+                            .font(.largeTitle.bold())
+                            .foregroundStyle(
+                                LinearGradient(
+                                    colors: [Brand.ColorSystem.primary, Brand.ColorSystem.primary.opacity(0.8)],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding(.bottom, 4)
+                    
+                    // Divider
+                    Rectangle()
+                        .fill(LinearGradient(
+                            colors: [Brand.ColorSystem.primary.opacity(0.3), Brand.ColorSystem.primary.opacity(0.05)],
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        ))
+                        .frame(height: 1)
+                        .padding(.bottom, 4)
+                    
+                    // Main content with enhanced design matching TopicDetailContent
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "lightbulb.fill")
+                                .font(.body)
+                                .foregroundStyle(
+                                    LinearGradient(
+                                        colors: [.yellow, .orange],
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                            
+                            Text("Overview")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundColor(Brand.ColorSystem.primary)
+                        }
+                        
+                        Text(topic.description)
+                            .font(.callout)
+                            .foregroundColor(.primary)
+                            .lineSpacing(4)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .textSelection(.enabled)
+                            .padding(16)
+                            .background(
+                                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                    .fill(.ultraThinMaterial)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                            .strokeBorder(
+                                                LinearGradient(
+                                                    colors: [Brand.ColorToken.hairline, Brand.ColorToken.hairline.opacity(0.3)],
+                                                    startPoint: .topLeading,
+                                                    endPoint: .bottomTrailing
+                                                ),
+                                                lineWidth: 1
+                                            )
+                                    )
+                            )
+                    }
                 }
                 .padding()
             }

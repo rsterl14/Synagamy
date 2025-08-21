@@ -20,78 +20,45 @@ struct CommonQuestionsView: View {
     // MARK: - UI state
     @State private var questions: [CommonQuestion] = []     // loaded onAppear
     @State private var selected: CommonQuestion? = nil      // drives the sheet
-    @State private var headerHeight: CGFloat = 64           // reserved for floating header
     @State private var errorMessage: String? = nil          // user-friendly alert text
+    @State private var expandedRelatedTopics: Set<String> = []  // tracks which related topics are expanded
 
     var body: some View {
-        VStack(spacing: 0) {
-            ScrollView {
+        StandardPageLayout(
+            primaryImage: "SynagamyLogoTwo",
+            secondaryImage: "CommonQuestionsLogo",
+            showHomeButton: true,
+            usePopToRoot: true
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
                 if questions.isEmpty {
-                    // Empty state explains what's happening rather than showing a blank screen.
                     EmptyStateView(
                         icon: "questionmark.circle",
-                        title: "No questions yet",
-                        message: "Please check back later or explore Education topics."
+                        title: "No questions available",
+                        message: "Please check back later."
                     )
-                    .padding(.horizontal, 16)
-                    .padding(.top, 24)
+                    .padding(.top, 8)
                 } else {
-                    LazyVStack(spacing: 75) {
-                        ForEach(questions, id: \.id) { q in
+                    LazyVStack(spacing: Brand.Spacing.xl) {
+                        ForEach(questions, id: \.id) { question in
                             Button {
-                                selected = q // safe state update to present the sheet
+                                selected = question
                             } label: {
                                 BrandTile(
-                                    title: q.question,
-                                    subtitle: nil,
+                                    title: question.question,
+                                    subtitle: "Common concern",
                                     systemIcon: "questionmark.circle.fill",
-                                    assetIcon: nil
+                                    isCompact: true
                                 )
-                                .vanishIntoPage(vanishDistance: 350,
-                                                minScale: 0.88,
-                                                maxBlur: 2.5,
-                                                topInset: 0,
-                                                blurKickIn: 14)
                             }
                             .buttonStyle(.plain)
-                            .padding(.horizontal, 16)
-                            .accessibilityLabel(Text("\(q.question). Tap to view the answer."))
                         }
                     }
-                    .padding(.vertical, 12)
+                    .padding(.top, 4)
                 }
             }
-            .scrollIndicators(.hidden)
-            .background(Color(.systemBackground))
         }
-        // MARK: - Global nav style for this screen
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.hidden, for: .navigationBar)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                HomeButton()
-            }
-        }
-
-        // Keep space for the floating header
-        .safeAreaInset(edge: .top) {
-            Color.clear.frame(height: headerHeight)
-        }
-
-        // Floating header with auto-measured height (shared modifier keeps it in sync)
-        .overlay(alignment: .top) {
-            FloatingLogoHeader(primaryImage: "SynagamyLogoTwo", secondaryImage: "CommonQuestionsLogo")
-                .background(
-                    GeometryReader { geo in
-                        Color.clear
-                            .onAppear { headerHeight = geo.size.height }
-                            .modifier(OnChangeHeightModifier(currentHeight: $headerHeight,
-                                                             height: geo.size.height))
-                    }
-                )
-        }
-
+        
         // Friendly non-technical alert for recoverable issues
         .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {
             Button("OK", role: .cancel) { errorMessage = nil }
@@ -120,51 +87,277 @@ struct CommonQuestionsView: View {
         .sheet(item: $selected) { q in
             NavigationStack {
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 16) {
-                        // Question title
-                        Text(q.question)
-                            .font(.title2.bold())
-                            .foregroundColor(Color("BrandPrimary"))
+                    VStack(alignment: .leading, spacing: 20) {
+                        
+                        // MARK: - Enhanced header matching TopicDetailContent style
+                        VStack(alignment: .leading, spacing: 12) {
+                            // Category badge
+                            HStack {
+                                Image(systemName: "questionmark.circle.fill")
+                                    .font(.caption2)
+                                
+                                Text("COMMON QUESTION")
+                                    .font(.caption2.weight(.bold))
+                                    .tracking(0.5)
+                            }
+                            .foregroundColor(Brand.ColorSystem.primary)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .background(
+                                Capsule()
+                                    .fill(Brand.ColorSystem.primary.opacity(0.12))
+                                    .overlay(
+                                        Capsule()
+                                            .strokeBorder(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
+                                    )
+                            )
+                            
+                            // Main question
+                            Text(q.question)
+                                .font(.largeTitle.bold())
+                                .foregroundColor(Brand.ColorSystem.primary)
+                                .multilineTextAlignment(.leading)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .accessibilityAddTraits(.isHeader)
+                        }
+                        .padding(.bottom, 4)
+                        
+                        // Divider
+                        Rectangle()
+                            .fill(Brand.ColorSystem.primary.opacity(0.2))
+                            .frame(height: 1)
+                            .padding(.bottom, 4)
 
-                        // Detailed answer body
-                        Text(q.detailedAnswer)
-                            .fixedSize(horizontal: false, vertical: true)
+                        // MARK: - Answer content with enhanced design
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack(spacing: 8) {
+                                Image(systemName: "lightbulb.fill")
+                                    .font(.body)
+                                    .foregroundColor(Brand.ColorSystem.primary)
+                                
+                                Text("Answer")
+                                    .font(.subheadline.weight(.semibold))
+                                    .foregroundColor(Brand.ColorSystem.primary)
+                            }
+                            
+                            Text(q.detailedAnswer)
+                                .font(.callout)
+                                .foregroundColor(.primary)
+                                .lineSpacing(4)
+                                .multilineTextAlignment(.leading)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .textSelection(.enabled)
+                                .padding(16)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                        .fill(.ultraThinMaterial)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                                .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
+                                        )
+                                )
+                        }
 
-                        // Related topics (read-only list; could be upgraded to tappable later)
+                        // Related topics with enhanced design
                         if !q.relatedTopics.isEmpty {
-                            Divider().opacity(0.15)
-                            Text("Related topics").font(.headline)
-                            VStack(alignment: .leading, spacing: 6) {
-                                ForEach(q.relatedTopics, id: \.self) { topic in
-                                    Text("• \(topic)")
+                            VStack(alignment: .leading, spacing: 10) {
+                                HStack(spacing: 8) {
+                                    Image(systemName: "link.circle.fill")
+                                        .font(.body)
+                                        .foregroundColor(Brand.ColorSystem.primary)
+                                    
+                                    Text("Related Topics")
+                                        .font(.subheadline.weight(.semibold))
+                                        .foregroundColor(Brand.ColorSystem.primary)
                                 }
+                                
+                                VStack(alignment: .leading, spacing: 8) {
+                                    ForEach(q.relatedTopics, id: \.self) { topic in
+                                        VStack(alignment: .leading, spacing: 8) {
+                                            // Expandable topic button
+                                            Button {
+                                                withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                                                    if expandedRelatedTopics.contains(topic) {
+                                                        expandedRelatedTopics.remove(topic)
+                                                    } else {
+                                                        expandedRelatedTopics.insert(topic)
+                                                    }
+                                                }
+                                            } label: {
+                                                HStack(alignment: .center, spacing: 12) {
+                                                    Circle()
+                                                        .fill(Brand.ColorSystem.primary.opacity(0.15))
+                                                        .frame(width: 32, height: 32)
+                                                        .overlay(
+                                                            Image(systemName: "arrow.turn.down.right")
+                                                                .font(.caption)
+                                                                .foregroundColor(Brand.ColorSystem.primary)
+                                                        )
+                                                    
+                                                    Text(topic)
+                                                        .font(.body.weight(.medium))
+                                                        .foregroundColor(.primary)
+                                                        .multilineTextAlignment(.leading)
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Image(systemName: expandedRelatedTopics.contains(topic) ? "chevron.up.circle.fill" : "chevron.down.circle")
+                                                        .font(.body)
+                                                        .foregroundStyle(Brand.ColorSystem.primary)
+                                                        .animation(.spring(response: 0.3), value: expandedRelatedTopics.contains(topic))
+                                                }
+                                                .padding(12)
+                                                .background(
+                                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                                        .fill(Brand.ColorSystem.primary.opacity(0.05))
+                                                        .overlay(
+                                                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                                                .strokeBorder(Brand.ColorToken.hairline.opacity(0.5), lineWidth: 1)
+                                                        )
+                                                )
+                                            }
+                                            .buttonStyle(.plain)
+                                            
+                                            // Expanded content with lay explanation
+                                            if expandedRelatedTopics.contains(topic) {
+                                                if let relatedTopic = AppData.topics.first(where: { $0.topic == topic }) {
+                                                    VStack(alignment: .leading, spacing: 12) {
+                                                        Text(relatedTopic.layExplanation)
+                                                            .font(.callout)
+                                                            .foregroundColor(.primary.opacity(0.8))
+                                                            .lineSpacing(3)
+                                                            .fixedSize(horizontal: false, vertical: true)
+                                                            .padding(12)
+                                                            .background(
+                                                                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                                                    .fill(.ultraThinMaterial)
+                                                                    .overlay(
+                                                                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                                                            .strokeBorder(Brand.ColorToken.hairline.opacity(0.3), lineWidth: 1)
+                                                                    )
+                                                            )
+                                                        
+                                                        // View Topic Details button
+                                                        NavigationLink {
+                                                            ScrollView {
+                                                                TopicDetailContent(topic: relatedTopic)
+                                                                    .padding()
+                                                            }
+                                                            .navigationBarTitleDisplayMode(.inline)
+                                                        } label: {
+                                                            HStack(spacing: 8) {
+                                                                Text("View Topic Details")
+                                                                    .font(.subheadline.weight(.medium))
+                                                                Image(systemName: "arrow.right.circle.fill")
+                                                                    .font(.subheadline)
+                                                            }
+                                                            .foregroundColor(.white)
+                                                            .frame(maxWidth: .infinity)
+                                                            .padding(.vertical, 10)
+                                                            .background(
+                                                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                                                    .fill(Brand.ColorSystem.primary)
+                                                            )
+                                                        }
+                                                        .buttonStyle(.plain)
+                                                    }
+                                                    .padding(.leading, 8)
+                                                    .transition(.asymmetric(
+                                                        insertion: .opacity.combined(with: .scale(scale: 0.95, anchor: .top)).combined(with: .offset(y: -10)),
+                                                        removal: .opacity.combined(with: .scale(scale: 0.95, anchor: .top))
+                                                    ))
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .padding(16)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                        .fill(.ultraThinMaterial)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                                .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
+                                        )
+                                )
                             }
                         }
 
-                        // References (safe URL handling)
+                        // References with enhanced design
                         if !q.reference.isEmpty {
-                            Divider().opacity(0.15)
-                            Text("References").font(.headline)
-                            VStack(alignment: .leading, spacing: 6) {
-                                ForEach(q.reference, id: \.self) { link in
-                                    if let url = URL(string: link) {
-                                        Link(link, destination: url)
-                                            .lineLimit(1)
-                                            .truncationMode(.middle)
-                                            .font(.footnote)
-                                    } else {
-                                        // If malformed, still show the text so users can copy it.
-                                        Text(link).font(.footnote).foregroundStyle(.secondary)
+                            VStack(alignment: .leading, spacing: 10) {
+                                HStack(spacing: 8) {
+                                    Image(systemName: "book.fill")
+                                        .font(.body)
+                                        .foregroundColor(Brand.ColorSystem.primary)
+                                    
+                                    Text("References")
+                                        .font(.subheadline.weight(.semibold))
+                                        .foregroundColor(Brand.ColorSystem.primary)
+                                }
+                                
+                                VStack(alignment: .leading, spacing: 8) {
+                                    ForEach(q.reference, id: \.self) { link in
+                                        if let url = URL(string: link) {
+                                            Link(destination: url) {
+                                                HStack(spacing: 8) {
+                                                    Image(systemName: "link")
+                                                        .font(.caption)
+                                                        .foregroundColor(Brand.ColorSystem.primary)
+                                                    
+                                                    Text(link)
+                                                        .font(.callout)
+                                                        .foregroundColor(Brand.ColorSystem.primary)
+                                                        .underline()
+                                                        .lineLimit(2)
+                                                        .truncationMode(.middle)
+                                                        .multilineTextAlignment(.leading)
+                                                }
+                                            }
+                                        } else {
+                                            HStack(spacing: 8) {
+                                                Image(systemName: "exclamationmark.triangle")
+                                                    .font(.caption)
+                                                    .foregroundColor(.orange)
+                                                
+                                                Text(link)
+                                                    .font(.callout)
+                                                    .foregroundColor(.secondary)
+                                                    .lineLimit(2)
+                                                    .truncationMode(.middle)
+                                                    .multilineTextAlignment(.leading)
+                                            }
+                                        }
                                     }
                                 }
+                                .padding(16)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                        .fill(.ultraThinMaterial)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                                .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
+                                        )
+                                )
                             }
                         }
                     }
                     .padding()
                 }
-                .navigationTitle("Answer")
-                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            selected = nil
+                        } label: {
+                            Image(systemName: "xmark")
+                                .font(.body.weight(.semibold))
+                        }
+                        .tint(Brand.ColorSystem.primary)
+                        .accessibilityLabel("Close")
+                    }
+                }
             }
+            .tint(Brand.ColorSystem.primary)
             .presentationDetents([.medium, .large])
             .presentationDragIndicator(.visible)
         }

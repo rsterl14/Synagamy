@@ -17,6 +17,8 @@ enum DataLoader {
         case missingResource(String)          // file not in bundle
         case readFailed(URL, underlying: Error)
         case decodeFailed(resource: String, underlying: Error)
+        case emptyData(resource: String)      // file exists but is empty
+        case invalidFormat(resource: String)   // not valid JSON
     }
 
     /// Strict loader (throws). Useful for tests or explicit error flows.
@@ -28,32 +30,87 @@ enum DataLoader {
             #if DEBUG
             debugPrint("⚠️ DataLoader: missing resource \(resource).json in app bundle.")
             #endif
+            let error = SynagamyError.dataMissing(resource: resource)
+            Task { @MainActor in
+                ErrorHandler.shared.handle(error)
+            }
             throw LoadError.missingResource(resource)
         }
 
         do {
             let data = try Data(contentsOf: url)
+            
+            // Check for empty data
+            guard !data.isEmpty else {
+                #if DEBUG
+                debugPrint("⚠️ DataLoader: \(resource).json is empty.")
+                #endif
+                let error = SynagamyError.dataCorrupted(resource: resource, details: "File is empty")
+                Task { @MainActor in
+                    ErrorHandler.shared.handle(error)
+                }
+                throw LoadError.emptyData(resource: resource)
+            }
+            
+            // Validate JSON format before decoding
+            do {
+                _ = try JSONSerialization.jsonObject(with: data, options: [])
+            } catch {
+                #if DEBUG
+                debugPrint("⚠️ DataLoader: \(resource).json contains invalid JSON.")
+                #endif
+                let synagamyError = SynagamyError.dataCorrupted(resource: resource, details: "Invalid JSON format")
+                Task { @MainActor in
+                    ErrorHandler.shared.handle(synagamyError)
+                }
+                throw LoadError.invalidFormat(resource: resource)
+            }
+            
             #if DEBUG
             debugPrint("ℹ️ DataLoader: \(resource).json found (\(data.count) bytes).")
             #endif
+            
             return try decoder.decode(T.self, from: data)
+            
         } catch let error as DecodingError {
             #if DEBUG
             debugPrint("❌ DataLoader: decode failed for \(resource).json — \(error)")
             #endif
+            
+            // Create detailed error message for different decoding failures
+            let details = decodeErrorDetails(error)
+            let synagamyError = SynagamyError.dataValidationFailed(resource: resource, issues: [details])
+            Task { @MainActor in
+                ErrorHandler.shared.handle(synagamyError)
+            }
+            
             throw LoadError.decodeFailed(resource: resource, underlying: error)
+            
+        } catch let loadError as LoadError {
+            // Re-throw our custom LoadError types
+            throw loadError
+            
         } catch {
             #if DEBUG
             debugPrint("❌ DataLoader: read failed for \(resource).json — \(error)")
             #endif
+            
+            let synagamyError = SynagamyError.dataLoadFailed(resource: resource, underlying: error)
+            Task { @MainActor in
+                ErrorHandler.shared.handle(synagamyError)
+            }
+            
             throw LoadError.readFailed(url, underlying: error)
         }
     }
 
     /// Non‑throwing convenience that returns Result.
     static func loadResult<T: Decodable>(_ type: T.Type, named resource: String) -> Result<T, Error> {
-        do { return .success(try load(type, named: resource)) }
-        catch { return .failure(error) }
+        do { 
+            return .success(try load(type, named: resource)) 
+        } catch { 
+            return .failure(error) 
+        }
     }
 
     /// Silent‑fallback array loader (keeps UI resilient).
@@ -64,13 +121,103 @@ enum DataLoader {
             #if DEBUG
             debugPrint("✅ DataLoader: \(resource).json decoded \(array.count) item(s).")
             #endif
+            
+            // Validate array content
+            if array.isEmpty {
+                #if DEBUG
+                debugPrint("⚠️ DataLoader: \(resource).json decoded successfully but contains no items.")
+                #endif
+                let error = SynagamyError.contentEmpty(section: resource)
+                Task { @MainActor in
+                    ErrorHandler.shared.handle(error)
+                }
+            }
+            
             return array
+            
         case .failure(let error):
             #if DEBUG
             debugPrint("⚠️ DataLoader: returning [] for \(resource).json due to error: \(error)")
             #endif
+            
+            // Log the error through our centralized system
+            ErrorHandler.shared.handleError(error, context: resource)
+            
             return []
         }
+    }
+    
+    /// Safe loader with retry mechanism
+    static func loadWithRetry<T: Decodable>(
+        _ type: T.Type, 
+        named resource: String, 
+        maxRetries: Int = 3
+    ) -> T? {
+        var lastError: Error?
+        
+        for attempt in 1...maxRetries {
+            switch loadResult(type, named: resource) {
+            case .success(let result):
+                #if DEBUG
+                if attempt > 1 {
+                    debugPrint("✅ DataLoader: \(resource).json loaded successfully on attempt \(attempt)")
+                }
+                #endif
+                return result
+                
+            case .failure(let error):
+                lastError = error
+                #if DEBUG
+                debugPrint("⚠️ DataLoader: attempt \(attempt)/\(maxRetries) failed for \(resource).json")
+                #endif
+                
+                // Brief delay before retry (except on last attempt)
+                if attempt < maxRetries {
+                    Thread.sleep(forTimeInterval: 0.1 * Double(attempt))
+                }
+            }
+        }
+        
+        // All retries failed
+        if let error = lastError {
+            ErrorHandler.shared.handleError(error, context: "\(resource) (after \(maxRetries) retries)")
+        }
+        
+        return nil
+    }
+    
+    // MARK: - Helper Methods
+    
+    /// Extracts meaningful error details from DecodingError
+    private static func decodeErrorDetails(_ error: DecodingError) -> String {
+        switch error {
+        case .typeMismatch(let type, let context):
+            return "Type mismatch: expected \(type) at \(context.codingPath.map(\.stringValue).joined(separator: "."))"
+            
+        case .valueNotFound(let type, let context):
+            return "Missing required value of type \(type) at \(context.codingPath.map(\.stringValue).joined(separator: "."))"
+            
+        case .keyNotFound(let key, let context):
+            return "Missing required key '\(key.stringValue)' at \(context.codingPath.map(\.stringValue).joined(separator: "."))"
+            
+        case .dataCorrupted(let context):
+            return "Data corrupted at \(context.codingPath.map(\.stringValue).joined(separator: ".")): \(context.debugDescription)"
+            
+        @unknown default:
+            return "Unknown decoding error: \(error.localizedDescription)"
+        }
+    }
+    
+    /// Validates data content before processing
+    static func validateContent<T: Collection>(_ content: T, resource: String) -> Bool {
+        guard !content.isEmpty else {
+            let error = SynagamyError.contentEmpty(section: resource)
+            Task { @MainActor in
+                ErrorHandler.shared.handle(error)
+            }
+            return false
+        }
+        return true
     }
 }
 

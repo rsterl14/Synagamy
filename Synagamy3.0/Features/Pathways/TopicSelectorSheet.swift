@@ -50,77 +50,225 @@ struct TopicSelectorSheet: View {
                     .padding(.top, 24)
                 } else {
                     ScrollView {
-                        VStack(alignment: .leading, spacing: 16) {
+                        VStack(alignment: .leading, spacing: 20) {
 
-                            // STEP HEADER
-                            BrandCard {
-                                VStack(alignment: .leading, spacing: 8) {
-                                    Label("Step", systemImage: "list.bullet.rectangle")
-                                        .font(.caption.weight(.semibold))
-                                        .foregroundColor(.secondary)
-
-                                    Text(step.step)
-                                        .font(.headline)
-                                        .foregroundColor(Color("BrandPrimary"))
-                                        .fixedSize(horizontal: false, vertical: true)
-                                        .accessibilityLabel(Text("Step: \(step.step)"))
-
-                                    if let overview = step.overview,
-                                       !overview.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                                        Text(overview)
-                                            .font(.subheadline)
-                                            .foregroundColor(.secondary)
-                                            .fixedSize(horizontal: false, vertical: true)
-                                            .padding(.top, 2)
+                            // STEP HEADER matching TopicDetailContent style
+                            VStack(alignment: .leading, spacing: 12) {
+                                // Category badge
+                                HStack {
+                                    Image(systemName: "list.bullet.clipboard")
+                                        .font(.caption2)
+                                    
+                                    Text("STEP INFORMATION")
+                                        .font(.caption2.weight(.bold))
+                                        .tracking(0.5)
+                                }
+                                .foregroundColor(Brand.ColorSystem.primary)
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 5)
+                                .background(
+                                    Capsule()
+                                        .fill(Brand.ColorSystem.primary.opacity(0.12))
+                                        .overlay(
+                                            Capsule()
+                                                .strokeBorder(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
+                                        )
+                                )
+                                
+                                // Step title
+                                Text(step.step)
+                                    .font(.largeTitle.bold())
+                                    .foregroundColor(Brand.ColorSystem.primary)
+                                    .multilineTextAlignment(.leading)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .accessibilityLabel(Text("Step: \(step.step)"))
+                            }
+                            .padding(.bottom, 4)
+                            
+                            // Divider
+                            Rectangle()
+                                .fill(Brand.ColorSystem.primary.opacity(0.2))
+                                .frame(height: 1)
+                                .padding(.bottom, 4)
+                            
+                            // Step overview if available
+                            if let overview = step.overview,
+                               !overview.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                                VStack(alignment: .leading, spacing: 10) {
+                                    HStack(spacing: 8) {
+                                        Image(systemName: "lightbulb.fill")
+                                            .font(.body)
+                                            .foregroundColor(Brand.ColorSystem.primary)
+                                        
+                                        Text("Overview")
+                                            .font(.subheadline.weight(.semibold))
+                                            .foregroundColor(Brand.ColorSystem.primary)
                                     }
+                                    
+                                    Text(overview)
+                                        .font(.callout)
+                                        .foregroundColor(.primary)
+                                        .lineSpacing(4)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .textSelection(.enabled)
+                                        .padding(16)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                                .fill(.ultraThinMaterial)
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                                        .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
+                                                )
+                                        )
                                 }
                             }
 
-                            // TOPIC PICKER (only shown when >1 topic)
-                            if topics.count > 1 {
-                                BrandCard {
-                                    VStack(alignment: .leading, spacing: 10) {
-                                        Text("Select a Related Topic")
-                                            .font(.footnote.weight(.semibold))
-                                            .foregroundColor(Color("BrandSecondary"))
-
-                                        // Small sets feel better segmented; larger sets use a menu.
-                                        if topics.count <= 3 {
-                                            Picker("Related Topic", selection: $selectionIndex) {
-                                                ForEach(topics.indices, id: \.self) { idx in
-                                                    Text(topics[idx].topic).tag(idx)
+                            // COMPACT TOPIC SELECTION
+                            if !topics.isEmpty {
+                                VStack(alignment: .leading, spacing: 10) {
+                                    HStack(spacing: 8) {
+                                        Image(systemName: "text.book.closed.fill")
+                                            .font(.body)
+                                            .foregroundColor(Brand.ColorSystem.primary)
+                                        
+                                        Text(topics.count > 1 ? "Related Topics (\(topics.count))" : "Related Topic")
+                                            .font(.subheadline.weight(.semibold))
+                                            .foregroundColor(Brand.ColorSystem.primary)
+                                    }
+                                    
+                                    VStack(spacing: 8) {
+                                        ForEach(topics.indices, id: \.self) { idx in
+                                            Button {
+                                                selectionIndex = idx
+                                            } label: {
+                                                HStack(spacing: 12) {
+                                                    // Selection indicator
+                                                    Circle()
+                                                        .fill(selectionIndex == idx ? Brand.ColorSystem.primary : Brand.ColorSystem.primary.opacity(0.2))
+                                                        .frame(width: 20, height: 20)
+                                                        .overlay(
+                                                            Image(systemName: "checkmark")
+                                                                .font(.system(size: 10, weight: .bold))
+                                                                .foregroundColor(.white)
+                                                                .opacity(selectionIndex == idx ? 1 : 0)
+                                                        )
+                                                    
+                                                    VStack(alignment: .leading, spacing: 3) {
+                                                        Text(topics[idx].topic)
+                                                            .font(.body.weight(.medium))
+                                                            .foregroundColor(.primary)
+                                                            .multilineTextAlignment(.leading)
+                                                        
+                                                        Text(topics[idx].category)
+                                                            .font(.caption)
+                                                            .foregroundColor(Brand.ColorSystem.secondary)
+                                                    }
+                                                    
+                                                    Spacer()
                                                 }
+                                                .padding(.horizontal, 12)
+                                                .padding(.vertical, 10)
+                                                .background(
+                                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                                        .fill(selectionIndex == idx ? Brand.ColorSystem.primary.opacity(0.08) : Color.primary.opacity(0.03))
+                                                        .overlay(
+                                                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                                                .strokeBorder(
+                                                                    selectionIndex == idx ? Brand.ColorSystem.primary.opacity(0.3) : Brand.ColorToken.hairline.opacity(0.5),
+                                                                    lineWidth: 1
+                                                                )
+                                                        )
+                                                )
                                             }
-                                            .pickerStyle(.segmented)
-                                            .accessibilityLabel(Text("Related Topic"))
-                                        } else {
-                                            Picker("Related Topic", selection: $selectionIndex) {
-                                                ForEach(topics.indices, id: \.self) { idx in
-                                                    Text(topics[idx].topic).tag(idx)
-                                                }
-                                            }
-                                            .pickerStyle(.menu)
-                                            .labelsHidden()
-                                            .accessibilityLabel(Text("Related Topic"))
+                                            .buttonStyle(.plain)
+                                            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectionIndex)
                                         }
                                     }
                                 }
                             }
 
-                            // SELECTED TOPIC CONTENT
+                            // COMPACT TOPIC PREVIEW
                             if let t = selectedTopic {
-                                BrandCard {
-                                    TopicDetailContent(topic: t)
-                                }
-                                .padding(.bottom, 8)
-                            } else {
-                                // Extremely rare: selection index out-of-range (e.g., dynamic update)
-                                // Show a small, non-blocking hint instead of crashing.
-                                if !topics.isEmpty {
-                                    Text("Select a topic to view details.")
-                                        .font(.footnote)
-                                        .foregroundStyle(.secondary)
-                                        .padding(.horizontal, 4)
+                                VStack(alignment: .leading, spacing: 10) {
+                                    HStack(spacing: 8) {
+                                        Image(systemName: "lightbulb.fill")
+                                            .font(.body)
+                                            .foregroundColor(Brand.ColorSystem.primary)
+                                        
+                                        Text("Quick Preview")
+                                            .font(.subheadline.weight(.semibold))
+                                            .foregroundColor(Brand.ColorSystem.primary)
+                                    }
+                                    
+                                    VStack(alignment: .leading, spacing: 12) {
+                                        // Topic title and category
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text(t.topic)
+                                                .font(.title3.bold())
+                                                .foregroundColor(Brand.ColorSystem.primary)
+                                                .multilineTextAlignment(.leading)
+                                            
+                                            HStack(spacing: 4) {
+                                                Image(systemName: "folder.fill")
+                                                    .font(.caption2)
+                                                Text(t.category)
+                                                    .font(.caption)
+                                            }
+                                            .foregroundColor(Brand.ColorSystem.secondary)
+                                        }
+                                        
+                                        // Lay explanation preview
+                                        if !t.layExplanation.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                                            Text(t.layExplanation)
+                                                .font(.callout)
+                                                .foregroundColor(.primary.opacity(0.9))
+                                                .lineSpacing(3)
+                                                .lineLimit(4)
+                                                .fixedSize(horizontal: false, vertical: true)
+                                                .padding(12)
+                                                .background(
+                                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                                        .fill(.ultraThinMaterial)
+                                                        .overlay(
+                                                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                                                .strokeBorder(Brand.ColorToken.hairline.opacity(0.5), lineWidth: 1)
+                                                        )
+                                                )
+                                        }
+                                        
+                                        // View full details button
+                                        NavigationLink {
+                                            ScrollView {
+                                                TopicDetailContent(topic: t)
+                                                    .padding()
+                                            }
+                                            .navigationBarTitleDisplayMode(.inline)
+                                        } label: {
+                                            HStack(spacing: 8) {
+                                                Text("View Full Details")
+                                                    .font(.subheadline.weight(.medium))
+                                                Image(systemName: "arrow.right.circle.fill")
+                                                    .font(.subheadline)
+                                            }
+                                            .foregroundColor(.white)
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.vertical, 12)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                                    .fill(Brand.ColorSystem.primary)
+                                            )
+                                        }
+                                        .buttonStyle(.plain)
+                                    }
+                                    .padding(14)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                            .fill(.ultraThinMaterial)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                                    .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
+                                            )
+                                    )
                                 }
                             }
                         }

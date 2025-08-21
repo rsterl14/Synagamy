@@ -30,72 +30,42 @@ struct PathwayView: View {
     @State private var errorMessage: String? = nil      // user-friendly error presentation
 
     var body: some View {
-        VStack(spacing: 0) {
-            ScrollView {
-                // If *no* categories are available, show a helpful empty state up front.
+        StandardPageLayout(
+            primaryImage: "SynagamyLogoTwo",
+            secondaryImage: "PathwayLogo",
+            showHomeButton: true,
+            usePopToRoot: true
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
                 if categories.isEmpty {
                     EmptyStateView(
                         icon: "map",
                         title: "No pathways available",
-                        message: "Please check back later or explore Education topics."
+                        message: "Please check back later."
                     )
-                    .padding(.horizontal, 16)
-                    .padding(.top, 24)
+                    .padding(.top, 8)
                 } else {
-                    LazyVStack(spacing: 75) {
-                        ForEach(categories) { category in
+                    LazyVStack(spacing: Brand.Spacing.xl) {
+                        ForEach(categories, id: \.id) { category in
                             NavigationLink {
                                 PathListView(category: category, educationTopics: educationTopics)
-                                    .toolbar(.hidden, for: .tabBar) // hide tab bar on push
+                                    .toolbar(.hidden, for: .tabBar)
                             } label: {
                                 BrandTile(
                                     title: category.title,
-                                    subtitle: nil,
+                                    subtitle: "Explore treatment options",
                                     systemIcon: iconForCategory(category.id),
-                                    assetIcon: nil
+                                    isCompact: true
                                 )
                             }
-                            .buttonStyle(.plain)
-                            .vanishIntoPage(vanishDistance: 350,
-                                            minScale: 0.88,
-                                            maxBlur: 2.5,
-                                            topInset: 0,
-                                            blurKickIn: 14)
-                            .accessibilityLabel(Text("\(category.title). Tap to view pathways."))
+                            .buttonStyle(BrandTileButtonStyle())
                         }
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 14)
+                    .padding(.top, 4)
                 }
             }
-            .scrollIndicators(.hidden)
-            .background(Color(.systemBackground))
         }
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.hidden, for: .navigationBar)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) { HomeButton() }
-        }
-
-        // Reserve space equal to the floating header height
-        .safeAreaInset(edge: .top) {
-            Color.clear.frame(height: headerHeight)
-        }
-
-        // Floating header + dynamic height sync (rotation, dynamic type, etc.)
-        .overlay(alignment: .top) {
-            FloatingLogoHeader(primaryImage: "SynagamyLogoTwo", secondaryImage: "PathwayLogo")
-                .background(
-                    GeometryReader { geo in
-                        Color.clear
-                            .onAppear { headerHeight = geo.size.height }
-                            .modifier(OnChangeHeightModifier(currentHeight: $headerHeight,
-                                                             height: geo.size.height))
-                    }
-                )
-        }
-
+        
         // Friendly, non-technical alert for recoverable errors
         .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {
             Button("OK", role: .cancel) { errorMessage = nil }
@@ -120,83 +90,46 @@ struct PathListView: View {
     let category: PathwayCategory              // Selected category container
     let educationTopics: [EducationTopic]     // Passed down for step-detail sheets
 
-    @State private var headerHeight: CGFloat = 64
     @State private var errorMessage: String? = nil
 
     var body: some View {
-        VStack(spacing: 0) {
-            ScrollView {
-                VStack(spacing: 8) {
-                    // Category title (safe for empty or long text)
-                    Text(category.title.isEmpty ? "Pathways" : category.title)
-                        .font(.title2.bold())
-                        .foregroundColor(Color("BrandSecondary"))
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .padding(.top, 8)
-                        .padding(.bottom, 2)
-                        .accessibilityLabel(Text(category.title.isEmpty ? "Pathways" : category.title))
-
-                    if category.paths.isEmpty {
-                        // If no paths for this category, show a helpful empty state
-                        EmptyStateView(
-                            icon: "square.grid.2x2",
-                            title: "No pathways in this section",
-                            message: "Try another section or return to Home."
-                        )
-                        .padding(.horizontal, 16)
-                        .padding(.top, 12)
-                    } else {
-                        LazyVStack(spacing: 75) {
-                            ForEach(category.paths) { path in
-                                NavigationLink {
-                                    StepListView(path: path, educationTopics: educationTopics)
-                                } label: {
-                                    BrandTile(
-                                        title: path.title,
-                                        subtitle: nil,
-                                        systemIcon: iconForPath(path.id),
-                                        assetIcon: nil
-                                    )
-                                }
-                                .buttonStyle(.plain)
-                                .vanishIntoPage(vanishDistance: 350,
-                                                minScale: 0.88,
-                                                maxBlur: 2.5,
-                                                topInset: 0,
-                                                blurKickIn: 14)
-                                .accessibilityLabel(Text("\(path.title). Tap to view steps."))
+        StandardPageLayout(
+            primaryImage: "SynagamyLogoTwo",
+            secondaryImage: "PathwayLogo",
+            showHomeButton: true,
+            usePopToRoot: true
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
+                if category.paths.isEmpty {
+                    // If no paths for this category, show a helpful empty state
+                    EmptyStateView(
+                        icon: "square.grid.2x2",
+                        title: "No pathways in this section",
+                        message: "Try another section or return to Home."
+                    )
+                    .padding(.top, 8)
+                } else {
+                    LazyVStack(spacing: Brand.Spacing.xl) {
+                        ForEach(category.paths) { path in
+                            NavigationLink {
+                                StepListView(path: path, educationTopics: educationTopics)
+                            } label: {
+                                BrandTile(
+                                    title: path.title,
+                                    subtitle: category.title,
+                                    systemIcon: iconForPath(path.id),
+                                    isCompact: true
+                                )
                             }
+                            .buttonStyle(BrandTileButtonStyle())
+                            .accessibilityLabel(Text("\(path.title). Tap to view steps."))
                         }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 14)
                     }
+                    .padding(.top, 4)
                 }
             }
-            .scrollIndicators(.hidden)
-            .background(Color(.systemBackground))
-        }
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.hidden, for: .navigationBar)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) { HomeButton() }
         }
 
-        .safeAreaInset(edge: .top) { Color.clear.frame(height: headerHeight) }
-
-        .overlay(alignment: .top) {
-            // You can use either the Pathway or Education logo here. Using Education
-            // pairs nicely with the detailed context users are about to see.
-            FloatingLogoHeader(primaryImage: "SynagamyLogoTwo", secondaryImage: "EducationLogo")
-                .background(
-                    GeometryReader { geo in
-                        Color.clear
-                            .onAppear { headerHeight = geo.size.height }
-                            .modifier(OnChangeHeightModifier(currentHeight: $headerHeight,
-                                                             height: geo.size.height))
-                    }
-                )
-        }
 
         .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {
             Button("OK", role: .cancel) { errorMessage = nil }
@@ -237,60 +170,72 @@ struct StepListView: View {
     let path: PathwayPath                      // Concrete path containing ordered steps
     let educationTopics: [EducationTopic]      // Supplied to FlowDiagramView for matching
 
-    @State private var headerHeight: CGFloat = 64
     @State private var errorMessage: String? = nil
 
     var body: some View {
-        VStack(spacing: 0) {
-            ScrollView {
-                VStack(spacing: 8) {
-                    Text(path.title.isEmpty ? "Steps" : path.title)
-                        .font(.title2.bold())
-                        .foregroundColor(Color("BrandSecondary"))
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .padding(.top, 8)
-                        .padding(.bottom, 2)
-                        .accessibilityLabel(Text(path.title.isEmpty ? "Steps" : path.title))
-
-                    // Defensive check: if steps are missing or empty, show a clear message
-                    if path.steps.isEmpty {
-                        EmptyStateView(
-                            icon: "list.bullet.rectangle",
-                            title: "No steps found",
-                            message: "This pathway has no steps yet."
-                        )
-                        .padding(.horizontal, 16)
-                        .padding(.top, 12)
-                    } else {
-                        // Flow diagram renders each step with a tappable row;
-                        // tapping opens a sheet with related topics pulled from Education_Topics.
-                        FlowDiagramView(steps: path.steps, educationTopics: educationTopics)
-                            .padding(.horizontal)
-                            .padding(.top, 8)
+        StandardPageLayout(
+            primaryImage: "SynagamyLogoTwo",
+            secondaryImage: "EducationLogo",
+            showHomeButton: true,
+            usePopToRoot: true
+        ) {
+            VStack(spacing: 16) {
+                // Enhanced title header matching TopicDetailContent style
+                VStack(alignment: .leading, spacing: 8) {
+                    // Category badge
+                    HStack {
+                        Image(systemName: "map.fill")
+                            .font(.caption2)
+                        
+                        Text("PATHWAY")
+                            .font(.caption2.weight(.bold))
+                            .tracking(0.5)
                     }
+                    .foregroundColor(Brand.ColorSystem.primary)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(
+                        Capsule()
+                            .fill(Brand.ColorSystem.primary.opacity(0.12))
+                            .overlay(
+                                Capsule()
+                                    .strokeBorder(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
+                            )
+                    )
+                    
+                    // Main title
+                    Text(path.title.isEmpty ? "Steps" : path.title)
+                        .font(.largeTitle.bold())
+                        .foregroundColor(Brand.ColorSystem.primary)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .accessibilityLabel(Text(path.title.isEmpty ? "Steps" : path.title))
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 16)
+                
+                // Divider
+                Rectangle()
+                    .fill(Brand.ColorSystem.primary.opacity(0.2))
+                    .frame(height: 1)
+                    .padding(.horizontal, 16)
+
+                // Defensive check: if steps are missing or empty, show a clear message
+                if path.steps.isEmpty {
+                    EmptyStateView(
+                        icon: "list.bullet.rectangle",
+                        title: "No steps found",
+                        message: "This pathway has no steps yet."
+                    )
+                    .padding(.top, 12)
+                } else {
+                    // Flow diagram renders each step with a tappable row;
+                    // tapping opens a sheet with related topics pulled from Education_Topics.
+                    FlowDiagramView(steps: path.steps, educationTopics: educationTopics)
+                        .padding(.top, 8)
                 }
             }
-            .scrollIndicators(.hidden)
-        }
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.hidden, for: .navigationBar)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) { HomeButton() }
-        }
-
-        .safeAreaInset(edge: .top) { Color.clear.frame(height: headerHeight) }
-
-        .overlay(alignment: .top) {
-            FloatingLogoHeader(primaryImage: "SynagamyLogoTwo", secondaryImage: "EducationLogo")
-                .background(
-                    GeometryReader { geo in
-                        Color.clear
-                            .onAppear { headerHeight = geo.size.height }
-                            .modifier(OnChangeHeightModifier(currentHeight: $headerHeight,
-                                                             height: geo.size.height))
-                    }
-                )
         }
 
         .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {

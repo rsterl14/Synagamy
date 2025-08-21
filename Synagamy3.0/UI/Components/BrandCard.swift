@@ -4,10 +4,10 @@
 //
 //  Purpose
 //  -------
-//  A lightweight container that renders content inside a branded “card” surface.
+//  A lightweight container that renders content inside a branded "card" surface.
 //  Used across detail screens and sheets (e.g., Topic details, Resource descriptions).
 //
-//  What’s improved
+//  What's improved
 //  ---------------
 //  • Consistent padding, corner radius, and subtle strokes/shadows per Brand tokens.
 //  • Dynamic Type–friendly; no hard-coded font sizes here (content decides).
@@ -66,36 +66,36 @@ struct BrandCard<Content: View>: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            // Optional header
+        HStack(alignment: .top, spacing: 12) {
+            // Optional header icon on the left
             if hasHeader {
-                HStack(spacing: 10) {
-                    headerIcon
-                        .frame(width: 32, height: 32)
-                        .background(Circle().fill(Brand.ColorToken.primary.opacity(0.12)))
-                        .overlay(Circle().stroke(Brand.ColorToken.primary.opacity(0.10), lineWidth: 1))
-                        .accessibilityHidden(true)
-
-                    if let title, !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                        Text(title)
-                            .font(.headline)
-                            .foregroundColor(Brand.ColorToken.primary)
-                            .accessibilityAddTraits(.isHeader)
-                    }
-
-                    Spacer(minLength: 0)
-                }
+                headerIcon
+                    .frame(width: 24, height: 24)
+                    .background(Circle().fill(Brand.ColorToken.primary.opacity(0.12)))
+                    .overlay(Circle().stroke(Brand.ColorToken.primary.opacity(0.10), lineWidth: 1))
+                    .accessibilityHidden(true)
             }
-
-            // Caller-provided content
-            content()
-                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            // Main content area
+            VStack(alignment: .leading, spacing: 8) {
+                // Title (if present)
+                if let title, !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    Text(title)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundColor(Brand.ColorToken.primary)
+                        .accessibilityAddTraits(.isHeader)
+                }
+                
+                // Caller-provided content
+                content()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
         }
-        .padding(.vertical, verticalPadding)
-        .padding(.horizontal, horizontalPadding)
+        .padding(.vertical, 12)
+        .padding(.horizontal, 12)
         .background(
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .fill(.regularMaterial)
+                .fill(.ultraThinMaterial)
                 .shadow(color: Color.black.opacity(0.08), radius: 14, x: 0, y: 8)
                 .shadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 1)
                 .overlay(
@@ -168,3 +168,4 @@ struct BrandCard<Content: View>: View {
     .padding()
     .background(Color(.systemGroupedBackground))
 }
+
