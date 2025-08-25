@@ -228,7 +228,9 @@ enum AppData {
     /// Topics backing Education + Topic detail.
     static var topics: [EducationTopic] { AppDataStore.shared.topics }
     /// Categories/paths/steps backing Pathways.
-    static var pathways: [PathwayCategory] { AppDataStore.shared.pathways }
+    static var pathways: PathwayData { AppDataStore.shared.pathwayData }
+    static var pathwayCategories: [PathwayCategory] { AppDataStore.shared.pathwayData.categories }
+    static var pathwayPaths: [PathwayPath] { AppDataStore.shared.pathwayPaths }
     /// FAQ items backing Common Questions.
     static var questions: [CommonQuestion] { AppDataStore.shared.questions }
 
@@ -244,7 +246,8 @@ final class AppDataStore {
     // Cached content
     private(set) var topics: [EducationTopic] = []
     private(set) var questions: [CommonQuestion] = []
-    private(set) var pathways: [PathwayCategory] = []
+    private(set) var pathwayData: PathwayData = PathwayData(categories: [], paths: [])
+    private(set) var pathwayPaths: [PathwayPath] = []
 
     // Restrict construction — everyone uses `shared`.
     private init() {
@@ -253,7 +256,7 @@ final class AppDataStore {
         reloadAll()
 
         #if DEBUG
-        debugPrint("🏁 AppDataStore init complete. topics=\(topics.count), pathways=\(pathways.count), questions=\(questions.count)")
+        debugPrint("🏁 AppDataStore init complete. topics=\(topics.count), pathways=\(pathwayData.categories.count), questions=\(questions.count)")
         #endif
     }
 
@@ -262,17 +265,39 @@ final class AppDataStore {
         // Load with silent fallback ([]) to keep UI responsive.
         let loadedTopics: [EducationTopic]     = DataLoader.loadArray([EducationTopic].self, named: "Education_Topics")
         let loadedQuestions: [CommonQuestion]  = DataLoader.loadArray([CommonQuestion].self, named: "CommonQuestions")
-        let loadedPathways: [PathwayCategory]  = DataLoader.loadArray([PathwayCategory].self, named: "Pathways")
+        
+        // Load PathwayData structure
+        if let loadedData = DataLoader.loadWithRetry(PathwayData.self, named: "Pathways") {
+            pathwayData = loadedData
+            // Extract all paths from the data structure for easy access
+            var allPaths: [PathwayPath] = []
+            // Add paths directly in categories
+            for category in loadedData.categories {
+                if let paths = category.paths {
+                    allPaths.append(contentsOf: paths)
+                }
+            }
+            // Add paths referenced in the separate paths array
+            if let paths = loadedData.paths {
+                allPaths.append(contentsOf: paths)
+            }
+            
+            // Also find paths by ID from the referenced paths array
+            // Since our JSON has paths both inline and as a separate array
+            pathwayPaths = allPaths
+        } else {
+            pathwayData = PathwayData(categories: [], paths: [])
+            pathwayPaths = []
+        }
 
         // Assign to cache
         topics    = loadedTopics
         questions = loadedQuestions
-        pathways  = loadedPathways
 
         // Optional sanity logging
         #if DEBUG
         if topics.isEmpty { debugPrint("🔍 AppDataStore: topics is EMPTY") }
-        if pathways.isEmpty { debugPrint("🔍 AppDataStore: pathways is EMPTY") }
+        if pathwayData.categories.isEmpty { debugPrint("🔍 AppDataStore: pathways is EMPTY") }
         if questions.isEmpty { debugPrint("🔍 AppDataStore: questions is EMPTY") }
         #endif
 
@@ -290,16 +315,18 @@ final class AppDataStore {
             debugPrint("⚠️ AppDataStore.validate: duplicate topic IDs → \(dupTopicIDs.joined(separator: ", "))")
         }
 
-        for c in pathways {
+        for c in pathwayData.categories {
             if c.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 debugPrint("⚠️ AppDataStore.validate: empty category title for id=\(c.id)")
             }
-            for p in c.paths {
-                if p.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    debugPrint("⚠️ AppDataStore.validate: empty path title for id=\(p.id)")
-                }
-                if p.steps.isEmpty {
-                    debugPrint("⚠️ AppDataStore.validate: path has 0 steps for id=\(p.id)")
+            if let paths = c.paths {
+                for p in paths {
+                    if p.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                        debugPrint("⚠️ AppDataStore.validate: empty path title for id=\(p.id)")
+                    }
+                    if p.steps.isEmpty {
+                        debugPrint("⚠️ AppDataStore.validate: path has 0 steps for id=\(p.id)")
+                    }
                 }
             }
         }

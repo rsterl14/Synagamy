@@ -185,13 +185,13 @@ final class ErrorRecoveryManager: ObservableObject {
         
         // Validate the reload worked
         let topics = AppData.topics
-        let pathways = AppData.pathways
+        let pathwayCategories = AppData.pathwayCategories
         let questions = AppData.questions
         
         recoveryProgress = 0.8
         
         // Check if we have any data now
-        let hasData = !topics.isEmpty || !pathways.isEmpty || !questions.isEmpty
+        let hasData = !topics.isEmpty || !pathwayCategories.isEmpty || !questions.isEmpty
         
         recoveryProgress = 1.0
         return hasData
@@ -219,14 +219,14 @@ final class ErrorRecoveryManager: ObservableObject {
         
         // Validate data integrity
         let topics = AppData.topics
-        let pathways = AppData.pathways
+        let pathwayCategories = AppData.pathwayCategories
         let questions = AppData.questions
         
         recoveryProgress = 0.6
         
         // Clean invalid entries (this is a placeholder - in real app you'd filter bad data)
         let validTopics = topics.filter { !$0.topic.isEmpty && !$0.category.isEmpty }
-        let validPathways = pathways.filter { !$0.title.isEmpty && !$0.paths.isEmpty }
+        let validPathways = pathwayCategories.filter { !$0.title.isEmpty }
         let validQuestions = questions.filter { !$0.question.isEmpty && !$0.shortAnswer.isEmpty }
         
         recoveryProgress = 1.0

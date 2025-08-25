@@ -20,7 +20,11 @@
       "WebFetch(domain:www150.statcan.gc.ca)",
       "WebFetch(domain:www.cdc.gov)",
       "Bash(python3:*)",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -typecheck Synagamy3.0/Features/TimedIntercourse/TimedIntercourseView.swift -I Synagamy3.0)",
+      "Bash(mv:*)",
+      "Bash(xcrun simctl launch:*)",
+      "Bash(swift:*)"
     ],
     "deny": [],
     "ask": []

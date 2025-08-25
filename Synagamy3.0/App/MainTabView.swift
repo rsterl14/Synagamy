@@ -162,11 +162,11 @@ struct MainTabView: View {
     private func performHealthCheck() {
         // Check if core data is available
         let topics = AppData.topics
-        let pathways = AppData.pathways
+        let pathwayCategories = AppData.pathwayCategories
         let questions = AppData.questions
         
         // Validate core content is available
-        if topics.isEmpty && pathways.isEmpty && questions.isEmpty {
+        if topics.isEmpty && pathwayCategories.isEmpty && questions.isEmpty {
             let error = SynagamyError.dataLoadFailed(
                 resource: "core content", 
                 underlying: nil
@@ -178,7 +178,7 @@ struct MainTabView: View {
         // Check for partial data loss
         var missingContent: [String] = []
         if topics.isEmpty { missingContent.append("education topics") }
-        if pathways.isEmpty { missingContent.append("pathways") }
+        if pathwayCategories.isEmpty { missingContent.append("pathways") }
         if questions.isEmpty { missingContent.append("questions") }
         
         if !missingContent.isEmpty {

@@ -80,19 +80,19 @@ final class AppLaunchModel: ObservableObject {
         // Accessing AppData.* should be cheap and synchronous with your current loader.
         // If you change AppData to async/throwing later, you can pivot to async here.
         let topics = AppData.topics
-        let pathways = AppData.pathways
+        let pathwayCategories = AppData.pathwayCategories
         _ = AppData.questions
 
         // Warm a topic index so step→topic sheet opens instantly later.
-        // We ignore the result here; it’s just to build any internal caches.
+        // We ignore the result here; it's just to build any internal caches.
         _ = TopicMatcher.index(topics: topics)
 
         // Optional sanity checks (do not block launch or crash).
         // You can log these to analytics if desired, or surface a single friendly banner later.
-        if topics.isEmpty || pathways.isEmpty {
+        if topics.isEmpty || pathwayCategories.isEmpty {
             // Not a fatal condition: the app still functions, and empty states will render.
             // Keeping the copy non-technical and non-blocking is App Store–friendly.
-            errorMessage = "Some content didn’t load yet. You can still browse other sections."
+            errorMessage = "Some content didn't load yet. You can still browse other sections."
         }
         // If you wire a global banner/alert, consider clearing errorMessage after first display.
     }

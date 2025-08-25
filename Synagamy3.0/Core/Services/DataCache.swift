@@ -95,7 +95,7 @@ final class DataCache: ObservableObject {
             return cached
         }
         
-        let categories = AppData.pathways // Use existing static data
+        let categories = AppData.pathwayCategories // Use existing static data
         pathwayStepsCache = categories
         pathwayStepsTimestamp = Date()
         return categories

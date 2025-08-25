@@ -61,9 +61,9 @@
       "Follicle",
       "Oocyte (Egg Cell)",
       "Corpus Luteum",
-      "Gonadotropin-Releasing Hormone (GnRH)",
-      "Follicle Stimulating Hormone (FSH)",
-      "Luteinizing Hormone (LH)",
+      "Gonadotropin-Releasing Hormone (GnRH) in Females",
+      "Follicle Stimulating Hormone (FSH) in Females",
+      "Luteinizing Hormone (LH) in Females",
       "Estrogen",
       "Progesterone",
       "Oligoamenorrhea",
@@ -150,8 +150,8 @@
       "Leydig Cells",
       "Sperm",
       "Testosterone",
-      "Follicle Stimulating Hormone (FSH)",
-      "Luteinizing Hormone (LH)",
+      "Follicle Stimulating Hormone (FSH) in Males",
+      "Luteinizing Hormone (LH) in Males",
       "Oligospermia",
       "Azoospermia",
       "Teratozoospermia",
@@ -172,8 +172,8 @@
     "related_to": [
       "Sperm",
       "Testosterone",
-      "Follicle Stimulating Hormone (FSH)",
-      "Luteinizing Hormone (LH)",
+      "Follicle Stimulating Hormone (FSH) in Males",
+      "Luteinizing Hormone (LH) in Males",
       "Oligospermia",
       "Azoospermia",
       "Obstructive Azoospermia",
@@ -201,7 +201,7 @@
       "Sperm",
       "Leydig Cells",
       "Inhibin B",
-      "Follicle Stimulating Hormone (FSH)"
+      "Follicle Stimulating Hormone (FSH) in Males"
     ]
   },
   {
@@ -221,7 +221,7 @@
       "Sperm",
       "Sertoli Cells",
       "Testosterone",
-      "Luteinizing Hormone (LH)",
+      "Luteinizing Hormone (LH) in Males",
       "Human Chorionic Gonadotropin (hCG)",
       "Varicocele & Fertility"
     ]
@@ -357,9 +357,9 @@
       "https://www.ncbi.nlm.nih.gov/books/NBK526128/"
     ],
     "related_to": [
-      "Gonadotropin-Releasing Hormone (GnRH)",
-      "Luteinizing Hormone (LH)",
-      "Follicle Stimulating Hormone (FSH)",
+      "Gonadotropin-Releasing Hormone (GnRH) in Males",
+      "Luteinizing Hormone (LH) in Males",
+      "Follicle Stimulating Hormone (FSH) in Males",
       "Spermatogenesis",
       "Leydig Cells",
       "Sertoli Cells"
@@ -367,15 +367,15 @@
   },
   {
     "category": "Male Reproductive Biology - Hormones",
-    "topic": "Gonadotropin-Releasing Hormone (GnRH)",
+    "topic": "Gonadotropin-Releasing Hormone (GnRH) in Males",
     "lay_explanation": "GnRH is a hormone made in the brain (hypothalamus) that tells the pituitary gland to release two key hormones: FSH and LH. These hormones are important for sperm production in men and for controlling ovulation in women.",
     "expert_summary": "GnRH is secreted in a pulsatile manner from hypothalamic neurons, stimulating pituitary gonadotrophs to release FSH and LH, thereby regulating gametogenesis and gonadal steroidogenesis. Continuous administration of GnRH agonists leads to pituitary receptor desensitization and suppression of gonadotropins, a mechanism widely exploited in ART to control ovulation timing and prevent premature LH surge. Conversely, GnRH antagonists act via competitive inhibition at pituitary receptors, offering rapid, reversible suppression of gonadotropins with greater flexibility in IVF cycles.",
     "reference": [
       "https://www.ncbi.nlm.nih.gov/books/NBK558992/"
     ],
     "related_to": [
-      "Follicle Stimulating Hormone (FSH)",
-      "Luteinizing Hormone (LH)",
+      "Follicle Stimulating Hormone (FSH) in Males",
+      "Luteinizing Hormone (LH) in Males",
       "Spermatogenesis",
       "Leydig Cells",
       "Sertoli Cells"
@@ -383,15 +383,15 @@
   },
   {
     "category": "Male Reproductive Biology - Hormones",
-    "topic": "Follicle Stimulating Hormone (FSH)",
+    "topic": "Follicle Stimulating Hormone (FSH) in Males",
     "lay_explanation": "FSH is a hormone released by the brain (pituitary gland) that helps the testes make sperm. It signals special support cells in the testis (Sertoli cells) to help sperm grow and mature. If FSH is too high, it often means the testes are not working properly. If it is too low, sperm production may also be reduced. In fertility treatment, FSH levels are checked to understand male fertility and, in some cases, FSH medications are used to help improve sperm production.",
     "expert_summary": "FSH is secreted by the anterior pituitary under GnRH control. In males, FSH binds to Sertoli cell receptors, stimulating spermatogenesis, androgen-binding protein production, and germ cell maturation. Elevated FSH suggests primary testicular failure (non-obstructive azoospermia), while low/normal FSH with azoospermia indicates central hypogonadotropic hypogonadism. Clinically, FSH assessment is central in infertility workup, and recombinant FSH therapy may be applied in ART for selected hypogonadotropic patients to stimulate spermatogenesis.",
     "reference": [
       "https://pmc.ncbi.nlm.nih.gov/articles/PMC8658012/"
     ],
     "related_to": [
-      "Gonadotropin-Releasing Hormone (GnRH)",
-      "Luteinizing Hormone (LH)",
+      "Gonadotropin-Releasing Hormone (GnRH) in Males",
+      "Luteinizing Hormone (LH) in Males",
       "Testosterone",
       "Sertoli Cells",
       "Spermatogenesis"
@@ -399,7 +399,7 @@
   },
   {
     "category": "Male Reproductive Biology - Hormones",
-    "topic": "Luteinizing Hormone (LH)",
+    "topic": "Luteinizing Hormone (LH) in Males",
     "lay_explanation": "LH is a hormone made by the brain (pituitary gland) that tells the testes to make testosterone. Testosterone is needed for sperm production, sex drive, and male health. If LH is too low, testosterone drops and sperm production suffers. If LH is very high but testosterone is low, it usually means the testes are not working properly. In fertility treatments, medicines that act like LH (such as hCG) are sometimes used to help men with low hormone levels make testosterone and sperm.",
     "expert_summary": "LH is secreted by the anterior pituitary in response to pulsatile GnRH stimulation. It binds to LH receptors on Leydig cells, stimulating intratesticular testosterone production, which is critical for spermatogenesis. Clinically, low LH with low testosterone indicates central (hypogonadotropic) hypogonadism, while high LH with low testosterone suggests primary testicular failure. Measurement of LH is therefore essential in infertility workup. In ART, exogenous hCG (an LH analog) is employed to stimulate Leydig cell testosterone production and restore spermatogenesis in hypogonadotropic men.",
     "reference": [
@@ -408,7 +408,7 @@
     "related_to": [
       "Testosterone",
       "Human Chorionic Gonadotropin (hCG)",
-      "Follicle Stimulating Hormone (FSH)",
+      "Follicle Stimulating Hormone (FSH) in Males",
       "Leydig Cells",
       "Spermatogenesis"
     ]
@@ -422,7 +422,7 @@
       "https://pubmed.ncbi.nlm.nih.gov/11720872/"
     ],
     "related_to": [
-      "Follicle Stimulating Hormone (FSH)",
+      "Follicle Stimulating Hormone (FSH) in Males",
       "Spermatogenesis",
       "Sertoli Cells"
     ]
@@ -724,9 +724,9 @@
       "Oocytes",
       "Follicle",
       "Ovulation",
-      "Gonadotropin-Releasing Hormone (GnRH)",
-      "Follicle Stimulating Hormone (FSH)",
-      "Luteinizing Hormone (LH)",
+      "Gonadotropin-Releasing Hormone (GnRH) in Females",
+      "Follicle Stimulating Hormone (FSH) in Females",
+      "Luteinizing Hormone (LH) in Females",
       "Anti-Mullerian Hormone (AMH)"
     ]
   },
@@ -873,8 +873,8 @@
       "Ovaries",
       "Progesterone",
       "Estrogen",
-      "Follicle Stimulating Hormone (FSH)",
-      "Luteinizing Hormone (LH)",
+      "Follicle Stimulating Hormone (FSH) in Females",
+      "Luteinizing Hormone (LH) in Females",
       "Menstrual Cycle Overview",
       "Endometrium",
       "Ovarian Stimulation"
@@ -897,7 +897,7 @@
     ]
   },
   {
-    "topic": "Gonadotropin-Releasing Hormone (GnRH)",
+    "topic": "Gonadotropin-Releasing Hormone (GnRH) in Females",
     "lay_explanation": "GnRH is a hormone made in the brain (hypothalamus) that tells the pituitary gland to release other hormones (FSH and LH). These hormones help control the menstrual cycle and sperm production. In fertility treatments, special medicines based on GnRH can be used to either start or block these signals to help doctors control ovulation.",
     "expert_summary": "GnRH, secreted in a pulsatile manner from hypothalamic neurons, stimulates pituitary gonadotrophs to release FSH and LH, thereby regulating gametogenesis and gonadal steroidogenesis. Continuous GnRH agonist exposure leads to receptor desensitization and suppression of gonadotropin release, forming the basis for its use in ART cycle control. GnRH antagonists competitively inhibit GnRH receptors, providing rapid suppression of gonadotropins, widely employed in IVF protocols to prevent premature LH surge.",
     "reference": [
@@ -905,8 +905,8 @@
       "https://pubmed.ncbi.nlm.nih.gov/20621291/"
     ],
     "related_to": [
-      "Follicle Stimulating Hormone (FSH)",
-      "Luteinizing Hormone (LH)",
+      "Follicle Stimulating Hormone (FSH) in Females",
+      "Luteinizing Hormone (LH) in Females",
       "Ovarian Stimulation",
       "GnRH Agonist Protocol",
       "GnRH Antagonist Protocol"
@@ -915,7 +915,7 @@
   },
   {
     "category": "Female Reproductive Biology - Hormones",
-    "topic": "Follicle Stimulating Hormone (FSH)",
+    "topic": "Follicle Stimulating Hormone (FSH) in Females",
     "lay_explanation": "FSH is a hormone made by the brain that helps eggs grow in the ovaries. Each month, it stimulates a group of eggs, and usually one will mature and be released during ovulation. If FSH levels are too high, it often means the ovaries are not responding well, which can make it harder to conceive.",
     "expert_summary": "FSH is secreted by the anterior pituitary under GnRH control. It stimulates granulosa cell proliferation and aromatase activity, leading to estrogen production and follicle growth. Elevated FSH on cycle day 3 indicates diminished ovarian reserve, while low/normal FSH with anovulation suggests central causes. FSH levels guide infertility workups and ovarian stimulation protocols in ART. Persistent elevation is diagnostic of primary ovarian insufficiency.",
     "reference": [
@@ -923,7 +923,7 @@
       "https://www.asrm.org/"
     ],
     "related_to": [
-      "Luteinizing Hormone (LH)",
+      "Luteinizing Hormone (LH) in Females",
       "Estrogen",
       "Ovarian Reserve Testing",
       "Ovaries"
@@ -931,7 +931,7 @@
   },
   {
     "category": "Female Reproductive Biology - Hormones",
-    "topic": "Luteinizing Hormone (LH)",
+    "topic": "Luteinizing Hormone (LH) in Females",
     "lay_explanation": "LH is a hormone made by the brain that triggers ovulation â the release of an egg from the ovary. A sudden rise in LH around the middle of the cycle causes the egg to be released. Problems with LH can lead to irregular ovulation and make it harder to get pregnant.",
     "expert_summary": "LH is secreted by the anterior pituitary under pulsatile GnRH stimulation. In females, the mid-cycle LH surge triggers ovulation, luteinization of the follicle, and progesterone production by the corpus luteum. Chronic LH elevation, as seen in PCOS, disrupts follicular maturation and contributes to anovulation. LH measurement is useful in diagnosing ovulatory disorders and timing ovulation in ART cycles. Therapeutically, hCG is used as an LH analog to induce ovulation in fertility treatments.",
     "reference": [

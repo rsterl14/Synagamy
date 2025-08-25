@@ -11,34 +11,34 @@ import SwiftUI
 struct HomeView: View {
     // MARK: - Route Definition
     enum Route: CaseIterable, Hashable {
-        case intro, education, pathways, clinics, outcome, resources, questions, community
+        case intro, education, pathways, clinics, timedIntercourse, outcome, resources, questions, community
     }
 
     // MARK: - Navigation Items
     private let navigationItems: [HomeItem] = [
         HomeItem(
             title: "A Starting Point",
-            subtitle: "Opitions and Definitions for Infertility and Fertility Preservation",
+            subtitle: "Understanding Infertility & Fertility Preservation",
             systemIcon: "person.3.fill",
             route: .intro
         ),
         HomeItem(
             title: "Education",
-            subtitle: "Learn",
+            subtitle: "Learn About Reproduction",
             systemIcon: "book.fill",
             route: .education
         ),
         HomeItem(
-            title: "Pathways",
-            subtitle: "Explore Options",
+            title: "Pathway Explorer",
+            subtitle: "Treatment & Preservation Pathways",
             systemIcon: "map.fill",
             route: .pathways
         ),
         HomeItem(
-            title: "Clinics",
-            subtitle: "Find Clinics Near You",
-            systemIcon: "building.2.fill",
-            route: .clinics
+            title: "Timed Intercourse",
+            subtitle: "Optimize Timing for Conception",
+            systemIcon: "heart.circle.fill",
+            route: .timedIntercourse
         ),
         HomeItem(
             title: "Outcome Predictor",
@@ -47,20 +47,26 @@ struct HomeView: View {
             route: .outcome
         ),
         HomeItem(
+            title: "Clinics",
+            subtitle: "Find Fertility Clinics Near You",
+            systemIcon: "building.2.fill",
+            route: .clinics
+        ),
+        HomeItem(
             title: "Resources",
-            subtitle: "Guides and Tools",
+            subtitle: "Helpful Resources & Information",
             systemIcon: "lightbulb.fill",
             route: .resources
         ),
         HomeItem(
             title: "Questions",
-            subtitle: "Common Concerns",
+            subtitle: "Frequently Asked Questions",
             systemIcon: "questionmark.circle.fill",
             route: .questions
         ),
         HomeItem(
             title: "Community",
-            subtitle: "Support",
+            subtitle: "You are Not Alone",
             systemIcon: "person.2.wave.2.fill",
             route: .community
         )
@@ -121,6 +127,8 @@ struct HomeView: View {
             PathwayView()
         case .clinics:
             ClinicFinderView()
+        case .timedIntercourse:
+            TimedIntercourseView()
         case .outcome:
             OutcomePredictorView()
         case .resources:
