@@ -221,14 +221,14 @@ enum SynagamyError: LocalizedError, Equatable, Hashable {
     
     var severity: ErrorSeverity {
         switch self {
-        case .dataLoadFailed, .dataMissing, .criticalSystemError:
+        case .criticalSystemError:
+            return .critical
+        case .dataLoadFailed, .dataMissing:
             return .high
-        case .dataCorrupted, .dataValidationFailed, .networkUnavailable, .permissionDenied, .storageUnavailable:
+        case .dataCorrupted, .dataValidationFailed, .networkUnavailable, .permissionDenied, .storageUnavailable, .navigationFailed, .stateInconsistent:
             return .medium
-        case .contentEmpty, .searchNoResults, .topicNotFound, .assetMissing:
+        case .contentEmpty, .searchNoResults, .topicNotFound, .assetMissing, .urlInvalid, .resourceNotFound, .requestTimeout, .contentMalformed, .displayFailed, .deviceCapabilityMissing:
             return .low
-        default:
-            return .medium
         }
     }
     
@@ -324,12 +324,32 @@ enum ErrorSeverity: Int, CaseIterable {
     case low = 1
     case medium = 2
     case high = 3
+    case critical = 4
     
     var description: String {
         switch self {
         case .low: return "Low"
         case .medium: return "Medium"
         case .high: return "High"
+        case .critical: return "Critical"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .low: return .blue
+        case .medium: return .orange
+        case .high: return .red
+        case .critical: return .purple
+        }
+    }
+    
+    var icon: String {
+        switch self {
+        case .low: return "info.circle.fill"
+        case .medium: return "exclamationmark.triangle.fill"
+        case .high: return "xmark.circle.fill"
+        case .critical: return "exclamationmark.octagon.fill"
         }
     }
 }
@@ -547,6 +567,10 @@ final class ErrorHandler: ObservableObject {
         case .medium:
             logger.notice("\(message)")
         case .high:
+            logger.error("\(message)")
+        case .critical:
+            logger.critical("\(message)")
+        @unknown default:
             logger.error("\(message)")
         }
     }

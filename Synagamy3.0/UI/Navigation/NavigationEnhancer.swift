@@ -247,7 +247,6 @@ final class NavigationRouter: ObservableObject {
         case predictor
         case resources
         case questions
-        case community
         case topicDetail(String)
         case pathwayDetail(String)
     }
@@ -291,7 +290,6 @@ final class NavigationRouter: ObservableObject {
         case .predictor: return "predictor"
         case .resources: return "resources"
         case .questions: return "questions"
-        case .community: return "community"
         case .topicDetail(let id): return "topic/\(id)"
         case .pathwayDetail(let id): return "pathway/\(id)"
         }

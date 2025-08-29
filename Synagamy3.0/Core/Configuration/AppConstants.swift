@@ -96,7 +96,6 @@ enum AppConstants {
         static let clinics = "building.2.fill"
         static let resources = "lightbulb.fill"
         static let questions = "questionmark.circle.fill"
-        static let community = "person.2.wave.2.fill"
         static let infertility = "person.3.fill"
         static let outcome = "chart.line.uptrend.xyaxis"
         

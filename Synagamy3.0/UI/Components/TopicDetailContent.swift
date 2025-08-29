@@ -9,9 +9,15 @@ import SwiftUI
 
 struct TopicDetailContent: View {
     let topic: EducationTopic
+    @Binding var selectedTopic: EducationTopic?
     
     @State private var showReferences = false
     @State private var expandedRelatedTopics: Set<String> = []
+    
+    init(topic: EducationTopic, selectedTopic: Binding<EducationTopic?> = .constant(nil)) {
+        self.topic = topic
+        self._selectedTopic = selectedTopic
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -231,12 +237,8 @@ struct TopicDetailContent: View {
                                                         .fill(Color.primary.opacity(0.02))
                                                 )
                                             
-                                            NavigationLink {
-                                                ScrollView {
-                                                    TopicDetailContent(topic: relatedTopic)
-                                                        .padding()
-                                                }
-                                                .navigationBarTitleDisplayMode(.inline)
+                                            Button {
+                                                selectedTopic = relatedTopic
                                             } label: {
                                                 HStack(spacing: 8) {
                                                     Text("View Topic Details")

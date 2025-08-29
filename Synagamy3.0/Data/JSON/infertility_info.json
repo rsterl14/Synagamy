@@ -48,7 +48,36 @@
     ]
   },
   {
-    "title": "Fertility Preservation",
+    "title": "How is Infertility Treated?",
+    "subtitle": "Treatment approaches and options",
+    "systemIcon": "heart.text.square",
+    "description": "Infertility treatment depends on the cause, your age, how long you've been infertile, and personal preferences. Modern medicine offers many effective treatments, from simple interventions to advanced reproductive technologies. Your fertility specialist will work with you to find the best approach for your situation.",
+    "keyPoints": [
+      "Lifestyle modifications: Weight management, stress reduction, and avoiding tobacco and excessive alcohol can improve fertility",
+      "Medications: Fertility drugs like Clomid or Letrozole stimulate ovulation; hormones can improve sperm production",
+      "Intrauterine Insemination (IUI): Placing specially prepared sperm directly into the uterus during ovulation",
+      "In Vitro Fertilization (IVF): Combining eggs and sperm in a laboratory, then transferring embryos to the uterus",
+      "Intracytoplasmic Sperm Injection (ICSI): Injecting a single sperm directly into an egg during IVF",
+      "Third-party reproduction: Using donor eggs, sperm, or embryos, or working with a gestational carrier",
+      "Surgery: Correcting anatomical problems like blocked fallopian tubes, endometriosis, or varicoceles"
+    ],
+    "references": [
+      {
+        "title": "ASRM - Infertility Treatment Overview",
+        "url": "https://www.asrm.org/topics/topics-index/infertility/"
+      },
+      {
+        "title": "CDC - Infertility Treatment FAQs",
+        "url": "https://www.cdc.gov/reproductivehealth/infertility/"
+      },
+      {
+        "title": "CFAS - Treatment Options",
+        "url": "https://cfas.ca/patient-resources.html"
+      }
+    ]
+  },
+  {
+    "title": "What is Fertility Preservation?",
     "subtitle": "Protecting future fertility",
     "systemIcon": "snowflake",
     "description": "Fertility preservation allows you to save eggs, sperm, or embryos for future use. This gives you more control over your reproductive timeline and can protect fertility before medical treatments that might affect it.",

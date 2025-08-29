@@ -120,7 +120,7 @@ struct ClinicFinderView: View {
                         title: "No clinics in this region",
                         message: "Try a different region or select Canada to see all."
                     )
-                    .frame(height: 320)
+                    .frame(height: 420)
                 } else {
                     if mapLoadError {
                         // Map failed to load - show error state
@@ -144,7 +144,7 @@ struct ClinicFinderView: View {
                             .buttonStyle(.borderedProminent)
                         }
                         .padding()
-                        .frame(height: 320)
+                        .frame(height: 600)
                         .frame(maxWidth: .infinity)
                         .background(Color(.systemGray6))
                         .clipShape(RoundedRectangle(cornerRadius: 16))
@@ -154,7 +154,7 @@ struct ClinicFinderView: View {
                                 Annotation(clinic.name, coordinate: clinic.coordinate) {
                                     Image(systemName: "mappin.circle.fill")
                                         .font(.title)
-                                        .foregroundStyle(Brand.ColorSystem.primary)
+                                        .foregroundStyle(Brand.ColorSystem.secondary)
                                         .onTapGesture { 
                                             handleClinicSelection(clinic)
                                         }
@@ -163,7 +163,7 @@ struct ClinicFinderView: View {
                             }
                         }
                         .mapControls { MapCompass() }
-                        .frame(height: 320)
+                        .frame(height: 420)
                         .clipShape(RoundedRectangle(cornerRadius: 16))
                         .onAppear {
                             // Validate map can load

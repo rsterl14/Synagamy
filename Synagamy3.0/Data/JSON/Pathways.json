@@ -23,7 +23,7 @@
               "title": "IVF (In Vitro Fertilization)",
               "subtitle": "Higher success rates, more complex",
               "icon": "testtube.2",
-              "next_question": "ivf_gamete_source"
+              "next_question": "ivf_embryo_donation"
             }
           ]
         },
@@ -49,79 +49,324 @@
           ]
         },
         {
-          "id": "ivf_gamete_source",
-          "question": "What gamete sources will you use?",
-          "description": "Select the source of eggs and sperm for your IVF treatment",
+          "id": "ivf_embryo_donation",
+          "question": "Will you be using donor embryos?",
+          "description": "Embryo donation uses pre-created embryos from other patients",
           "options": [
             {
-              "id": "personal_gametes",
-              "title": "Personal Eggs & Partner/Donor Sperm",
-              "subtitle": "Using your own eggs",
-              "icon": "person.2",
-              "next_question": "ivf_sperm_source"
+              "id": "embryo_donation_yes",
+              "title": "Yes, Using Donor Embryos",
+              "subtitle": "Pre-created embryos from donors",
+              "icon": "heart.rectangle",
+              "next_question": "embryo_donation_type"
             },
             {
-              "id": "donor_oocytes",
-              "title": "Donor Eggs",
-              "subtitle": "Using eggs from a donor",
-              "icon": "circle.dashed",
-              "next_question": "donor_egg_sperm_source"
-            },
-            {
-              "id": "double_donation",
-              "title": "Double Donation",
-              "subtitle": "Using both donor eggs and donor sperm",
-              "icon": "square.stack.3d.up",
-              "path_ids": ["double_donation"]
-            },
-            {
-              "id": "reciprocal",
-              "title": "Reciprocal IVF",
-              "subtitle": "One partner provides eggs, other carries",
-              "icon": "arrow.2.squarepath",
-              "path_ids": ["reciprocal_ivf"]
+              "id": "embryo_donation_no",
+              "title": "No, Creating Own Embryos",
+              "subtitle": "Will create embryos for this cycle",
+              "icon": "testtube.2",
+              "next_question": "ivf_oocyte_source"
             }
           ]
         },
         {
-          "id": "ivf_sperm_source",
-          "question": "What sperm source will you use?",
-          "description": "Select the sperm source for your IVF cycle",
+          "id": "embryo_donation_type",
+          "question": "What type of embryo donation?",
+          "description": "Choose between anonymous or directed embryo donation",
           "options": [
             {
-              "id": "partner_sperm_ivf",
+              "id": "embryo_anonymous",
+              "title": "Anonymous Embryo Donation",
+              "subtitle": "Embryos from unknown donors",
+              "icon": "questionmark.square",
+              "path_ids": ["embryo_donation_anonymous"]
+            },
+            {
+              "id": "embryo_directed",
+              "title": "Directed Embryo Donation",
+              "subtitle": "Embryos from known donors",
+              "icon": "person.2.badge.plus",
+              "path_ids": ["embryo_donation_directed"]
+            }
+          ]
+        },
+        {
+          "id": "ivf_oocyte_source",
+          "question": "What will be your oocyte/egg source?",
+          "description": "Choose the source of eggs for your IVF cycle",
+          "options": [
+            {
+              "id": "self_oocytes",
+              "title": "Own Eggs (Self)",
+              "subtitle": "Using your own fresh or frozen eggs",
+              "icon": "person.circle",
+              "next_question": "self_oocyte_type"
+            },
+            {
+              "id": "donor_oocytes_bank",
+              "title": "Donor Eggs (Egg Bank)",
+              "subtitle": "Anonymous frozen donor eggs",
+              "icon": "snowflake",
+              "next_question": "ivf_sperm_source_donor_eggs"
+            },
+            {
+              "id": "donor_oocytes_directed",
+              "title": "Donor Eggs (Directed/Known)",
+              "subtitle": "Eggs from known donor",
+              "icon": "person.badge.plus",
+              "next_question": "directed_donor_egg_type"
+            }
+          ]
+        },
+        {
+          "id": "directed_donor_egg_type",
+          "question": "Are the directed donor eggs fresh or frozen?",
+          "description": "This determines fertilization method options and cycle coordination",
+          "options": [
+            {
+              "id": "fresh_directed_donor",
+              "title": "Fresh Directed Donor Eggs",
+              "subtitle": "Synchronized cycle with known donor",
+              "icon": "person.2.wave.2",
+              "next_question": "ivf_sperm_source_fresh_directed"
+            },
+            {
+              "id": "frozen_directed_donor",
+              "title": "Previously Frozen Directed Donor Eggs",
+              "subtitle": "Using known donor's frozen eggs",
+              "icon": "snowflake",
+              "next_question": "ivf_sperm_source_donor_eggs"
+            }
+          ]
+        },
+        {
+          "id": "self_oocyte_type",
+          "question": "Are you using fresh or frozen eggs?",
+          "description": "This affects fertilization method options",
+          "options": [
+            {
+              "id": "fresh_oocytes",
+              "title": "Fresh Eggs",
+              "subtitle": "Eggs retrieved in current cycle",
+              "icon": "circle.dotted",
+              "next_question": "ivf_sperm_source_fresh"
+            },
+            {
+              "id": "frozen_oocytes",
+              "title": "Previously Frozen Eggs",
+              "subtitle": "Using your frozen eggs",
+              "icon": "snowflake",
+              "next_question": "ivf_sperm_source_frozen"
+            }
+          ]
+        },
+        {
+          "id": "ivf_sperm_source_fresh_directed",
+          "question": "What sperm source will you use with fresh directed donor eggs?",
+          "description": "Choose sperm source for fertilizing fresh directed donor eggs",
+          "options": [
+            {
+              "id": "partner_sperm_fresh_directed",
+              "title": "Partner Sperm",
+              "subtitle": "Partner sperm with fresh directed donor eggs",
+              "icon": "person.2",
+              "next_question": "ivf_fertilization_method_fresh_directed"
+            },
+            {
+              "id": "donor_sperm_fresh_directed",
+              "title": "Donor Sperm",
+              "subtitle": "Donor sperm with fresh directed donor eggs",
+              "icon": "drop.fill",
+              "next_question": "ivf_fertilization_method_fresh_directed"
+            }
+          ]
+        },
+        {
+          "id": "ivf_sperm_source_fresh",
+          "question": "What sperm source will you use?",
+          "description": "Choose sperm source for fertilizing fresh eggs",
+          "options": [
+            {
+              "id": "partner_sperm_fresh",
               "title": "Partner Sperm",
               "subtitle": "Using sperm from your partner",
               "icon": "person.2",
-              "path_ids": ["personal_gametes_ivf"]
+              "next_question": "ivf_pgt_testing"
             },
             {
-              "id": "donor_sperm_ivf",
+              "id": "donor_sperm_fresh",
               "title": "Donor Sperm",
               "subtitle": "Using donor sperm",
               "icon": "drop.fill",
-              "path_ids": ["donor_sperm_ivf"]
+              "next_question": "ivf_pgt_testing"
             }
           ]
         },
         {
-          "id": "donor_egg_sperm_source",
-          "question": "What sperm source will you use with donor eggs?",
-          "description": "Select the sperm source to fertilize donor eggs",
+          "id": "ivf_sperm_source_frozen",
+          "question": "What sperm source will you use?",
+          "description": "Choose sperm source for fertilizing frozen eggs",
           "options": [
             {
-              "id": "partner_sperm_donor_egg",
+              "id": "partner_sperm_frozen",
               "title": "Partner Sperm",
-              "subtitle": "Partner sperm with donor eggs",
+              "subtitle": "Using sperm from your partner",
               "icon": "person.2",
-              "path_ids": ["donor_oocytes"]
+              "next_question": "ivf_pgt_testing"
             },
             {
-              "id": "donor_sperm_donor_egg",
+              "id": "donor_sperm_frozen",
               "title": "Donor Sperm",
-              "subtitle": "Double donation",
+              "subtitle": "Using donor sperm",
+              "icon": "drop.fill",
+              "next_question": "ivf_pgt_testing"
+            }
+          ]
+        },
+        {
+          "id": "ivf_sperm_source_donor_eggs",
+          "question": "What sperm source will you use with donor eggs?",
+          "description": "Donor eggs are frozen and require ICSI fertilization",
+          "options": [
+            {
+              "id": "partner_sperm_donor_eggs",
+              "title": "Partner Sperm",
+              "subtitle": "Partner sperm with donor eggs (ICSI required)",
+              "icon": "person.2",
+              "next_question": "ivf_pgt_testing"
+            },
+            {
+              "id": "donor_sperm_donor_eggs",
+              "title": "Donor Sperm",
+              "subtitle": "Double donation (donor eggs + sperm, ICSI required)",
               "icon": "square.stack.3d.up",
-              "path_ids": ["double_donation"]
+              "next_question": "ivf_pgt_testing"
+            }
+          ]
+        },
+        {
+          "id": "ivf_fertilization_method_fresh_directed",
+          "question": "What fertilization method will be used?",
+          "description": "Choose between conventional IVF or ICSI for fresh directed donor eggs",
+          "options": [
+            {
+              "id": "conventional_ivf_fresh_directed",
+              "title": "Conventional IVF",
+              "subtitle": "Sperm and fresh donor eggs mixed together",
+              "icon": "drop.triangle",
+              "next_question": "ivf_pgt_testing"
+            },
+            {
+              "id": "icsi_fresh_directed",
+              "title": "ICSI",
+              "subtitle": "Single sperm injected into each donor egg",
+              "icon": "syringe",
+              "next_question": "ivf_pgt_testing"
+            }
+          ]
+        },
+        {
+          "id": "ivf_fertilization_method_fresh",
+          "question": "What fertilization method will be used?",
+          "description": "Choose between conventional IVF or ICSI",
+          "options": [
+            {
+              "id": "conventional_ivf_fresh",
+              "title": "Conventional IVF",
+              "subtitle": "Sperm and eggs mixed together",
+              "icon": "drop.triangle",
+              "next_question": "ivf_pgt_testing"
+            },
+            {
+              "id": "icsi_fresh",
+              "title": "ICSI",
+              "subtitle": "Single sperm injected into each egg",
+              "icon": "syringe",
+              "next_question": "ivf_pgt_testing"
+            }
+          ]
+        },
+        {
+          "id": "ivf_pgt_testing",
+          "question": "Will you be doing genetic testing on embryos?",
+          "description": "PGT requires embryo biopsy - ICSI is recommended for all PGT cases to ensure optimal fertilization",
+          "options": [
+            {
+              "id": "no_pgt",
+              "title": "No Genetic Testing",
+              "subtitle": "Proceed with chosen fertilization method",
+              "icon": "testtube.2",
+              "next_question": "ivf_surrogacy"
+            },
+            {
+              "id": "pgt_a",
+              "title": "PGT-A (Aneuploidy)",
+              "subtitle": "Screen for chromosome abnormalities - ICSI recommended",
+              "icon": "dna",
+              "next_question": "ivf_pgt_fertilization_method"
+            },
+            {
+              "id": "pgt_m",
+              "title": "PGT-M (Monogenic)",
+              "subtitle": "Test for specific genetic disorders - ICSI recommended",
+              "icon": "cross.case",
+              "next_question": "ivf_pgt_fertilization_method"
+            },
+            {
+              "id": "pgt_sr",
+              "title": "PGT-SR (Structural Rearrangement)",
+              "subtitle": "Screen for structural abnormalities - ICSI recommended",
+              "icon": "arrow.triangle.branch",
+              "next_question": "ivf_pgt_fertilization_method"
+            },
+            {
+              "id": "pgt_combined",
+              "title": "Combined PGT Testing",
+              "subtitle": "Multiple genetic tests - ICSI recommended",
+              "icon": "list.clipboard",
+              "next_question": "ivf_pgt_fertilization_method"
+            }
+          ]
+        },
+        {
+          "id": "ivf_pgt_fertilization_method",
+          "question": "Fertilization method for PGT testing",
+          "description": "For PGT testing, ICSI is strongly recommended to optimize fertilization and embryo development",
+          "options": [
+            {
+              "id": "icsi_for_pgt",
+              "title": "ICSI (Recommended)",
+              "subtitle": "Best success rates with PGT - single sperm injection",
+              "icon": "syringe",
+              "next_question": "ivf_surrogacy"
+            },
+            {
+              "id": "conventional_for_pgt",
+              "title": "Conventional IVF",
+              "subtitle": "Higher risk of fertilization issues with PGT",
+              "icon": "drop.triangle",
+              "next_question": "ivf_surrogacy"
+            }
+          ]
+        },
+        {
+          "id": "ivf_surrogacy",
+          "question": "Will you be carrying the pregnancy yourself?",
+          "description": "Determine if a gestational surrogate will be needed",
+          "options": [
+            {
+              "id": "self_carry",
+              "title": "Yes, I Will Carry",
+              "subtitle": "I will carry the pregnancy myself",
+              "icon": "figure.stand",
+              "path_ids": ["ivf_self_carry"]
+            },
+            {
+              "id": "gestational_surrogate",
+              "title": "No, Using a Gestational Surrogate",
+              "subtitle": "A surrogate will carry the pregnancy",
+              "icon": "figure.2.and.child.holdinghands",
+              "path_ids": ["ivf_gestational_surrogate"]
             }
           ]
         },
@@ -156,36 +401,50 @@
       "questions": [
         {
           "id": "preservation_type",
-          "question": "What type of fertility preservation?",
-          "description": "Select based on your biological sex and circumstances",
+          "question": "What type of fertility preservation do you need?",
+          "description": "Choose based on your situation and preservation goals",
           "options": [
             {
-              "id": "female_preservation",
-              "title": "Female Fertility Preservation",
-              "subtitle": "Egg or embryo freezing options",
-              "icon": "snowflake",
-              "next_question": "female_preservation_method"
+              "id": "sperm_freezing",
+              "title": "Sperm Freezing",
+              "subtitle": "Preserve male fertility",
+              "icon": "drop.fill",
+              "next_question": "sperm_freezing_reason"
             },
             {
-              "id": "male_preservation",
-              "title": "Male Fertility Preservation",
-              "subtitle": "Sperm freezing",
-              "icon": "shield",
-              "path_ids": ["male_preservation"]
+              "id": "oocyte_freezing",
+              "title": "Oocyte/Egg Freezing",
+              "subtitle": "Preserve female fertility - eggs only",
+              "icon": "circle.dashed",
+              "next_question": "oocyte_freezing_reason"
+            },
+            {
+              "id": "embryo_freezing",
+              "title": "Embryo Freezing",
+              "subtitle": "Preserve fertility - fertilized embryos",
+              "icon": "square.stack.3d.up",
+              "next_question": "embryo_freezing_reason"
             },
             {
               "id": "oncofertility",
-              "title": "Oncofertility (Cancer)",
-              "subtitle": "Urgent preservation before treatment",
+              "title": "Oncofertility (Cancer-Related)",
+              "subtitle": "Urgent preservation before cancer treatment",
               "icon": "bolt.heart",
-              "next_question": "oncofertility_type"
+              "next_question": "oncofertility_biological_sex"
             },
             {
-              "id": "prepubertal",
-              "title": "Prepubertal Preservation",
-              "subtitle": "For children before puberty",
-              "icon": "figure.child",
-              "path_ids": ["prepubertal_preservation"]
+              "id": "gender_transition",
+              "title": "Gender Transitioning Preservation",
+              "subtitle": "Preserve fertility before gender-affirming care",
+              "icon": "heart.circle",
+              "next_question": "transition_biological_sex"
+            },
+            {
+              "id": "other_preservation",
+              "title": "Other Medical Reasons",
+              "subtitle": "Preservation for other medical treatments",
+              "icon": "cross.case",
+              "next_question": "other_preservation_type"
             }
           ]
         },
@@ -239,23 +498,282 @@
           ]
         },
         {
-          "id": "oncofertility_type",
-          "question": "How urgent is your timeline?",
-          "description": "Based on when cancer treatment starts",
+          "id": "sperm_freezing_reason",
+          "question": "What is the reason for sperm freezing?",
+          "description": "Understanding the reason helps determine the best approach",
           "options": [
             {
-              "id": "urgent_onco",
-              "title": "Very Urgent (< 2 weeks)",
-              "subtitle": "Fast-track protocol needed",
-              "icon": "bolt.fill",
-              "path_ids": ["oncofertility_fasttrack"]
+              "id": "partner_unavailable",
+              "title": "Partner Travel/Unavailability",
+              "subtitle": "Partner won't be available during treatment",
+              "icon": "airplane",
+              "path_ids": ["male_sperm_freezing_partner"]
             },
             {
-              "id": "standard_onco",
-              "title": "Standard Timeline (2-4 weeks)",
-              "subtitle": "Regular preservation protocol",
-              "icon": "clock.fill",
+              "id": "male_factor",
+              "title": "Male Factor Issues",
+              "subtitle": "Low sperm count or quality concerns",
+              "icon": "exclamationmark.triangle",
+              "path_ids": ["male_sperm_freezing_medical"]
+            },
+            {
+              "id": "vasectomy_planned",
+              "title": "Planned Vasectomy",
+              "subtitle": "Preserving before permanent sterilization",
+              "icon": "scissors",
+              "path_ids": ["male_sperm_freezing_vasectomy"]
+            }
+          ]
+        },
+        {
+          "id": "oocyte_freezing_reason",
+          "question": "What is the reason for egg freezing?",
+          "description": "Understanding your situation helps create the best plan",
+          "options": [
+            {
+              "id": "social_freezing",
+              "title": "Social/Elective Freezing",
+              "subtitle": "Preserving for future family planning",
+              "icon": "calendar",
+              "path_ids": ["female_oocyte_freezing_social"]
+            },
+            {
+              "id": "career_education",
+              "title": "Career/Education Focus",
+              "subtitle": "Delaying childbearing for professional goals",
+              "icon": "graduationcap",
+              "path_ids": ["female_oocyte_freezing_career"]
+            },
+            {
+              "id": "single_no_partner",
+              "title": "Single, No Partner",
+              "subtitle": "Preserving while looking for the right partner",
+              "icon": "person",
+              "path_ids": ["female_oocyte_freezing_single"]
+            },
+            {
+              "id": "medical_indication",
+              "title": "Medical Indication",
+              "subtitle": "Medical condition affecting fertility",
+              "icon": "cross.case",
+              "path_ids": ["female_oocyte_freezing_medical"]
+            }
+          ]
+        },
+        {
+          "id": "embryo_freezing_reason",
+          "question": "What is the reason for embryo freezing?",
+          "description": "Understanding your needs helps determine the best approach",
+          "options": [
+            {
+              "id": "excess_embryos",
+              "title": "Excess from IVF Cycle",
+              "subtitle": "Preserving extra embryos from treatment",
+              "icon": "square.stack.3d.up",
+              "path_ids": ["embryo_freezing_excess"]
+            },
+            {
+              "id": "genetic_testing",
+              "title": "Awaiting Genetic Testing",
+              "subtitle": "Freezing while waiting for PGT results",
+              "icon": "dna",
+              "path_ids": ["embryo_freezing_pgt"]
+            },
+            {
+              "id": "medical_delay",
+              "title": "Medical Reasons",
+              "subtitle": "Cannot transfer due to medical issues",
+              "icon": "cross.case",
+              "path_ids": ["embryo_freezing_medical"]
+            },
+            {
+              "id": "future_siblings",
+              "title": "Future Siblings",
+              "subtitle": "Preserving for future family expansion",
+              "icon": "person.3",
+              "path_ids": ["embryo_freezing_siblings"]
+            }
+          ]
+        },
+        {
+          "id": "oncofertility_biological_sex",
+          "question": "What is your biological sex assigned at birth?",
+          "description": "This determines preservation options available",
+          "options": [
+            {
+              "id": "biologically_female",
+              "title": "Female",
+              "subtitle": "Emergency egg, embryo, or tissue preservation",
+              "icon": "figure.dress.line.vertical.figure",
+              "next_question": "oncofertility_female_method"
+            },
+            {
+              "id": "biologically_male",
+              "title": "Male",
+              "subtitle": "Emergency sperm preservation",
+              "icon": "figure.stand.line.dotted.figure.stand",
+              "path_ids": ["oncofertility_male_sperm"]
+            }
+          ]
+        },
+        {
+          "id": "oncofertility_female_method",
+          "question": "What type of preservation is most appropriate?",
+          "description": "Based on your cancer treatment timeline and medical situation",
+          "options": [
+            {
+              "id": "onco_oocyte_freezing",
+              "title": "Egg (Oocyte) Freezing",
+              "subtitle": "2-4 weeks available, standard option",
+              "icon": "circle.dashed",
+              "path_ids": ["oncofertility_egg_freezing"]
+            },
+            {
+              "id": "onco_embryo_freezing",
+              "title": "Embryo Freezing",
+              "subtitle": "2-4 weeks available, with partner/donor",
+              "icon": "square.stack.3d.up",
+              "next_question": "oncofertility_embryo_sperm_source"
+            },
+            {
+              "id": "onco_ovarian_tissue",
+              "title": "Ovarian Tissue Freezing",
+              "subtitle": "Immediate option, experimental",
+              "icon": "leaf.fill",
+              "path_ids": ["oncofertility_ovarian_tissue"]
+            }
+          ]
+        },
+        {
+          "id": "oncofertility_embryo_sperm_source",
+          "question": "What sperm source for embryo creation?",
+          "description": "For emergency embryo freezing",
+          "options": [
+            {
+              "id": "onco_partner_sperm",
+              "title": "Partner Sperm",
+              "subtitle": "Create embryos with partner",
+              "icon": "person.2",
+              "path_ids": ["oncofertility_embryo_partner"]
+            },
+            {
+              "id": "onco_donor_sperm",
+              "title": "Donor Sperm",
+              "subtitle": "Create embryos with donor sperm",
+              "icon": "person.3",
+              "path_ids": ["oncofertility_embryo_donor"]
+            }
+          ]
+        },
+        {
+          "id": "transition_biological_sex",
+          "question": "What is your biological sex assigned at birth?",
+          "description": "This determines which fertility preservation options are available",
+          "options": [
+            {
+              "id": "transition_female",
+              "title": "Female",
+              "subtitle": "Ovaries and uterus - preserve eggs/embryos",
+              "icon": "figure.dress.line.vertical.figure",
+              "next_question": "transition_timeline_female"
+            },
+            {
+              "id": "transition_male",
+              "title": "Male", 
+              "subtitle": "Testes - preserve sperm",
+              "icon": "figure.stand.line.dotted.figure.stand",
+              "next_question": "transition_timeline_male"
+            }
+          ]
+        },
+        {
+          "id": "transition_timeline_female",
+          "question": "When do you plan to start hormone therapy?",
+          "description": "Timing affects preservation options and protocols",
+          "options": [
+            {
+              "id": "before_hormones",
+              "title": "Before Starting Hormones",
+              "subtitle": "Can use standard egg freezing protocol",
+              "icon": "clock",
               "next_question": "female_preservation_method"
+            },
+            {
+              "id": "already_on_hormones",
+              "title": "Already On Hormone Therapy",
+              "subtitle": "May need modified protocol",
+              "icon": "pill",
+              "path_ids": ["transition_female_on_hormones"]
+            }
+          ]
+        },
+        {
+          "id": "transition_timeline_male",
+          "question": "When do you plan to start hormone therapy?",
+          "description": "Timing affects sperm preservation approach",
+          "options": [
+            {
+              "id": "before_hormones_male",
+              "title": "Before Starting Hormones",
+              "subtitle": "Standard sperm freezing approach",
+              "icon": "clock",
+              "path_ids": ["transition_male_sperm_freezing"]
+            },
+            {
+              "id": "already_on_hormones_male",
+              "title": "Already On Hormone Therapy",
+              "subtitle": "May need specialized collection",
+              "icon": "pill",
+              "path_ids": ["transition_male_on_hormones"]
+            }
+          ]
+        },
+        {
+          "id": "other_preservation_type",
+          "question": "What type of medical treatment requires preservation?",
+          "description": "Different treatments affect fertility differently",
+          "options": [
+            {
+              "id": "autoimmune_treatment",
+              "title": "Autoimmune Disease Treatment",
+              "subtitle": "Medications that may affect fertility",
+              "icon": "shield",
+              "next_question": "preservation_biological_sex"
+            },
+            {
+              "id": "surgery_risk",
+              "title": "Surgical Risk to Reproductive Organs",
+              "subtitle": "Surgery that could damage fertility",
+              "icon": "cross",
+              "next_question": "preservation_biological_sex"
+            },
+            {
+              "id": "radiation_exposure",
+              "title": "Radiation Exposure Risk",
+              "subtitle": "Non-cancer radiation that affects fertility",
+              "icon": "wave.3.right",
+              "next_question": "preservation_biological_sex"
+            }
+          ]
+        },
+        {
+          "id": "preservation_biological_sex",
+          "question": "What is your biological sex assigned at birth?",
+          "description": "This determines preservation options available",
+          "options": [
+            {
+              "id": "female_other",
+              "title": "Female",
+              "subtitle": "Egg or embryo preservation options",
+              "icon": "figure.dress.line.vertical.figure",
+              "next_question": "female_preservation_method"
+            },
+            {
+              "id": "male_other",
+              "title": "Male",
+              "subtitle": "Sperm preservation",
+              "icon": "figure.stand.line.dotted.figure.stand",
+              "path_ids": ["male_sperm_freezing_medical"]
             }
           ]
         }
@@ -882,6 +1400,15 @@
           "topic_refs": [
             "Embryo Vitrification"
           ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan for when to use frozen embryos",
+          "topic_refs": [
+            "Frozen Embryo Transfer (FET)",
+            "Family Planning Timeline",
+            "Embryo Transfer Planning"
+          ]
         }
       ]
     },
@@ -924,6 +1451,15 @@
           "overview": "Vitrify embryos",
           "topic_refs": [
             "Embryo Vitrification"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan for when to transfer frozen embryos",
+          "topic_refs": [
+            "Single Motherhood Planning",
+            "Frozen Embryo Transfer (FET)",
+            "Future Pregnancy Preparation"
           ]
         }
       ]
@@ -1040,6 +1576,1561 @@
           "overview": "Freeze tissue for future use",
           "topic_refs": [
             "Experimental Cryopreservation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embryo_donation_anonymous",
+      "title": "Anonymous Embryo Donation Cycle",
+      "description": "Using pre-created embryos from anonymous donors",
+      "recommended_for": "Patients requiring donor embryos from anonymous sources",
+      "steps": [
+        {
+          "step": "Initial Consultation & Matching",
+          "overview": "Consultation and anonymous embryo selection",
+          "topic_refs": [
+            "Referral to a Fertility Center (Female)",
+            "Embryo Donation"
+          ]
+        },
+        {
+          "step": "Medical Clearance",
+          "overview": "Medical and psychological screening",
+          "topic_refs": [
+            "Infectious Disease Screening (Female)"
+          ]
+        },
+        {
+          "step": "Cycle Preparation",
+          "overview": "Prepare uterine lining for embryo transfer",
+          "topic_refs": [
+            "Endometrial Preparation",
+            "Estrogen",
+            "Progesterone"
+          ]
+        },
+        {
+          "step": "Embryo Transfer",
+          "overview": "Transfer thawed donor embryos",
+          "topic_refs": [
+            "Frozen Embryo Transfer (FET)",
+            "Embryo Thawing"
+          ]
+        },
+        {
+          "step": "Post-Transfer Care",
+          "overview": "Luteal support and pregnancy testing",
+          "topic_refs": [
+            "Progesterone (Luteal Phase Support)",
+            "Beta hCG Blood Test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embryo_donation_directed",
+      "title": "Directed Embryo Donation Cycle", 
+      "description": "Using pre-created embryos from known donors",
+      "recommended_for": "Patients with known embryo donors",
+      "steps": [
+        {
+          "step": "Initial Consultation & Coordination",
+          "overview": "Consultation and coordination with known donors",
+          "topic_refs": [
+            "Referral to a Fertility Center (Female)",
+            "Embryo Donation"
+          ]
+        },
+        {
+          "step": "Legal & Medical Clearance",
+          "overview": "Legal contracts and medical screening",
+          "topic_refs": [
+            "Infectious Disease Screening (Female)"
+          ]
+        },
+        {
+          "step": "Cycle Preparation",
+          "overview": "Prepare uterine lining for embryo transfer",
+          "topic_refs": [
+            "Endometrial Preparation",
+            "Estrogen",
+            "Progesterone"
+          ]
+        },
+        {
+          "step": "Embryo Transfer",
+          "overview": "Transfer thawed donor embryos",
+          "topic_refs": [
+            "Frozen Embryo Transfer (FET)",
+            "Embryo Thawing"
+          ]
+        },
+        {
+          "step": "Post-Transfer Care",
+          "overview": "Luteal support and pregnancy testing",
+          "topic_refs": [
+            "Progesterone (Luteal Phase Support)",
+            "Beta hCG Blood Test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ivf_fresh_conventional",
+      "title": "Fresh IVF Cycle - Conventional Fertilization",
+      "description": "IVF using fresh eggs with conventional fertilization",
+      "recommended_for": "Patients with fresh eggs and adequate sperm parameters",
+      "steps": [
+        {
+          "step": "Initial Consultation & Testing",
+          "overview": "Comprehensive fertility evaluation",
+          "topic_refs": [
+            "Referral to a Fertility Center (Male)",
+            "Referral to a Fertility Center (Female)",
+            "Semen Analysis",
+            "Ovarian Reserve Testing"
+          ]
+        },
+        {
+          "step": "Ovarian Stimulation",
+          "overview": "Stimulate multiple egg development",
+          "topic_refs": [
+            "Ovarian Stimulation Protocol",
+            "Gonadotropins"
+          ]
+        },
+        {
+          "step": "Monitoring & Trigger",
+          "overview": "Track follicle growth and trigger ovulation",
+          "topic_refs": [
+            "Luteinizing Hormone (LH) Test",
+            "Estradiol (E2) Blood Test",
+            "Human Chorionic Gonadotropin (hCG) Trigger"
+          ]
+        },
+        {
+          "step": "Egg Retrieval & Fertilization",
+          "overview": "Retrieve eggs and perform conventional IVF",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Retrieval",
+            "Fertilization - Conventional Insemination"
+          ]
+        },
+        {
+          "step": "Embryo Development & Transfer",
+          "overview": "Culture embryos and transfer to uterus",
+          "topic_refs": [
+            "Embryo Culture",
+            "Fresh Embryo Transfer - Day Three (Cleavage Stage)",
+            "Fresh Embryo Transfer - Day Five (Blastocyst Stage)"
+          ]
+        },
+        {
+          "step": "Post-Transfer Care",
+          "overview": "Luteal support and pregnancy testing",
+          "topic_refs": [
+            "Progesterone (Luteal Phase Support)",
+            "Beta hCG Blood Test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ivf_fresh_icsi",
+      "title": "Fresh IVF Cycle - ICSI",
+      "description": "IVF using fresh eggs with ICSI fertilization",
+      "recommended_for": "Patients with male factor infertility or previous fertilization failure",
+      "steps": [
+        {
+          "step": "Initial Consultation & Testing",
+          "overview": "Comprehensive fertility evaluation",
+          "topic_refs": [
+            "Referral to a Fertility Center (Male)",
+            "Referral to a Fertility Center (Female)",
+            "Semen Analysis",
+            "Ovarian Reserve Testing"
+          ]
+        },
+        {
+          "step": "Ovarian Stimulation",
+          "overview": "Stimulate multiple egg development",
+          "topic_refs": [
+            "Ovarian Stimulation Protocol",
+            "Gonadotropins"
+          ]
+        },
+        {
+          "step": "Monitoring & Trigger",
+          "overview": "Track follicle growth and trigger ovulation",
+          "topic_refs": [
+            "Luteinizing Hormone (LH) Test",
+            "Estradiol (E2) Blood Test",
+            "Human Chorionic Gonadotropin (hCG) Trigger"
+          ]
+        },
+        {
+          "step": "Egg Retrieval & ICSI",
+          "overview": "Retrieve eggs and perform ICSI fertilization",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Retrieval",
+            "Intracytoplasmic Sperm Injection (ICSI)"
+          ]
+        },
+        {
+          "step": "Embryo Development & Transfer",
+          "overview": "Culture embryos and transfer to uterus",
+          "topic_refs": [
+            "Embryo Culture",
+            "Fresh Embryo Transfer - Day Three (Cleavage Stage)",
+            "Fresh Embryo Transfer - Day Five (Blastocyst Stage)"
+          ]
+        },
+        {
+          "step": "Post-Transfer Care",
+          "overview": "Luteal support and pregnancy testing",
+          "topic_refs": [
+            "Progesterone (Luteal Phase Support)",
+            "Beta hCG Blood Test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ivf_frozen_oocytes_partner_icsi",
+      "title": "Frozen Egg IVF - Partner Sperm with ICSI",
+      "description": "IVF using previously frozen eggs with partner sperm and ICSI",
+      "recommended_for": "Patients using their own frozen eggs with partner sperm",
+      "steps": [
+        {
+          "step": "Initial Consultation & Planning",
+          "overview": "Review frozen egg inventory and cycle planning",
+          "topic_refs": [
+            "Referral to a Fertility Center (Female)",
+            "Semen Analysis"
+          ]
+        },
+        {
+          "step": "Cycle Preparation",
+          "overview": "Prepare for frozen egg thaw and transfer cycle",
+          "topic_refs": [
+            "Endometrial Preparation"
+          ]
+        },
+        {
+          "step": "Egg Thaw & ICSI",
+          "overview": "Thaw frozen eggs and perform ICSI (required for frozen eggs)",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Thawing",
+            "Intracytoplasmic Sperm Injection (ICSI)"
+          ]
+        },
+        {
+          "step": "Embryo Development & Transfer",
+          "overview": "Culture embryos and transfer to uterus",
+          "topic_refs": [
+            "Embryo Culture",
+            "Frozen Embryo Transfer (FET)"
+          ]
+        },
+        {
+          "step": "Post-Transfer Care",
+          "overview": "Luteal support and pregnancy testing",
+          "topic_refs": [
+            "Progesterone (Luteal Phase Support)",
+            "Beta hCG Blood Test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ivf_frozen_oocytes_donor_icsi",
+      "title": "Frozen Egg IVF - Donor Sperm with ICSI",
+      "description": "IVF using previously frozen eggs with donor sperm and ICSI",
+      "recommended_for": "Patients using their own frozen eggs with donor sperm",
+      "steps": [
+        {
+          "step": "Initial Consultation & Sperm Selection",
+          "overview": "Review frozen egg inventory and select donor sperm",
+          "topic_refs": [
+            "Referral to a Fertility Center (Female)",
+            "Sperm Donation"
+          ]
+        },
+        {
+          "step": "Cycle Preparation",
+          "overview": "Prepare for frozen egg thaw and transfer cycle",
+          "topic_refs": [
+            "Endometrial Preparation"
+          ]
+        },
+        {
+          "step": "Egg Thaw & ICSI",
+          "overview": "Thaw frozen eggs and perform ICSI with donor sperm",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Thawing",
+            "Intracytoplasmic Sperm Injection (ICSI)"
+          ]
+        },
+        {
+          "step": "Embryo Development & Transfer",
+          "overview": "Culture embryos and transfer to uterus",
+          "topic_refs": [
+            "Embryo Culture",
+            "Frozen Embryo Transfer (FET)"
+          ]
+        },
+        {
+          "step": "Post-Transfer Care",
+          "overview": "Luteal support and pregnancy testing",
+          "topic_refs": [
+            "Progesterone (Luteal Phase Support)",
+            "Beta hCG Blood Test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ivf_donor_eggs_icsi",
+      "title": "Donor Egg IVF with ICSI",
+      "description": "IVF using previously frozen donor eggs with ICSI fertilization",
+      "recommended_for": "Patients using donor eggs (ICSI required due to frozen eggs)",
+      "steps": [
+        {
+          "step": "Initial Consultation & Donor Selection",
+          "overview": "Consultation and egg donor selection process",
+          "topic_refs": [
+            "Referral to a Fertility Center (Female)",
+            "Semen Analysis",
+            "Oocyte (Egg Cell) Donation"
+          ]
+        },
+        {
+          "step": "Cycle Preparation", 
+          "overview": "Prepare recipient cycle for frozen donor eggs",
+          "topic_refs": [
+            "Endometrial Preparation"
+          ]
+        },
+        {
+          "step": "Donor Egg Thaw & ICSI",
+          "overview": "Thaw frozen donor eggs and perform ICSI",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Thawing",
+            "Intracytoplasmic Sperm Injection (ICSI)"
+          ]
+        },
+        {
+          "step": "Embryo Development & Transfer",
+          "overview": "Culture embryos and transfer to recipient",
+          "topic_refs": [
+            "Embryo Culture",
+            "Frozen Embryo Transfer (FET)"
+          ]
+        },
+        {
+          "step": "Post-Transfer Care",
+          "overview": "Luteal support and pregnancy testing",
+          "topic_refs": [
+            "Progesterone (Luteal Phase Support)",
+            "Beta hCG Blood Test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ivf_fresh_directed_donor_conventional",
+      "title": "Fresh Directed Donor Egg IVF - Conventional Fertilization",
+      "description": "IVF using fresh directed donor eggs with conventional fertilization",
+      "recommended_for": "Patients using fresh directed donor eggs with adequate sperm parameters",
+      "steps": [
+        {
+          "step": "Initial Consultation & Donor Coordination",
+          "overview": "Consultation and coordination with known donor",
+          "topic_refs": [
+            "Referral to a Fertility Center (Female)",
+            "Semen Analysis",
+            "Oocyte (Egg Cell) Donation"
+          ]
+        },
+        {
+          "step": "Legal & Medical Clearance",
+          "overview": "Legal contracts and medical screening for both parties",
+          "topic_refs": [
+            "Infectious Disease Screening (Female)"
+          ]
+        },
+        {
+          "step": "Cycle Synchronization",
+          "overview": "Synchronize recipient and donor cycles for fresh transfer",
+          "topic_refs": [
+            "Endometrial Preparation",
+            "Ovarian Stimulation Protocol"
+          ]
+        },
+        {
+          "step": "Donor Egg Retrieval & Fertilization",
+          "overview": "Retrieve fresh donor eggs and perform conventional fertilization",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Retrieval",
+            "Fertilization - Conventional Insemination"
+          ]
+        },
+        {
+          "step": "Embryo Development & Transfer",
+          "overview": "Culture embryos and transfer to recipient",
+          "topic_refs": [
+            "Embryo Culture",
+            "Fresh Embryo Transfer - Day Three (Cleavage Stage)",
+            "Fresh Embryo Transfer - Day Five (Blastocyst Stage)"
+          ]
+        },
+        {
+          "step": "Post-Transfer Care",
+          "overview": "Luteal support and pregnancy testing",
+          "topic_refs": [
+            "Progesterone (Luteal Phase Support)",
+            "Beta hCG Blood Test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ivf_fresh_directed_donor_icsi",
+      "title": "Fresh Directed Donor Egg IVF - ICSI",
+      "description": "IVF using fresh directed donor eggs with ICSI fertilization",
+      "recommended_for": "Patients using fresh directed donor eggs with male factor infertility",
+      "steps": [
+        {
+          "step": "Initial Consultation & Donor Coordination",
+          "overview": "Consultation and coordination with known donor",
+          "topic_refs": [
+            "Referral to a Fertility Center (Female)",
+            "Semen Analysis",
+            "Oocyte (Egg Cell) Donation"
+          ]
+        },
+        {
+          "step": "Legal & Medical Clearance",
+          "overview": "Legal contracts and medical screening for both parties",
+          "topic_refs": [
+            "Infectious Disease Screening (Female)"
+          ]
+        },
+        {
+          "step": "Cycle Synchronization",
+          "overview": "Synchronize recipient and donor cycles for fresh transfer",
+          "topic_refs": [
+            "Endometrial Preparation",
+            "Ovarian Stimulation Protocol"
+          ]
+        },
+        {
+          "step": "Donor Egg Retrieval & ICSI",
+          "overview": "Retrieve fresh donor eggs and perform ICSI",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Retrieval",
+            "Intracytoplasmic Sperm Injection (ICSI)"
+          ]
+        },
+        {
+          "step": "Embryo Development & Transfer",
+          "overview": "Culture embryos and transfer to recipient",
+          "topic_refs": [
+            "Embryo Culture",
+            "Fresh Embryo Transfer - Day Three (Cleavage Stage)",
+            "Fresh Embryo Transfer - Day Five (Blastocyst Stage)"
+          ]
+        },
+        {
+          "step": "Post-Transfer Care",
+          "overview": "Luteal support and pregnancy testing",
+          "topic_refs": [
+            "Progesterone (Luteal Phase Support)",
+            "Beta hCG Blood Test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ivf_self_carry",
+      "title": "IVF Cycle - Self Carry",
+      "description": "Complete IVF cycle where you carry the pregnancy yourself, with optional genetic testing",
+      "recommended_for": "Patients who can carry their own pregnancy",
+      "steps": [
+        {
+          "step": "Final Cycle Preparation",
+          "overview": "Complete pre-cycle preparation and baseline monitoring",
+          "topic_refs": [
+            "Endometrial Preparation",
+            "Baseline Ultrasound"
+          ]
+        },
+        {
+          "step": "Stimulation & Monitoring",
+          "overview": "Ovarian stimulation and cycle monitoring (if using fresh eggs)",
+          "topic_refs": [
+            "Ovarian Stimulation Protocol",
+            "Cycle Monitoring",
+            "Human Chorionic Gonadotropin (hCG) Trigger"
+          ]
+        },
+        {
+          "step": "Egg Retrieval & Fertilization",
+          "overview": "Egg retrieval and fertilization process",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Retrieval",
+            "Fertilization - Conventional Insemination",
+            "Intracytoplasmic Sperm Injection (ICSI)"
+          ]
+        },
+        {
+          "step": "Embryo Development & Testing",
+          "overview": "Embryo culture, development monitoring, and optional genetic testing",
+          "topic_refs": [
+            "Embryo Culture",
+            "Embryo Grading",
+            "Preimplantation Genetic Testing (PGT)",
+            "PGT-A (Aneuploidy Testing)",
+            "PGT-M (Monogenic Testing)",
+            "PGT-SR (Structural Rearrangement Testing)"
+          ]
+        },
+        {
+          "step": "Embryo Transfer",
+          "overview": "Transfer embryo(s) to your uterus",
+          "topic_refs": [
+            "Fresh Embryo Transfer - Day Three (Cleavage Stage)",
+            "Fresh Embryo Transfer - Day Five (Blastocyst Stage)",
+            "Frozen Embryo Transfer (FET)"
+          ]
+        },
+        {
+          "step": "Pregnancy Support & Testing",
+          "overview": "Luteal support and pregnancy testing",
+          "topic_refs": [
+            "Progesterone (Luteal Phase Support)",
+            "Beta hCG Blood Test",
+            "Early Pregnancy Monitoring"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ivf_gestational_surrogate",
+      "title": "IVF Cycle - Gestational Surrogacy",
+      "description": "IVF cycle using a gestational surrogate to carry the pregnancy, with optional genetic testing",
+      "recommended_for": "Patients who cannot carry a pregnancy or have medical contraindications",
+      "steps": [
+        {
+          "step": "Surrogate Matching & Legal Process",
+          "overview": "Find and legally contract with a gestational surrogate",
+          "topic_refs": [
+            "Gestational Surrogacy",
+            "Legal Contracts and Counseling"
+          ]
+        },
+        {
+          "step": "Medical Clearance for All Parties",
+          "overview": "Medical and psychological screening for intended parents and surrogate",
+          "topic_refs": [
+            "Infectious Disease Screening (Female)",
+            "Psychological Evaluation",
+            "Medical History Review"
+          ]
+        },
+        {
+          "step": "Cycle Synchronization",
+          "overview": "Coordinate cycles between intended mother and surrogate",
+          "topic_refs": [
+            "Endometrial Preparation",
+            "Cycle Coordination"
+          ]
+        },
+        {
+          "step": "Egg Retrieval & Fertilization",
+          "overview": "Retrieve eggs from intended mother (or donor) and fertilize",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Retrieval",
+            "Fertilization - Conventional Insemination",
+            "Intracytoplasmic Sperm Injection (ICSI)"
+          ]
+        },
+        {
+          "step": "Embryo Development & Testing",
+          "overview": "Culture embryos and optional genetic testing (PGT-A, PGT-M, PGT-SR)",
+          "topic_refs": [
+            "Embryo Culture",
+            "Preimplantation Genetic Testing (PGT)",
+            "PGT-A (Aneuploidy Testing)",
+            "PGT-M (Monogenic Testing)",
+            "PGT-SR (Structural Rearrangement Testing)",
+            "Embryo Biopsy"
+          ]
+        },
+        {
+          "step": "Embryo Transfer to Surrogate",
+          "overview": "Transfer embryo(s) to gestational surrogate",
+          "topic_refs": [
+            "Fresh Embryo Transfer - Day Five (Blastocyst Stage)",
+            "Frozen Embryo Transfer (FET)"
+          ]
+        },
+        {
+          "step": "Pregnancy Management",
+          "overview": "Support surrogate through pregnancy with coordinated care",
+          "topic_refs": [
+            "Progesterone (Luteal Phase Support)",
+            "Beta hCG Blood Test",
+            "Pregnancy Monitoring"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "male_sperm_freezing_partner",
+      "title": "Sperm Freezing - Partner Travel",
+      "description": "Preserve sperm when partner is unavailable during treatment",
+      "recommended_for": "Partners who will be traveling or unavailable during fertility treatment cycles",
+      "steps": [
+        {
+          "step": "Initial Consultation",
+          "overview": "Discuss timing and collection requirements",
+          "topic_refs": [
+            "Male Fertility Evaluation",
+            "Semen Analysis"
+          ]
+        },
+        {
+          "step": "Semen Collection & Analysis",
+          "overview": "Collect and evaluate sperm sample",
+          "topic_refs": [
+            "Semen Collection",
+            "Semen Analysis",
+            "Sperm Preparation"
+          ]
+        },
+        {
+          "step": "Cryopreservation",
+          "overview": "Freeze and store sperm samples",
+          "topic_refs": [
+            "Sperm Cryopreservation",
+            "Storage and Banking"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan for future use in treatment cycles",
+          "topic_refs": [
+            "Frozen Sperm Thaw and Preparation",
+            "IUI or IVF Planning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "male_sperm_freezing_medical",
+      "title": "Sperm Freezing - Medical Reasons",
+      "description": "Preserve sperm due to medical conditions or declining quality",
+      "recommended_for": "Men with declining sperm quality, varicocele, or other medical conditions affecting fertility",
+      "steps": [
+        {
+          "step": "Comprehensive Male Evaluation",
+          "overview": "Detailed assessment of male fertility factors",
+          "topic_refs": [
+            "Male Fertility Evaluation",
+            "Semen Analysis",
+            "Hormone Testing (Male)"
+          ]
+        },
+        {
+          "step": "Multiple Sample Collections",
+          "overview": "Collect several samples to maximize preservation",
+          "topic_refs": [
+            "Semen Collection",
+            "Sperm Count and Motility",
+            "Sperm Preparation"
+          ]
+        },
+        {
+          "step": "Advanced Processing if Needed",
+          "overview": "Special processing for poor quality samples",
+          "topic_refs": [
+            "Sperm Preparation",
+            "ICSI Preparation",
+            "Sperm Cryopreservation"
+          ]
+        },
+        {
+          "step": "Long-term Storage Planning",
+          "overview": "Establish storage and future use plans",
+          "topic_refs": [
+            "Storage and Banking",
+            "Consent and Legal Issues"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "male_sperm_freezing_vasectomy",
+      "title": "Sperm Banking Before Vasectomy",
+      "description": "Preserve fertility before planned permanent sterilization",
+      "recommended_for": "Men planning vasectomy who may want future children",
+      "steps": [
+        {
+          "step": "Pre-Vasectomy Counseling",
+          "overview": "Discuss preservation options and timing",
+          "topic_refs": [
+            "Vasectomy Counseling",
+            "Male Fertility Evaluation"
+          ]
+        },
+        {
+          "step": "Baseline Fertility Assessment",
+          "overview": "Evaluate current sperm parameters",
+          "topic_refs": [
+            "Semen Analysis",
+            "Sperm Count and Motility"
+          ]
+        },
+        {
+          "step": "Multiple Sample Banking",
+          "overview": "Bank multiple samples before procedure",
+          "topic_refs": [
+            "Semen Collection",
+            "Sperm Cryopreservation",
+            "Storage and Banking"
+          ]
+        },
+        {
+          "step": "Post-Vasectomy Planning",
+          "overview": "Plan for potential future use",
+          "topic_refs": [
+            "IVF with ICSI",
+            "Frozen Sperm Thaw and Preparation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "female_oocyte_freezing_social",
+      "title": "Social Egg Freezing",
+      "description": "Elective egg preservation for future family planning",
+      "recommended_for": "Women wanting to preserve fertility for future use",
+      "steps": [
+        {
+          "step": "Initial Consultation & Counseling",
+          "overview": "Discuss options, success rates, and expectations",
+          "topic_refs": [
+            "Social Egg Freezing Counseling",
+            "Female Fertility Evaluation",
+            "Age and Fertility"
+          ]
+        },
+        {
+          "step": "Comprehensive Fertility Assessment",
+          "overview": "Evaluate ovarian reserve and overall fertility",
+          "topic_refs": [
+            "Ovarian Reserve Testing",
+            "AMH (Anti-Mullerian Hormone) Testing",
+            "Transvaginal Ultrasound"
+          ]
+        },
+        {
+          "step": "Ovarian Stimulation Protocol",
+          "overview": "Stimulate ovaries to produce multiple eggs",
+          "topic_refs": [
+            "Controlled Ovarian Hyperstimulation (COH)",
+            "FSH (Follicle Stimulating Hormone)",
+            "Monitoring During Stimulation"
+          ]
+        },
+        {
+          "step": "Egg Retrieval",
+          "overview": "Surgically retrieve mature eggs",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Retrieval",
+            "Anesthesia for Egg Retrieval",
+            "Retrieval Day Procedures"
+          ]
+        },
+        {
+          "step": "Egg Freezing & Storage",
+          "overview": "Vitrify and store eggs for future use",
+          "topic_refs": [
+            "Oocyte Cryopreservation",
+            "Vitrification",
+            "Storage and Banking"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan for when and how to use frozen eggs",
+          "topic_refs": [
+            "Frozen Egg Thaw and Fertilization",
+            "IVF with Frozen Eggs",
+            "Family Planning Timeline"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "female_oocyte_freezing_career",
+      "title": "Career-Focused Egg Freezing",
+      "description": "Preserve eggs while focusing on career development",
+      "recommended_for": "Women prioritizing career or education goals",
+      "steps": [
+        {
+          "step": "Career & Fertility Timeline Planning",
+          "overview": "Discuss optimal timing for preservation and future use",
+          "topic_refs": [
+            "Career and Fertility Planning",
+            "Age and Fertility",
+            "Social Egg Freezing Counseling"
+          ]
+        },
+        {
+          "step": "Baseline Fertility Assessment",
+          "overview": "Comprehensive evaluation of current fertility status",
+          "topic_refs": [
+            "Female Fertility Evaluation",
+            "Ovarian Reserve Testing",
+            "AMH (Anti-Mullerian Hormone) Testing"
+          ]
+        },
+        {
+          "step": "Flexible Stimulation Planning",
+          "overview": "Design protocol around work schedule",
+          "topic_refs": [
+            "Controlled Ovarian Hyperstimulation (COH)",
+            "Flexible Monitoring Schedules",
+            "Work-Life Balance During Treatment"
+          ]
+        },
+        {
+          "step": "Egg Retrieval & Preservation",
+          "overview": "Retrieve and freeze eggs with minimal career disruption",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Retrieval",
+            "Recovery After Egg Retrieval",
+            "Oocyte Cryopreservation"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan optimal timing for using eggs in future career phases",
+          "topic_refs": [
+            "Career and Family Timing",
+            "Frozen Egg Thaw and Fertilization",
+            "IVF with Frozen Eggs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "female_oocyte_freezing_single",
+      "title": "Single Woman Egg Freezing",
+      "description": "Preserve eggs while looking for the right partner",
+      "recommended_for": "Single women wanting to preserve fertility options",
+      "steps": [
+        {
+          "step": "Single-Friendly Consultation",
+          "overview": "Discuss options and timeline as a single woman",
+          "topic_refs": [
+            "Single Women and Fertility",
+            "Social Egg Freezing Counseling",
+            "Future Family Planning"
+          ]
+        },
+        {
+          "step": "Comprehensive Health Assessment",
+          "overview": "Full fertility and health evaluation",
+          "topic_refs": [
+            "Female Fertility Evaluation",
+            "Ovarian Reserve Testing",
+            "General Health Screening"
+          ]
+        },
+        {
+          "step": "Personalized Stimulation",
+          "overview": "Optimize protocol for individual response",
+          "topic_refs": [
+            "Controlled Ovarian Hyperstimulation (COH)",
+            "Individualized Protocols",
+            "Monitoring During Stimulation"
+          ]
+        },
+        {
+          "step": "Egg Collection & Banking",
+          "overview": "Retrieve and preserve eggs for future use",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Retrieval",
+            "Oocyte Cryopreservation",
+            "Long-term Storage Options"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan for using eggs when ready to build family",
+          "topic_refs": [
+            "Partner Selection and Family Planning",
+            "Donor Sperm Options",
+            "Single Motherhood Planning",
+            "IVF with Frozen Eggs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "female_oocyte_freezing_medical",
+      "title": "Medical Egg Freezing",
+      "description": "Preserve eggs due to medical conditions affecting fertility",
+      "recommended_for": "Women with medical conditions that may impact future fertility",
+      "steps": [
+        {
+          "step": "Medical History & Risk Assessment",
+          "overview": "Evaluate medical condition's impact on fertility",
+          "topic_refs": [
+            "Medical History and Fertility",
+            "Disease Impact on Fertility",
+            "Risk Assessment"
+          ]
+        },
+        {
+          "step": "Coordinated Medical Care",
+          "overview": "Coordinate with treating physicians",
+          "topic_refs": [
+            "Multidisciplinary Care",
+            "Timing with Medical Treatments"
+          ]
+        },
+        {
+          "step": "Modified Stimulation Protocol",
+          "overview": "Adapt protocol for medical condition",
+          "topic_refs": [
+            "Modified Stimulation Protocols",
+            "Medical Considerations",
+            "Monitoring During Stimulation"
+          ]
+        },
+        {
+          "step": "Egg Preservation",
+          "overview": "Retrieve and freeze eggs safely",
+          "topic_refs": [
+            "Oocyte (Egg Cell) Retrieval",
+            "Medical Safety Protocols",
+            "Oocyte Cryopreservation"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan for using preserved eggs when medically appropriate",
+          "topic_refs": [
+            "Medical Recovery and Family Planning",
+            "Coordinated Care for Future Pregnancy",
+            "IVF with Frozen Eggs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transition_male_sperm_freezing",
+      "title": "Gender Transition - Sperm Preservation",
+      "description": "Preserve sperm before starting hormone therapy or gender-affirming surgery",
+      "recommended_for": "Transgender men or non-binary individuals assigned male at birth",
+      "steps": [
+        {
+          "step": "Gender-Affirming Fertility Consultation",
+          "overview": "Discuss preservation options in affirming environment",
+          "topic_refs": [
+            "Gender Transition and Fertility",
+            "LGBTQ+ Fertility Counseling",
+            "Transition Timeline Planning"
+          ]
+        },
+        {
+          "step": "Pre-Transition Sperm Assessment",
+          "overview": "Evaluate sperm before hormone therapy",
+          "topic_refs": [
+            "Semen Analysis",
+            "Hormone Impact on Sperm",
+            "Baseline Fertility Assessment"
+          ]
+        },
+        {
+          "step": "Multiple Sample Banking",
+          "overview": "Bank multiple samples before transition",
+          "topic_refs": [
+            "Semen Collection",
+            "Sperm Cryopreservation",
+            "Affirming Collection Procedures"
+          ]
+        },
+        {
+          "step": "Future Family Planning",
+          "overview": "Plan for potential future family building",
+          "topic_refs": [
+            "IVF with Frozen Sperm",
+            "Partner or Surrogate Planning",
+            "LGBTQ+ Family Building"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transition_male_on_hormones",
+      "title": "Sperm Preservation - On Testosterone",
+      "description": "Preserve fertility for individuals already on hormone therapy",
+      "recommended_for": "Transgender men already on testosterone who want fertility preservation",
+      "steps": [
+        {
+          "step": "Hormone Therapy Assessment",
+          "overview": "Evaluate current hormone therapy impact",
+          "topic_refs": [
+            "Testosterone and Fertility",
+            "Hormone Therapy Modifications",
+            "Reproductive Endocrinology"
+          ]
+        },
+        {
+          "step": "Potential Hormone Cycling",
+          "overview": "Consider temporary hormone modifications if needed",
+          "topic_refs": [
+            "Hormone Cycling for Fertility",
+            "Testosterone Cessation",
+            "Ovulation Induction"
+          ]
+        },
+        {
+          "step": "Specialized Collection Protocols",
+          "overview": "Use specialized techniques if needed",
+          "topic_refs": [
+            "Modified Collection Procedures",
+            "Assisted Reproductive Techniques",
+            "Alternative Collection Methods"
+          ]
+        },
+        {
+          "step": "Preservation & Future Planning",
+          "overview": "Preserve gametes and plan future use",
+          "topic_refs": [
+            "Gamete Preservation",
+            "Future IVF Planning",
+            "Gender-Affirming Care Coordination"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transition_female_on_hormones",
+      "title": "Egg Preservation - On Estrogen",
+      "description": "Preserve fertility for individuals on feminizing hormone therapy",
+      "recommended_for": "Transgender women on estrogen who want fertility preservation",
+      "steps": [
+        {
+          "step": "Hormone Impact Assessment",
+          "overview": "Evaluate estrogen therapy effects on fertility",
+          "topic_refs": [
+            "Estrogen and Male Fertility",
+            "Hormone Therapy Impact",
+            "Sperm Production Changes"
+          ]
+        },
+        {
+          "step": "Hormone Modification Discussion",
+          "overview": "Discuss potential temporary hormone changes",
+          "topic_refs": [
+            "Hormone Cycling for Fertility",
+            "Temporary Hormone Cessation",
+            "Fertility Recovery Protocols"
+          ]
+        },
+        {
+          "step": "Specialized Preservation Approach",
+          "overview": "Use appropriate preservation method",
+          "topic_refs": [
+            "Sperm Cryopreservation",
+            "Modified Collection Protocols",
+            "Testicular Sperm Extraction"
+          ]
+        },
+        {
+          "step": "Long-term Storage & Planning",
+          "overview": "Plan for future family building options",
+          "topic_refs": [
+            "Long-term Gamete Storage",
+            "Future IVF with ICSI",
+            "Partner and Surrogate Options"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oncofertility_fasttrack",
+      "title": "Emergency Oncofertility Protocol",
+      "description": "Fast-track fertility preservation before urgent cancer treatment",
+      "recommended_for": "Patients starting cancer treatment within 2 weeks",
+      "steps": [
+        {
+          "step": "Emergency Fertility Consultation",
+          "overview": "Immediate evaluation and decision making",
+          "topic_refs": [
+            "Emergency Oncofertility Protocols",
+            "Cancer Treatment Impact on Fertility",
+            "Rapid Decision Making"
+          ]
+        },
+        {
+          "step": "Accelerated Stimulation Protocol",
+          "overview": "Fast-track ovarian stimulation or sperm collection",
+          "topic_refs": [
+            "Emergency Ovarian Stimulation",
+            "Luteal Phase Stimulation",
+            "Random Start Protocols"
+          ]
+        },
+        {
+          "step": "Urgent Gamete Retrieval",
+          "overview": "Immediate egg retrieval or sperm collection",
+          "topic_refs": [
+            "Emergency Egg Retrieval",
+            "Urgent Sperm Banking",
+            "Rapid Processing Protocols"
+          ]
+        },
+        {
+          "step": "Immediate Cryopreservation",
+          "overview": "Process and freeze gametes immediately",
+          "topic_refs": [
+            "Emergency Cryopreservation",
+            "Quality Assurance Under Time Pressure",
+            "Post-Cancer Recovery Planning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oncofertility_male_sperm",
+      "title": "Male Oncofertility - Sperm Banking",
+      "description": "Preserve sperm before cancer treatment",
+      "recommended_for": "Men facing chemotherapy or radiation therapy",
+      "steps": [
+        {
+          "step": "Oncofertility Counseling",
+          "overview": "Discuss fertility risks and preservation options",
+          "topic_refs": [
+            "Cancer Treatment and Male Fertility",
+            "Oncofertility Counseling",
+            "Treatment Timeline Planning"
+          ]
+        },
+        {
+          "step": "Baseline Fertility Assessment",
+          "overview": "Evaluate pre-treatment fertility status",
+          "topic_refs": [
+            "Pre-Treatment Semen Analysis",
+            "Hormone Testing (Male)",
+            "Cancer Impact Assessment"
+          ]
+        },
+        {
+          "step": "Multiple Sample Banking",
+          "overview": "Collect and preserve multiple samples",
+          "topic_refs": [
+            "Multiple Semen Collections",
+            "Sperm Cryopreservation",
+            "Emergency Banking Protocols"
+          ]
+        },
+        {
+          "step": "Post-Treatment Planning",
+          "overview": "Plan for fertility recovery and future use",
+          "topic_refs": [
+            "Post-Chemotherapy Fertility",
+            "Fertility Recovery Monitoring",
+            "Future IVF Planning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embryo_freezing_excess",
+      "title": "Excess Embryo Freezing",
+      "description": "Preserve extra embryos from IVF cycle",
+      "recommended_for": "Couples with extra good-quality embryos from IVF",
+      "steps": [
+        {
+          "step": "Embryo Assessment",
+          "overview": "Evaluate which embryos to freeze",
+          "topic_refs": [
+            "Embryo Grading",
+            "Blastocyst Development",
+            "Embryo Selection"
+          ]
+        },
+        {
+          "step": "Cryopreservation Process",
+          "overview": "Freeze excess embryos",
+          "topic_refs": [
+            "Embryo Vitrification",
+            "Cryopreservation Techniques"
+          ]
+        },
+        {
+          "step": "Storage & Documentation",
+          "overview": "Store embryos and maintain records",
+          "topic_refs": [
+            "Embryo Storage",
+            "Consent and Legal Issues"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan for using frozen embryos in future cycles",
+          "topic_refs": [
+            "Frozen Embryo Transfer (FET)",
+            "Family Planning Timeline",
+            "Additional Children Planning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embryo_freezing_pgt",
+      "title": "Embryo Freezing for Genetic Testing",
+      "description": "Freeze embryos while awaiting PGT results",
+      "recommended_for": "Couples doing genetic testing on embryos",
+      "steps": [
+        {
+          "step": "Embryo Biopsy",
+          "overview": "Take cells from embryos for testing",
+          "topic_refs": [
+            "Embryo Biopsy",
+            "PGT Procedures",
+            "Genetic Testing Preparation"
+          ]
+        },
+        {
+          "step": "Immediate Freezing",
+          "overview": "Freeze embryos after biopsy",
+          "topic_refs": [
+            "Embryo Vitrification",
+            "Post-Biopsy Handling"
+          ]
+        },
+        {
+          "step": "Genetic Testing Results",
+          "overview": "Wait for and review PGT results",
+          "topic_refs": [
+            "PGT-A Results",
+            "PGT-M Results", 
+            "Genetic Counseling"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan transfer of normal embryos",
+          "topic_refs": [
+            "Frozen Embryo Transfer (FET)",
+            "Embryo Selection for Transfer",
+            "PGT-Tested Embryo Transfer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embryo_freezing_medical",
+      "title": "Medical Embryo Freezing",
+      "description": "Freeze embryos due to medical reasons preventing transfer",
+      "recommended_for": "Patients who cannot transfer embryos due to medical issues",
+      "steps": [
+        {
+          "step": "Medical Assessment",
+          "overview": "Evaluate medical condition preventing transfer",
+          "topic_refs": [
+            "Medical History Assessment",
+            "Transfer Contraindications",
+            "Treatment Planning"
+          ]
+        },
+        {
+          "step": "Embryo Preservation",
+          "overview": "Safely freeze all embryos",
+          "topic_refs": [
+            "Embryo Vitrification",
+            "Medical Safety Protocols"
+          ]
+        },
+        {
+          "step": "Medical Treatment",
+          "overview": "Address medical condition",
+          "topic_refs": [
+            "Multidisciplinary Care",
+            "Medical Treatment Coordination"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan transfer when medically appropriate",
+          "topic_refs": [
+            "Medical Clearance for Transfer",
+            "Frozen Embryo Transfer (FET)",
+            "Coordinated Care Planning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embryo_freezing_siblings",
+      "title": "Embryo Banking for Future Siblings",
+      "description": "Preserve embryos specifically for future children",
+      "recommended_for": "Couples planning multiple children from one IVF cycle",
+      "steps": [
+        {
+          "step": "Family Planning Discussion",
+          "overview": "Discuss desired family size and timing",
+          "topic_refs": [
+            "Family Planning Counseling",
+            "IVF Success Rates",
+            "Age and Fertility"
+          ]
+        },
+        {
+          "step": "Strategic Embryo Banking",
+          "overview": "Create and freeze multiple embryos",
+          "topic_refs": [
+            "Ovarian Stimulation Optimization",
+            "Embryo Development",
+            "Embryo Vitrification"
+          ]
+        },
+        {
+          "step": "First Child Transfer",
+          "overview": "Transfer embryo for first pregnancy",
+          "topic_refs": [
+            "Fresh Embryo Transfer",
+            "Embryo Selection"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan timing for additional children",
+          "topic_refs": [
+            "Sibling Spacing Planning",
+            "Frozen Embryo Transfer (FET)",
+            "Family Building Timeline"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oncofertility_egg_freezing",
+      "title": "Oncofertility - Egg Freezing",
+      "description": "Emergency egg freezing before cancer treatment",
+      "recommended_for": "Women with 2-4 weeks before cancer treatment starts",
+      "steps": [
+        {
+          "step": "Emergency Fertility Consultation",
+          "overview": "Urgent evaluation and cancer coordination",
+          "topic_refs": [
+            "Oncofertility Counseling",
+            "Cancer Treatment Impact on Fertility",
+            "Multidisciplinary Oncofertility Team"
+          ]
+        },
+        {
+          "step": "Rapid Ovarian Stimulation",
+          "overview": "Accelerated egg maturation protocol",
+          "topic_refs": [
+            "Emergency Ovarian Stimulation",
+            "Luteal Phase Stimulation",
+            "Random Start Protocols"
+          ]
+        },
+        {
+          "step": "Emergency Egg Retrieval",
+          "overview": "Urgent egg collection procedure",
+          "topic_refs": [
+            "Emergency Egg Retrieval",
+            "Oocyte (Egg Cell) Retrieval",
+            "Coordinated Surgical Scheduling"
+          ]
+        },
+        {
+          "step": "Immediate Egg Freezing",
+          "overview": "Rapid cryopreservation of retrieved eggs",
+          "topic_refs": [
+            "Oocyte Cryopreservation",
+            "Vitrification Techniques",
+            "Emergency Processing Protocols"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan for post-cancer fertility treatment",
+          "topic_refs": [
+            "Post-Cancer Fertility Planning",
+            "IVF After Cancer Treatment",
+            "Fertility Recovery Monitoring"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oncofertility_embryo_partner",
+      "title": "Oncofertility - Embryo Freezing (Partner)",
+      "description": "Emergency embryo creation and freezing with partner's sperm",
+      "recommended_for": "Women with partners, 2-4 weeks before cancer treatment",
+      "steps": [
+        {
+          "step": "Couple Emergency Consultation",
+          "overview": "Joint counseling and rapid decision making",
+          "topic_refs": [
+            "Oncofertility Counseling",
+            "Couple Decision Making Under Stress",
+            "Emergency Consent Processes"
+          ]
+        },
+        {
+          "step": "Synchronized Preparation",
+          "overview": "Coordinate female stimulation and male sample collection",
+          "topic_refs": [
+            "Emergency Ovarian Stimulation",
+            "Emergency Semen Collection",
+            "Coordinated Treatment Timing"
+          ]
+        },
+        {
+          "step": "Emergency Retrieval & Fertilization",
+          "overview": "Same-day egg retrieval and fertilization",
+          "topic_refs": [
+            "Emergency Egg Retrieval",
+            "Emergency IVF Procedures",
+            "ICSI for Cancer Patients"
+          ]
+        },
+        {
+          "step": "Rapid Embryo Development",
+          "overview": "Monitor and freeze embryos quickly",
+          "topic_refs": [
+            "Accelerated Embryo Culture",
+            "Emergency Embryo Assessment",
+            "Embryo Vitrification"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan for post-treatment embryo transfer",
+          "topic_refs": [
+            "Post-Cancer Embryo Transfer",
+            "Fertility Recovery Assessment",
+            "Family Building After Cancer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oncofertility_embryo_donor",
+      "title": "Oncofertility - Embryo Freezing (Donor)",
+      "description": "Emergency embryo creation with donor sperm before cancer treatment",
+      "recommended_for": "Single women or those without partner availability",
+      "steps": [
+        {
+          "step": "Emergency Donor Selection",
+          "overview": "Rapid donor sperm selection and procurement",
+          "topic_refs": [
+            "Emergency Donor Selection",
+            "Donor Sperm for Cancer Patients",
+            "Accelerated Screening Protocols"
+          ]
+        },
+        {
+          "step": "Rapid Ovarian Stimulation",
+          "overview": "Fast-track egg maturation while securing donor sperm",
+          "topic_refs": [
+            "Emergency Ovarian Stimulation",
+            "Donor Sperm Preparation",
+            "Timeline Coordination"
+          ]
+        },
+        {
+          "step": "Emergency Retrieval & Fertilization",
+          "overview": "Egg retrieval and immediate fertilization with donor sperm",
+          "topic_refs": [
+            "Emergency Egg Retrieval",
+            "ICSI with Donor Sperm",
+            "Emergency Laboratory Protocols"
+          ]
+        },
+        {
+          "step": "Embryo Development & Freezing",
+          "overview": "Monitor embryo development and freeze",
+          "topic_refs": [
+            "Emergency Embryo Culture",
+            "Embryo Vitrification",
+            "Quality Control Under Time Pressure"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan for post-treatment single motherhood",
+          "topic_refs": [
+            "Single Motherhood After Cancer",
+            "Post-Cancer Embryo Transfer",
+            "Psychosocial Support Planning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oncofertility_ovarian_tissue",
+      "title": "Oncofertility - Ovarian Tissue Freezing",
+      "description": "Experimental ovarian tissue preservation for immediate cancer treatment",
+      "recommended_for": "Women needing immediate cancer treatment, prepubertal patients",
+      "steps": [
+        {
+          "step": "Emergency Consultation & Consent",
+          "overview": "Discuss experimental nature and obtain informed consent",
+          "topic_refs": [
+            "Ovarian Tissue Freezing Counseling",
+            "Experimental Treatment Consent",
+            "Research Protocol Enrollment"
+          ]
+        },
+        {
+          "step": "Urgent Surgical Planning",
+          "overview": "Coordinate with cancer surgery team",
+          "topic_refs": [
+            "Ovarian Tissue Retrieval Surgery",
+            "Coordination with Cancer Surgery",
+            "Anesthesia Considerations"
+          ]
+        },
+        {
+          "step": "Ovarian Tissue Retrieval",
+          "overview": "Surgical removal of ovarian cortex",
+          "topic_refs": [
+            "Ovarian Tissue Biopsy",
+            "Laparoscopic Ovarian Surgery",
+            "Tissue Preservation During Surgery"
+          ]
+        },
+        {
+          "step": "Tissue Processing & Freezing",
+          "overview": "Immediate processing and cryopreservation",
+          "topic_refs": [
+            "Ovarian Tissue Cryopreservation",
+            "Slow-Freeze Protocols",
+            "Tissue Banking Procedures"
+          ]
+        },
+        {
+          "step": "Future Use Planning",
+          "overview": "Plan for potential tissue reimplantation",
+          "topic_refs": [
+            "Ovarian Tissue Transplantation",
+            "Experimental Fertility Restoration",
+            "Long-term Follow-up Planning"
           ]
         }
       ]

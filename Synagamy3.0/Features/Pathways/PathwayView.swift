@@ -10,8 +10,13 @@ import SwiftUI
 
 struct PathwayView: View {
     @StateObject private var viewModel = PathwayViewModel()
+    @StateObject private var cycleManager = PersonalizedCycleManager()
     @State private var showingPathwayDetails = false
     @State private var selectedPathway: PathwayPath?
+    @State private var isEducationExpanded = false
+    @State private var showingSaveCycleDialog = false
+    @State private var pathwayToSave: PathwayPath?
+    @State private var cycleName: String = ""
     
     var body: some View {
         StandardPageLayout(
@@ -47,6 +52,9 @@ struct PathwayView: View {
                         resultsSection
                     }
                     
+                    // MARK: - Clinic Finder Link
+                    clinicFinderSection
+                    
                     // MARK: - Educational Content
                     educationalSection
                     
@@ -61,27 +69,74 @@ struct PathwayView: View {
         .sheet(item: $selectedPathway) { pathway in
             PathwayDetailSheet(pathway: pathway, educationTopics: AppData.topics)
         }
+        .alert("Save Your Cycle", isPresented: $showingSaveCycleDialog) {
+            TextField("Name your cycle", text: $cycleName)
+                .textInputAutocapitalization(.words)
+            Button("Save") {
+                if let pathway = pathwayToSave, !cycleName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    saveCycle(pathway: pathway, name: cycleName)
+                }
+                resetSaveDialog()
+            }
+            Button("Cancel", role: .cancel) {
+                resetSaveDialog()
+            }
+        } message: {
+            Text("Give your personalized fertility cycle a memorable name to easily find it later.")
+        }
     }
     
     // MARK: - Header Section
     private var headerSection: some View {
-        VStack(spacing: 12) {
-            CategoryBadge(
-                text: "Treatment Pathways",
-                icon: "map.fill",
-                color: Brand.ColorSystem.primary
-            )
+        VStack(spacing: 16) {
+            VStack(spacing: 12) {
+                CategoryBadge(
+                    text: "Treatment Pathways",
+                    icon: "map.fill",
+                    color: Brand.ColorSystem.primary
+                )
+                
+                Text("Personalized Treatment Navigator")
+                    .font(.title2.weight(.semibold))
+                    .foregroundColor(.primary)
+                    .multilineTextAlignment(.center)
+                
+                Text("Answer a Few Questions to Discover a Infertility Treatment or Fertility Preservation Pathway")
+                    .font(.caption)
+                    .foregroundColor(Brand.ColorSystem.secondary)
+                    .multilineTextAlignment(.center)
+            }
             
-            Text("Personalized Treatment Navigator")
-                .font(.title2.weight(.semibold))
-                .foregroundColor(.primary)
-                .multilineTextAlignment(.center)
-            
-            Text("Answer a few questions to discover your optimal fertility pathway")
-                .font(.caption)
-                .foregroundColor(Brand.ColorSystem.secondary)
-                .multilineTextAlignment(.center)
+            // My Cycles Navigation
+            if !cycleManager.savedCycles.isEmpty {
+                NavigationLink {
+                    PersonalizedLearningView()
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "bookmark.fill")
+                            .font(.subheadline)
+                        Text("My Saved Cycles (\(cycleManager.savedCycles.count))")
+                            .font(.subheadline.weight(.medium))
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .font(.caption)
+                    }
+                    .foregroundColor(Brand.ColorSystem.primary)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .fill(Brand.ColorSystem.primary.opacity(0.1))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                    .stroke(Brand.ColorSystem.primary.opacity(0.3), lineWidth: 1)
+                            )
+                    )
+                }
+                .buttonStyle(.plain)
+            }
         }
+        .padding(.horizontal, 16)
     }
     
     // MARK: - Current Selection Section
@@ -90,7 +145,7 @@ struct PathwayView: View {
             title: "Your Journey",
             icon: "location.fill"
         ) {
-            VStack(spacing: Brand.Spacing.md) {
+            VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                 // Show current path through questions
                 if let category = viewModel.currentCategory {
                     HStack {
@@ -121,11 +176,14 @@ struct PathwayView: View {
                             Text(answer.selectedOption.title)
                                 .font(.caption.weight(.semibold))
                                 .foregroundColor(.primary)
+                            
+                            Spacer()
                         }
                     }
                     .padding(.leading, 20)
                 }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
     
@@ -136,7 +194,7 @@ struct PathwayView: View {
             icon: "signpost.right.fill"
         ) {
             VStack(spacing: Brand.Spacing.lg) {
-                Text("What brings you here today?")
+                Text("What Brings You Here Today?")
                     .font(.headline.weight(.semibold))
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.center)
@@ -340,25 +398,50 @@ struct PathwayView: View {
                                 .foregroundColor(Brand.ColorSystem.secondary)
                             }
                             
-                            // View Details Button
-                            Button {
-                                selectedPathway = pathway
-                            } label: {
-                                HStack(spacing: 8) {
-                                    Text("View Pathway Steps")
-                                        .font(.caption.weight(.semibold))
-                                    Image(systemName: "arrow.right.circle.fill")
-                                        .font(.caption)
+                            // Action Buttons
+                            HStack(spacing: 8) {
+                                // View Details Button
+                                Button {
+                                    selectedPathway = pathway
+                                } label: {
+                                    HStack(spacing: 6) {
+                                        Text("View Steps")
+                                            .font(.caption.weight(.semibold))
+                                        Image(systemName: "arrow.right.circle.fill")
+                                            .font(.caption)
+                                    }
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 10)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                            .fill(Brand.ColorSystem.primary)
+                                    )
                                 }
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 10)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .fill(Brand.ColorSystem.primary)
-                                )
+                                .buttonStyle(.plain)
+                                
+                                // Save Cycle Button
+                                Button {
+                                    pathwayToSave = pathway
+                                    cycleName = generateDefaultCycleName(for: pathway)
+                                    showingSaveCycleDialog = true
+                                } label: {
+                                    HStack(spacing: 6) {
+                                        Text("Save Cycle")
+                                            .font(.caption.weight(.semibold))
+                                        Image(systemName: "bookmark.fill")
+                                            .font(.caption)
+                                    }
+                                    .foregroundColor(Brand.ColorSystem.primary)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 10)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                            .stroke(Brand.ColorSystem.primary, lineWidth: 1.5)
+                                    )
+                                }
+                                .buttonStyle(.plain)
                             }
-                            .buttonStyle(.plain)
                         }
                         .padding()
                         .background(
@@ -375,13 +458,58 @@ struct PathwayView: View {
         }
     }
     
+    // MARK: - Clinic Finder Section
+    private var clinicFinderSection: some View {
+        NavigationLink(destination: ClinicFinderView()) {
+            VStack(spacing: 0) {
+                HStack {
+                    // Leading icon and title
+                    HStack(spacing: 12) {
+                        Image(systemName: "location.magnifyingglass")
+                            .font(.body.weight(.medium))
+                            .foregroundColor(Brand.ColorSystem.primary)
+                            .frame(width: 24)
+                        
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Find a Infertility or Fertility Preservation Clinic")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundColor(.primary)
+                            
+                            Text("Locate specialized clinics near you")
+                                .font(.caption)
+                                .foregroundColor(Brand.ColorSystem.secondary)
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    // Navigation indicator
+                    Image(systemName: "chevron.right")
+                        .font(.caption.weight(.semibold))
+                        .foregroundColor(Brand.ColorSystem.secondary)
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .fill(.ultraThinMaterial)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .stroke(Brand.ColorToken.hairline, lineWidth: 1)
+                        )
+                )
+            }
+        }
+        .buttonStyle(.plain)
+        .padding(.horizontal, 16)
+    }
+    
     // MARK: - Educational Section
     private var educationalSection: some View {
         ExpandableSection(
             title: "Understanding Treatment Pathways",
             subtitle: "Learn about your options",
             icon: "book.circle",
-            isExpanded: .constant(false)
+            isExpanded: $isEducationExpanded
         ) {
             VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                 Text("Key Considerations")
@@ -547,6 +675,44 @@ struct PathwayDetailSheet: View {
                 }
             }
         }
+    }
+}
+
+// MARK: - PathwayView Helper Methods
+
+extension PathwayView {
+    private func saveCycle(pathway: PathwayPath, name: String) {
+        let questionsAndAnswers = viewModel.answeredQuestions.map { qa in
+            QuestionAnswer(
+                questionId: qa.question.id,
+                questionText: qa.question.question,
+                selectedOptionId: qa.selectedOption.id,
+                selectedOptionText: qa.selectedOption.title
+            )
+        }
+        
+        let categoryName = viewModel.currentCategory?.title ?? "Unknown"
+        
+        cycleManager.saveCycle(
+            name: name,
+            pathway: pathway,
+            questionsAndAnswers: questionsAndAnswers,
+            category: categoryName
+        )
+    }
+    
+    private func generateDefaultCycleName(for pathway: PathwayPath) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d"
+        let dateString = dateFormatter.string(from: Date())
+        
+        return "My \(pathway.title) - \(dateString)"
+    }
+    
+    private func resetSaveDialog() {
+        showingSaveCycleDialog = false
+        pathwayToSave = nil
+        cycleName = ""
     }
 }
 

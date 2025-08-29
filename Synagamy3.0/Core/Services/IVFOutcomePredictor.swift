@@ -271,36 +271,40 @@ final class IVFOutcomePredictor {
         
         // Stage 1: Oocyte Retrieval
         let oocyteOutcome = predictOocytes(inputs: inputs)
-        let totalOocytes = oocyteOutcome.predicted
+        let totalOocytes = oocyteOutcome.predicted // Keep as decimal
         
         // Stage 2: Oocyte Maturation
         let maturationRate = getMaturationRate(inputs.age)
-        let matureOocytes = totalOocytes * maturationRate
-        let immatureOocytes = totalOocytes - matureOocytes
+        let matureOocytes = min(totalOocytes, totalOocytes * maturationRate) // Keep as decimal
+        let immatureOocytes = totalOocytes - matureOocytes // Exact decimal difference
         
         // Stage 3: Fertilization (both procedures calculated)
         let fertilizationOutcome = predictFertilization(oocytes: matureOocytes, inputs: inputs)
         
         // Use recommended procedure for subsequent calculations
         let isICSIRecommended = fertilizationOutcome.recommendedProcedure.contains("ICSI")
-        let fertilizedEmbryos = isICSIRecommended ? 
+        let rawFertilizedEmbryos = isICSIRecommended ? 
             fertilizationOutcome.icsi.predicted : fertilizationOutcome.conventionalIVF.predicted
-        let fertilizationFailure = matureOocytes - fertilizedEmbryos
+        let fertilizedEmbryos = min(matureOocytes, rawFertilizedEmbryos) // Keep as decimal
+        let fertilizationFailure = matureOocytes - fertilizedEmbryos // Exact decimal difference
         
         // Stage 4: Day 3 Cleavage
         let day3Rate = getDay3CleavageRate(inputs.age)
-        let day3Embryos = fertilizedEmbryos * day3Rate
-        let day3Arrest = fertilizedEmbryos - day3Embryos
+        let rawDay3Embryos = fertilizedEmbryos * day3Rate
+        let day3Embryos = min(fertilizedEmbryos, rawDay3Embryos) // Keep as decimal
+        let day3Arrest = fertilizedEmbryos - day3Embryos // Exact decimal difference
         
         // Stage 5: Blastocyst Development
         let blastocystOutcome = predictBlastocystsFromDay3(day3Embryos: day3Embryos, inputs: inputs)
-        let blastocysts = blastocystOutcome.predicted
-        let blastocystArrest = day3Embryos - blastocysts
+        let rawBlastocysts = blastocystOutcome.predicted
+        let blastocysts = min(day3Embryos, rawBlastocysts) // Keep as decimal
+        let blastocystArrest = day3Embryos - blastocysts // Exact decimal difference
         
         // Stage 6: Chromosomal Analysis (Euploidy/Aneuploidy)
         let euploidyOutcome = predictEuploidy(blastocysts: blastocysts, inputs: inputs)
-        let euploidBlastocysts = euploidyOutcome.expectedEuploidBlastocysts
-        let aneuploidBlastocysts = blastocysts - euploidBlastocysts
+        let rawEuploidBlastocysts = euploidyOutcome.expectedEuploidBlastocysts
+        let euploidBlastocysts = min(blastocysts, rawEuploidBlastocysts) // Keep as decimal
+        let aneuploidBlastocysts = blastocysts - euploidBlastocysts // Exact decimal difference
         
         // Create stage losses summary
         let stageLosses = PredictionResults.CascadeFlow.StageLosses(
@@ -324,6 +328,121 @@ final class IVFOutcomePredictor {
         )
         
         return (oocyteOutcome, fertilizationOutcome, blastocystOutcome, euploidyOutcome, cascadeFlow)
+    }
+    
+    // MARK: - Post-Retrieval Prediction (Starting from Known Oocyte Count)
+    func predictFromRetrievedOocytes(oocyteCount: Double, inputs: PredictionInputs) -> PredictionResults {
+        // Create a modified oocyte outcome with the known count
+        let oocyteOutcome = PredictionResults.OocyteOutcome(
+            predicted: oocyteCount,
+            range: oocyteCount...oocyteCount, // Single value range
+            percentile: "Known retrieved count: \(String(format: "%.1f", oocyteCount)) oocytes"
+        )
+        
+        // Start from mature oocytes (apply maturation rate to known total)
+        let maturationRate = getMaturationRate(inputs.age)
+        let matureOocytes = oocyteCount * maturationRate
+        
+        // Continue with standard predictions from this point
+        let fertilizationOutcome = predictFertilization(oocytes: matureOocytes, inputs: inputs)
+        
+        // Use recommended procedure for subsequent calculations
+        let isICSIRecommended = fertilizationOutcome.recommendedProcedure.contains("ICSI")
+        let fertilizedEmbryos = isICSIRecommended ? 
+            fertilizationOutcome.icsi.predicted : fertilizationOutcome.conventionalIVF.predicted
+        
+        let blastocystOutcome = predictBlastocystsFromDay3(
+            day3Embryos: fertilizedEmbryos * getDay3CleavageRate(inputs.age), 
+            inputs: inputs
+        )
+        
+        let euploidyOutcome = predictEuploidy(blastocysts: blastocystOutcome.predicted, inputs: inputs)
+        
+        // Create cascade flow starting from known oocyte count
+        let cascadeFlow = createPostRetrievalCascadeFlow(
+            totalOocytes: oocyteCount,
+            inputs: inputs,
+            fertilizationOutcome: fertilizationOutcome,
+            blastocystOutcome: blastocystOutcome,
+            euploidyOutcome: euploidyOutcome
+        )
+        
+        // Determine confidence level
+        let confidence = calculateConfidence(inputs: inputs)
+        
+        // Generate clinical notes for post-retrieval scenario
+        let notes = generatePostRetrievalClinicalNotes(
+            oocyteCount: oocyteCount,
+            inputs: inputs,
+            blastocysts: blastocystOutcome
+        )
+        
+        // Compile references
+        let references = getReferences()
+        
+        return PredictionResults(
+            expectedOocytes: oocyteOutcome,
+            expectedFertilization: fertilizationOutcome,
+            expectedBlastocysts: blastocystOutcome,
+            euploidyRates: euploidyOutcome,
+            cascadeFlow: cascadeFlow,
+            confidenceLevel: confidence,
+            clinicalNotes: notes,
+            references: references
+        )
+    }
+    
+    private func createPostRetrievalCascadeFlow(
+        totalOocytes: Double,
+        inputs: PredictionInputs,
+        fertilizationOutcome: PredictionResults.FertilizationOutcome,
+        blastocystOutcome: PredictionResults.BlastocystOutcome,
+        euploidyOutcome: PredictionResults.EuploidyOutcome
+    ) -> PredictionResults.CascadeFlow {
+        
+        // Stage 2: Oocyte Maturation
+        let maturationRate = getMaturationRate(inputs.age)
+        let matureOocytes = totalOocytes * maturationRate
+        let immatureOocytes = totalOocytes - matureOocytes
+        
+        // Stage 3: Fertilization
+        let isICSIRecommended = fertilizationOutcome.recommendedProcedure.contains("ICSI")
+        let fertilizedEmbryos = isICSIRecommended ? 
+            fertilizationOutcome.icsi.predicted : fertilizationOutcome.conventionalIVF.predicted
+        let fertilizationFailure = matureOocytes - fertilizedEmbryos
+        
+        // Stage 4: Day 3 Cleavage
+        let day3Rate = getDay3CleavageRate(inputs.age)
+        let day3Embryos = fertilizedEmbryos * day3Rate
+        let day3Arrest = fertilizedEmbryos - day3Embryos
+        
+        // Stage 5: Blastocyst Development
+        let blastocysts = blastocystOutcome.predicted
+        let blastocystArrest = day3Embryos - blastocysts
+        
+        // Stage 6: Chromosomal Analysis
+        let euploidBlastocysts = euploidyOutcome.expectedEuploidBlastocysts
+        let aneuploidBlastocysts = blastocysts - euploidBlastocysts
+        
+        // Create stage losses summary
+        let stageLosses = PredictionResults.CascadeFlow.StageLosses(
+            immatureOocytes: immatureOocytes,
+            fertilizationFailure: fertilizationFailure,
+            day3Arrest: day3Arrest,
+            blastocystArrest: blastocystArrest,
+            chromosomalAbnormalities: aneuploidBlastocysts
+        )
+        
+        return PredictionResults.CascadeFlow(
+            totalOocytes: totalOocytes,
+            matureOocytes: matureOocytes,
+            fertilizedEmbryos: fertilizedEmbryos,
+            day3Embryos: day3Embryos,
+            blastocysts: blastocysts,
+            euploidBlastocysts: euploidBlastocysts,
+            aneuploidBlastocysts: aneuploidBlastocysts,
+            stageLosses: stageLosses
+        )
     }
     
     // MARK: - Safe Oocyte Prediction Using Evidence-Based Models
@@ -484,7 +603,7 @@ final class IVFOutcomePredictor {
         return PredictionResults.BlastocystOutcome(
             predicted: max(0, predictedBlastocysts),
             range: lowerBound...upperBound,
-            developmentRate: developmentRate * 100 // Convert to percentage
+            developmentRate: developmentRate * 100 // Percentage of fertilized embryos that become blastocysts
         )
     }
     
@@ -591,7 +710,8 @@ final class IVFOutcomePredictor {
         
         // Get age-specific blastocyst development rate (Day 3 to Day 5/6)
         let devQuality = getDevelopmentQuality(inputs.age)
-        var blastocystRate = devQuality.blastRate / devQuality.qualityIndex // Adjust for Day 3 to blastocyst
+        // Use blastRate directly for Day 3 to blastocyst conversion (already accounts for this stage)
+        var blastocystRate = devQuality.blastRate
         
         // Apply adjustments
         let amhCategory = getAMHCategory(inputs.amhLevel)
@@ -791,6 +911,49 @@ final class IVFOutcomePredictor {
         // General disclaimer
         notes.append("These predictions are estimates based on population averages. Individual results may vary significantly.")
         notes.append("Consult with your reproductive endocrinologist for personalized treatment planning.")
+        
+        return notes
+    }
+    
+    private func generatePostRetrievalClinicalNotes(oocyteCount: Double, inputs: PredictionInputs, blastocysts: PredictionResults.BlastocystOutcome) -> [String] {
+        var notes: [String] = []
+        
+        // Post-retrieval specific note
+        notes.append("Predictions based on your actual retrieved oocyte count of \(String(format: "%.1f", oocyteCount)).")
+        
+        // Age-related notes
+        if inputs.age >= 35 {
+            notes.append("Advanced maternal age may impact remaining developmental stages and chromosomal normalcy.")
+        }
+        
+        // Oocyte yield assessment
+        let expectedForAge = getExpectedOocytesForAge(inputs.age)
+        if oocyteCount < expectedForAge * 0.7 {
+            notes.append("Lower than expected oocyte yield. Focus on optimizing embryo culture conditions.")
+        } else if oocyteCount > expectedForAge * 1.3 {
+            notes.append("Excellent oocyte yield. Consider freeze-all strategy if OHSS risk exists.")
+        }
+        
+        // Blastocyst development notes
+        if blastocysts.predicted < 2 {
+            notes.append("Limited expected blastocysts. Consider extending culture to Day 6/7 if possible.")
+        }
+        
+        // Diagnosis-specific notes for post-retrieval
+        switch inputs.diagnosisType {
+        case .diminishedOvarianReserve:
+            notes.append("With DOR, every oocyte is valuable. Optimize laboratory conditions and consider assisted hatching.")
+        case .endometriosis:
+            notes.append("Endometriosis may impact remaining developmental stages. Monitor embryo quality closely.")
+        case .maleFactorSevere:
+            notes.append("ICSI recommended for optimal fertilization of retrieved oocytes.")
+        default:
+            break
+        }
+        
+        // General post-retrieval guidance
+        notes.append("Subsequent stages depend on laboratory conditions and embryo culture protocols.")
+        notes.append("Individual embryo development may vary. Consult your embryologist for specific updates.")
         
         return notes
     }

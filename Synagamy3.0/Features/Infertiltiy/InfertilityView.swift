@@ -100,6 +100,19 @@ struct InfertilityView: View {
                                 .accessibilityLabel(Text("\(item.title). \(item.subtitle). Tap to read more."))
                             }
                             
+                            // Explore Infertility Treatment
+                            NavigationLink(destination: PathwayView()) {
+                                BrandTile(
+                                    title: "Explore Infertility Treatment",
+                                    subtitle: "Interactive treatment pathways",
+                                    systemIcon: "arrow.triangle.branch",
+                                    assetIcon: nil,
+                                    isCompact: true
+                                )
+                            }
+                            .buttonStyle(BrandTileButtonStyle())
+                            .accessibilityLabel(Text("Explore Infertility Treatment. Interactive treatment pathways. Tap to explore."))
+                            
                             // Fertility Preservation Section
                             sectionHeader(title: "Fertility Preservation", icon: "snowflake")
                             
@@ -118,6 +131,19 @@ struct InfertilityView: View {
                                 .buttonStyle(BrandTileButtonStyle())
                                 .accessibilityLabel(Text("\(item.title). \(item.subtitle). Tap to read more."))
                             }
+                            
+                            // Explore Fertility Preservation Options
+                            NavigationLink(destination: PathwayView()) {
+                                BrandTile(
+                                    title: "Explore Fertility Preservation Options",
+                                    subtitle: "Treatment and storage pathways",
+                                    systemIcon: "snowflake.circle",
+                                    assetIcon: nil,
+                                    isCompact: true
+                                )
+                            }
+                            .buttonStyle(BrandTileButtonStyle())
+                            .accessibilityLabel(Text("Explore Fertility Preservation Options. Treatment and storage pathways. Tap to explore."))
                             
                             // Support & Resources Section
                             sectionHeader(title: "Support & Resources", icon: "heart.circle")
@@ -138,85 +164,43 @@ struct InfertilityView: View {
                                 .accessibilityLabel(Text("\(item.title). \(item.subtitle). Tap to read more."))
                             }
                             
-                            // Links to other sections
-                            VStack(spacing: Brand.Spacing.md) {
-                                // Link to Education section
-                                NavigationLink(destination: EducationView()) {
-                                    HStack(spacing: 12) {
-                                        Image(systemName: "book.fill")
-                                            .font(.title3)
-                                            .foregroundColor(Brand.ColorSystem.primary)
-                                            .frame(width: 44, height: 44)
-                                            .background(
-                                                Circle()
-                                                    .fill(Brand.ColorSystem.primary.opacity(0.1))
-                                            )
+                            // Link to Education section
+                            NavigationLink(destination: EducationView()) {
+                                HStack(spacing: 12) {
+                                    Image(systemName: "book.fill")
+                                        .font(.title3)
+                                        .foregroundColor(Brand.ColorSystem.primary)
+                                        .frame(width: 44, height: 44)
+                                        .background(
+                                            Circle()
+                                                .fill(Brand.ColorSystem.primary.opacity(0.1))
+                                        )
+                                    
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("Explore More Topics")
+                                            .font(.headline)
+                                            .foregroundColor(.primary)
                                         
-                                        VStack(alignment: .leading, spacing: 4) {
-                                            Text("Explore More Topics")
-                                                .font(.headline)
-                                                .foregroundColor(.primary)
-                                            
-                                            Text("Deep dive into fertility education")
-                                                .font(.caption)
-                                                .foregroundColor(Brand.ColorSystem.secondary)
-                                        }
-                                        
-                                        Spacer()
-                                        
-                                        Image(systemName: "chevron.right")
+                                        Text("Deep dive into fertility education")
                                             .font(.caption)
                                             .foregroundColor(Brand.ColorSystem.secondary)
                                     }
-                                    .padding()
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                            .fill(Brand.ColorSystem.primary.opacity(0.05))
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                                    .stroke(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
-                                            )
-                                    )
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "chevron.right")
+                                        .font(.caption)
+                                        .foregroundColor(Brand.ColorSystem.secondary)
                                 }
-                                
-                                // Link to Pathway section
-                                NavigationLink(destination: PathwayView()) {
-                                    HStack(spacing: 12) {
-                                        Image(systemName: "map.fill")
-                                            .font(.title3)
-                                            .foregroundColor(Brand.ColorSystem.primary)
-                                            .frame(width: 44, height: 44)
-                                            .background(
-                                                Circle()
-                                                    .fill(Brand.ColorSystem.primary.opacity(0.1))
-                                            )
-                                        
-                                        VStack(alignment: .leading, spacing: 4) {
-                                            Text("Pathway Explorer")
-                                                .font(.headline)
-                                                .foregroundColor(.primary)
-                                            
-                                            Text("Interactive fertility treatment paths")
-                                                .font(.caption)
-                                                .foregroundColor(Brand.ColorSystem.secondary)
-                                        }
-                                        
-                                        Spacer()
-                                        
-                                        Image(systemName: "chevron.right")
-                                            .font(.caption)
-                                            .foregroundColor(Brand.ColorSystem.secondary)
-                                    }
-                                    .padding()
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                            .fill(Brand.ColorSystem.primary.opacity(0.05))
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                                    .stroke(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
-                                            )
-                                    )
-                                }
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                        .fill(Brand.ColorSystem.primary.opacity(0.05))
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                                .stroke(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
+                                        )
+                                )
                             }
                             .padding(.top, Brand.Spacing.lg)
                         }

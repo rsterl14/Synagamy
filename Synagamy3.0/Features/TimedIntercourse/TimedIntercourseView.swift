@@ -12,7 +12,7 @@ struct TimedIntercourseView: View {
     @StateObject private var viewModel = TimedIntercourseViewModel()
     @State private var showingCycleInput = false
     @State private var isEducationExpanded = false
-    @State private var isMethodologyExpanded = false
+    @State private var showingResetConfirmation = false
     
     var body: some View {
         StandardPageLayout(
@@ -48,9 +48,6 @@ struct TimedIntercourseView: View {
                     // MARK: - Educational Content
                     educationalSection
                     
-                    // MARK: - Methodology
-                    methodologySection
-                    
                     // MARK: - Disclaimer
                     disclaimerSection
                 }
@@ -59,6 +56,14 @@ struct TimedIntercourseView: View {
         }
         .sheet(isPresented: $showingCycleInput) {
             CycleInputSheetView(viewModel: viewModel, isPresented: $showingCycleInput)
+        }
+        .alert("Reset Cycle Information", isPresented: $showingResetConfirmation) {
+            Button("Cancel", role: .cancel) { }
+            Button("Reset", role: .destructive) {
+                viewModel.clearCycle()
+            }
+        } message: {
+            Text("This will clear your current cycle information. You'll need to enter your cycle details again to get timing recommendations.")
         }
     }
     
@@ -149,12 +154,25 @@ struct TimedIntercourseView: View {
                                 .font(.headline.weight(.semibold))
                                 .foregroundColor(.primary)
                             
-                            Button("Update Cycle") {
-                                showingCycleInput = true
+                            HStack(spacing: 12) {
+                                Button("Reset") {
+                                    showingResetConfirmation = true
+                                }
+                                .font(.caption.weight(.medium))
+                                .foregroundColor(.red)
+                                
+                                Button("Update Cycle") {
+                                    showingCycleInput = true
+                                }
+                                .font(.caption.weight(.medium))
+                                .foregroundColor(Brand.ColorSystem.primary)
                             }
-                            .font(.caption.weight(.medium))
-                            .foregroundColor(Brand.ColorSystem.primary)
                         }
+                    }
+                    
+                    // Cycle Timeline
+                    if let window = viewModel.currentFertilityWindow {
+                        cycleTimelineView(window: window)
                     }
                     
                     // Fertility Status
@@ -347,7 +365,8 @@ struct TimedIntercourseView: View {
         }
     }
     
-    // MARK: - Methodology Section
+    // MARK: - Methodology Section (Hidden)
+    /*
     private var methodologySection: some View {
         ExpandableSection(
             title: "How Our Algorithm Works",
@@ -404,6 +423,7 @@ struct TimedIntercourseView: View {
             }
         }
     }
+    */
     
     // MARK: - Disclaimer Section
     private var disclaimerSection: some View {
@@ -426,6 +446,123 @@ struct TimedIntercourseView: View {
                     .foregroundColor(Brand.ColorSystem.primary)
                     .multilineTextAlignment(.leading)
             }
+        }
+    }
+    
+    // MARK: - Cycle Timeline View
+    private func cycleTimelineView(window: FertilityWindow) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Cycle Timeline")
+                .font(.subheadline.weight(.semibold))
+                .foregroundColor(.primary)
+            
+            // Timeline bars
+            VStack(alignment: .leading, spacing: 8) {
+                // Period phase
+                timelineBar(
+                    title: "Period",
+                    color: .red,
+                    startDay: 1,
+                    endDay: window.cycle.periodLength,
+                    totalDays: window.cycle.averageLength,
+                    currentDay: window.cycle.currentDay
+                )
+                
+                // Fertile window
+                let ovulationDay = window.cycle.averageLength - window.cycle.lutealPhaseLength
+                let fertileStart = ovulationDay - 5
+                let fertileEnd = ovulationDay + 1
+                
+                timelineBar(
+                    title: "Fertile Window",
+                    color: .green,
+                    startDay: fertileStart,
+                    endDay: fertileEnd,
+                    totalDays: window.cycle.averageLength,
+                    currentDay: window.cycle.currentDay
+                )
+                
+                // Ovulation (peak fertility)
+                timelineBar(
+                    title: "Ovulation",
+                    color: .orange,
+                    startDay: ovulationDay,
+                    endDay: ovulationDay + 1,
+                    totalDays: window.cycle.averageLength,
+                    currentDay: window.cycle.currentDay
+                )
+            }
+            
+            // Legend
+            HStack(spacing: 16) {
+                legendItem(color: .red, text: "Period")
+                legendItem(color: .green, text: "Fertile")
+                legendItem(color: .orange, text: "Ovulation")
+                Spacer()
+                legendItem(color: Brand.ColorSystem.primary, text: "Today")
+            }
+            .font(.caption)
+        }
+        .padding(.top, 8)
+    }
+    
+    // MARK: - Timeline Bar Component
+    private func timelineBar(title: String, color: Color, startDay: Int, endDay: Int, totalDays: Int, currentDay: Int) -> some View {
+        HStack(spacing: 8) {
+            // Title
+            Text(title)
+                .font(.caption.weight(.medium))
+                .foregroundColor(.primary)
+                .frame(width: 80, alignment: .leading)
+            
+            // Timeline bar
+            GeometryReader { geometry in
+                let barWidth = geometry.size.width
+                let startPercent = Double(max(1, startDay) - 1) / Double(totalDays)
+                let endPercent = Double(min(totalDays, endDay)) / Double(totalDays)
+                let currentPercent = Double(currentDay - 1) / Double(totalDays)
+                
+                ZStack(alignment: .leading) {
+                    // Background
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(Color.gray.opacity(0.2))
+                        .frame(height: 12)
+                    
+                    // Active phase bar
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(color.opacity(0.6))
+                        .frame(
+                            width: barWidth * (endPercent - startPercent),
+                            height: 12
+                        )
+                        .offset(x: barWidth * startPercent)
+                    
+                    // Current day indicator
+                    Circle()
+                        .fill(Brand.ColorSystem.primary)
+                        .frame(width: 16, height: 16)
+                        .offset(x: barWidth * currentPercent - 8)
+                        .opacity(currentDay >= 1 && currentDay <= totalDays ? 1 : 0)
+                }
+            }
+            .frame(height: 16)
+        }
+    }
+    
+    // MARK: - Legend Item
+    private func legendItem(color: Color, text: String) -> some View {
+        HStack(spacing: 4) {
+            if text == "Today" {
+                Circle()
+                    .fill(color)
+                    .frame(width: 8, height: 8)
+            } else {
+                RoundedRectangle(cornerRadius: 2)
+                    .fill(color.opacity(0.6))
+                    .frame(width: 12, height: 8)
+            }
+            Text(text)
+                .foregroundColor(Brand.ColorSystem.secondary)
         }
     }
 }

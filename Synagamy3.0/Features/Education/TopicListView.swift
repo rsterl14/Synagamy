@@ -91,7 +91,7 @@ struct TopicListView: View {
         .sheet(item: $selected) { t in
             NavigationStack {
                 ScrollView {
-                    TopicDetailContent(topic: t)
+                    TopicDetailContent(topic: t, selectedTopic: $selected)
                         .padding()
                 }
             }

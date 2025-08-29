@@ -20,7 +20,6 @@ enum AppAssets {
         static let commonQuestions = "CommonQuestionsLogo"
         static let pathways = "PathwaysLogo"
         static let clinics = "ClinicsLogo"
-        static let community = "CommunityLogo"
         static let infertility = "InfertilityLogo"
     }
     

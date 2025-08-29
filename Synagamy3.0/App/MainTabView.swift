@@ -20,7 +20,7 @@ import SwiftUI
 struct MainTabView: View {
     // MARK: - Tab enumeration for type-safe selection & testability
     enum Tab: Hashable {
-        case home, education, pathways, clinics, predictor, resources, questions, community
+        case home, education, pathways, clinics, predictor, resources, questions
     }
 
     // MARK: - UI state
@@ -34,7 +34,6 @@ struct MainTabView: View {
     @State private var clinicsPath = NavigationPath()
     @State private var resourcesPath = NavigationPath()
     @State private var questionsPath = NavigationPath()
-    @State private var communityPath = NavigationPath()
     @State private var outcomePath = NavigationPath()
 
     var body: some View {
@@ -108,16 +107,6 @@ struct MainTabView: View {
             .tabItem { Label("Questions", systemImage: "questionmark.bubble.fill") }
             .tag(Tab.questions)
             .accessibilityLabel(Text("Common Questions"))
-
-            // COMMUNITY
-            NavigationStack(path: $communityPath) {
-                CommunityView()
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbarBackground(.hidden, for: .navigationBar)
-            }
-            .tabItem { Label("Community", systemImage: "person.3.fill") }
-            .tag(Tab.community)
-            .accessibilityLabel(Text("Community"))
         }
         // Global tint/brand color for selected tab & prominent buttons
         .tint(Color("BrandPrimary"))
@@ -138,7 +127,6 @@ struct MainTabView: View {
                 clinicsPath = NavigationPath()
                 resourcesPath = NavigationPath()
                 questionsPath = NavigationPath()
-                communityPath = NavigationPath()
                 outcomePath = NavigationPath()
             }
         )
@@ -196,7 +184,6 @@ struct MainTabView: View {
         clinicsPath = NavigationPath()
         resourcesPath = NavigationPath()
         questionsPath = NavigationPath()
-        communityPath = NavigationPath()
         outcomePath = NavigationPath()
     }
 }

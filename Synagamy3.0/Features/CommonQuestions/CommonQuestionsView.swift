@@ -31,32 +31,85 @@ struct CommonQuestionsView: View {
             showHomeButton: true,
             usePopToRoot: true
         ) {
-            VStack(alignment: .leading, spacing: 12) {
-                if questions.isEmpty {
-                    EmptyStateView(
-                        icon: "questionmark.circle",
-                        title: "No questions available",
-                        message: "Please check back later."
-                    )
-                    .padding(.top, 8)
-                } else {
-                    LazyVStack(spacing: Brand.Spacing.xl) {
-                        ForEach(questions, id: \.id) { question in
-                            Button {
-                                selected = question
-                            } label: {
-                                BrandTile(
-                                    title: question.question,
-                                    subtitle: "Common concern",
-                                    systemIcon: "questionmark.circle.fill",
-                                    isCompact: true
-                                )
-                            }
-                            .buttonStyle(.plain)
-                        }
+            ScrollView {
+                VStack(spacing: Brand.Spacing.xl) {
+                    // Header Section
+                    VStack(spacing: 12) {
+                        CategoryBadge(
+                            text: "FAQ Center",
+                            icon: "questionmark.bubble.fill",
+                            color: Brand.ColorSystem.primary
+                        )
+                        
+                        Text("Common Questions")
+                            .font(.title2.weight(.semibold))
+                            .foregroundColor(.primary)
+                            .multilineTextAlignment(.center)
+                        
+                        Text("Find answers to frequently asked questions")
+                            .font(.caption)
+                            .foregroundColor(Brand.ColorSystem.secondary)
+                            .multilineTextAlignment(.center)
                     }
-                    .padding(.top, 4)
+                    .padding(.horizontal, 16)
+                    
+                    // Questions List
+                    if questions.isEmpty {
+                        EmptyStateView(
+                            icon: "questionmark.circle",
+                            title: "No questions available",
+                            message: "Please check back later."
+                        )
+                        .padding(.top, 40)
+                    } else {
+                        VStack(spacing: Brand.Spacing.md) {
+                            ForEach(questions, id: \.id) { question in
+                                Button {
+                                    selected = question
+                                } label: {
+                                    HStack(spacing: 12) {
+                                        // Icon
+                                        ZStack {
+                                            Circle()
+                                                .fill(Brand.ColorSystem.primary.opacity(0.1))
+                                                .frame(width: 36, height: 36)
+                                            
+                                            Image(systemName: "questionmark")
+                                                .font(.system(size: 16, weight: .medium))
+                                                .foregroundColor(Brand.ColorSystem.primary)
+                                        }
+                                        
+                                        // Question text
+                                        Text(question.question)
+                                            .font(.subheadline.weight(.medium))
+                                            .foregroundColor(.primary)
+                                            .multilineTextAlignment(.leading)
+                                            .lineLimit(3)
+                                        
+                                        Spacer()
+                                        
+                                        // Chevron
+                                        Image(systemName: "chevron.right")
+                                            .font(.caption.weight(.semibold))
+                                            .foregroundColor(Brand.ColorSystem.secondary)
+                                    }
+                                    .padding(12)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                            .fill(.ultraThinMaterial)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                                    .stroke(Brand.ColorToken.hairline.opacity(0.5), lineWidth: 1)
+                                            )
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        .padding(.horizontal, 16)
+                    }
                 }
+                .padding(.vertical, Brand.Spacing.lg)
             }
         }
         
@@ -84,15 +137,25 @@ struct CommonQuestionsView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
                         
-                        // MARK: - Enhanced header using CategoryBadge component
+                        // MARK: - Enhanced header
                         VStack(alignment: .leading, spacing: 12) {
                             // Category badge
-                            CategoryBadge(text: "Common Question", icon: "questionmark.circle.fill")
+                            CategoryBadge(
+                                text: "FAQ",
+                                icon: "questionmark.bubble.fill",
+                                color: Brand.ColorSystem.primary
+                            )
                             
                             // Main question
                             Text(q.question)
                                 .font(.largeTitle.bold())
-                                .foregroundColor(Brand.ColorSystem.primary)
+                                .foregroundStyle(
+                                    LinearGradient(
+                                        colors: [Brand.ColorSystem.primary, Brand.ColorSystem.primary.opacity(0.8)],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
                                 .multilineTextAlignment(.leading)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .accessibilityAddTraits(.isHeader)
@@ -101,19 +164,54 @@ struct CommonQuestionsView: View {
                         
                         // Divider
                         Rectangle()
-                            .fill(Brand.ColorSystem.primary.opacity(0.2))
+                            .fill(LinearGradient(
+                                colors: [Brand.ColorSystem.primary.opacity(0.3), Brand.ColorSystem.primary.opacity(0.05)],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            ))
                             .frame(height: 1)
                             .padding(.bottom, 4)
 
-                        // MARK: - Answer content using EnhancedContentBlock
-                        EnhancedContentBlock(title: "Answer", icon: "lightbulb.fill") {
+                        // MARK: - Answer content
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack(spacing: 8) {
+                                Image(systemName: "lightbulb.fill")
+                                    .font(.body)
+                                    .foregroundStyle(
+                                        LinearGradient(
+                                            colors: [.yellow, .orange],
+                                            startPoint: .top,
+                                            endPoint: .bottom
+                                        )
+                                    )
+                                
+                                Text("Answer")
+                                    .font(.subheadline.weight(.semibold))
+                                    .foregroundColor(Brand.ColorSystem.primary)
+                            }
+                            
                             Text(q.detailedAnswer)
                                 .font(.callout)
                                 .foregroundColor(.primary)
                                 .lineSpacing(4)
-                                .multilineTextAlignment(.leading)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .textSelection(.enabled)
+                                .padding(16)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                        .fill(.ultraThinMaterial)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                                .strokeBorder(
+                                                    LinearGradient(
+                                                        colors: [Brand.ColorToken.hairline, Brand.ColorToken.hairline.opacity(0.3)],
+                                                        startPoint: .topLeading,
+                                                        endPoint: .bottomTrailing
+                                                    ),
+                                                    lineWidth: 1
+                                                )
+                                        )
+                                )
                         }
 
                         // Related topics with enhanced design

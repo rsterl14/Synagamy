@@ -15,6 +15,7 @@ import SwiftUI
 struct SynagamyApp: App {
     // A tiny launch model so we can surface a friendly error later if needed.
     @StateObject private var launchModel = AppLaunchModel()
+    @StateObject private var onboardingManager = OnboardingManager()
 
     init() {
         configureAppearance()
@@ -22,14 +23,24 @@ struct SynagamyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainTabView()
-                .tint(Color("BrandPrimary"))   // global accent
-                .task {
-                    // Preload JSON data + warm caches (non-blocking, safe).
-                    launchModel.preload()
+            ZStack {
+                MainTabView()
+                    .environmentObject(onboardingManager)
+                    .tint(Color("BrandPrimary"))   // global accent
+                    .task {
+                        // Preload JSON data + warm caches (non-blocking, safe).
+                        launchModel.preload()
+                    }
+                
+                // Onboarding overlay
+                if onboardingManager.shouldShowOnboarding {
+                    OnboardingView()
+                        .environmentObject(onboardingManager)
+                        .transition(.opacity.combined(with: .scale))
+                        .zIndex(1)
                 }
-                // If you ever want a truly global alert, you can pass `launchModel`
-                // via .environmentObject and read it inside your root view.
+            }
+            .animation(.spring(), value: onboardingManager.shouldShowOnboarding)
         }
     }
 }
