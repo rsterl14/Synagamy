@@ -47,15 +47,15 @@ class OnboardingManager: ObservableObject {
         var subtitle: String {
             switch self {
             case .welcome:
-                return "Your comprehensive fertility education companion"
+                return "Your Comprehensive Fertility Education Companion"
             case .features:
-                return "Explore evidence-based fertility tools and education"
+                return "Explore Evidence-based Fertility Tools and Education"
             case .disclaimer:
-                return "Understanding the educational purpose of this app"
+                return "Understanding the Educational Purpose of This App"
             case .permissions:
-                return "Your data stays private and secure"
+                return "Your Data Stays Private and Secure"
             case .complete:
-                return "Start exploring your fertility journey"
+                return "Start Exploring Your Fertility Journey"
             }
         }
         
@@ -167,7 +167,7 @@ struct OnboardingFeature: Identifiable {
     static let features: [OnboardingFeature] = [
         OnboardingFeature(
             title: "IVF Outcome Predictor",
-            description: "Get personalized predictions based on Canadian national data",
+            description: "Get personalized predictions based on population data",
             systemImage: "chart.bar.fill",
             color: .blue
         ),
@@ -179,7 +179,7 @@ struct OnboardingFeature: Identifiable {
         ),
         OnboardingFeature(
             title: "Educational Resources",
-            description: "Evidence-based fertility education from medical experts",
+            description: "Evidence-based fertility education backed by scentific research",
             systemImage: "book.fill",
             color: .green
         ),

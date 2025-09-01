@@ -114,42 +114,6 @@ struct TopicDetailContent: View {
                 }
             }
 
-            // EXPERT SUMMARY with enhanced design
-            if !topic.expertSummary.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack(spacing: 8) {
-                        Image(systemName: "graduationcap.fill")
-                            .font(.body)
-                            .foregroundStyle(
-                                LinearGradient(
-                                    colors: [Brand.ColorSystem.primary, Brand.ColorSystem.secondary],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                        
-                        Text("Detailed Explanation")
-                            .font(.subheadline.weight(.semibold))
-                            .foregroundColor(Brand.ColorSystem.primary)
-                    }
-                    
-                    Text(topic.expertSummary)
-                        .font(.callout)
-                        .foregroundColor(.primary.opacity(0.9))
-                        .lineSpacing(4)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .textSelection(.enabled)
-                        .padding(16)
-                        .background(
-                            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                .fill(.ultraThinMaterial)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                        .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
-                                )
-                        )
-                }
-            }
 
             // RELATED TO (optional) with enhanced design
             if let related = topic.relatedTo, !related.isEmpty {

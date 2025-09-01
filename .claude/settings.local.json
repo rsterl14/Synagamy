@@ -44,7 +44,15 @@
       "WebFetch(domain:fertilityscienceresearch.org)",
       "Bash(/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -typecheck /Users/reidsterling/Desktop/Synagamy/Synagamy3.0/UI/Components/TopicDetailContent.swift -I /Users/reidsterling/Desktop/Synagamy/Synagamy3.0)",
       "Bash(timeout 20 xcodebuild:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "WebFetch(domain:rbej.biomedcentral.com)",
+      "Bash(/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -typecheck /Users/reidsterling/Desktop/Synagamy/Synagamy3.0/Data/EducationModels.swift -I /Users/reidsterling/Desktop/Synagamy/Synagamy3.0)",
+      "WebFetch(domain:www.auajournals.org)",
+      "WebFetch(domain:wjmh.org)",
+      "WebFetch(domain:tau.amegroups.org)",
+      "WebFetch(domain:onlinelibrary.wiley.com)",
+      "WebFetch(domain:systematicreviewsjournal.biomedcentral.com)",
+      "WebFetch(domain:www.rbmojournal.com)"
     ],
     "deny": [],
     "ask": []

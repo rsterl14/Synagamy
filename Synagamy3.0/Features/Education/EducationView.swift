@@ -584,24 +584,7 @@ struct EducationView: View {
     
     // MARK: - Helper Methods
     private func getCategoryIcon(for category: String) -> String {
-        switch category.lowercased() {
-        case let cat where cat.contains("reproductive") || cat.contains("cycle"):
-            return "arrow.triangle.2.circlepath"
-        case let cat where cat.contains("diagnosis") || cat.contains("diagnostic"):
-            return "stethoscope"
-        case let cat where cat.contains("treatment"):
-            return "cross.case.fill"
-        case let cat where cat.contains("preservation"):
-            return "shield.fill"
-        case let cat where cat.contains("lifestyle"):
-            return "heart.text.square"
-        case let cat where cat.contains("male"):
-            return "person.fill"
-        case let cat where cat.contains("female"):
-            return "person.fill"
-        default:
-            return "book.fill"
-        }
+        return "book.fill"
     }
 }
 

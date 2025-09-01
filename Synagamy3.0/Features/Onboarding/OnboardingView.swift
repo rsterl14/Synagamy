@@ -69,9 +69,6 @@ struct OnboardingView: View {
                 
                 Spacer()
                 
-                Button("Skip") {
-                    onboardingManager.completeOnboarding()
-                }
                 .font(.caption.weight(.medium))
                 .foregroundColor(Brand.ColorSystem.primary)
                 .opacity((onboardingManager.isLastStep || onboardingManager.currentStep == .disclaimer) ? 0 : 1)
@@ -170,7 +167,7 @@ struct OnboardingView: View {
                 FeatureHighlight(
                     icon: "stethoscope",
                     title: "Medical Grade",
-                    description: "Developed by a Embryologist"
+                    description: "Developed by a Reproductive Specialist"
                 )
             }
         }
@@ -235,13 +232,7 @@ struct OnboardingView: View {
                 QuickTip(
                     number: "3",
                     title: "Track Your Cycle",
-                    description: "Use the timed intercourse tracker for optimal timing"
-                )
-                
-                QuickTip(
-                    number: "4",
-                    title: "Share with Providers",
-                    description: "Export results to discuss with your healthcare team"
+                    description: "Use the timed intercourse tracker for optimal timing for natural conception"
                 )
             }
         }

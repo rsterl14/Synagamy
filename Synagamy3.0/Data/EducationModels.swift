@@ -11,7 +11,7 @@
 //  Model Structure
 //  ---------------
 //  • EducationTopic: Individual educational articles/topics
-//    - Contains both lay-friendly and expert-level explanations
+//    - Contains lay-friendly explanations
 //    - Includes medical references for credibility
 //    - Categorized for easy browsing and filtering
 //    - Supports related topic linking for enhanced learning
@@ -45,8 +45,6 @@ struct EducationTopic: Identifiable, Codable, Hashable {
     /// User-friendly explanation written in accessible language for general audience
     let layExplanation: String
     
-    /// Detailed, technical summary with medical terminology for those wanting depth
-    let expertSummary: String
     
     /// Array of medical references, citations, or source URLs for credibility
     let reference: [String]
