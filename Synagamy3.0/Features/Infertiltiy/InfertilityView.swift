@@ -349,57 +349,6 @@ struct InfertilityView: View {
                             )
                         }
                     }
-                    
-                    // References section (if available)
-                    if let references = topic.references, !references.isEmpty {
-                        VStack(alignment: .leading, spacing: 10) {
-                            HStack(spacing: 8) {
-                                Image(systemName: "link.circle.fill")
-                                    .font(.body)
-                                    .foregroundColor(Brand.ColorSystem.primary)
-                                
-                                Text("Learn More")
-                                    .font(.subheadline.weight(.semibold))
-                                    .foregroundColor(Brand.ColorSystem.primary)
-                            }
-                            
-                            VStack(spacing: 12) {
-                                ForEach(references, id: \.url) { reference in
-                                    Link(destination: URL(string: reference.url) ?? URL(string: "https://www.google.com")!) {
-                                        HStack {
-                                            VStack(alignment: .leading, spacing: 4) {
-                                                Text(reference.title)
-                                                    .font(.footnote.weight(.medium))
-                                                    .foregroundColor(.primary)
-                                                    .multilineTextAlignment(.leading)
-                                                
-                                                Text(reference.url)
-                                                    .font(.caption2)
-                                                    .foregroundColor(Brand.ColorSystem.secondary)
-                                                    .lineLimit(1)
-                                                    .truncationMode(.middle)
-                                            }
-                                            
-                                            Spacer()
-                                            
-                                            Image(systemName: "arrow.up.right.square")
-                                                .font(.caption)
-                                                .foregroundColor(Brand.ColorSystem.primary)
-                                        }
-                                        .padding(12)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                                .fill(.ultraThinMaterial)
-                                                .overlay(
-                                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                                        .stroke(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
-                                                )
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
                 .padding()
             }

@@ -364,7 +364,7 @@ class NotificationManager: NSObject, ObservableObject {
                 identifier: "OVULATION",
                 actions: [
                     UNNotificationAction(
-                        identifier: "VIEW_RECOMMENDATIONS",
+                        identifier: "VIEW_TIMING",
                         title: "View Tips",
                         options: [.foreground]
                     )
@@ -409,9 +409,9 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         case "VIEW_CYCLE":
             // Navigate to cycle view
             NotificationCenter.default.post(name: .navigateToCycle, object: nil)
-        case "VIEW_RECOMMENDATIONS":
-            // Navigate to recommendations
-            NotificationCenter.default.post(name: .navigateToRecommendations, object: nil)
+        case "VIEW_TIMING":
+            // Navigate to timing analysis
+            NotificationCenter.default.post(name: .navigateToTimingAnalysis, object: nil)
         case "MARK_TAKEN":
             // Mark medication as taken
             // Could integrate with health data
@@ -440,5 +440,5 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
 
 extension Notification.Name {
     static let navigateToCycle = Notification.Name("navigateToCycle")
-    static let navigateToRecommendations = Notification.Name("navigateToRecommendations")
+    static let navigateToTimingAnalysis = Notification.Name("navigateToTimingAnalysis")
 }

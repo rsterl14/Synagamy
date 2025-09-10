@@ -2,7 +2,7 @@
 //  TimedIntercourseView.swift
 //  Synagamy3.0
 //
-//  Timed intercourse tracking and recommendation system.
+//  Timed intercourse tracking and timing analysis system.
 //  Helps users optimize timing for conception based on menstrual cycle data.
 //
 
@@ -40,16 +40,13 @@ struct TimedIntercourseView: View {
                         fertilityWindowSection
                     }
                     
-                    // MARK: - Recommendations
+                    // MARK: - Timing Analysis
                     if viewModel.hasCurrentCycle {
-                        recommendationsSection
+                        timingAnalysisSection
                     }
                     
                     // MARK: - Educational Content
                     educationalSection
-                    
-                    // MARK: - Disclaimer
-                    disclaimerSection
                 }
                 .padding(.vertical, Brand.Spacing.lg)
             }
@@ -63,7 +60,7 @@ struct TimedIntercourseView: View {
                 viewModel.clearCycle()
             }
         } message: {
-            Text("This will clear your current cycle information. You'll need to enter your cycle details again to get timing recommendations.")
+            Text("This will clear your current cycle information. You'll need to enter your cycle details again to get timing analysis.")
         }
     }
     
@@ -104,7 +101,7 @@ struct TimedIntercourseView: View {
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.center)
                 
-                Text("Enter your cycle information to receive personalized timing recommendations for conception")
+                Text("Enter your cycle information to receive personalized timing analysis for conception")
                     .font(.subheadline)
                     .foregroundColor(Brand.ColorSystem.secondary)
                     .multilineTextAlignment(.center)
@@ -261,32 +258,32 @@ struct TimedIntercourseView: View {
         }
     }
     
-    // MARK: - Recommendations Section
-    private var recommendationsSection: some View {
+    // MARK: - Timing Analysis Section
+    private var timingAnalysisSection: some View {
         EnhancedContentBlock(
-            title: "Current Recommendations",
+            title: "Current Timing Analysis",
             icon: "lightbulb.circle"
         ) {
             VStack(spacing: Brand.Spacing.md) {
-                ForEach(viewModel.currentRecommendations, id: \.id) { recommendation in
+                ForEach(viewModel.currentTimingAnalysis, id: \.id) { timing in
                     HStack(alignment: .top, spacing: 12) {
                         // Priority indicator
                         ZStack {
                             Circle()
-                                .fill(recommendation.priority.color.opacity(0.15))
+                                .fill(timing.priority.color.opacity(0.15))
                                 .frame(width: 28, height: 28)
                             
-                            Image(systemName: recommendation.icon)
+                            Image(systemName: timing.icon)
                                 .font(.caption.weight(.bold))
-                                .foregroundColor(recommendation.priority.color)
+                                .foregroundColor(timing.priority.color)
                         }
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(recommendation.title)
+                            Text(timing.title)
                                 .font(.subheadline.weight(.semibold))
                                 .foregroundColor(.primary)
                             
-                            Text(recommendation.description)
+                            Text(timing.description)
                                 .font(.caption)
                                 .foregroundColor(Brand.ColorSystem.secondary)
                                 .multilineTextAlignment(.leading)
@@ -400,8 +397,8 @@ struct TimedIntercourseView: View {
                     
                     EducationalStepView(
                         number: "4",
-                        title: "Recommendation Engine",
-                        description: "Generates personalized timing advice based on current cycle phase and proximity to ovulation."
+                        title: "Timing Analysis Engine",
+                        description: "Generates personalized timing analysis based on current cycle phase and proximity to ovulation."
                     )
                 }
                 
@@ -424,30 +421,6 @@ struct TimedIntercourseView: View {
         }
     }
     */
-    
-    // MARK: - Disclaimer Section
-    private var disclaimerSection: some View {
-        EnhancedContentBlock(
-            title: "Important Medical Disclaimer",
-            icon: "exclamationmark.triangle"
-        ) {
-            VStack(alignment: .leading, spacing: 12) {
-                Text("Educational Tool Only")
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundColor(.primary)
-                
-                Text("This calculator provides estimates based on average cycle patterns and should not replace professional medical advice. Individual fertility varies significantly based on many factors not captured in this tool.")
-                    .font(.footnote)
-                    .foregroundColor(Brand.ColorSystem.secondary)
-                    .multilineTextAlignment(.leading)
-                
-                Text("Always consult with your healthcare provider for personalized fertility guidance and if you have concerns about conception timing or fertility health.")
-                    .font(.footnote.weight(.medium))
-                    .foregroundColor(Brand.ColorSystem.primary)
-                    .multilineTextAlignment(.leading)
-            }
-        }
-    }
     
     // MARK: - Cycle Timeline View
     private func cycleTimelineView(window: FertilityWindow) -> some View {
@@ -632,7 +605,7 @@ struct CycleInputSheetView: View {
                             .foregroundColor(.primary)
                             .multilineTextAlignment(.center)
                         
-                        Text("Personalized recommendations based on your cycle data")
+                        Text("Personalized timing analysis based on your cycle data")
                             .font(.caption)
                             .foregroundColor(Brand.ColorSystem.secondary)
                             .multilineTextAlignment(.center)

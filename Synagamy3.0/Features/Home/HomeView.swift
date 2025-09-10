@@ -13,7 +13,7 @@ struct HomeView: View {
     
     // MARK: - Route Definition
     enum Route: CaseIterable, Hashable {
-        case intro, education, pathways, clinics, timedIntercourse, outcome, resources, questions
+        case intro, education, pathways, clinics, timedIntercourse, outcome, embryoTransfer, resources, questions
     }
 
     // MARK: - Navigation Items
@@ -47,6 +47,12 @@ struct HomeView: View {
             subtitle: "Managing Expectation in IVF",
             systemIcon: "chart.line.uptrend.xyaxis",
             route: .outcome
+        ),
+        HomeItem(
+            title: "Embryo Transfer Predictor",
+            subtitle: "Pre-Transfer Success Rates",
+            systemIcon: "waveform.path.ecg",
+            route: .embryoTransfer
         ),
         HomeItem(
             title: "Clinics",
@@ -162,14 +168,19 @@ struct HomeView: View {
             }
             
             VStack(alignment: .leading, spacing: 8) {
-                Text("This application is designed for educational and informational purposes only. The content provided, including fertility tracking tools, prediction models, and educational materials, should not be used as a substitute for professional medical advice, diagnosis, or treatment.")
+                Text("This application is designed exclusively for educational and informational purposes. The content provided, including fertility tracking tools, prediction models, and educational materials, should never be used as a substitute for professional medical advice, diagnosis, or treatment.")
                     .font(.caption2)
                     .foregroundColor(Brand.ColorSystem.secondary)
                     .multilineTextAlignment(.leading)
                 
-                Text("Always consult with qualified healthcare professionals, including reproductive endocrinologists or fertility specialists, for personalized medical guidance regarding fertility, reproductive health, and treatment decisions.")
+                Text("Always consult with qualified healthcare professionals, including reproductive endocrinologists, fertility specialists, or your primary care physician, for personalized medical guidance regarding fertility, reproductive health, and treatment decisions.")
                     .font(.caption2.weight(.medium))
                     .foregroundColor(Brand.ColorSystem.primary)
+                    .multilineTextAlignment(.leading)
+                
+                Text("This app is not a medical device and has not been evaluated by Health Canada, the FDA, or other regulatory bodies.")
+                    .font(.caption2)
+                    .foregroundColor(Brand.ColorSystem.secondary)
                     .multilineTextAlignment(.leading)
             }
         }
@@ -201,6 +212,8 @@ struct HomeView: View {
             TimedIntercourseView()
         case .outcome:
             OutcomePredictorView()
+        case .embryoTransfer:
+            EmbryoTransferPredictorView()
         case .resources:
             ResourcesView()
         case .questions:

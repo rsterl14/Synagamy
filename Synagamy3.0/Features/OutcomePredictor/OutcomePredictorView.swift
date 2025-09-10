@@ -17,6 +17,7 @@ struct OutcomePredictorView: View {
     @State private var amhLevel: String = ""
     @State private var estrogenLevel: String = ""
     @State private var retrievedOocytes: String = ""
+    @State private var bmi: String = ""
     @State private var selectedDiagnosis: IVFOutcomePredictor.PredictionInputs.DiagnosisType = .unexplained
     @State private var amhUnit: AMHUnit = .ngPerML
     @State private var estrogenUnit: EstrogenUnit = .pgPerML
@@ -30,9 +31,9 @@ struct OutcomePredictorView: View {
         var description: String {
             switch self {
             case .preRetrieval:
-                return "Predict oocytes and all subsequent outcomes"
+                return "Predict Oocytes and All Subsequent Outcomes"
             case .postRetrieval:
-                return "Enter known oocyte count and predict remaining stages"
+                return "Enter Known Oocyte Count and Predict Remaining Stages"
             }
         }
     }
@@ -41,7 +42,6 @@ struct OutcomePredictorView: View {
     @State private var showResults = false
     @State private var predictionResults: IVFOutcomePredictor.PredictionResults?
     @State private var errorMessage: String? = nil
-    @State private var isReferencesExpanded = false
     @State private var isCascadeExpanded = false
     
     // MARK: - Validation State
@@ -49,15 +49,19 @@ struct OutcomePredictorView: View {
     @State private var amhValidationMessage: String? = nil
     @State private var estrogenValidationMessage: String? = nil
     @State private var oocyteValidationMessage: String? = nil
+    @State private var bmiValidationMessage: String? = nil
     
-    // MARK: - Export State
-    @State private var showingShareSheet = false
-    @State private var pdfURL: URL? = nil
-    @State private var isExporting = false
-    @StateObject private var pdfExporter = PDFExportService()
     
     // MARK: - Error Handling
     @StateObject private var errorHandler = AppErrorHandler()
+    
+    // MARK: - Persistence
+    @StateObject private var persistenceService = PredictionPersistenceService.shared
+    @State private var showingSaveDialog = false
+    @State private var predictionNickname = ""
+    @State private var showingSavedPredictions = false
+    @State private var selectedSavedPrediction: SavedPrediction?
+    @State private var showingSavedCascade = false
     
     // MARK: - Computed Properties
     private var isFormValid: Bool {
@@ -100,6 +104,11 @@ struct OutcomePredictorView: View {
                     // Header
                     headerSection
                     
+                    // Saved Predictions (if any)
+                    if !persistenceService.savedPredictions.isEmpty {
+                        savedPredictionsSection
+                    }
+                    
                     // Input Form
                     inputFormSection
                     
@@ -110,12 +119,9 @@ struct OutcomePredictorView: View {
                     if showResults, let results = predictionResults {
                         resultsSection(results)
                         
-                        // Export Section
-                        exportSection
+                        // Save Section
+                        saveSection(results)
                     }
-                    
-                    // Disclaimer
-                    disclaimerSection
                 }
                 .padding(.vertical, Brand.Spacing.lg)
             }
@@ -138,12 +144,29 @@ struct OutcomePredictorView: View {
         }, message: {
             Text(errorMessage ?? "Please check your inputs and try again.")
         })
-        .sheet(isPresented: $showingShareSheet) {
-            if let url = pdfURL {
-                ShareSheet(activityItems: [url])
+        .errorHandling(errorHandler)
+        .sheet(isPresented: $showingSaveDialog) {
+            SavePredictionDialog(
+                nickname: $predictionNickname,
+                onSave: { nickname in
+                    Task {
+                        await savePrediction(withNickname: nickname)
+                    }
+                },
+                onCancel: {
+                    showingSaveDialog = false
+                    predictionNickname = ""
+                }
+            )
+        }
+        .sheet(isPresented: $showingSavedPredictions) {
+            SavedPredictionsView()
+        }
+        .sheet(isPresented: $showingSavedCascade) {
+            if let savedPrediction = selectedSavedPrediction {
+                SavedPredictionCascadeView(prediction: savedPrediction)
             }
         }
-        .errorHandling(errorHandler)
     }
     
     // MARK: - Keyboard Dismissal
@@ -165,10 +188,52 @@ struct OutcomePredictorView: View {
                 .foregroundColor(.primary)
                 .multilineTextAlignment(.center)
             
-            Text("Based on North American Data (CARTR-BORN & CDC/SART)")
+            Text("Based on Population Data. \n\n Individual Results can Vary From This Personalized IVF Success Estimator")
                 .font(.caption)
                 .foregroundColor(Brand.ColorSystem.secondary)
                 .multilineTextAlignment(.center)
+        }
+    }
+    
+    // MARK: - Saved Predictions Section
+    private var savedPredictionsSection: some View {
+        EnhancedContentBlock(
+            title: "My Predictions",
+            icon: "bookmark.fill"
+        ) {
+            VStack(spacing: Brand.Spacing.sm) {
+                // Show recent predictions (max 3)
+                ForEach(Array(persistenceService.savedPredictions.prefix(3))) { prediction in
+                    SavedPredictionRowCompact(
+                        prediction: prediction,
+                        onTap: {
+                            // Show cascade for this saved prediction
+                            showSavedPredictionCascade(prediction)
+                        },
+                        onDelete: {
+                            persistenceService.deletePrediction(prediction)
+                        }
+                    )
+                }
+                
+                // View All button if more than 3
+                if persistenceService.savedPredictions.count > 3 {
+                    Button {
+                        showingSavedPredictions = true
+                    } label: {
+                        HStack {
+                            Text("View All \(persistenceService.savedPredictions.count) Predictions")
+                                .font(.subheadline.weight(.medium))
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                        }
+                        .foregroundColor(Brand.ColorSystem.primary)
+                        .padding(.vertical, 8)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
         }
     }
     
@@ -201,7 +266,7 @@ struct OutcomePredictorView: View {
                     .padding(.vertical, 4)
                 // Age Input
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Age (years)")
+                    Text("Age (Years)")
                         .font(.subheadline.weight(.medium))
                         .foregroundColor(.primary)
                     
@@ -264,12 +329,6 @@ struct OutcomePredictorView: View {
                                     RoundedRectangle(cornerRadius: 12, style: .continuous)
                                         .stroke(getValidationColor(amhValidationMessage), lineWidth: 1)
                                 )
-                                .onChange(of: amhLevel) { _, newValue in
-                                    validateAMH(newValue)
-                                }
-                                .onChange(of: amhUnit) { _, _ in
-                                    validateAMH(amhLevel)
-                                }
                             
                             Picker("AMH Unit", selection: $amhUnit) {
                                 ForEach(AMHUnit.allCases, id: \.self) { unit in
@@ -286,7 +345,7 @@ struct OutcomePredictorView: View {
                                 .font(.caption)
                                 .foregroundColor(getValidationTextColor(amhValidationMessage))
                         } else {
-                            Text("Anti-Müllerian Hormone Level (Normal Range: \(amhUnit == .ngPerML ? "1.0-4.0 ng/mL" : "7.0-28.6 pmol/L"))")
+                            Text("Anti-Müllerian Hormone Level")
                                 .font(.caption)
                                 .foregroundColor(Brand.ColorSystem.secondary)
                         }
@@ -323,7 +382,7 @@ struct OutcomePredictorView: View {
                             .frame(minWidth: 80)
                         }
                         
-                        Text("Peak estradiol on trigger day (typical: \(estrogenUnit == .pgPerML ? "1000-4000 pg/mL" : "3676-14706 pmol/L"))")
+                        Text("Peak Estradiol on Trigger Day")
                             .font(.caption)
                             .foregroundColor(Brand.ColorSystem.secondary)
                     }
@@ -348,7 +407,7 @@ struct OutcomePredictorView: View {
                                     .stroke(Brand.ColorToken.hairline, lineWidth: 1)
                             )
                         
-                        Text("Total oocytes retrieved during your cycle")
+                        Text("Total Oocytes Retrieved During Your Cycle")
                             .font(.caption)
                             .foregroundColor(Brand.ColorSystem.secondary)
                     }
@@ -360,28 +419,91 @@ struct OutcomePredictorView: View {
                         .font(.subheadline.weight(.medium))
                         .foregroundColor(.primary)
                     
-                    Picker("Select Diagnosis", selection: $selectedDiagnosis) {
+                    Menu {
                         ForEach(IVFOutcomePredictor.PredictionInputs.DiagnosisType.allCases, id: \.self) { diagnosis in
-                            Text(diagnosis.displayName).tag(diagnosis)
+                            Button(diagnosis.displayName) {
+                                selectedDiagnosis = diagnosis
+                            }
                         }
+                    } label: {
+                        HStack {
+                            Text(selectedDiagnosis.displayName)
+                                .foregroundColor(.primary)
+                            Spacer()
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(Brand.ColorSystem.primary)
+                                .font(.caption.weight(.medium))
+                        }
+                        .font(.body)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(.ultraThinMaterial)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .stroke(Brand.ColorToken.hairline, lineWidth: 1)
+                        )
                     }
-                    .pickerStyle(.menu)
-                    .tint(Brand.ColorSystem.primary)
-                    .font(.body)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12, style: .continuous)
-                            .fill(.ultraThinMaterial)
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12, style: .continuous)
-                            .stroke(Brand.ColorToken.hairline, lineWidth: 1)
-                    )
                     
-                    Text("Underlying fertility diagnosis affecting treatment approach")
+                    Text("Underlying Fertility Diagnosis")
                         .font(.caption)
                         .foregroundColor(Brand.ColorSystem.secondary)
+                }
+                
+                // BMI Input (Optional)
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("BMI (Optional)")
+                        .font(.subheadline.weight(.medium))
+                        .foregroundColor(.primary)
+                    
+                    TextField("Enter BMI (15-60)", text: $bmi)
+                        .keyboardType(.decimalPad)
+                        .font(.body)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(.ultraThinMaterial)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .stroke(bmiValidationMessage != nil ? (bmiValidationMessage!.hasPrefix("✓") ? .green : .red) : Brand.ColorToken.hairline, lineWidth: 1)
+                        )
+                        .onChange(of: bmi) { _, newValue in
+                            validateBMI(newValue)
+                            if let message = bmiValidationMessage, message.hasPrefix("✓") {
+                                AccessibilityAnnouncement.announce("BMI validation: \(message)")
+                            }
+                        }
+                        .inputFieldAccessibility(
+                            label: "BMI in kg/m²",
+                            value: bmi,
+                            validationMessage: bmiValidationMessage,
+                            isRequired: false
+                        )
+                    
+                    if let bmiValidationMessage = bmiValidationMessage {
+                        Text(bmiValidationMessage)
+                            .font(.caption)
+                            .foregroundColor(bmiValidationMessage.hasPrefix("✓") ? .green : .red)
+                    } else {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Body Mass Index (kg/m²) - Affects Cocyte Yield and Success Rates")
+                                .font(.caption)
+                                .foregroundColor(Brand.ColorSystem.secondary)
+                            
+                            // Show BMI impact preview if valid BMI entered
+                            if !bmi.isEmpty, let bmiValue = Double(bmi), bmiValue >= 15 && bmiValue <= 60 {
+                                let impact = getBMIImpactText(bmiValue)
+                                Text("Expected impact: \(impact)")
+                                    .font(.caption)
+                                    .foregroundColor(bmiValue >= 18.5 && bmiValue <= 24.9 ? .green : .orange)
+                                    .italic()
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -461,13 +583,13 @@ struct OutcomePredictorView: View {
                 icon: "link.circle"
             ) {
                 VStack(spacing: Brand.Spacing.md) {
-                    // Recommendation Header
+                    // Fertilization Method Comparison Header
                     VStack(spacing: 6) {
-                        Text(results.expectedFertilization.recommendedProcedure)
+                        Text("Fertilization Method Outcomes")
                             .font(.headline.weight(.semibold))
                             .foregroundColor(Brand.ColorSystem.primary)
                         
-                        Text(results.expectedFertilization.explanation)
+                        Text("Statistical Comparison of Both Fertilization Approaches Based on Your Profile")
                             .font(.caption)
                             .foregroundColor(Brand.ColorSystem.secondary)
                             .multilineTextAlignment(.center)
@@ -628,33 +750,6 @@ struct OutcomePredictorView: View {
             // Cascade Flow Visualization
             cascadeFlowSection
             
-            // References Section
-            ExpandableSection(
-                title: "Clinical References",
-                subtitle: "\(results.references.count) sources",
-                icon: "doc.text",
-                isExpanded: $isReferencesExpanded
-            ) {
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(Array(results.references.enumerated()), id: \.offset) { index, reference in
-                        HStack(alignment: .top, spacing: 8) {
-                            Text("\(index + 1).")
-                                .font(.footnote.weight(.medium))
-                                .foregroundColor(Brand.ColorSystem.primary)
-                                .frame(minWidth: 20, alignment: .leading)
-                            
-                            Text(reference)
-                                .font(.footnote)
-                                .foregroundColor(Brand.ColorSystem.secondary)
-                                .multilineTextAlignment(.leading)
-                        }
-                        
-                        if index < results.references.count - 1 {
-                            Divider()
-                        }
-                    }
-                }
-            }
         }
     }
     
@@ -810,81 +905,37 @@ struct OutcomePredictorView: View {
                         }()
                     )
                     
-                    // Fertilized Embryos Stage
-                    CascadeStageView(
-                        stageNumber: "3",
-                        stageName: "Fertilized Embryos (2PN)", 
-                        count: cascade?.fertilizedEmbryos ?? 0,
-                        lossDescription: {
-                            let failed = cascade?.stageLosses.fertilizationFailure ?? 0
-                            if failed < 0.1 {
-                                return "All Mature Oocytes Fertilized Successfully"
-                            } else {
-                                return String(format: "%.1f Failed Fertilization", failed)
-                            }
-                        }(),
-                        nextStageRate: {
-                            guard let fertilized = cascade?.fertilizedEmbryos, fertilized > 0,
-                                  let day3 = cascade?.day3Embryos else { return 0 }
-                            return (day3 / fertilized) * 100
-                        }()
-                    )
+                    // Dual Fertilization Pathways
+                    DualFertilizationStageView(cascade: cascade)
                     
-                    // Day 3 Embryos Stage
-                    CascadeStageView(
+                    // Day 3 Dual Pathways
+                    DualPathwayStageView(
                         stageNumber: "4",
                         stageName: "Day 3 Embryos (8-cell)",
-                        count: cascade?.day3Embryos ?? 0, 
-                        lossDescription: {
-                            let arrested = cascade?.stageLosses.day3Arrest ?? 0
-                            if arrested < 0.1 {
-                                return "All Fertilized Embryos Progressed to Day 3"
-                            } else {
-                                return String(format: "%.1f Failed to Reach 8-Cell Stage", arrested)
-                            }
-                        }(),
-                        nextStageRate: {
-                            guard let day3 = cascade?.day3Embryos, day3 > 0,
-                                  let blasts = cascade?.blastocysts else { return 0 }
-                            return (blasts / day3) * 100
-                        }()
+                        cascade: cascade,
+                        pathwayExtractor: { pathway in
+                            (pathway.day3Embryos, "embryos")
+                        }
                     )
                     
-                    // Blastocyst Stage
-                    CascadeStageView(
-                        stageNumber: "5",
+                    // Blastocyst Dual Pathways
+                    DualPathwayStageView(
+                        stageNumber: "5", 
                         stageName: "Blastocysts (Day 5-6)",
-                        count: cascade?.blastocysts ?? 0,
-                        lossDescription: {
-                            let arrested = cascade?.stageLosses.blastocystArrest ?? 0
-                            if arrested < 0.1 {
-                                return "All Day 3 Embryos Reached Blastocyst Stage"
-                            } else {
-                                return String(format: "%.1f Arrested During Extended Culture", arrested)
-                            }
-                        }(),
-                        nextStageRate: {
-                            guard let blasts = cascade?.blastocysts, blasts > 0,
-                                  let euploid = cascade?.euploidBlastocysts else { return 0 }
-                            return (euploid / blasts) * 100
-                        }()
+                        cascade: cascade,
+                        pathwayExtractor: { pathway in
+                            (pathway.blastocysts, "blastocysts")
+                        }
                     )
                     
-                    // Final Euploid Stage
-                    CascadeStageView(
+                    // Euploid Dual Pathways
+                    DualPathwayStageView(
                         stageNumber: "6",
                         stageName: "Euploid Blastocysts",
-                        count: cascade?.euploidBlastocysts ?? 0,
-                        lossDescription: {
-                            let aneuploid = cascade?.stageLosses.chromosomalAbnormalities ?? 0
-                            if aneuploid < 0.1 {
-                                return "All Blastocysts Are Chromosomally Normal"
-                            } else {
-                                return String(format: "%.1f Aneuploid (Abnormal)", aneuploid)
-                            }
-                        }(),
-                        nextStageRate: nil,
-                        isFinalStage: true
+                        cascade: cascade,
+                        pathwayExtractor: { pathway in
+                            (pathway.euploidBlastocysts, "euploid")
+                        }
                     )
                 }
                 
@@ -894,30 +945,6 @@ struct OutcomePredictorView: View {
                 Text("This cascade shows how embryo numbers naturally decrease at each developmental stage. Understanding these transitions helps set realistic expectations for your IVF cycle.")
                     .font(.caption)
                     .foregroundColor(Brand.ColorSystem.secondary)
-                    .multilineTextAlignment(.leading)
-            }
-        }
-    }
-    
-    // MARK: - Disclaimer Section
-    private var disclaimerSection: some View {
-        EnhancedContentBlock(
-            title: "Important Medical Disclaimer",
-            icon: "exclamationmark.triangle"
-        ) {
-            VStack(alignment: .leading, spacing: 12) {
-                Text("Educational Tool Only")
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundColor(.primary)
-                
-                Text("These predictions are based on population averages and should not replace personalized medical advice. Individual outcomes may vary significantly based on many factors not captured in this calculator.")
-                    .font(.footnote)
-                    .foregroundColor(Brand.ColorSystem.secondary)
-                    .multilineTextAlignment(.leading)
-                
-                Text("Always consult with your fertility specialist for personalized treatment planning and outcome expectations.")
-                    .font(.footnote.weight(.medium))
-                    .foregroundColor(Brand.ColorSystem.primary)
                     .multilineTextAlignment(.leading)
             }
         }
@@ -965,25 +992,131 @@ struct OutcomePredictorView: View {
         if estrogenInPgML < 100 || estrogenInPgML > 10000 {
             let minValue = estrogenUnit == .pgPerML ? "100" : String(format: "%.0f", 100 / estrogenUnit.toPgPerMLFactor)
             let maxValue = estrogenUnit == .pgPerML ? "10,000" : String(format: "%.0f", 10000 / estrogenUnit.toPgPerMLFactor)
-            let typicalMin = estrogenUnit == .pgPerML ? "1000" : String(format: "%.0f", 1000 / estrogenUnit.toPgPerMLFactor)
-            let typicalMax = estrogenUnit == .pgPerML ? "4000" : String(format: "%.0f", 4000 / estrogenUnit.toPgPerMLFactor)
-            errorMessage = "Estradiol level must be between \(minValue) and \(maxValue) \(estrogenUnitText). Typical range is \(typicalMin)-\(typicalMax) \(estrogenUnitText)."
+            errorMessage = "Estradiol level must be between \(minValue) and \(maxValue) \(estrogenUnitText)."
             return
         }
+        
+        // Parse BMI if provided
+        let bmiValue = bmi.isEmpty ? nil : Double(bmi)
         
         let inputs = IVFOutcomePredictor.PredictionInputs(
             age: age,
             amhLevel: amhInNgML,
             estrogenLevel: estrogenInPgML,
-            bmI: nil,
+            bmI: bmiValue,
             priorCycles: 0,
-            diagnosisType: selectedDiagnosis
+            diagnosisType: selectedDiagnosis,
+            maleFactor: nil  // No male factor parameters collected in this UI yet
         )
         
         let predictor = IVFOutcomePredictor()
         predictionResults = predictor.predict(from: inputs)
         showResults = true
-        isReferencesExpanded = false
+    }
+    
+    // MARK: - Save Section
+    private func saveSection(_ results: IVFOutcomePredictor.PredictionResults) -> some View {
+        EnhancedContentBlock(
+            title: "Save This Prediction",
+            icon: "bookmark"
+        ) {
+            VStack(spacing: Brand.Spacing.md) {
+                Button(action: {
+                    showingSaveDialog = true
+                }) {
+                    HStack {
+                        Image(systemName: "bookmark.fill")
+                        Text("Save Prediction")
+                    }
+                    .font(.subheadline.weight(.medium))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(Brand.ColorSystem.primary)
+                    )
+                }
+                
+                Text("Save this prediction to compare with future results or share with your healthcare provider.")
+                    .font(.caption)
+                    .foregroundColor(Brand.ColorSystem.secondary)
+                    .multilineTextAlignment(.center)
+            }
+        }
+    }
+    
+    // MARK: - Save Functions
+    private func savePrediction(withNickname nickname: String) async {
+        print("📱 [DEBUG] savePrediction called with nickname: '\(nickname)'")
+        guard let results = predictionResults,
+              let ageValue = Double(age) else { 
+            print("📱 [DEBUG] Missing predictionResults or age value")
+            return 
+        }
+        
+        // Create inputs for saving - handle differently based on calculation mode
+        let amhInNgML: Double
+        let estrogenInPgML: Double
+        let originalEstrogenValue: Double?
+        let savedAmhUnit: String?
+        let savedEstrogenUnit: String?
+        
+        if calculationMode == .postRetrieval {
+            // In post-retrieval mode, use dummy values for calculations but don't save them
+            amhInNgML = 2.0 // Dummy value for PredictionInputs (required)
+            estrogenInPgML = 2000 // Dummy value for PredictionInputs (required)
+            originalEstrogenValue = nil // Don't save hormone values for post-retrieval
+            savedAmhUnit = nil
+            savedEstrogenUnit = nil
+        } else {
+            // In pre-retrieval mode, parse and save actual UI inputs
+            let amhValue = Double(amhLevel) ?? 0
+            let estrogenValue = Double(estrogenLevel) ?? 0
+            amhInNgML = amhValue * amhUnit.toNgPerMLFactor
+            estrogenInPgML = estrogenValue * estrogenUnit.toPgPerMLFactor
+            originalEstrogenValue = estrogenValue
+            savedAmhUnit = amhUnit.displayName
+            savedEstrogenUnit = estrogenUnit.displayName
+        }
+        
+        let bmiValue = bmi.isEmpty ? nil : Double(bmi)
+        
+        let inputs = IVFOutcomePredictor.PredictionInputs(
+            age: ageValue,
+            amhLevel: amhInNgML,
+            estrogenLevel: estrogenInPgML,
+            bmI: bmiValue,
+            priorCycles: 0,
+            diagnosisType: selectedDiagnosis,
+            maleFactor: nil
+        )
+        
+        let savedPrediction = SavedPrediction(
+            nickname: nickname.isEmpty ? nil : nickname,
+            inputs: inputs,
+            results: results,
+            calculationMode: calculationMode.displayName,
+            amhUnit: savedAmhUnit,
+            estrogenUnit: savedEstrogenUnit,
+            originalEstrogenValue: originalEstrogenValue,
+            retrievedOocytes: calculationMode == .postRetrieval ? Double(retrievedOocytes) : nil
+        )
+        
+        print("📱 [DEBUG] About to call persistenceService.savePrediction")
+        await persistenceService.savePrediction(savedPrediction)
+        print("📱 [DEBUG] Back from persistenceService.savePrediction")
+        
+        showingSaveDialog = false
+        predictionNickname = ""
+    }
+    
+    // MARK: - Show Saved Prediction Cascade
+    private func showSavedPredictionCascade(_ prediction: SavedPrediction) {
+        print("📱 [DEBUG] showSavedPredictionCascade called for: \(prediction.displayName)")
+        selectedSavedPrediction = prediction
+        showingSavedCascade = true
+        print("📱 [DEBUG] showingSavedCascade set to true")
     }
     
     private func generatePostRetrievalPrediction(age: Double) {
@@ -997,137 +1130,25 @@ struct OutcomePredictorView: View {
             return
         }
         
+        // Parse BMI if provided  
+        let bmiValue = bmi.isEmpty ? nil : Double(bmi)
+        
         // Create inputs with dummy values for AMH/E2 since we're starting from known oocyte count
         let inputs = IVFOutcomePredictor.PredictionInputs(
             age: age,
             amhLevel: 2.0, // Dummy value
             estrogenLevel: 2000, // Dummy value
-            bmI: nil,
+            bmI: bmiValue,
             priorCycles: 0,
-            diagnosisType: selectedDiagnosis
+            diagnosisType: selectedDiagnosis,
+            maleFactor: nil  // No male factor parameters collected in this UI yet
         )
         
         let predictor = IVFOutcomePredictor()
         predictionResults = predictor.predictFromRetrievedOocytes(oocyteCount: oocyteCount, inputs: inputs)
         showResults = true
-        isReferencesExpanded = false
     }
     
-    // MARK: - Export Section
-    
-    private var exportSection: some View {
-        EnhancedContentBlock(
-            title: "Export & Share",
-            icon: "square.and.arrow.up"
-        ) {
-            VStack(spacing: Brand.Spacing.md) {
-                HStack(spacing: 12) {
-                    Button(action: exportToPDF) {
-                        HStack {
-                            if isExporting {
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                                    .scaleEffect(0.8)
-                            } else {
-                                Image(systemName: "doc.fill")
-                            }
-                            Text(isExporting ? "Generating..." : "Export PDF")
-                        }
-                        .font(.subheadline.weight(.medium))
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 12)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(Brand.ColorSystem.primary)
-                        )
-                    }
-                    .disabled(isExporting)
-                    
-                    Button(action: shareResults) {
-                        HStack {
-                            Image(systemName: "square.and.arrow.up")
-                            Text("Share Summary")
-                        }
-                        .font(.subheadline.weight(.medium))
-                        .foregroundColor(Brand.ColorSystem.primary)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 12)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .stroke(Brand.ColorSystem.primary, lineWidth: 1.5)
-                        )
-                    }
-                }
-                
-                Text("Share your prediction results with your healthcare provider or save for your records.")
-                    .font(.caption)
-                    .foregroundColor(Brand.ColorSystem.secondary)
-                    .multilineTextAlignment(.center)
-            }
-        }
-    }
-    
-    // MARK: - Export Functions
-    
-    private func exportToPDF() {
-        guard let results = predictionResults,
-              let ageValue = Double(age) else { return }
-        
-        isExporting = true
-        
-        Task { @MainActor in
-            let url = await pdfExporter.exportPredictionResults(
-                results,
-                patientAge: ageValue,
-                calculationMode: calculationMode.displayName
-            )
-            
-            isExporting = false
-            
-            if let url = url {
-                pdfURL = url
-                showingShareSheet = true
-            }
-        }
-    }
-    
-    private func shareResults() {
-        guard let results = predictionResults else { return }
-        
-        let summary = createShareSummary(results)
-        let activityVC = UIActivityViewController(activityItems: [summary], applicationActivities: nil)
-        
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let rootViewController = windowScene.windows.first?.rootViewController {
-            rootViewController.present(activityVC, animated: true)
-        }
-    }
-    
-    private func createShareSummary(_ results: IVFOutcomePredictor.PredictionResults) -> String {
-        let ageText = age.isEmpty ? "N/A" : age
-        let modeText = calculationMode.displayName
-        
-        return """
-        Synagamy IVF Prediction Summary
-        
-        Patient Age: \(ageText) years
-        Calculation Mode: \(modeText)
-        Generated: \(Date().formatted(date: .abbreviated, time: .shortened))
-        
-        PREDICTIONS:
-        • Oocytes: \(String(format: "%.1f", results.expectedOocytes.predicted))
-        • Fertilized Embryos: \(String(format: "%.1f", results.expectedFertilization.icsi.predicted))
-        • Blastocysts: \(String(format: "%.1f", results.expectedBlastocysts.predicted))
-        • Euploid Blastocysts: \(String(format: "%.1f", results.euploidyRates.expectedEuploidBlastocysts))
-        
-        Confidence: \(results.confidenceLevel.rawValue)
-        
-        DISCLAIMER: This is an educational tool. Always consult your healthcare provider for personalized medical advice.
-        
-        Generated by Synagamy - Educational Fertility App
-        """
-    }
     
     // MARK: - Real-time Validation Functions
     
@@ -1151,38 +1172,6 @@ struct OutcomePredictorView: View {
         }
     }
     
-    private func validateAMH(_ value: String) {
-        guard !value.isEmpty else {
-            amhValidationMessage = nil
-            return
-        }
-        
-        guard let amhValue = Double(value) else {
-            amhValidationMessage = "Please enter a valid number"
-            return
-        }
-        
-        let amhInNgML = amhValue * amhUnit.toNgPerMLFactor
-        let unitText = amhUnit.displayName
-        
-        if amhInNgML < 0.01 {
-            let minValue = amhUnit == .ngPerML ? "0.01" : String(format: "%.1f", 0.01 / amhUnit.toNgPerMLFactor)
-            amhValidationMessage = "AMH must be at least \(minValue) \(unitText)"
-        } else if amhInNgML > 50 {
-            let maxValue = amhUnit == .ngPerML ? "50" : String(format: "%.0f", 50 / amhUnit.toNgPerMLFactor)
-            amhValidationMessage = "AMH must be \(maxValue) \(unitText) or less"
-        } else {
-            // Show helpful range information
-            let normalRange = amhUnit == .ngPerML ? "1.0-4.0" : "7.0-28.6"
-            if amhInNgML < (amhUnit == .ngPerML ? 1.0 : 7.0) {
-                amhValidationMessage = "✓ Valid (below normal range \(normalRange) \(unitText))"
-            } else if amhInNgML > (amhUnit == .ngPerML ? 4.0 : 28.6) {
-                amhValidationMessage = "✓ Valid (above normal range \(normalRange) \(unitText))"
-            } else {
-                amhValidationMessage = "✓ Normal range"
-            }
-        }
-    }
     
     private func validateEstrogen(_ value: String) {
         guard !value.isEmpty else {
@@ -1240,6 +1229,57 @@ struct OutcomePredictorView: View {
             } else {
                 oocyteValidationMessage = "✓ Normal range"
             }
+        }
+    }
+    
+    private func validateBMI(_ value: String) {
+        guard !value.isEmpty else {
+            bmiValidationMessage = nil
+            return
+        }
+        
+        guard let bmiValue = Double(value) else {
+            bmiValidationMessage = "Please enter a valid number"
+            return
+        }
+        
+        if bmiValue < 15 {
+            bmiValidationMessage = "BMI must be at least 15 kg/m²"
+        } else if bmiValue > 60 {
+            bmiValidationMessage = "BMI must be 60 kg/m² or less"
+        } else {
+            // Show helpful BMI category information based on research data
+            if bmiValue < 18.5 {
+                bmiValidationMessage = "✓ Underweight (may reduce success rates by 12%)"
+            } else if bmiValue <= 24.9 {
+                bmiValidationMessage = "✓ Normal weight (optimal for IVF outcomes)"
+            } else if bmiValue <= 29.9 {
+                bmiValidationMessage = "✓ Overweight (may reduce success rates by 8%)"
+            } else if bmiValue <= 34.9 {
+                bmiValidationMessage = "✓ Obese Class I (may reduce success rates by 14%)"
+            } else if bmiValue <= 39.9 {
+                bmiValidationMessage = "✓ Obese Class II (may reduce success rates by 30%)"
+            } else {
+                bmiValidationMessage = "✓ Obese Class III (may reduce success rates by 68%)"
+            }
+        }
+    }
+    
+    // MARK: - BMI Helper Functions
+    
+    private func getBMIImpactText(_ bmiValue: Double) -> String {
+        if bmiValue < 18.5 {
+            return "May reduce outcomes by ~12%"
+        } else if bmiValue <= 24.9 {
+            return "Optimal BMI range"
+        } else if bmiValue <= 29.9 {
+            return "May reduce outcomes by ~8%"
+        } else if bmiValue <= 34.9 {
+            return "May reduce outcomes by ~14%"
+        } else if bmiValue <= 39.9 {
+            return "May reduce outcomes by ~30%"
+        } else {
+            return "May reduce outcomes by ~68%"
         }
     }
     
@@ -1368,6 +1408,290 @@ private struct CascadeStageView: View {
     }
 }
 
+// MARK: - Saved Prediction Cascade View
+struct SavedPredictionCascadeView: View {
+    let prediction: SavedPrediction
+    @Environment(\.dismiss) private var dismiss
+    
+    init(prediction: SavedPrediction) {
+        self.prediction = prediction
+        print("📱 [DEBUG] SavedPredictionCascadeView init called for: \(prediction.displayName)")
+    }
+    
+    var body: some View {
+        ScrollView {
+            VStack(spacing: Brand.Spacing.lg) {
+                // Brand Header with Close Button
+                HStack {
+                    VStack(alignment: .leading, spacing: 8) {
+                        CategoryBadge(
+                            text: "Saved Prediction",
+                            icon: "bookmark.fill",
+                            color: Brand.ColorSystem.primary
+                        )
+                        
+                        Text(prediction.displayName)
+                            .font(.title2.weight(.bold))
+                            .foregroundColor(.primary)
+                            .onAppear {
+                                print("📱 [DEBUG] SavedPredictionCascadeView body rendered for: \(prediction.displayName)")
+                            }
+                        
+                        Text(prediction.summaryText)
+                            .font(.subheadline)
+                            .foregroundColor(Brand.ColorSystem.secondary)
+                        
+                        Text("Saved: \(DateFormatter.savedPredictionFormatter.string(from: prediction.timestamp))")
+                            .font(.caption)
+                            .foregroundColor(Brand.ColorSystem.secondary)
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        ZStack {
+                            Circle()
+                                .fill(.regularMaterial)
+                                .frame(width: 32, height: 32)
+                                .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+                            
+                            Image(systemName: "xmark")
+                                .font(.caption.weight(.semibold))
+                                .foregroundColor(Brand.ColorSystem.secondary)
+                        }
+                    }
+                    .buttonStyle(.plain)
+                }
+                .padding(.top, Brand.Spacing.md)
+                
+                // Recreate the cascade flow section using PersistenceService
+                Group {
+                    if let results = try? PredictionPersistenceService.shared.createResultsFromSavedPrediction(prediction) {
+                        savedCascadeFlowSection(cascadeFlow: results.cascadeFlow)
+                    } else {
+                        VStack {
+                            Text("Unable to load cascade data")
+                                .foregroundColor(.red)
+                            Text("Debug: Expected Oocytes: \(String(format: "%.1f", prediction.expectedOocytes))")
+                                .font(.caption2)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal, Brand.Spacing.md)
+            .padding(.vertical, Brand.Spacing.lg)
+        }
+        .background(Color(.systemBackground))
+    }
+    
+    // MARK: - Saved Cascade Flow Section
+    private func savedCascadeFlowSection(cascadeFlow: IVFOutcomePredictor.PredictionResults.CascadeFlow) -> some View {
+        EnhancedContentBlock(
+            title: "Embryo Development Cascade",
+            icon: "arrow.down.forward.and.arrow.up.backward"
+        ) {
+            VStack(alignment: .leading, spacing: Brand.Spacing.md) {
+                Text("Stage-by-Stage Analysis")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundColor(.primary)
+                
+                VStack(spacing: 12) {
+                    // Oocytes Retrieved Stage
+                    CascadeStageView(
+                        stageNumber: "1",
+                        stageName: "Oocytes Retrieved",
+                        count: cascadeFlow.totalOocytes,
+                        lossDescription: "Initial Retrieval From Follicles",
+                        nextStageRate: {
+                            guard cascadeFlow.totalOocytes > 0 else { return 0 }
+                            return (cascadeFlow.matureOocytes / cascadeFlow.totalOocytes) * 100
+                        }(),
+                        isFirstStage: true
+                    )
+                    
+                    // Mature Oocytes Stage
+                    CascadeStageView(
+                        stageNumber: "2", 
+                        stageName: "Mature Oocytes (MII)",
+                        count: cascadeFlow.matureOocytes,
+                        lossDescription: {
+                            let immature = cascadeFlow.stageLosses.immatureOocytes
+                            if immature < 0.1 {
+                                return "All Retrieved Oocytes Were Mature"
+                            } else {
+                                return String(format: "%.1f Immature (GV/MI) Oocytes", immature)
+                            }
+                        }(),
+                        nextStageRate: {
+                            guard cascadeFlow.matureOocytes > 0 else { return 0 }
+                            return (cascadeFlow.fertilizedEmbryos / cascadeFlow.matureOocytes) * 100
+                        }()
+                    )
+                    
+                    // Dual Fertilization Pathways
+                    DualFertilizationStageView(cascade: cascadeFlow)
+                    
+                    // Day 3 Dual Pathways
+                    DualPathwayStageView(
+                        stageNumber: "4",
+                        stageName: "Day 3 Embryos (8-cell)",
+                        cascade: cascadeFlow,
+                        pathwayExtractor: { pathway in
+                            (pathway.day3Embryos, "embryos")
+                        }
+                    )
+                    
+                    // Blastocyst Dual Pathways
+                    DualPathwayStageView(
+                        stageNumber: "5", 
+                        stageName: "Blastocysts (Day 5-6)",
+                        cascade: cascadeFlow,
+                        pathwayExtractor: { pathway in
+                            (pathway.blastocysts, "blastocysts")
+                        }
+                    )
+                    
+                    // Euploid Dual Pathways
+                    DualPathwayStageView(
+                        stageNumber: "6",
+                        stageName: "Euploid Blastocysts",
+                        cascade: cascadeFlow,
+                        pathwayExtractor: { pathway in
+                            (pathway.euploidBlastocysts, "euploid")
+                        }
+                    )
+                }
+                
+                Divider()
+                    .padding(.vertical, 8)
+                
+                Text("This cascade shows how embryo numbers naturally decrease at each developmental stage. Understanding these transitions helps set realistic expectations for your IVF cycle.")
+                    .font(.caption)
+                    .foregroundColor(Brand.ColorSystem.secondary)
+                    .multilineTextAlignment(.leading)
+            }
+        }
+    }
+    
+}
+
+// MARK: - Saved Prediction Compact Row
+struct SavedPredictionRowCompact: View {
+    let prediction: SavedPrediction
+    let onTap: () -> Void
+    let onDelete: () -> Void
+    
+    var body: some View {
+        Button(action: onTap) {
+            HStack(spacing: 12) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(prediction.displayName)
+                        .font(.subheadline.weight(.medium))
+                        .foregroundColor(.primary)
+                        .lineLimit(1)
+                    
+                    Text(prediction.summaryText)
+                        .font(.caption)
+                        .foregroundColor(Brand.ColorSystem.secondary)
+                        .lineLimit(1)
+                }
+                
+                Spacer()
+                
+                // Key result
+                VStack(alignment: .trailing, spacing: 2) {
+                    Text(String(format: "%.0f", prediction.expectedEuploidBlastocysts))
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundColor(Brand.ColorSystem.primary)
+                    
+                    Text("euploid")
+                        .font(.caption2)
+                        .foregroundColor(Brand.ColorSystem.secondary)
+                }
+                
+                Menu {
+                    Button("View Cascade") {
+                        onTap()
+                    }
+                    
+                    Button("Delete", role: .destructive) {
+                        onDelete()
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .foregroundColor(Brand.ColorSystem.secondary)
+                        .padding(8)
+                }
+            }
+            .padding(.vertical, 8)
+            .padding(.horizontal, 12)
+            .background(
+                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                    .fill(.ultraThinMaterial)
+            )
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+// MARK: - Save Prediction Dialog
+struct SavePredictionDialog: View {
+    @Binding var nickname: String
+    let onSave: (String) -> Void
+    let onCancel: () -> Void
+    
+    @Environment(\.dismiss) private var dismiss
+    
+    var body: some View {
+        NavigationView {
+            VStack(spacing: Brand.Spacing.lg) {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Prediction Name (Optional)")
+                        .font(.subheadline.weight(.medium))
+                        .foregroundColor(.primary)
+                    
+                    TextField("e.g., First IVF Attempt", text: $nickname)
+                        .textFieldStyle(.roundedBorder)
+                        .submitLabel(.done)
+                        .onSubmit {
+                            onSave(nickname)
+                            dismiss()
+                        }
+                }
+                
+                Text("Give your prediction a memorable name to easily find it later. If left blank, it will be saved with the current date and time.")
+                    .font(.caption)
+                    .foregroundColor(Brand.ColorSystem.secondary)
+                
+                Spacer()
+            }
+            .padding()
+            .navigationTitle("Save Prediction")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel") {
+                        onCancel()
+                        dismiss()
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Save") {
+                        onSave(nickname)
+                        dismiss()
+                    }
+                    .fontWeight(.semibold)
+                }
+            }
+        }
+        .presentationDetents([.medium])
+    }
+}
+
 // MARK: - Diagnosis Type Extension
 extension IVFOutcomePredictor.PredictionInputs.DiagnosisType {
     var displayName: String {
@@ -1380,15 +1704,309 @@ extension IVFOutcomePredictor.PredictionInputs.DiagnosisType {
             return "Male Factor (Severe)"
         case .ovulatory:
             return "Ovulatory Disorders"
+        case .pcos:
+            return "PCOS"
         case .tubalFactor:
             return "Tubal Factor"
-        case .endometriosis:
-            return "Endometriosis"
+        case .tubalFactorHydrosalpinx:
+            return "Tubal Factor with Hydrosalpinx"
+        case .endometriosisStage1_2:
+            return "Endometriosis Stage I-II"
+        case .endometriosisStage3_4:
+            return "Endometriosis Stage III-IV"
         case .diminishedOvarianReserve:
             return "Diminished Ovarian Reserve"
+        case .adenomyosis:
+            return "Adenomyosis"
+        case .multipleDiagnoses:
+            return "Multiple Diagnoses"
         case .other:
             return "Other"
         }
+    }
+}
+
+// MARK: - Dual Fertilization Pathway View
+private struct DualFertilizationStageView: View {
+    let cascade: IVFOutcomePredictor.PredictionResults.CascadeFlow?
+    
+    var body: some View {
+        VStack(spacing: 16) {
+            // Stage 3 Header
+            HStack {
+                ZStack {
+                    Circle()
+                        .fill(Brand.ColorSystem.primary.opacity(0.1))
+                        .frame(width: 28, height: 28)
+                    
+                    Text("3")
+                        .font(.caption.weight(.bold))
+                        .foregroundColor(Brand.ColorSystem.primary)
+                }
+                
+                Text("Fertilized Embryos by Method")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundColor(.primary)
+                
+                Spacer()
+            }
+            
+            // Dual pathway comparison
+            HStack(alignment: .top, spacing: 16) {
+                // IVF Pathway
+                PathwayColumn(
+                    title: "Conventional IVF",
+                    pathway: cascade?.ivfPathway,
+                    color: Brand.ColorSystem.primary
+                )
+                
+                // Comparison Divider
+                VStack {
+                    Text("vs")
+                        .font(.caption.weight(.medium))
+                        .foregroundColor(.secondary)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(.ultraThinMaterial)
+                        )
+                    
+                    Rectangle()
+                        .fill(.secondary.opacity(0.3))
+                        .frame(width: 1)
+                        .frame(maxHeight: .infinity)
+                }
+                .frame(maxHeight: 120)
+                
+                // ICSI Pathway
+                PathwayColumn(
+                    title: "ICSI",
+                    pathway: cascade?.icsiPathway,
+                    color: Brand.ColorSystem.secondary
+                )
+            }
+            
+            // Statistical comparison summary
+            if let cascade = cascade {
+                let ivfEuploid = cascade.ivfPathway.euploidBlastocysts
+                let icsiEuploid = cascade.icsiPathway.euploidBlastocysts
+                let difference = abs(icsiEuploid - ivfEuploid)
+                let percentDiff = difference > 0 ? Int((difference / max(ivfEuploid, icsiEuploid)) * 100) : 0
+                
+                if percentDiff > 5 { // Only show if meaningful difference
+                    let comparisonText = icsiEuploid > ivfEuploid ? 
+                        "ICSI: +\(percentDiff)% more euploid blastocysts than conventional IVF" :
+                        "Conventional IVF: +\(percentDiff)% more euploid blastocysts than ICSI"
+                    
+                    Text(comparisonText)
+                        .font(.caption.weight(.medium))
+                        .foregroundColor(.primary)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(.secondary.opacity(0.1))
+                        )
+                }
+            }
+            
+            // Connection line to next stage
+            VStack(spacing: 4) {
+                Text("↓")
+                    .font(.title2)
+                    .foregroundColor(.secondary.opacity(0.6))
+                
+                Text("Both pathways continue through complete cascade")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+        }
+        .padding(16)
+        .background(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(.ultraThinMaterial)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+        )
+    }
+}
+
+// MARK: - Pathway Column View
+private struct PathwayColumn: View {
+    let title: String
+    let pathway: IVFOutcomePredictor.PredictionResults.CascadeFlow.FertilizationPathway?
+    let color: Color
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            // Method header
+            HStack {
+                Text(title)
+                    .font(.caption.weight(.semibold))
+                    .foregroundColor(color)
+                
+                Spacer()
+            }
+            
+            // Fertilization results
+            VStack(alignment: .leading, spacing: 4) {
+                HStack {
+                    Text(String(format: "%.1f", pathway?.fertilizedEmbryos ?? 0))
+                        .font(.subheadline.weight(.bold))
+                        .foregroundColor(.primary)
+                    
+                    Text("fertilized")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                
+                Text("\(Int((pathway?.fertilizationRate ?? 0) * 100))% fertilization rate")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                
+                // Quick cascade preview
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("→ \(String(format: "%.1f", pathway?.day3Embryos ?? 0)) day 3 embryos")
+                        .font(.system(size: 10))
+                        .foregroundColor(.secondary)
+                    
+                    Text("→ \(String(format: "%.1f", pathway?.blastocysts ?? 0)) blastocysts")
+                        .font(.system(size: 10))
+                        .foregroundColor(.secondary)
+                    
+                    Text("→ \(String(format: "%.1f", pathway?.euploidBlastocysts ?? 0)) euploid")
+                        .font(.system(size: 10))
+                        .foregroundColor(.secondary)
+                }
+            }
+        }
+        .padding(12)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.gray.opacity(0.05))
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(color.opacity(0.3), lineWidth: 1)
+        )
+    }
+}
+
+// MARK: - Dual Pathway Stage View for Cascade Stages
+private struct DualPathwayStageView: View {
+    let stageNumber: String
+    let stageName: String
+    let cascade: IVFOutcomePredictor.PredictionResults.CascadeFlow?
+    let pathwayExtractor: (IVFOutcomePredictor.PredictionResults.CascadeFlow.FertilizationPathway) -> (Double, String)
+    
+    var body: some View {
+        VStack(spacing: 16) {
+            // Stage Header
+            HStack {
+                ZStack {
+                    Circle()
+                        .fill(Brand.ColorSystem.primary.opacity(0.1))
+                        .frame(width: 28, height: 28)
+                    
+                    Text(stageNumber)
+                        .font(.caption.weight(.bold))
+                        .foregroundColor(Brand.ColorSystem.primary)
+                }
+                
+                Text(stageName)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundColor(.primary)
+                
+                Spacer()
+            }
+            
+            // Dual pathway results
+            HStack(alignment: .top, spacing: 16) {
+                // IVF Results
+                if let cascade = cascade {
+                    let (ivfCount, unit) = pathwayExtractor(cascade.ivfPathway)
+                    PathwayResultColumn(
+                        title: "Conventional IVF",
+                        count: ivfCount,
+                        unit: unit,
+                        color: Brand.ColorSystem.primary
+                    )
+                }
+                
+                // Comparison Divider
+                VStack {
+                    Text("vs")
+                        .font(.caption.weight(.medium))
+                        .foregroundColor(.secondary)
+                    
+                    Rectangle()
+                        .fill(.secondary.opacity(0.3))
+                        .frame(width: 1)
+                        .frame(maxHeight: 60)
+                }
+                
+                // ICSI Results
+                if let cascade = cascade {
+                    let (icsiCount, unit) = pathwayExtractor(cascade.icsiPathway)
+                    PathwayResultColumn(
+                        title: "ICSI",
+                        count: icsiCount,
+                        unit: unit,
+                        color: Brand.ColorSystem.secondary
+                    )
+                }
+            }
+        }
+        .padding(16)
+        .background(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(.ultraThinMaterial)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+        )
+    }
+}
+
+// MARK: - Pathway Result Column
+private struct PathwayResultColumn: View {
+    let title: String
+    let count: Double
+    let unit: String
+    let color: Color
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(title)
+                .font(.caption.weight(.semibold))
+                .foregroundColor(color)
+            
+            VStack(alignment: .leading, spacing: 4) {
+                HStack {
+                    Text(String(format: "%.1f", count))
+                        .font(.title2.weight(.bold))
+                        .foregroundColor(.primary)
+                    
+                    Text(unit)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding(12)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.gray.opacity(0.05))
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(color.opacity(0.3), lineWidth: 1)
+        )
     }
 }
 
@@ -1421,4 +2039,14 @@ enum EstrogenUnit: String, CaseIterable {
         case .pmolPerL: return 0.272  // 1 pmol/L ≈ 0.272 pg/mL
         }
     }
+}
+
+// MARK: - DateFormatter Extension
+extension DateFormatter {
+    static let savedPredictionFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }

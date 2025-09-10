@@ -34,7 +34,7 @@ struct CycleInputSheet: View {
                             .font(Brand.Typography.displayMedium)
                             .foregroundColor(Brand.ColorSystem.textPrimary)
                         
-                        Text("Enter your cycle information to receive personalized recommendations")
+                        Text("Enter your cycle information to receive personalized timing analysis")
                             .font(Brand.Typography.bodyMedium)
                             .foregroundColor(Brand.ColorSystem.textSecondary)
                             .multilineTextAlignment(.center)

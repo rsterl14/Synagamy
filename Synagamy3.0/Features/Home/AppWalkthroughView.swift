@@ -37,7 +37,7 @@ struct AppWalkthroughView: View {
         ),
         WalkthroughStep(
             title: "Pathway Explorer",
-            description: "Use the Pathway Explorer to discover personalized treatment recommendations based on your specific situation. Answer questions to get tailored guidance for your journey.",
+            description: "Use the Pathway Explorer to discover personalized treatment options based on your specific situation. Answer questions to get tailored guidance for your journey.",
             icon: "map.fill",
             position: .center,
             highlightArea: nil

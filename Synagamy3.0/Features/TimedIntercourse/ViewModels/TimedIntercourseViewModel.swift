@@ -35,9 +35,9 @@ class TimedIntercourseViewModel: ObservableObject {
         return FertilityWindow(cycle: cycle)
     }
     
-    var currentRecommendations: [IntercourseTiming] {
+    var currentTimingAnalysis: [IntercourseTiming] {
         guard let cycle = currentCycle else { return [] }
-        return FertilityCalculator.recommendations(for: cycle)
+        return FertilityCalculator.timingAnalysis(for: cycle)
     }
     
     init() {

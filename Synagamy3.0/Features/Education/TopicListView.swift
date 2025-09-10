@@ -19,7 +19,7 @@ struct TopicListView: View {
     /// Optional headline shown above the list (e.g., the category name).
     var title: String? = nil
 
-    /// Provide the topic subset to show (recommended). If nil, will show all topics.
+    /// Provide the topic subset to show (suggested). If nil, will show all topics.
     var topics: [EducationTopic]? = nil
 
 

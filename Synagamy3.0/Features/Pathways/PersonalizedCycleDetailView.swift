@@ -386,7 +386,7 @@ private struct TopicLearningCard: View {
         id: "sample_pathway",
         title: "IVF with Fresh Embryo Transfer",
         description: "Complete IVF cycle with fresh embryo transfer",
-        recommendedFor: "Couples with various fertility issues",
+        suitableFor: "Couples with various fertility issues",
         steps: [
             PathwayStep(
                 step: "Initial Consultation",

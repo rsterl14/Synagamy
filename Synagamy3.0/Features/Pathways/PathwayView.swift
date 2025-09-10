@@ -52,9 +52,6 @@ struct PathwayView: View {
                         resultsSection
                     }
                     
-                    // MARK: - Clinic Finder Link
-                    clinicFinderSection
-                    
                     // MARK: - Educational Content
                     educationalSection
                     
@@ -101,7 +98,7 @@ struct PathwayView: View {
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.center)
                 
-                Text("Answer a Few Questions to Discover a Infertility Treatment or Fertility Preservation Pathway")
+                Text("Answer a Few Questions to Discover a Infertility Treatment or Fertility Preservation Pathway.\n\n Fertility Pathways Can Vary Between Fertility Clinics")
                     .font(.caption)
                     .foregroundColor(Brand.ColorSystem.secondary)
                     .multilineTextAlignment(.center)
@@ -355,16 +352,16 @@ struct PathwayView: View {
     // MARK: - Results Section
     private var resultsSection: some View {
         EnhancedContentBlock(
-            title: "Your Recommended Pathways",
+            title: "Your Pathway Options",
             icon: "star.circle.fill"
         ) {
             VStack(spacing: Brand.Spacing.lg) {
-                if viewModel.recommendedPaths.isEmpty {
+                if viewModel.pathwayOptions.isEmpty {
                     Text("No pathways match your selections")
                         .font(.subheadline)
                         .foregroundColor(Brand.ColorSystem.secondary)
                 } else {
-                    ForEach(viewModel.recommendedPaths, id: \.id) { pathway in
+                    ForEach(viewModel.pathwayOptions, id: \.id) { pathway in
                         VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                             // Pathway Header
                             HStack {
@@ -388,11 +385,11 @@ struct PathwayView: View {
                                     .foregroundColor(Brand.ColorSystem.primary)
                             }
                             
-                            if let recommendedFor = pathway.recommendedFor {
+                            if let suitableFor = pathway.suitableFor {
                                 HStack(spacing: 4) {
                                     Image(systemName: "person.fill")
                                         .font(.caption2)
-                                    Text(recommendedFor)
+                                    Text(suitableFor)
                                         .font(.caption2)
                                 }
                                 .foregroundColor(Brand.ColorSystem.secondary)
@@ -456,51 +453,6 @@ struct PathwayView: View {
                 }
             }
         }
-    }
-    
-    // MARK: - Clinic Finder Section
-    private var clinicFinderSection: some View {
-        NavigationLink(destination: ClinicFinderView()) {
-            VStack(spacing: 0) {
-                HStack {
-                    // Leading icon and title
-                    HStack(spacing: 12) {
-                        Image(systemName: "location.magnifyingglass")
-                            .font(.body.weight(.medium))
-                            .foregroundColor(Brand.ColorSystem.primary)
-                            .frame(width: 24)
-                        
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text("Find a Infertility or Fertility Preservation Clinic")
-                                .font(.subheadline.weight(.semibold))
-                                .foregroundColor(.primary)
-                            
-                            Text("Locate specialized clinics near you")
-                                .font(.caption)
-                                .foregroundColor(Brand.ColorSystem.secondary)
-                        }
-                    }
-                    
-                    Spacer()
-                    
-                    // Navigation indicator
-                    Image(systemName: "chevron.right")
-                        .font(.caption.weight(.semibold))
-                        .foregroundColor(Brand.ColorSystem.secondary)
-                }
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(.ultraThinMaterial)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                .stroke(Brand.ColorToken.hairline, lineWidth: 1)
-                        )
-                )
-            }
-        }
-        .buttonStyle(.plain)
-        .padding(.horizontal, 16)
     }
     
     // MARK: - Educational Section
@@ -635,11 +587,11 @@ struct PathwayDetailSheet: View {
                                 .multilineTextAlignment(.leading)
                         }
                         
-                        if let recommendedFor = pathway.recommendedFor {
+                        if let suitableFor = pathway.suitableFor {
                             HStack(spacing: 4) {
                                 Image(systemName: "person.fill")
                                     .font(.caption)
-                                Text("Recommended for: \(recommendedFor)")
+                                Text("Suitable for: \(suitableFor)")
                                     .font(.caption)
                             }
                             .foregroundColor(Brand.ColorSystem.primary)
@@ -721,7 +673,7 @@ class PathwayViewModel: ObservableObject {
     @Published var currentCategory: PathwayCategory?
     @Published var currentQuestion: PathwayQuestion?
     @Published var answeredQuestions: [(question: PathwayQuestion, selectedOption: PathwayOption)] = []
-    @Published var recommendedPaths: [PathwayPath] = []
+    @Published var pathwayOptions: [PathwayPath] = []
     
     private let pathwayData = AppData.pathways
     private let allPaths = AppData.pathwayPaths
@@ -735,7 +687,7 @@ class PathwayViewModel: ObservableObject {
     }
     
     var isComplete: Bool {
-        hasStarted && currentQuestion == nil && !recommendedPaths.isEmpty
+        hasStarted && currentQuestion == nil && !pathwayOptions.isEmpty
     }
     
     var canGoBack: Bool {
@@ -759,14 +711,14 @@ class PathwayViewModel: ObservableObject {
     func selectCategory(_ category: PathwayCategory) {
         currentCategory = category
         answeredQuestions = []
-        recommendedPaths = []
+        pathwayOptions = []
         
         // Start with first question if available
         if let firstQuestion = category.questions?.first {
             currentQuestion = firstQuestion
         } else if let directPaths = category.paths {
             // Category has direct paths without questions
-            recommendedPaths = directPaths
+            pathwayOptions = directPaths
             currentQuestion = nil
         }
     }
@@ -777,9 +729,9 @@ class PathwayViewModel: ObservableObject {
         
         // Check if option leads to paths
         if let pathIds = option.pathIds {
-            // Find the recommended paths
+            // Find the matching paths
             let paths = allPaths.filter { pathIds.contains($0.id) }
-            recommendedPaths.append(contentsOf: paths)
+            pathwayOptions.append(contentsOf: paths)
             currentQuestion = nil
         }
         // Check if option leads to next question
@@ -803,13 +755,13 @@ class PathwayViewModel: ObservableObject {
         currentQuestion = removed.question
         
         // Clear any paths that were set
-        if recommendedPaths.count > 0 {
+        if pathwayOptions.count > 0 {
             // Remove paths that were added by this question
             if let option = answeredQuestions.last?.selectedOption,
                let pathIds = option.pathIds {
-                recommendedPaths.removeAll { pathIds.contains($0.id) }
+                pathwayOptions.removeAll { pathIds.contains($0.id) }
             } else {
-                recommendedPaths = []
+                pathwayOptions = []
             }
         }
     }
@@ -818,7 +770,7 @@ class PathwayViewModel: ObservableObject {
         currentCategory = nil
         currentQuestion = nil
         answeredQuestions = []
-        recommendedPaths = []
+        pathwayOptions = []
     }
     
     private func findQuestion(withId id: String) -> PathwayQuestion? {

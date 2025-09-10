@@ -266,13 +266,13 @@ extension View {
     }
 }
 
-// MARK: - Smart Recommendations
+// MARK: - Smart Suggestions
 
 extension BookmarkManager {
-    func getRecommendedContent(from allTopics: [EducationTopic]) -> [EducationTopic] {
+    func getSuggestedContent(from allTopics: [EducationTopic]) -> [EducationTopic] {
         // Analyze bookmarked content to suggest related topics
         let bookmarkedTopicObjects = getBookmarkedTopics(from: allTopics)
-        var recommendedTopics: [EducationTopic] = []
+        var suggestedTopics: [EducationTopic] = []
         
         // Find topics with related keywords
         let relatedKeywords = Set(bookmarkedTopicObjects.compactMap { $0.relatedTo }.flatMap { $0 })
@@ -288,12 +288,12 @@ extension BookmarkManager {
             return (topic, score)
         }
         
-        // Return top recommendations
-        recommendedTopics = scoredCandidates
+        // Return top suggestions
+        suggestedTopics = scoredCandidates
             .sorted { $0.1 > $1.1 }
             .prefix(5)
             .map { $0.0 }
         
-        return recommendedTopics
+        return suggestedTopics
     }
 }

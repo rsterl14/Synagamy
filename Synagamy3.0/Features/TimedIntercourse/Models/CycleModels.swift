@@ -150,7 +150,7 @@ struct FertilityWindow {
     }
 }
 
-// MARK: - Recommendation Model
+// MARK: - Timing Analysis Model
 
 struct IntercourseTiming: Identifiable {
     let id = UUID()
@@ -237,20 +237,20 @@ struct FertilityCalculator {
         return .none
     }
     
-    /// Calculate optimal intercourse timing recommendations
-    static func recommendations(for cycle: MenstrualCycle) -> [IntercourseTiming] {
+    /// Calculate optimal intercourse timing analysis
+    static func timingAnalysis(for cycle: MenstrualCycle) -> [IntercourseTiming] {
         let currentDay = cycle.currentDay
         let ovulationDay = cycle.averageLength - cycle.lutealPhaseLength
         let daysUntilOvulation = ovulationDay - currentDay
         
-        var recommendations: [IntercourseTiming] = []
+        var timingAnalysis: [IntercourseTiming] = []
         
-        // Current phase recommendations
+        // Current phase analysis
         let currentPhase = CyclePhaseCalculator.phase(for: currentDay, in: cycle)
         
         switch currentPhase {
         case .menstruation:
-            recommendations.append(IntercourseTiming(
+            timingAnalysis.append(IntercourseTiming(
                 title: "Wait for Fertile Window",
                 description: "Your fertile window will begin in approximately \(max(0, ovulationDay - 5 - currentDay)) days",
                 icon: "calendar.badge.clock",
@@ -260,9 +260,9 @@ struct FertilityCalculator {
             
         case .follicular:
             if daysUntilOvulation <= 7 {
-                recommendations.append(IntercourseTiming(
+                timingAnalysis.append(IntercourseTiming(
                     title: "Prepare for Fertile Window",
-                    description: "Start tracking cervical mucus and consider every other day intercourse",
+                    description: "Consider every other day intercourse",
                     icon: "eye.circle",
                     priority: .medium,
                     daysFromNow: nil
@@ -270,25 +270,25 @@ struct FertilityCalculator {
             }
             
         case .fertile:
-            recommendations.append(IntercourseTiming(
+            timingAnalysis.append(IntercourseTiming(
                 title: "Fertile Window Active",
-                description: "High conception probability. Recommend daily or every other day intercourse",
+                description: "High conception probability. Daily or every other day intercourse optimal",
                 icon: "heart.circle.fill",
                 priority: .high,
                 daysFromNow: 0
             ))
             
         case .ovulation:
-            recommendations.append(IntercourseTiming(
+            timingAnalysis.append(IntercourseTiming(
                 title: "Peak Fertility",
-                description: "Highest conception probability. Intercourse recommended today and tomorrow",
+                description: "Highest conception probability. Intercourse optimal today and tomorrow",
                 icon: "target",
                 priority: .critical,
                 daysFromNow: 0
             ))
             
         case .luteal:
-            recommendations.append(IntercourseTiming(
+            timingAnalysis.append(IntercourseTiming(
                 title: "Post-Ovulation",
                 description: "Conception window has passed. Next fertile window in \(cycle.averageLength - currentDay + (ovulationDay - 5)) days",
                 icon: "clock.arrow.circlepath",
@@ -299,7 +299,7 @@ struct FertilityCalculator {
         
         // Upcoming important days
         if daysUntilOvulation > 0 && daysUntilOvulation <= 7 {
-            recommendations.append(IntercourseTiming(
+            timingAnalysis.append(IntercourseTiming(
                 title: "Ovulation Approaching",
                 description: "Ovulation expected in \(daysUntilOvulation) day\(daysUntilOvulation == 1 ? "" : "s")",
                 icon: "calendar.badge.exclamationmark",
@@ -309,15 +309,15 @@ struct FertilityCalculator {
         }
         
         // General timing advice
-        recommendations.append(IntercourseTiming(
+        timingAnalysis.append(IntercourseTiming(
             title: "Optimal Frequency",
-            description: "Every 2-3 days throughout the cycle maintains sperm quality and maximizes chances",
+            description: "Intercourse every 2-3 days throughout the cycle maintains sperm quality and maximizes chances",
             icon: "repeat.circle",
             priority: .low,
             daysFromNow: nil
         ))
         
-        return recommendations.sorted { $0.priority.rawValue > $1.priority.rawValue }
+        return timingAnalysis.sorted { $0.priority.rawValue > $1.priority.rawValue }
     }
     
     /// Get current fertility status description
@@ -333,27 +333,27 @@ struct FertilityCalculator {
         switch phase {
         case .menstruation:
             title = "Menstruation"
-            description = "Fertility very low"
+            description = "Fertility Low"
             color = .red
             
         case .follicular:
             title = "Follicular Phase"
-            description = "Fertility increasing"
+            description = "Fertility Window Increasing"
             color = .blue
             
         case .fertile:
             title = "Fertile Window"
-            description = "High conception probability"
+            description = "High Conception Probability"
             color = .green
             
         case .ovulation:
             title = "Ovulation"
-            description = "Peak fertility"
+            description = "Peak Fertility"
             color = .orange
             
         case .luteal:
             title = "Luteal Phase"
-            description = "Fertility decreasing"
+            description = "Fertility Decreasing"
             color = .purple
         }
         

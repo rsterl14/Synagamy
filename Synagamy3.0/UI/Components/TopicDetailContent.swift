@@ -12,6 +12,7 @@ struct TopicDetailContent: View {
     @Binding var selectedTopic: EducationTopic?
     
     @State private var showReferences = false
+    @State private var showRelatedTopics = false
     @State private var expandedRelatedTopics: Set<String> = []
     
     init(topic: EducationTopic, selectedTopic: Binding<EducationTopic?> = .constant(nil)) {
@@ -117,23 +118,63 @@ struct TopicDetailContent: View {
 
             // RELATED TO (optional) with enhanced design
             if let related = topic.relatedTo, !related.isEmpty {
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack(spacing: 8) {
-                        Image(systemName: "link.circle.fill")
-                            .font(.body)
-                            .foregroundStyle(
+                Button(action: {
+                    withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                        showRelatedTopics.toggle()
+                    }
+                }) {
+                    HStack(spacing: 10) {
+                        Circle()
+                            .fill(
                                 LinearGradient(
-                                    colors: [Brand.ColorSystem.primary, Brand.ColorSystem.primary.opacity(0.7)],
+                                    colors: [Brand.ColorSystem.primary.opacity(0.2), Brand.ColorSystem.primary.opacity(0.1)],
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
                             )
+                            .frame(width: 32, height: 32)
+                            .overlay(
+                                Image(systemName: "link.circle.fill")
+                                    .font(.caption)
+                                    .foregroundColor(Brand.ColorSystem.primary)
+                            )
                         
-                        Text("Related Topics")
-                            .font(.subheadline.weight(.semibold))
-                            .foregroundColor(Brand.ColorSystem.primary)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Related Topics")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundColor(Brand.ColorSystem.primary)
+                            
+                            Text("\(related.count) topic\(related.count == 1 ? "" : "s")")
+                                .font(.caption2)
+                                .foregroundColor(Brand.ColorSystem.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        Image(systemName: showRelatedTopics ? "chevron.up.circle.fill" : "chevron.down.circle")
+                            .font(.body)
+                            .foregroundStyle(Brand.ColorSystem.primary)
+                            .animation(.spring(response: 0.3), value: showRelatedTopics)
                     }
-                    
+                    .padding(14)
+                    .background(
+                        RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            .fill(
+                                LinearGradient(
+                                    colors: [Color.primary.opacity(0.02), Color.primary.opacity(0.04)],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                                    .strokeBorder(Brand.ColorToken.hairline.opacity(0.6), lineWidth: 1)
+                            )
+                    )
+                }
+                .buttonStyle(.plain)
+                
+                if showRelatedTopics {
                     VStack(spacing: 10) {
                         ForEach(related, id: \.self) { item in
                             VStack(alignment: .leading, spacing: 0) {
@@ -232,6 +273,7 @@ struct TopicDetailContent: View {
                             }
                         }
                     }
+                    .transition(.opacity.combined(with: .scale(scale: 0.95, anchor: .top)))
                 }
             }
 

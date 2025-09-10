@@ -50,7 +50,7 @@ struct PathwayPath: Identifiable, Codable, Hashable {
     let id: String
     let title: String
     let description: String?
-    let recommendedFor: String?    // Who this path is for (maps to recommended_for)
+    let suitableFor: String?    // Who this path is for (maps to suitable_for)
     let steps: [PathwayStep]
 }
 
