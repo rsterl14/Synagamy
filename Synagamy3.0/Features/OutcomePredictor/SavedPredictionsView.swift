@@ -14,6 +14,7 @@ struct SavedPredictionsView: View {
     @State private var selectedPrediction: SavedPrediction?
     @State private var showingPredictionDetail = false
     @State private var editingPrediction: SavedPrediction?
+    @State private var showingEditAlert = false
     @State private var editNickname = ""
     @State private var showingDeleteConfirmation = false
     @State private var predictionToDelete: SavedPrediction?
@@ -58,10 +59,11 @@ struct SavedPredictionsView: View {
         .sheet(item: $selectedPrediction) { prediction in
             PredictionDetailView(prediction: prediction)
         }
-        .alert("Edit Name", isPresented: .constant(editingPrediction != nil)) {
+        .alert("Edit Name", isPresented: $showingEditAlert) {
             TextField("Prediction Name", text: $editNickname)
             
             Button("Cancel", role: .cancel) {
+                showingEditAlert = false
                 editingPrediction = nil
                 editNickname = ""
             }
@@ -73,6 +75,7 @@ struct SavedPredictionsView: View {
                         nickname: editNickname
                     )
                 }
+                showingEditAlert = false
                 editingPrediction = nil
                 editNickname = ""
             }
@@ -124,6 +127,7 @@ struct SavedPredictionsView: View {
                     onEdit: {
                         editingPrediction = prediction
                         editNickname = prediction.nickname ?? ""
+                        showingEditAlert = true
                     },
                     onDelete: {
                         predictionToDelete = prediction

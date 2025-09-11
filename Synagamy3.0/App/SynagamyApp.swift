@@ -113,13 +113,12 @@ final class AppLaunchModel: ObservableObject {
         // We ignore the result here; it's just to build any internal caches.
         _ = TopicMatcher.index(topics: topics)
 
-        // Optional sanity checks (do not block launch or crash).
-        // You can log these to analytics if desired, or surface a single friendly banner later.
+        // Don't set errorMessage during initial preload since data loads asynchronously
+        // The app will show proper empty states in views if data is still loading
+        #if DEBUG
         if topics.isEmpty || pathwayCategories.isEmpty {
-            // Not a fatal condition: the app still functions, and empty states will render.
-            // Keeping the copy non-technical and non-blocking is App Store–friendly.
-            errorMessage = "Some content didn't load yet. You can still browse other sections."
+            print("🏁 AppLaunchModel: Data still loading, views will handle empty states")
         }
-        // If you wire a global banner/alert, consider clearing errorMessage after first display.
+        #endif
     }
 }

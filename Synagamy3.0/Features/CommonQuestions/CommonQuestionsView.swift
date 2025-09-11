@@ -21,6 +21,7 @@ struct CommonQuestionsView: View {
     @State private var questions: [CommonQuestion] = []     // loaded onAppear
     @State private var selected: CommonQuestion? = nil      // drives the sheet
     @State private var errorMessage: String? = nil          // user-friendly alert text
+    @State private var showingErrorAlert = false
     @State private var expandedRelatedTopics: Set<String> = []  // tracks which related topics are expanded
     @State private var showReferences = false  // tracks if references section is expanded
 
@@ -114,8 +115,11 @@ struct CommonQuestionsView: View {
         }
         
         // Friendly non-technical alert for recoverable issues
-        .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {
-            Button("OK", role: .cancel) { errorMessage = nil }
+        .alert("Something went wrong", isPresented: $showingErrorAlert, actions: {
+            Button("OK", role: .cancel) { 
+                showingErrorAlert = false
+                errorMessage = nil 
+            }
         }, message: {
             Text(errorMessage ?? "Please try again.")
         })

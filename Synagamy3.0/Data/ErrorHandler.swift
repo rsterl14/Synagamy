@@ -600,7 +600,7 @@ final class ErrorHandler: ObservableObject {
 // MARK: - SwiftUI Error Alert Modifier
 
 struct ErrorAlertModifier: ViewModifier {
-    @StateObject private var errorHandler = ErrorHandler.shared
+    @ObservedObject private var errorHandler = ErrorHandler.shared
     let onRetry: (() -> Void)?
     let onNavigateHome: (() -> Void)?
     

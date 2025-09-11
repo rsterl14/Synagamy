@@ -20,6 +20,7 @@ struct ResourceDetailSheet: View {
     @Environment(\.openURL) private var openURL            // for external Safari
     @State private var showSafari = false                  // toggles in-app Safari sheet
     @State private var errorMessage: String? = nil         // user-facing error text
+    @State private var showingErrorAlert = false           // controls error alert presentation
 
     var body: some View {
         NavigationStack {
@@ -146,6 +147,7 @@ struct ResourceDetailSheet: View {
                                 openURL(resource.url) { accepted in
                                     if !accepted {
                                         errorMessage = "Couldn't open the link. Please try again."
+                                        showingErrorAlert = true
                                     }
                                 }
                             } label: {
@@ -207,9 +209,9 @@ struct ResourceDetailSheet: View {
 
         // MARK: - Friendly, non-technical error alert
         .alert("Something went wrong",
-               isPresented: .constant(errorMessage != nil),
+               isPresented: $showingErrorAlert,
                actions: {
-                    Button("OK", role: .cancel) { errorMessage = nil }
+                    Button("OK", role: .cancel) { showingErrorAlert = false; errorMessage = nil }
                },
                message: {
                     Text(errorMessage ?? "Please try again.")

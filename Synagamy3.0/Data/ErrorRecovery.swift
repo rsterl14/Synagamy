@@ -437,7 +437,7 @@ struct RecoveryTask {
 // MARK: - SwiftUI Integration
 
 struct AutoRecoveryModifier: ViewModifier {
-    @StateObject private var recoveryManager = ErrorRecoveryManager.shared
+    @ObservedObject private var recoveryManager = ErrorRecoveryManager.shared
     let onRecoveryComplete: ((Bool) -> Void)?
     
     func body(content: Content) -> some View {

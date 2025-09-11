@@ -42,6 +42,7 @@ struct OutcomePredictorView: View {
     @State private var showResults = false
     @State private var predictionResults: IVFOutcomePredictor.PredictionResults?
     @State private var errorMessage: String? = nil
+    @State private var showingErrorAlert = false
     @State private var isCascadeExpanded = false
     
     // MARK: - Validation State
@@ -139,8 +140,11 @@ struct OutcomePredictorView: View {
                 .font(.headline.weight(.medium))
             }
         }
-        .alert("Prediction Error", isPresented: .constant(errorMessage != nil), actions: {
-            Button("OK", role: .cancel) { errorMessage = nil }
+        .alert("Prediction Error", isPresented: $showingErrorAlert, actions: {
+            Button("OK", role: .cancel) { 
+                showingErrorAlert = false
+                errorMessage = nil 
+            }
         }, message: {
             Text(errorMessage ?? "Please check your inputs and try again.")
         })

@@ -27,6 +27,7 @@ struct TopicSelectorSheet: View {
     // MARK: - UI State
     @State private var selectionIndex: Int = 0            // Which topic is selected in the picker
     @State private var errorMessage: String? = nil        // User-visible alert text
+    @State private var showingErrorAlert = false          // Controls error alert presentation
     @Environment(\.dismiss) private var dismiss
 
     // MARK: - Derived
@@ -290,8 +291,8 @@ struct TopicSelectorSheet: View {
         .onChange(of: selectionIndex) { _, _ in clampSelection() }
 
         // Friendly non-technical alert (placeholder; wire to any recoverable issues you surface)
-        .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {
-            Button("OK", role: .cancel) { errorMessage = nil }
+        .alert("Something went wrong", isPresented: $showingErrorAlert, actions: {
+            Button("OK", role: .cancel) { showingErrorAlert = false; errorMessage = nil }
         }, message: {
             Text(errorMessage ?? "Please try again.")
         })

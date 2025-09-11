@@ -30,6 +30,7 @@ struct TopicListView: View {
 
     @State private var headerHeight: CGFloat = 64
     @State private var errorMessage: String? = nil
+    @State private var showingErrorAlert = false
 
 
     // MARK: - Body
@@ -72,8 +73,11 @@ struct TopicListView: View {
 
         // MARK: - Alerts
 
-        .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {
-            Button("OK", role: .cancel) { errorMessage = nil }
+        .alert("Something went wrong", isPresented: $showingErrorAlert, actions: {
+            Button("OK", role: .cancel) { 
+                showingErrorAlert = false
+                errorMessage = nil 
+            }
         }, message: { Text(errorMessage ?? "Please try again.") })
 
         // MARK: - Load list

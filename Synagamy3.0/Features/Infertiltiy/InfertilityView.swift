@@ -36,6 +36,7 @@ struct InfertilityView: View {
     @State private var selectedTopic: InfoItem? = nil
     @State private var errorMessage: String? = nil
     @State private var isLoading = true
+    @State private var showingErrorAlert = false
     
     // MARK: - Categorized topics
     private var infertilityTopics: [InfoItem] {
@@ -214,8 +215,11 @@ struct InfertilityView: View {
         }
         
         // Error alert
-        .alert("Something went wrong", isPresented: .constant(errorMessage != nil), actions: {
-            Button("OK", role: .cancel) { errorMessage = nil }
+        .alert("Something went wrong", isPresented: $showingErrorAlert, actions: {
+            Button("OK", role: .cancel) { 
+                showingErrorAlert = false
+                errorMessage = nil 
+            }
         }, message: {
             Text(errorMessage ?? "Please try again.")
         })
@@ -394,6 +398,7 @@ struct InfertilityView: View {
                     )
                 ]
                 errorMessage = "Some content may be unavailable"
+                showingErrorAlert = true
             }
             
             isLoading = false

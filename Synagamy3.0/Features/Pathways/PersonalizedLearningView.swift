@@ -12,7 +12,9 @@ struct PersonalizedLearningView: View {
     @StateObject private var cycleManager = PersonalizedCycleManager()
     @State private var showingCycleDetail: SavedCycle?
     @State private var showingDeleteConfirmation: SavedCycle?
+    @State private var showingDeleteAlert = false
     @State private var editingCycle: SavedCycle?
+    @State private var showingEditAlert = false
     @State private var newCycleName: String = ""
     
     var body: some View {
@@ -42,14 +44,16 @@ struct PersonalizedLearningView: View {
         .sheet(item: $showingCycleDetail) { cycle in
             PersonalizedCycleDetailView(cycle: cycle, cycleManager: cycleManager)
         }
-        .alert("Delete Cycle", isPresented: .constant(showingDeleteConfirmation != nil)) {
+        .alert("Delete Cycle", isPresented: $showingDeleteAlert) {
             Button("Delete", role: .destructive) {
                 if let cycle = showingDeleteConfirmation {
                     cycleManager.deleteCycle(cycle)
                 }
+                showingDeleteAlert = false
                 showingDeleteConfirmation = nil
             }
             Button("Cancel", role: .cancel) {
+                showingDeleteAlert = false
                 showingDeleteConfirmation = nil
             }
         } message: {
@@ -57,17 +61,19 @@ struct PersonalizedLearningView: View {
                 Text("Are you sure you want to delete '\(cycle.name)'? This action cannot be undone.")
             }
         }
-        .alert("Rename Cycle", isPresented: .constant(editingCycle != nil)) {
+        .alert("Rename Cycle", isPresented: $showingEditAlert) {
             TextField("New name", text: $newCycleName)
                 .textInputAutocapitalization(.words)
             Button("Save") {
                 if let cycle = editingCycle, !newCycleName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                     cycleManager.renameCycle(cycle, newName: newCycleName)
                 }
+                showingEditAlert = false
                 editingCycle = nil
                 newCycleName = ""
             }
             Button("Cancel", role: .cancel) {
+                showingEditAlert = false
                 editingCycle = nil
                 newCycleName = ""
             }
@@ -150,9 +156,11 @@ struct PersonalizedLearningView: View {
                         onEdit: {
                             newCycleName = cycle.name
                             editingCycle = cycle
+                            showingEditAlert = true
                         },
                         onDelete: {
                             showingDeleteConfirmation = cycle
+                            showingDeleteAlert = true
                         }
                     )
                 }
