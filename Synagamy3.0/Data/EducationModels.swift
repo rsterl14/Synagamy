@@ -45,7 +45,6 @@ struct EducationTopic: Identifiable, Codable, Hashable {
     /// User-friendly explanation written in accessible language for general audience
     let layExplanation: String
     
-    
     /// Array of medical references, citations, or source URLs for credibility
     let reference: [String]
     
@@ -54,6 +53,11 @@ struct EducationTopic: Identifiable, Codable, Hashable {
     
     /// Category classification for grouping topics (e.g., "Treatment Options", "Diagnosis")
     let category: String
+    
+    // MARK: - Automatic Key Conversion
+    // Using JSONDecoder's .convertFromSnakeCase for automatic key mapping:
+    // lay_explanation -> layExplanation
+    // related_to -> relatedTo
 }
 
 // MARK: - Topic Categories

@@ -363,13 +363,26 @@ struct InfertilityView: View {
         Task { @MainActor in
             isLoading = true
             
-            // Load from JSON file
-            if let url = Bundle.main.url(forResource: "infertility_info", withExtension: "json"),
-               let data = try? Data(contentsOf: url),
-               let decoded = try? JSONDecoder().decode([InfoItem].self, from: data) {
-                topics = decoded
+            // Load from AppData (which uses GitHub/Remote data)
+            let infertilityData = AppData.infertilityInfo
+            
+            if !infertilityData.isEmpty {
+                // Convert InfertilityInfo to InfoItem
+                topics = infertilityData.map { info in
+                    InfoItem(
+                        title: info.title,
+                        subtitle: info.subtitle,
+                        systemIcon: info.systemIcon,
+                        description: info.description,
+                        keyPoints: info.keyPoints.isEmpty ? nil : info.keyPoints,
+                        references: info.references.isEmpty ? nil : info.references.map { ref in
+                            InfoItem.Reference(title: ref.title, url: ref.url)
+                        }
+                    )
+                }
+                errorMessage = nil
             } else {
-                // Fallback to basic data if JSON fails
+                // Fallback to basic data if no data available
                 topics = [
                     InfoItem(
                         title: "What is Infertility?",

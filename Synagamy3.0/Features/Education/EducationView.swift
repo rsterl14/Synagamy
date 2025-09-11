@@ -616,6 +616,7 @@ private struct InfoPoint: View {
 }
 
 // MARK: - View Model
+@MainActor
 class EducationViewModel: ObservableObject {
     @Published var selectedCategory: String?
     @Published var selectedTopic: EducationTopic?

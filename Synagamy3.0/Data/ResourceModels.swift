@@ -56,19 +56,9 @@ struct Resource: Identifiable, Equatable, Codable {
 // MARK: - Data Loading
 
 extension Resource {
+    @MainActor
     static func loadFromJSON() -> [Resource] {
-        guard let url = Bundle.main.url(forResource: "resources", withExtension: "json"),
-              let data = try? Data(contentsOf: url) else {
-            print("Could not find or load resources.json")
-            return []
-        }
-        
-        do {
-            let resources = try JSONDecoder().decode([Resource].self, from: data)
-            return resources
-        } catch {
-            print("Error decoding resources.json: \(error)")
-            return []
-        }
+        // Load from AppData (which uses GitHub/Remote data)
+        return AppData.resources
     }
 }

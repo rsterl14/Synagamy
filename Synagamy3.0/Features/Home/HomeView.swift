@@ -8,8 +8,16 @@
 
 import SwiftUI
 
+#if DEBUG
+// Import debug view for development builds
+#endif
+
 struct HomeView: View {
     @State private var showingWalkthrough = false
+    #if DEBUG
+    @State private var showingDataDebug = false
+    @State private var debugTapCount = 0
+    #endif
     
     // MARK: - Route Definition
     enum Route: CaseIterable, Hashable {
@@ -152,6 +160,18 @@ struct HomeView: View {
                 AppWalkthroughView(isShowing: $showingWalkthrough)
             }
         }
+        #if DEBUG
+        .onTapGesture(count: 7) {
+            debugTapCount += 1
+            if debugTapCount >= 3 {
+                showingDataDebug = true
+                debugTapCount = 0
+            }
+        }
+        .sheet(isPresented: $showingDataDebug) {
+            DataSourceDebugView()
+        }
+        #endif
     }
     
     // MARK: - Medical Disclaimer Section

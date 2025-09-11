@@ -30,10 +30,8 @@ enum DataLoader {
             #if DEBUG
             debugPrint("⚠️ DataLoader: missing resource \(resource).json in app bundle.")
             #endif
-            let error = SynagamyError.dataMissing(resource: resource)
-            Task { @MainActor in
-                ErrorHandler.shared.handle(error)
-            }
+            // Don't trigger error handler for missing local files - this is expected
+            // since we're using remote data now
             throw LoadError.missingResource(resource)
         }
 
@@ -45,10 +43,7 @@ enum DataLoader {
                 #if DEBUG
                 debugPrint("⚠️ DataLoader: \(resource).json is empty.")
                 #endif
-                let error = SynagamyError.dataCorrupted(resource: resource, details: "File is empty")
-                Task { @MainActor in
-                    ErrorHandler.shared.handle(error)
-                }
+                // Don't trigger UI error handler for data issues during load
                 throw LoadError.emptyData(resource: resource)
             }
             
@@ -59,10 +54,7 @@ enum DataLoader {
                 #if DEBUG
                 debugPrint("⚠️ DataLoader: \(resource).json contains invalid JSON.")
                 #endif
-                let synagamyError = SynagamyError.dataCorrupted(resource: resource, details: "Invalid JSON format")
-                Task { @MainActor in
-                    ErrorHandler.shared.handle(synagamyError)
-                }
+                // Don't trigger UI error handler for data issues during load
                 throw LoadError.invalidFormat(resource: resource)
             }
             
@@ -79,10 +71,9 @@ enum DataLoader {
             
             // Create detailed error message for different decoding failures
             let details = decodeErrorDetails(error)
-            let synagamyError = SynagamyError.dataValidationFailed(resource: resource, issues: [details])
-            Task { @MainActor in
-                ErrorHandler.shared.handle(synagamyError)
-            }
+            #if DEBUG
+            debugPrint("❌ DataLoader: Decoding error - \(details)")
+            #endif
             
             throw LoadError.decodeFailed(resource: resource, underlying: error)
             
@@ -94,11 +85,6 @@ enum DataLoader {
             #if DEBUG
             debugPrint("❌ DataLoader: read failed for \(resource).json — \(error)")
             #endif
-            
-            let synagamyError = SynagamyError.dataLoadFailed(resource: resource, underlying: error)
-            Task { @MainActor in
-                ErrorHandler.shared.handle(synagamyError)
-            }
             
             throw LoadError.readFailed(url, underlying: error)
         }
@@ -127,10 +113,7 @@ enum DataLoader {
                 #if DEBUG
                 debugPrint("⚠️ DataLoader: \(resource).json decoded successfully but contains no items.")
                 #endif
-                let error = SynagamyError.contentEmpty(section: resource)
-                Task { @MainActor in
-                    ErrorHandler.shared.handle(error)
-                }
+                // Don't trigger UI errors for empty data during initial load
             }
             
             return array
@@ -140,8 +123,8 @@ enum DataLoader {
             debugPrint("⚠️ DataLoader: returning [] for \(resource).json due to error: \(error)")
             #endif
             
-            // Log the error through our centralized system
-            ErrorHandler.shared.handleError(error, context: resource)
+            // Don't trigger UI errors during initial data load
+            // The app will use remote data instead
             
             return []
         }
@@ -179,9 +162,11 @@ enum DataLoader {
         }
         
         // All retries failed
+        #if DEBUG
         if let error = lastError {
-            ErrorHandler.shared.handleError(error, context: "\(resource) (after \(maxRetries) retries)")
+            debugPrint("⚠️ DataLoader: All retries failed for \(resource): \(error)")
         }
+        #endif
         
         return nil
     }
@@ -211,10 +196,9 @@ enum DataLoader {
     /// Validates data content before processing
     static func validateContent<T: Collection>(_ content: T, resource: String) -> Bool {
         guard !content.isEmpty else {
-            let error = SynagamyError.contentEmpty(section: resource)
-            Task { @MainActor in
-                ErrorHandler.shared.handle(error)
-            }
+            #if DEBUG
+            debugPrint("⚠️ DataLoader: Content is empty for \(resource)")
+            #endif
             return false
         }
         return true
@@ -226,73 +210,176 @@ enum DataLoader {
 /// Simple facade so views can read static arrays without holding references.
 enum AppData {
     /// Topics backing Education + Topic detail.
-    static var topics: [EducationTopic] { AppDataStore.shared.topics }
+    @MainActor static var topics: [EducationTopic] { AppDataStore.shared.topics }
     /// Categories/paths/steps backing Pathways.
-    static var pathways: PathwayData { AppDataStore.shared.pathwayData }
-    static var pathwayCategories: [PathwayCategory] { AppDataStore.shared.pathwayData.categories }
-    static var pathwayPaths: [PathwayPath] { AppDataStore.shared.pathwayPaths }
+    @MainActor static var pathways: PathwayData { AppDataStore.shared.pathwayData }
+    @MainActor static var pathwayCategories: [PathwayCategory] { AppDataStore.shared.pathwayData.categories }
+    @MainActor static var pathwayPaths: [PathwayPath] { AppDataStore.shared.pathwayPaths }
     /// FAQ items backing Common Questions.
-    static var questions: [CommonQuestion] { AppDataStore.shared.questions }
+    @MainActor static var questions: [CommonQuestion] { AppDataStore.shared.questions }
+    /// Resources for external tools and links.
+    @MainActor static var resources: [Resource] { AppDataStore.shared.resources }
+    /// Infertility information and guidance.
+    @MainActor static var infertilityInfo: [InfertilityInfo] { AppDataStore.shared.infertilityInfo }
 
     /// Manual reload hook if you ever support pull‑to‑refresh or remote updates.
-    static func reload() { AppDataStore.shared.reloadAll() }
+    @MainActor static func reload() { AppDataStore.shared.reloadAll() }
 }
 
-/// Singleton in‑memory cache. Not observable (by design) — we eager‑load in init
-/// so views have data on first render and don’t need to observe changes.
-final class AppDataStore {
+/// Singleton in‑memory cache. Now supports both local and remote data loading.
+/// Maintains the same interface for existing views while adding network capabilities.
+@MainActor
+final class AppDataStore: ObservableObject {
     static let shared = AppDataStore()
 
     // Cached content
-    private(set) var topics: [EducationTopic] = []
-    private(set) var questions: [CommonQuestion] = []
-    private(set) var pathwayData: PathwayData = PathwayData(categories: [], paths: [])
-    private(set) var pathwayPaths: [PathwayPath] = []
+    @Published private(set) var topics: [EducationTopic] = []
+    @Published private(set) var questions: [CommonQuestion] = []
+    @Published private(set) var pathwayData: PathwayData = PathwayData(categories: [], paths: [])
+    @Published private(set) var pathwayPaths: [PathwayPath] = []
+    @Published private(set) var resources: [Resource] = []
+    @Published private(set) var infertilityInfo: [InfertilityInfo] = []
+    
+    // Loading states
+    @Published private(set) var isLoadingRemoteData = false
+    @Published private(set) var lastRemoteUpdate: Date?
+    @Published private(set) var useRemoteData = true // Can be toggled for testing
+    
+    private let remoteDataService = RemoteDataService.shared
 
     // Restrict construction — everyone uses `shared`.
     private init() {
+        #if DEBUG
+        print("🏗️ AppDataStore: Initializing...")
+        #endif
+        
         // ✅ CRITICAL: eager‑load once so Education/Pathways/Questions are populated
         // before any view accesses AppData.* during initial render.
-        reloadAll()
+        Task {
+            await loadAllData()
+        }
 
         #if DEBUG
-        debugPrint("🏁 AppDataStore init complete. topics=\(topics.count), pathways=\(pathwayData.categories.count), questions=\(questions.count)")
+        print("🏁 AppDataStore: Init complete, starting async data load...")
         #endif
     }
 
-    /// Loads all JSON with resilient fallbacks. Safe to call multiple times.
-    func reloadAll() {
-        // Load with silent fallback ([]) to keep UI responsive.
-        let loadedTopics: [EducationTopic]     = DataLoader.loadArray([EducationTopic].self, named: "Education_Topics")
-        let loadedQuestions: [CommonQuestion]  = DataLoader.loadArray([CommonQuestion].self, named: "CommonQuestions")
+    /// Loads all data with network-first, then local fallback
+    private func loadAllData() async {
+        isLoadingRemoteData = true
+        defer { isLoadingRemoteData = false }
         
-        // Load PathwayData structure
-        if let loadedData = DataLoader.loadWithRetry(PathwayData.self, named: "Pathways") {
-            pathwayData = loadedData
+        if useRemoteData {
+            // Try loading from network first
+            await loadFromRemote()
+        } else {
+            // Load from local bundle only
+            loadFromLocal()
+        }
+        
+        lastRemoteUpdate = Date()
+        
+        #if DEBUG
+        print("🏁 AppDataStore data load complete. topics=\(topics.count), pathways=\(pathwayData.categories.count), questions=\(questions.count), resources=\(resources.count), infertilityInfo=\(infertilityInfo.count)")
+        #endif
+    }
+    
+    /// Load data from remote service (with local fallback built-in)
+    private func loadFromRemote() async {
+        #if DEBUG
+        print("🚀 AppDataStore: Starting remote data load...")
+        #endif
+        
+        async let loadedTopics = remoteDataService.loadEducationTopics()
+        async let loadedQuestions = remoteDataService.loadCommonQuestions()
+        async let loadedPathwayData = remoteDataService.loadPathways()
+        async let loadedResources = remoteDataService.loadResources()
+        async let loadedInfertilityInfo = remoteDataService.loadInfertilityInfo()
+        
+        // Wait for all loads to complete
+        let results = await (loadedTopics, loadedQuestions, loadedPathwayData, loadedResources, loadedInfertilityInfo)
+        
+        #if DEBUG
+        print("📊 AppDataStore: Remote load results:")
+        print("   - Topics: \(results.0.count)")
+        print("   - Questions: \(results.1.count)")
+        print("   - Pathways: \(results.2?.categories.count ?? 0) categories")
+        print("   - Resources: \(results.3.count)")
+        print("   - Infertility Info: \(results.4.count)")
+        #endif
+        
+        topics = results.0
+        questions = results.1
+        resources = results.3
+        infertilityInfo = results.4
+        
+        #if DEBUG
+        if topics.isEmpty {
+            print("🚨 AppDataStore: CRITICAL - Education topics array is empty after remote load!")
+        }
+        if questions.isEmpty {
+            print("⚠️ AppDataStore: Warning - Questions array is empty after remote load")
+        }
+        if resources.isEmpty {
+            print("⚠️ AppDataStore: Warning - Resources array is empty after remote load")
+        }
+        if infertilityInfo.isEmpty {
+            print("⚠️ AppDataStore: Warning - Infertility info array is empty after remote load")
+        }
+        #endif
+        
+        if let pathwayData = results.2 {
+            self.pathwayData = pathwayData
             // Extract all paths from the data structure for easy access
             var allPaths: [PathwayPath] = []
             // Add paths directly in categories
-            for category in loadedData.categories {
+            for category in pathwayData.categories {
                 if let paths = category.paths {
                     allPaths.append(contentsOf: paths)
                 }
             }
             // Add paths referenced in the separate paths array
-            if let paths = loadedData.paths {
+            if let paths = pathwayData.paths {
                 allPaths.append(contentsOf: paths)
             }
-            
-            // Also find paths by ID from the referenced paths array
-            // Since our JSON has paths both inline and as a separate array
             pathwayPaths = allPaths
         } else {
-            pathwayData = PathwayData(categories: [], paths: [])
+            self.pathwayData = PathwayData(categories: [], paths: [])
             pathwayPaths = []
         }
+        
+        validate()
+    }
 
-        // Assign to cache
-        topics    = loadedTopics
+    /// Legacy method for local-only loading (kept for compatibility and offline fallback)
+    func reloadAll() {
+        Task {
+            await loadAllData()
+        }
+    }
+    
+    /// Load from local bundle only (used as fallback or when remote is disabled)
+    /// Note: Local JSON files have been removed - this returns empty data
+    private func loadFromLocal() {
+        #if DEBUG
+        print("⚠️ AppDataStore: Local JSON files not available, returning empty data")
+        #endif
+        
+        // Return empty data structures since local files are removed
+        let loadedTopics: [EducationTopic] = []
+        let loadedQuestions: [CommonQuestion] = []
+        let loadedResources: [Resource] = []
+        let loadedInfertilityInfo: [InfertilityInfo] = []
+        
+        // Set empty pathway data
+        pathwayData = PathwayData(categories: [], paths: [])
+        pathwayPaths = []
+
+        // Assign empty arrays to cache
+        topics = loadedTopics
         questions = loadedQuestions
+        resources = loadedResources
+        infertilityInfo = loadedInfertilityInfo
 
         // Optional sanity logging
         #if DEBUG
@@ -301,8 +388,21 @@ final class AppDataStore {
         if questions.isEmpty { debugPrint("🔍 AppDataStore: questions is EMPTY") }
         #endif
 
-        // Non‑fatal content validation (duplicates, empty strings, etc.)
         validate()
+    }
+    
+    /// Force refresh from remote (for pull-to-refresh)
+    func refreshFromRemote() async {
+        guard useRemoteData else { return }
+        await loadFromRemote()
+    }
+    
+    /// Toggle between remote and local data (for debugging/testing)
+    func setUseRemoteData(_ enabled: Bool) {
+        useRemoteData = enabled
+        Task {
+            await loadAllData()
+        }
     }
 
     /// Validate content assumptions and log (never crash in production).

@@ -47,6 +47,7 @@ struct StepWithTopics: Identifiable {
 
 // MARK: - Cycle Manager
 
+@MainActor
 class PersonalizedCycleManager: ObservableObject {
     @Published var savedCycles: [SavedCycle] = []
     

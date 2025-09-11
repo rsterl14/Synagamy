@@ -33,9 +33,7 @@ class LazyContentProvider: ObservableObject {
         isLoading = true
         loadingProgress = 0.1
         
-        topics = await Task.detached {
-            AppData.topics
-        }.value
+        topics = AppData.topics
         
         topicsLoaded = true
         loadingProgress = 0.3
@@ -50,9 +48,7 @@ class LazyContentProvider: ObservableObject {
             loadingProgress = 0.1
         }
         
-        pathways = await Task.detached {
-            AppData.pathwayCategories
-        }.value
+        pathways = AppData.pathwayCategories
         
         pathwaysLoaded = true
         loadingProgress = 0.6
@@ -67,9 +63,7 @@ class LazyContentProvider: ObservableObject {
             loadingProgress = 0.1
         }
         
-        questions = await Task.detached {
-            AppData.questions
-        }.value
+        questions = AppData.questions
         
         questionsLoaded = true
         loadingProgress = 0.8

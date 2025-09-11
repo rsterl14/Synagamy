@@ -18,7 +18,13 @@ struct SynagamyApp: App {
     @StateObject private var onboardingManager = OnboardingManager()
 
     init() {
+        #if DEBUG
+        print("🚀 SynagamyApp: App starting up...")
+        #endif
         configureAppearance()
+        #if DEBUG
+        print("🚀 SynagamyApp: App initialization complete")
+        #endif
     }
 
     var body: some Scene {
@@ -82,17 +88,26 @@ private extension SynagamyApp {
 
 // MARK: - Launch model (safe preload + optional user-facing messaging)
 
+@MainActor
 final class AppLaunchModel: ObservableObject {
     @Published var errorMessage: String? = nil
 
     /// Preload JSON-backed data and warm any caches you rely on frequently.
     /// This is intentionally defensive (no force-unwraps, no assumptions).
     func preload() {
+        #if DEBUG
+        print("🏁 AppLaunchModel: Starting preload...")
+        #endif
+        
         // Accessing AppData.* should be cheap and synchronous with your current loader.
         // If you change AppData to async/throwing later, you can pivot to async here.
         let topics = AppData.topics
         let pathwayCategories = AppData.pathwayCategories
         _ = AppData.questions
+        
+        #if DEBUG
+        print("🏁 AppLaunchModel: Preload complete - topics: \(topics.count), pathways: \(pathwayCategories.count)")
+        #endif
 
         // Warm a topic index so step→topic sheet opens instantly later.
         // We ignore the result here; it's just to build any internal caches.

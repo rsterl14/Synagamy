@@ -669,6 +669,7 @@ extension PathwayView {
 }
 
 // MARK: - View Model
+@MainActor
 class PathwayViewModel: ObservableObject {
     @Published var currentCategory: PathwayCategory?
     @Published var currentQuestion: PathwayQuestion?
