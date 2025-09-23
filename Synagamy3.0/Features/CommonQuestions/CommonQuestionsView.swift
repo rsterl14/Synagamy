@@ -20,10 +20,33 @@ struct CommonQuestionsView: View {
     // MARK: - UI state
     @State private var questions: [CommonQuestion] = []     // loaded onAppear
     @State private var selected: CommonQuestion? = nil      // drives the sheet
-    @State private var errorMessage: String? = nil          // user-friendly alert text
-    @State private var showingErrorAlert = false
+    // REMOVED: @State private var errorMessage: String? = nil          // user-friendly alert text
+    // REMOVED: @State private var showingErrorAlert = false
     @State private var expandedRelatedTopics: Set<String> = []  // tracks which related topics are expanded
     @State private var showReferences = false  // tracks if references section is expanded
+    @State private var isLoading = false
+
+    @StateObject private var networkManager = NetworkStatusManager.shared
+    @StateObject private var remoteDataService = RemoteDataService.shared
+    // REMOVED: @StateObject private var networkManager = NetworkStatusManager.shared
+    // REMOVED: @StateObject private var remoteDataService = RemoteDataService.shared
+
+    // MARK: - Data Loading
+
+    private func loadCommonQuestions() async {
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+            questions = await remoteDataService.loadCommonQuestions()
+
+            if questions.isEmpty {
+                // Handle empty state - could show message to user
+            }
+        } catch {
+            // Handle error - could show message to user
+        }
+    }
 
     var body: some View {
         StandardPageLayout(
@@ -39,100 +62,132 @@ struct CommonQuestionsView: View {
                         CategoryBadge(
                             text: "FAQ Center",
                             icon: "questionmark.bubble.fill",
-                            color: Brand.ColorSystem.primary
+                            color: Brand.Color.primary
                         )
                         
                         Text("Common Questions")
-                            .font(.title2.weight(.semibold))
+                            .font(Brand.Typography.headlineMedium)
                             .foregroundColor(.primary)
                             .multilineTextAlignment(.center)
                         
                         Text("Find answers to frequently asked questions")
-                            .font(.caption)
-                            .foregroundColor(Brand.ColorSystem.secondary)
+                            .font(Brand.Typography.labelSmall)
+                            .foregroundColor(Brand.Color.secondary)
                             .multilineTextAlignment(.center)
                     }
                     .padding(.horizontal, 16)
                     
-                    // Questions List
-                    if questions.isEmpty {
+                    // MARK: - Network Status Check
+                    if !networkManager.isOnline && questions.isEmpty {
+                        ContentLoadingErrorView(
+                            title: "Questions Unavailable",
+                            message: "Common questions require an internet connection to access the latest answers and guidance."
+                        ) {
+                            Task { await loadCommonQuestions() }
+                        }
+                        .padding(.top, 20)
+                        .fertilityAccessibility(
+                            label: "Questions unavailable",
+                            hint: "Internet connection required. Double tap to retry loading questions",
+                            traits: [.isButton]
+                        )
+                    } else if isLoading {
+                        LoadingStateView(
+                            message: "Loading questions...",
+                            showProgress: true
+                        )
+                        .padding(.top, 20)
+                    } else if questions.isEmpty {
                         EmptyStateView(
                             icon: "questionmark.circle",
                             title: "No questions available",
                             message: "Please check back later."
                         )
                         .padding(.top, 40)
+                        .fertilityAccessibility(
+                            label: "No questions available",
+                            value: "Please check back later",
+                            traits: [.isStaticText]
+                        )
                     } else {
-                        VStack(spacing: Brand.Spacing.md) {
-                            ForEach(questions, id: \.id) { question in
-                                Button {
-                                    selected = question
-                                } label: {
-                                    HStack(spacing: 12) {
-                                        // Icon
-                                        ZStack {
-                                            Circle()
-                                                .fill(Brand.ColorSystem.primary.opacity(0.1))
-                                                .frame(width: 36, height: 36)
-                                            
-                                            Image(systemName: "questionmark")
-                                                .font(.system(size: 16, weight: .medium))
-                                                .foregroundColor(Brand.ColorSystem.primary)
+                        EnhancedContentBlock(
+                            title: "Browse Questions",
+                            icon: "questionmark.bubble.fill"
+                        ) {
+                            VStack(spacing: Brand.Spacing.md) {
+                                ForEach(questions, id: \.id) { question in
+                                    Button {
+                                        selected = question
+                                        AccessibilityAnnouncement.announce("Opening question: \(question.question)")
+                                    } label: {
+                                        HStack(spacing: 12) {
+                                            // Icon
+                                            ZStack {
+                                                Circle()
+                                                    .fill(Brand.Color.primary.opacity(0.1))
+                                                    .frame(width: 36, height: 36)
+
+                                                Image(systemName: "questionmark")
+                                                    .font(.system(size: 16, weight: .medium))
+                                                    .foregroundColor(Brand.Color.primary)
+                                            }
+                                            .accessibilityHidden(true) // Decorative icon
+
+                                            // Question text
+                                            Text(question.question)
+                                                .font(Brand.Typography.bodySmall)
+                                                .foregroundColor(.primary)
+                                                .multilineTextAlignment(.leading)
+                                                .lineLimit(3)
+
+                                            Spacer()
+
+                                            // Chevron
+                                            Image(systemName: "chevron.right")
+                                                .font(Brand.Typography.labelSmall)
+                                                .foregroundColor(Brand.Color.secondary)
+                                                .accessibilityHidden(true) // Decorative arrow
                                         }
-                                        
-                                        // Question text
-                                        Text(question.question)
-                                            .font(.subheadline.weight(.medium))
-                                            .foregroundColor(.primary)
-                                            .multilineTextAlignment(.leading)
-                                            .lineLimit(3)
-                                        
-                                        Spacer()
-                                        
-                                        // Chevron
-                                        Image(systemName: "chevron.right")
-                                            .font(.caption.weight(.semibold))
-                                            .foregroundColor(Brand.ColorSystem.secondary)
+                                        .padding(Brand.Spacing.md)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
+                                                .fill(.ultraThinMaterial)
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                                        .stroke(Brand.Color.hairline.opacity(0.5), lineWidth: 1)
+                                                )
+                                        )
                                     }
-                                    .padding(12)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                            .fill(.ultraThinMaterial)
-                                            .overlay(
-                                                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                                    .stroke(Brand.ColorToken.hairline.opacity(0.5), lineWidth: 1)
-                                            )
+                                    .buttonStyle(.plain)
+                                    .fertilityAccessibility(
+                                        label: "Question: \(question.question)",
+                                        hint: "Double tap to read the detailed answer",
+                                        traits: [.isButton]
                                     )
                                 }
-                                .buttonStyle(.plain)
                             }
                         }
-                        .padding(.horizontal, 16)
                     }
                 }
                 .padding(.vertical, Brand.Spacing.lg)
             }
         }
         
-        // Friendly non-technical alert for recoverable issues
-        .alert("Something went wrong", isPresented: $showingErrorAlert, actions: {
-            Button("OK", role: .cancel) { 
-                showingErrorAlert = false
-                errorMessage = nil 
-            }
-        }, message: {
-            Text(errorMessage ?? "Please try again.")
-        })
+        // Unified error handling with recovery options
+        // Error handling would go here
 
         // Load data once. We guard against surprises and surface a friendly message on failure.
         .task {
-            // Load questions from static data
-            let loaded = AppData.questions
-            if loaded.isEmpty {
-                // Not an error per se, but we can optionally inform the user elsewhere.
-                // We keep UI responsive with the empty-state card above.
-            }
-            questions = loaded
+            await loadCommonQuestions()
+        }
+        .onDynamicTypeChange { size in
+            // Handle dynamic type changes for better accessibility
+            #if DEBUG
+            print("CommonQuestionsView: Dynamic Type size changed to \(size)")
+            #endif
+        }
+        .onAppear {
+            AccessibilityAnnouncement.announce("Common questions section loaded. Browse frequently asked fertility questions.")
         }
 
         // Q&A detail sheet
@@ -147,15 +202,15 @@ struct CommonQuestionsView: View {
                             CategoryBadge(
                                 text: "FAQ",
                                 icon: "questionmark.bubble.fill",
-                                color: Brand.ColorSystem.primary
+                                color: Brand.Color.primary
                             )
                             
                             // Main question
                             Text(q.question)
-                                .font(.largeTitle.bold())
+                                .font(Brand.Typography.headlineLarge)
                                 .foregroundStyle(
                                     LinearGradient(
-                                        colors: [Brand.ColorSystem.primary, Brand.ColorSystem.primary.opacity(0.8)],
+                                        colors: [Brand.Color.primary, Brand.Color.primary.opacity(0.8)],
                                         startPoint: .topLeading,
                                         endPoint: .bottomTrailing
                                     )
@@ -169,7 +224,7 @@ struct CommonQuestionsView: View {
                         // Divider
                         Rectangle()
                             .fill(LinearGradient(
-                                colors: [Brand.ColorSystem.primary.opacity(0.3), Brand.ColorSystem.primary.opacity(0.05)],
+                                colors: [Brand.Color.primary.opacity(0.3), Brand.Color.primary.opacity(0.05)],
                                 startPoint: .leading,
                                 endPoint: .trailing
                             ))
@@ -190,17 +245,17 @@ struct CommonQuestionsView: View {
                                     )
                                 
                                 Text("Answer")
-                                    .font(.subheadline.weight(.semibold))
-                                    .foregroundColor(Brand.ColorSystem.primary)
+                                    .font(Brand.Typography.headlineMedium)
+                                    .foregroundColor(Brand.Color.primary)
                             }
                             
                             Text(q.detailedAnswer)
-                                .font(.callout)
+                                .font(Brand.Typography.bodySmall)
                                 .foregroundColor(.primary)
                                 .lineSpacing(4)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .textSelection(.enabled)
-                                .padding(16)
+                                .padding(Brand.Spacing.lg)
                                 .background(
                                     RoundedRectangle(cornerRadius: 16, style: .continuous)
                                         .fill(.ultraThinMaterial)
@@ -208,7 +263,7 @@ struct CommonQuestionsView: View {
                                             RoundedRectangle(cornerRadius: 16, style: .continuous)
                                                 .strokeBorder(
                                                     LinearGradient(
-                                                        colors: [Brand.ColorToken.hairline, Brand.ColorToken.hairline.opacity(0.3)],
+                                                        colors: [Brand.Color.hairline, Brand.Color.hairline.opacity(0.3)],
                                                         startPoint: .topLeading,
                                                         endPoint: .bottomTrailing
                                                     ),
@@ -224,11 +279,11 @@ struct CommonQuestionsView: View {
                                 HStack(spacing: 8) {
                                     Image(systemName: "link.circle.fill")
                                         .font(.body)
-                                        .foregroundColor(Brand.ColorSystem.primary)
+                                        .foregroundColor(Brand.Color.primary)
                                     
                                     Text("Related Topics")
-                                        .font(.subheadline.weight(.semibold))
-                                        .foregroundColor(Brand.ColorSystem.primary)
+                                        .font(Brand.Typography.headlineMedium)
+                                        .foregroundColor(Brand.Color.primary)
                                 }
                                 
                                 VStack(alignment: .leading, spacing: 8) {
@@ -246,16 +301,16 @@ struct CommonQuestionsView: View {
                                             } label: {
                                                 HStack(alignment: .center, spacing: 12) {
                                                     Circle()
-                                                        .fill(Brand.ColorSystem.primary.opacity(0.15))
+                                                        .fill(Brand.Color.primary.opacity(0.15))
                                                         .frame(width: 32, height: 32)
                                                         .overlay(
                                                             Image(systemName: "arrow.turn.down.right")
                                                                 .font(.caption)
-                                                                .foregroundColor(Brand.ColorSystem.primary)
+                                                                .foregroundColor(Brand.Color.primary)
                                                         )
                                                     
                                                     Text(topic)
-                                                        .font(.body.weight(.medium))
+                                                        .font(Brand.Typography.bodyMedium)
                                                         .foregroundColor(.primary)
                                                         .multilineTextAlignment(.leading)
                                                     
@@ -263,16 +318,16 @@ struct CommonQuestionsView: View {
                                                     
                                                     Image(systemName: expandedRelatedTopics.contains(topic) ? "chevron.up.circle.fill" : "chevron.down.circle")
                                                         .font(.body)
-                                                        .foregroundStyle(Brand.ColorSystem.primary)
+                                                        .foregroundStyle(Brand.Color.primary)
                                                         .animation(.spring(response: 0.3), value: expandedRelatedTopics.contains(topic))
                                                 }
-                                                .padding(12)
+                                                .padding(Brand.Spacing.md)
                                                 .background(
                                                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                                        .fill(Brand.ColorSystem.primary.opacity(0.05))
+                                                        .fill(Brand.Color.primary.opacity(0.05))
                                                         .overlay(
                                                             RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                                                .strokeBorder(Brand.ColorToken.hairline.opacity(0.5), lineWidth: 1)
+                                                                .strokeBorder(Brand.Color.hairline.opacity(0.5), lineWidth: 1)
                                                         )
                                                 )
                                             }
@@ -283,17 +338,17 @@ struct CommonQuestionsView: View {
                                                 if let relatedTopic = AppData.topics.first(where: { $0.topic == topic }) {
                                                     VStack(alignment: .leading, spacing: 12) {
                                                         Text(relatedTopic.layExplanation)
-                                                            .font(.callout)
+                                                            .font(Brand.Typography.bodySmall)
                                                             .foregroundColor(.primary.opacity(0.8))
                                                             .lineSpacing(3)
                                                             .fixedSize(horizontal: false, vertical: true)
-                                                            .padding(12)
+                                                            .padding(Brand.Spacing.md)
                                                             .background(
                                                                 RoundedRectangle(cornerRadius: 12, style: .continuous)
                                                                     .fill(.ultraThinMaterial)
                                                                     .overlay(
                                                                         RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                                                            .strokeBorder(Brand.ColorToken.hairline.opacity(0.3), lineWidth: 1)
+                                                                            .strokeBorder(Brand.Color.hairline.opacity(0.3), lineWidth: 1)
                                                                     )
                                                             )
                                                         
@@ -307,16 +362,16 @@ struct CommonQuestionsView: View {
                                                         } label: {
                                                             HStack(spacing: 8) {
                                                                 Text("View Topic Details")
-                                                                    .font(.subheadline.weight(.medium))
+                                                                    .font(Brand.Typography.labelMedium)
                                                                 Image(systemName: "arrow.right.circle.fill")
-                                                                    .font(.subheadline)
+                                                                    .font(Brand.Typography.labelMedium)
                                                             }
                                                             .foregroundColor(.white)
                                                             .frame(maxWidth: .infinity)
-                                                            .padding(.vertical, 10)
+                                                            .padding(.vertical, Brand.Spacing.sm)
                                                             .background(
                                                                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                                                    .fill(Brand.ColorSystem.primary)
+                                                                    .fill(Brand.Color.primary)
                                                             )
                                                         }
                                                         .buttonStyle(.plain)
@@ -331,13 +386,13 @@ struct CommonQuestionsView: View {
                                         }
                                     }
                                 }
-                                .padding(16)
+                                .padding(Brand.Spacing.lg)
                                 .background(
                                     RoundedRectangle(cornerRadius: 16, style: .continuous)
                                         .fill(.ultraThinMaterial)
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                                .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
+                                                .strokeBorder(Brand.Color.hairline, lineWidth: 1)
                                         )
                                 )
                             }
@@ -358,11 +413,11 @@ struct CommonQuestionsView: View {
                                                 HStack(spacing: 8) {
                                                     Image(systemName: "link")
                                                         .font(.caption)
-                                                        .foregroundColor(Brand.ColorSystem.primary)
+                                                        .foregroundColor(Brand.Color.primary)
                                                     
                                                     Text(link)
-                                                        .font(.callout)
-                                                        .foregroundColor(Brand.ColorSystem.primary)
+                                                        .font(Brand.Typography.bodyMedium)
+                                                        .foregroundColor(Brand.Color.primary)
                                                         .underline()
                                                         .lineLimit(2)
                                                         .truncationMode(.middle)
@@ -372,11 +427,11 @@ struct CommonQuestionsView: View {
                                         } else {
                                             HStack(spacing: 8) {
                                                 Image(systemName: "exclamationmark.triangle")
-                                                    .font(.caption)
+                                                    .font(Brand.Typography.labelSmall)
                                                     .foregroundColor(.orange)
                                                 
                                                 Text(link)
-                                                    .font(.callout)
+                                                    .font(Brand.Typography.bodyMedium)
                                                     .foregroundColor(.secondary)
                                                     .lineLimit(2)
                                                     .truncationMode(.middle)
@@ -385,13 +440,13 @@ struct CommonQuestionsView: View {
                                         }
                                     }
                                 }
-                                .padding(16)
+                                .padding(Brand.Spacing.lg)
                                 .background(
                                     RoundedRectangle(cornerRadius: 16, style: .continuous)
                                         .fill(.ultraThinMaterial)
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                                .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
+                                                .strokeBorder(Brand.Color.hairline, lineWidth: 1)
                                         )
                                 )
                             }
@@ -400,7 +455,7 @@ struct CommonQuestionsView: View {
                     .padding()
                 }
             }
-            .tint(Brand.ColorSystem.primary)
+            .tint(Brand.Color.primary)
             .presentationDetents([.medium, .large])
             .presentationDragIndicator(.visible)
         }

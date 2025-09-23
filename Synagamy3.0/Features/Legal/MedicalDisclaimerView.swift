@@ -41,7 +41,7 @@ struct MedicalDisclaimerView: View {
                     
                     // Content
                     ScrollView {
-                        LazyVStack(spacing: 20) {
+                        LazyVStack(spacing: Brand.Spacing.lg) {
                             // Disclaimer sections
                             ForEach(Array(DisclaimerContent.sections.enumerated()), id: \.offset) { index, section in
                                 DisclaimerSectionView(section: section, index: index + 1)
@@ -53,13 +53,13 @@ struct MedicalDisclaimerView: View {
                             }
                             
                             Divider()
-                                .padding(.vertical, 8)
+                                .padding(.vertical, Brand.Spacing.sm)
                             
                             // Country-specific information
                             countrySpecificSection
                             
                             Divider()
-                                .padding(.vertical, 8)
+                                .padding(.vertical, Brand.Spacing.sm)
                             
                             // Acknowledgment
                             acknowledgmentSection
@@ -67,8 +67,8 @@ struct MedicalDisclaimerView: View {
                             // Bottom spacing
                             Spacer(minLength: 120)
                         }
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 16)
+                        .padding(.horizontal, Brand.Spacing.lg)
+                        .padding(.vertical, Brand.Spacing.lg)
                     }
                 }
                 
@@ -93,7 +93,7 @@ struct MedicalDisclaimerView: View {
                     Button("Country Info") {
                         showingCountryInfo = true
                     }
-                    .font(.caption)
+                    .font(Brand.Typography.bodySmall)
                 }
             }
         }
@@ -106,36 +106,36 @@ struct MedicalDisclaimerView: View {
     }
     
     // MARK: - Header Section
-    
+
     private var headerSection: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: Brand.Spacing.md) {
             HStack {
                 Image(systemName: "exclamationmark.triangle.fill")
-                    .font(.title2)
-                    .foregroundColor(.red)
+                    .font(Brand.Typography.headlineLarge)
+                    .foregroundColor(Brand.Color.error)
                 
                 Text(DisclaimerContent.title)
-                    .font(.title2.weight(.bold))
+                    .font(Brand.Typography.displayMedium)
                     .foregroundColor(.primary)
                 
                 Spacer()
             }
             
             Text("Please read this important information carefully before using Synagamy")
-                .font(.subheadline)
+                .font(Brand.Typography.bodyMedium)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             if isFirstTime {
                 Text("You must accept this disclaimer to continue using the app")
-                    .font(.caption.weight(.medium))
-                    .foregroundColor(.red)
+                    .font(Brand.Typography.labelMedium)
+                    .foregroundColor(Brand.Color.error)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 16)
+        .padding(.horizontal, Brand.Spacing.lg)
+        .padding(.vertical, Brand.Spacing.lg)
         .background(
             Rectangle()
                 .fill(.regularMaterial)
@@ -145,27 +145,27 @@ struct MedicalDisclaimerView: View {
     // MARK: - Country Specific Section
     
     private var countrySpecificSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: Brand.Spacing.md) {
             HStack {
                 Image(systemName: "globe")
-                    .font(.headline)
-                    .foregroundColor(.blue)
+                    .font(Brand.Typography.headlineMedium)
+                    .foregroundColor(Brand.Color.primary)
                 
                 Text("Regional Information")
-                    .font(.headline.weight(.semibold))
+                    .font(Brand.Typography.headlineMedium)
                     .foregroundColor(.primary)
                 
                 Spacer()
             }
             
             Text(DisclaimerContent.countrySpecificNote)
-                .font(.footnote)
+                .font(Brand.Typography.bodySmall)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.leading)
         }
-        .padding(16)
+        .padding(Brand.Spacing.lg)
         .background(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
+            RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
                 .fill(.regularMaterial)
         )
         .accessibilityElement(children: .combine)
@@ -174,32 +174,32 @@ struct MedicalDisclaimerView: View {
     // MARK: - Acknowledgment Section
     
     private var acknowledgmentSection: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: Brand.Spacing.lg) {
             HStack {
                 Image(systemName: "checkmark.circle.fill")
-                    .font(.headline)
-                    .foregroundColor(.green)
+                    .font(Brand.Typography.headlineMedium)
+                    .foregroundColor(Brand.Color.success)
                 
                 Text("Acknowledgment Required")
-                    .font(.headline.weight(.semibold))
+                    .font(Brand.Typography.headlineMedium)
                     .foregroundColor(.primary)
                 
                 Spacer()
             }
             
             Text(DisclaimerContent.acknowledgmentText)
-                .font(.footnote)
+                .font(Brand.Typography.bodySmall)
                 .foregroundColor(.primary)
                 .multilineTextAlignment(.leading)
             
             Toggle("I have read and understood all sections above", isOn: $acceptanceConfirmed)
-                .font(.subheadline.weight(.medium))
+                .font(Brand.Typography.labelLarge)
                 .toggleStyle(CheckboxToggleStyle())
                 .accessibilityHint("Confirm you have read and understood the disclaimer")
         }
-        .padding(16)
+        .padding(Brand.Spacing.lg)
         .background(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
+            RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
                 .fill(.green.opacity(0.05))
                 .stroke(.green.opacity(0.3), lineWidth: 1)
         )
@@ -208,11 +208,11 @@ struct MedicalDisclaimerView: View {
     // MARK: - Accept Button
     
     private var acceptButton: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: Brand.Spacing.md) {
             if !hasScrolledToBottom {
                 Text("Please scroll to the bottom to continue")
-                    .font(.caption)
-                    .foregroundColor(.orange)
+                    .font(Brand.Typography.bodySmall)
+                    .foregroundColor(Brand.Color.warning)
                     .multilineTextAlignment(.center)
             }
             
@@ -220,13 +220,13 @@ struct MedicalDisclaimerView: View {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
                     Text("Accept & Continue")
-                        .font(.headline.weight(.semibold))
+                        .font(Brand.Typography.headlineMedium)
                 }
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
+                .padding(.vertical, Brand.Spacing.lg)
                 .background(
-                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
                         .fill(canAccept ? .green : .gray)
                 )
             }
@@ -234,8 +234,8 @@ struct MedicalDisclaimerView: View {
             .animation(.easeInOut(duration: 0.2), value: canAccept)
             .accessibilityHint(canAccept ? "Accept the disclaimer and continue" : "Complete reading and confirm understanding first")
         }
-        .padding(.horizontal, 20)
-        .padding(.bottom, 34)
+        .padding(.horizontal, Brand.Spacing.lg)
+        .padding(.bottom, Brand.Spacing.xxl)
         .background(
             LinearGradient(
                 colors: [.clear, .white.opacity(0.8)],
@@ -275,7 +275,7 @@ private struct DisclaimerSectionView: View {
     let index: Int
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: Brand.Spacing.md) {
             HStack {
                 ZStack {
                     Circle()
@@ -283,21 +283,21 @@ private struct DisclaimerSectionView: View {
                         .frame(width: 32, height: 32)
                     
                     Image(systemName: section.icon)
-                        .font(.headline)
+                        .font(Brand.Typography.headlineMedium)
                         .foregroundColor(section.priority.color)
                 }
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("\(index). \(section.title)")
-                        .font(.subheadline.weight(.semibold))
+                        .font(Brand.Typography.labelLarge)
                         .foregroundColor(.primary)
                     
                     if section.priority == .critical {
                         Text("CRITICAL")
-                            .font(.caption2.weight(.bold))
+                            .font(Brand.Typography.labelSmall)
                             .foregroundColor(.white)
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 2)
+                            .padding(.horizontal, Brand.Spacing.xs)
+                            .padding(.vertical, Brand.Spacing.xs)
                             .background(
                                 RoundedRectangle(cornerRadius: 3)
                                     .fill(.red)
@@ -309,13 +309,13 @@ private struct DisclaimerSectionView: View {
             }
             
             Text(section.content)
-                .font(.footnote)
+                .font(Brand.Typography.bodySmall)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.leading)
         }
-        .padding(16)
+        .padding(Brand.Spacing.lg)
         .background(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
+            RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
                 .fill(.regularMaterial)
                 .stroke(section.priority.color.opacity(0.2), lineWidth: 1)
         )
@@ -331,8 +331,8 @@ private struct CheckboxToggleStyle: ToggleStyle {
         } label: {
             HStack {
                 Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
-                    .foregroundColor(configuration.isOn ? .green : .secondary)
-                    .font(.title3)
+                    .foregroundColor(configuration.isOn ? Brand.Color.success : .secondary)
+                    .font(Brand.Typography.headlineMedium)
                 
                 configuration.label
                     .foregroundColor(.primary)
@@ -352,7 +352,7 @@ private struct CountrySpecificInfoView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("Regional Healthcare Information")
-                        .font(.title2.weight(.bold))
+                        .font(Brand.Typography.displayMedium)
                         .padding(.bottom, 8)
                     
                     CountryInfoSection(
@@ -379,7 +379,7 @@ private struct CountrySpecificInfoView: View {
                     
                     Spacer()
                 }
-                .padding(20)
+                .padding(Brand.Spacing.lg)
             }
             .navigationTitle("Country Information")
             .navigationBarTitleDisplayMode(.inline)
@@ -401,35 +401,35 @@ private struct CountryInfoSection: View {
     let resources: [String]
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: Brand.Spacing.md) {
             HStack {
                 Text(flag)
-                    .font(.title)
+                    .font(Brand.Typography.displayMedium)
                 Text(country)
-                    .font(.headline.weight(.semibold))
+                    .font(Brand.Typography.headlineMedium)
                 Spacer()
             }
             
             Text(info)
-                .font(.footnote)
+                .font(Brand.Typography.bodySmall)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.leading)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text("Professional Resources:")
-                    .font(.caption.weight(.medium))
+                    .font(Brand.Typography.labelMedium)
                     .foregroundColor(.primary)
                 
                 ForEach(resources, id: \.self) { resource in
                     Text("• \(resource)")
-                        .font(.caption)
+                        .font(Brand.Typography.bodySmall)
                         .foregroundColor(.secondary)
                 }
             }
         }
-        .padding(16)
+        .padding(Brand.Spacing.lg)
         .background(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
+            RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
                 .fill(.regularMaterial)
         )
         .accessibilityElement(children: .combine)

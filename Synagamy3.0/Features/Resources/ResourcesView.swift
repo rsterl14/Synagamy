@@ -2,17 +2,7 @@
 //  ResourcesView.swift
 //  Synagamy3.0
 //
-//  Curated Canada-focused resources with a floating header and detail sheet.
-//  This refactor:
-//   • Uses the shared OnChangeHeightModifier (no file-local duplicates).
-//   • Adds friendly empty-state handling if the list is ever empty.
-//   • Improves a11y labels and avoids force-unwrap pitfalls.
-//   • Keeps sheet presentation safe (no crashes on odd state).
-//
-//  Prereqs:
-//   • UI/Modifiers/OnChangeHeightModifier.swift
-//   • UI/Components/{BrandTile,BrandCard,EmptyStateView,HomeButton,FloatingLogoHeader}.swift
-//   • Features/Resources/ResourceDetailSheet.swift
+//  Simple Resources view for displaying fertility resources
 //
 
 import SwiftUI
@@ -21,8 +11,13 @@ struct ResourcesView: View {
     // MARK: - UI state
     @State private var selectedResource: Resource? = nil   // drives the detail sheet
     @State private var resources: [Resource] = []          // loaded from JSON
+    @State private var isLoading = false
+    @State private var dataSource: ResourceDataSource = .loading
     @StateObject private var errorHandler = ErrorHandler.shared
-    // Note: DataCache will be injected via environment when available
+    @StateObject private var networkManager = NetworkStatusManager.shared
+    @StateObject private var remoteDataService = RemoteDataService.shared
+    @StateObject private var offlineManager = OfflineDataManager.shared
+    // Note: Using unified AppDataStore for data access
 
     var body: some View {
         StandardPageLayout(
@@ -31,14 +26,45 @@ struct ResourcesView: View {
             showHomeButton: true,
             usePopToRoot: true
         ) {
+            // Accessibility header
+            Color.clear
+                .accessibilityElement()
+                .accessibilityLabel("Resources section")
+                .accessibilityAddTraits(.isHeader)
+                .frame(height: 0)
             VStack(alignment: .leading, spacing: 12) {
-                if resources.isEmpty {
+                // MARK: - Network Status Check
+                if !networkManager.isOnline && resources.isEmpty {
+                    ContentLoadingErrorView(
+                        title: "Resources Unavailable",
+                        message: "Resource information requires an internet connection to access the latest links and guidance."
+                    ) {
+                        Task { await loadResources() }
+                    }
+                    .padding(.top, Brand.Spacing.lg)
+                    .fertilityAccessibility(
+                        label: "Resources unavailable",
+                        hint: "Internet connection required. Double tap to retry loading resources",
+                        traits: [.isButton]
+                    )
+                } else if isLoading {
+                    LoadingStateView(
+                        message: "Loading resources...",
+                        showProgress: true
+                    )
+                    .padding(.top, Brand.Spacing.lg)
+                } else if resources.isEmpty {
                     EmptyStateView(
                         icon: "doc.text.magnifyingglass",
                         title: "No resources available",
                         message: "Please check back later. You can still explore Education and Pathways."
                     )
-                    .padding(.top, 8)
+                    .padding(.top, Brand.Spacing.sm)
+                    .fertilityAccessibility(
+                        label: "No resources available",
+                        value: "Please check back later. You can still explore Education and Pathways",
+                        traits: [.isStaticText]
+                    )
                 } else {
                     LazyVStack(spacing: Brand.Spacing.xl) {
                         ForEach(resources, id: \.title) { resource in
@@ -46,6 +72,9 @@ struct ResourcesView: View {
                                 // Validate URL before opening
                                 if validateResourceURL(resource) {
                                     selectedResource = resource
+                                    AccessibilityAnnouncement.announce("Opening \(resource.title) resource details")
+                                } else {
+                                    AccessibilityAnnouncement.announce("Unable to open \(resource.title). Invalid resource link.")
                                 }
                             } label: {
                                 BrandTile(
@@ -56,14 +85,21 @@ struct ResourcesView: View {
                                 )
                             }
                             .buttonStyle(BrandTileButtonStyle())
+                            .fertilityAccessibility(
+                                label: "\(resource.title). \(resource.subtitle)",
+                                hint: "Double tap to view details and access this fertility resource",
+                                traits: [.isButton]
+                            )
                         }
                     }
-                    .padding(.top, 4)
+                    .onAppear {
+                        AccessibilityAnnouncement.announce("Resources section loaded. \(resources.count) fertility resources available.")
+                    }
+                    .padding(.top, Brand.Spacing.xs)
                 }
             }
         }
         
-        // Centralized error handling
         .errorAlert(
             onRetry: {
                 // Retry loading resources or refresh data
@@ -79,22 +115,88 @@ struct ResourcesView: View {
             ResourceDetailSheet(resource: res)
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
+                .onAppear {
+                    AccessibilityAnnouncement.announce("\(res.title) resource details opened")
+                }
         }
         
         // Load resources from JSON on appear
         .task {
-            loadResources()
+            await loadResources()
+        }
+        .onChange(of: dataSource) { _, newDataSource in
+            // Update resources when data source changes
+            resources = newDataSource.resources
+        }
+        .onDynamicTypeChange { size in
+            // Handle dynamic type changes for better accessibility
+            #if DEBUG
+            print("ResourcesView: Dynamic Type size changed to \(size)")
+            #endif
         }
     }
     
     // MARK: - Data Loading
-    
-    private func loadResources() {
-        // Load resources from JSON (will be optimized with cache when integrated)
-        resources = Resource.loadFromJSON()
-        validateAllResources()
+
+    private func loadResources() async {
+        isLoading = true
+        dataSource = .loading
+
+        // Load resources using RemoteDataService (handles all fallback internally)
+        let loadedResources = await remoteDataService.loadResources()
+
+        isLoading = false
+
+        if !loadedResources.isEmpty {
+            // Determine data source based on network status
+            if networkManager.isOnline {
+                dataSource = .remote(loadedResources)
+            } else {
+                dataSource = .offline(loadedResources)
+            }
+            resources = loadedResources
+            validateAllResources()
+        } else {
+            dataSource = .error("No resource content available")
+            resources = []
+        }
     }
-    
+
+    // MARK: - Data Source Status View
+    private var dataSourceStatusView: some View {
+        HStack(spacing: 8) {
+            Image(systemName: dataSource.icon)
+                .font(.caption)
+                .foregroundColor(dataSource.color)
+
+            Text(dataSource.displayText)
+                .font(Brand.Typography.labelSmall)
+                .foregroundColor(.secondary)
+
+            Spacer()
+
+            if case .offline(_) = dataSource {
+                Button("Refresh") {
+                    Task { await loadResources() }
+                }
+                .font(Brand.Typography.labelSmall)
+                .foregroundColor(Brand.Color.primary)
+            }
+        }
+        .padding(.horizontal, Brand.Spacing.md)
+        .padding(.vertical, Brand.Spacing.sm)
+        .background(
+            RoundedRectangle(cornerRadius: Brand.Radius.sm)
+                .fill(.ultraThinMaterial)
+                .overlay(
+                    RoundedRectangle(cornerRadius: Brand.Radius.sm)
+                        .stroke(dataSource.color.opacity(0.3), lineWidth: 1)
+                )
+        )
+        .padding(.horizontal)
+        .padding(.bottom, 8)
+    }
+
     // MARK: - URL Validation
     
     private func validateResourceURL(_ resource: Resource) -> Bool {

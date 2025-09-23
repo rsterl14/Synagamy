@@ -34,25 +34,25 @@ struct ResourceHeroCard: View {
     var iconSize: CGFloat = 44
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing: 12) {
+        VStack(alignment: .leading, spacing: Brand.Spacing.md) {
+            HStack(spacing: Brand.Spacing.md) {
                 // MARK: - Icon
                 iconView
                     .frame(width: iconSize, height: iconSize)
                     .background(
-                        Circle().fill(Brand.ColorToken.primary.opacity(0.12))
+                        Circle().fill(Brand.Color.primary.opacity(0.12))
                     )
                     .overlay(
-                        Circle().stroke(Brand.ColorToken.primary.opacity(0.10), lineWidth: 1)
+                        Circle().stroke(Brand.Color.primary.opacity(0.10), lineWidth: 1)
                     )
                     .accessibilityHidden(true)
 
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: Brand.Spacing.xs) {
                     Text(title)
-                        .font(.headline)
+                        .font(Brand.Typography.headlineMedium)
                         .foregroundColor(.primary)
                     Text(subtitle)
-                        .font(.subheadline)
+                        .font(Brand.Typography.bodySmall)
                         .foregroundStyle(.secondary)
                         .lineLimit(2)
                 }
@@ -66,15 +66,15 @@ struct ResourceHeroCard: View {
                 action()
             }) {
                 Text(actionTitle)
-                    .font(.subheadline.weight(.semibold))
+                    .font(Brand.Typography.bodyMedium)
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
-            .tint(Brand.ColorToken.primary)
+            .tint(Brand.Color.primary)
             .clipShape(RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous))
             .accessibilityLabel(Text("\(actionTitle). Opens resource \(title)"))
         }
-        .padding(16)
+        .padding(Brand.Spacing.lg)
         .background(
             RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                 .fill(.regularMaterial)
@@ -82,10 +82,10 @@ struct ResourceHeroCard: View {
                 .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 1)
                 .overlay(
                     RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                        .stroke(Brand.ColorToken.hairline, lineWidth: 1)
+                        .stroke(Brand.Color.hairline, lineWidth: 1)
                 )
         )
-        .padding(.horizontal, 16)
+        .padding(.horizontal, Brand.Spacing.lg)
         .accessibilityElement(children: .combine)
     }
 
@@ -96,15 +96,15 @@ struct ResourceHeroCard: View {
             Image(asset)
                 .resizable()
                 .scaledToFit()
-                .padding(8)
+                .padding(Brand.Spacing.sm)
         } else if let symbol = systemIcon {
             Image(systemName: symbol)
                 .font(.system(size: 20, weight: .semibold))
-                .foregroundColor(Brand.ColorToken.primary)
+                .foregroundColor(Brand.Color.primary)
         } else {
             Image(systemName: "doc.text.fill")
                 .font(.system(size: 20, weight: .semibold))
-                .foregroundColor(Brand.ColorToken.primary)
+                .foregroundColor(Brand.Color.primary)
         }
     }
 }

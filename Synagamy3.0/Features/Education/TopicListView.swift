@@ -27,10 +27,13 @@ struct TopicListView: View {
 
     @State private var working: [EducationTopic] = []      // list being displayed
     @State private var selected: EducationTopic? = nil     // drives detail sheet
+    @State private var isLoading = false
 
     @State private var headerHeight: CGFloat = 64
     @State private var errorMessage: String? = nil
     @State private var showingErrorAlert = false
+    
+    @StateObject private var remoteDataService = RemoteDataService.shared
 
 
     // MARK: - Body
@@ -42,14 +45,31 @@ struct TopicListView: View {
             showHomeButton: true,
             usePopToRoot: true
         ) {
-            VStack(alignment: .leading, spacing: 12) {
-                if working.isEmpty {
-                    EmptyStateView(
-                        icon: "book",
-                        title: "No topics available",
-                        message: "Please check back later."
+            VStack(alignment: .leading, spacing: Brand.Spacing.md) {
+                if isLoading {
+                    LoadingStateView(
+                        message: "Loading education topics...",
+                        showProgress: true
                     )
-                    .padding(.top, 8)
+                } else if working.isEmpty {
+                    // Show network-aware empty state
+                    if remoteDataService.lastError != nil {
+                        ContentLoadingErrorView(
+                            title: "Topics Unavailable",
+                            message: "Unable to load education topics"
+                        ) {
+                            Task {
+                                await loadTopics()
+                            }
+                        }
+                    } else {
+                        EmptyStateView(
+                            icon: "book",
+                            title: "No topics available",
+                            message: "Please check back later."
+                        )
+                        .padding(.top, 8)
+                    }
 
                 } else {
                     LazyVStack(spacing: Brand.Spacing.xl) {
@@ -82,12 +102,9 @@ struct TopicListView: View {
 
         // MARK: - Load list
 
+        .networkAware()
         .task {
-            // Use provided subset or all topics
-            let base = topics ?? AppData.topics
-            working = base.sorted {
-                $0.topic.localizedCaseInsensitiveCompare($1.topic) == .orderedAscending
-            }
+            await loadTopics()
         }
 
         // MARK: - Detail sheet
@@ -99,9 +116,33 @@ struct TopicListView: View {
                         .padding()
                 }
             }
-            .tint(Brand.ColorSystem.primary)
+            .tint(Brand.Color.primary)
             .presentationDetents([.medium, .large])
             .presentationDragIndicator(.visible)
+        }
+    }
+    
+    // MARK: - Data Loading
+    
+    private func loadTopics() async {
+        isLoading = true
+        defer { isLoading = false }
+
+        // Try to load from remote service first
+        let remoteTopics = await remoteDataService.loadEducationTopics()
+
+        if !remoteTopics.isEmpty {
+            // Use remote data if available
+            let base = topics ?? remoteTopics
+            working = base.sorted {
+                $0.topic.localizedCaseInsensitiveCompare($1.topic) == .orderedAscending
+            }
+        } else {
+            // Fall back to local data if remote fails
+            let base = topics ?? AppData.topics
+            working = base.sorted {
+                $0.topic.localizedCaseInsensitiveCompare($1.topic) == .orderedAscending
+            }
         }
     }
 }

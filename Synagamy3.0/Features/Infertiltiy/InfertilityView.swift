@@ -37,6 +37,9 @@ struct InfertilityView: View {
     @State private var errorMessage: String? = nil
     @State private var isLoading = true
     @State private var showingErrorAlert = false
+
+    @StateObject private var networkManager = NetworkStatusManager.shared
+    @StateObject private var remoteDataService = RemoteDataService.shared
     
     // MARK: - Categorized topics
     private var infertilityTopics: [InfoItem] {
@@ -68,10 +71,21 @@ struct InfertilityView: View {
             usePopToRoot: true
         ) {
             VStack(alignment: .leading, spacing: 12) {
-                if isLoading {
-                    ProgressView("Loading information...")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .padding(.top, 40)
+                // MARK: - Network Status Check
+                if !networkManager.isOnline && topics.isEmpty {
+                    ContentLoadingErrorView(
+                        title: "Starting Point Unavailable",
+                        message: "Infertility information requires an internet connection to access the latest resources and guidance."
+                    ) {
+                        Task { await loadInfertilityInfo() }
+                    }
+                    .padding(.top, 20)
+                } else if isLoading {
+                    LoadingStateView(
+                        message: "Loading information...",
+                        showProgress: true
+                    )
+                    .padding(.top, 20)
                 } else if topics.isEmpty {
                     EmptyStateView(
                         icon: "info.circle",
@@ -170,36 +184,36 @@ struct InfertilityView: View {
                                 HStack(spacing: 12) {
                                     Image(systemName: "book.fill")
                                         .font(.title3)
-                                        .foregroundColor(Brand.ColorSystem.primary)
+                                        .foregroundColor(Brand.Color.primary)
                                         .frame(width: 44, height: 44)
                                         .background(
                                             Circle()
-                                                .fill(Brand.ColorSystem.primary.opacity(0.1))
+                                                .fill(Brand.Color.primary.opacity(0.1))
                                         )
                                     
                                     VStack(alignment: .leading, spacing: 4) {
                                         Text("Explore More Topics")
-                                            .font(.headline)
+                                            .font(Brand.Typography.displayMedium)
                                             .foregroundColor(.primary)
                                         
                                         Text("Deep dive into fertility education")
-                                            .font(.caption)
-                                            .foregroundColor(Brand.ColorSystem.secondary)
+                                            .font(Brand.Typography.labelSmall)
+                                            .foregroundColor(Brand.Color.secondary)
                                     }
                                     
                                     Spacer()
                                     
                                     Image(systemName: "chevron.right")
-                                        .font(.caption)
-                                        .foregroundColor(Brand.ColorSystem.secondary)
+                                        .font(Brand.Typography.labelSmall)
+                                        .foregroundColor(Brand.Color.secondary)
                                 }
                                 .padding()
                                 .background(
-                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                        .fill(Brand.ColorSystem.primary.opacity(0.05))
+                                    RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous)
+                                        .fill(Brand.Color.primary.opacity(0.05))
                                         .overlay(
-                                            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                                .stroke(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
+                                            RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous)
+                                                .stroke(Brand.Color.primary.opacity(0.2), lineWidth: 1)
                                         )
                                 )
                             }
@@ -211,14 +225,14 @@ struct InfertilityView: View {
             }
         }
         .task {
-            loadInfertilityInfo()
+            await loadInfertilityInfo()
         }
         
         // Error alert
         .alert("Something went wrong", isPresented: $showingErrorAlert, actions: {
-            Button("OK", role: .cancel) { 
+            Button("OK", role: .cancel) {
                 showingErrorAlert = false
-                errorMessage = nil 
+                errorMessage = nil
             }
         }, message: {
             Text(errorMessage ?? "Please try again.")
@@ -236,27 +250,27 @@ struct InfertilityView: View {
                                 .font(.caption2)
                             
                             Text(topic.subtitle.uppercased())
-                                .font(.caption2.weight(.bold))
+                                .font(Brand.Typography.labelSmall)
                                 .tracking(0.5)
                         }
-                        .foregroundColor(Brand.ColorSystem.primary)
+                        .foregroundColor(Brand.Color.primary)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 5)
                         .background(
                             Capsule()
-                                .fill(Brand.ColorSystem.primary.opacity(0.12))
+                                .fill(Brand.Color.primary.opacity(0.12))
                                 .overlay(
                                     Capsule()
-                                        .strokeBorder(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
+                                        .strokeBorder(Brand.Color.primary.opacity(0.2), lineWidth: 1)
                                 )
                         )
                         
                         // Title
                         Text(topic.title)
-                            .font(.largeTitle.bold())
+                            .font(Brand.Typography.headlineMedium)
                             .foregroundStyle(
                                 LinearGradient(
-                                    colors: [Brand.ColorSystem.primary, Brand.ColorSystem.primary.opacity(0.8)],
+                                    colors: [Brand.Color.primary, Brand.Color.primary.opacity(0.8)],
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
@@ -269,7 +283,7 @@ struct InfertilityView: View {
                     // Divider
                     Rectangle()
                         .fill(LinearGradient(
-                            colors: [Brand.ColorSystem.primary.opacity(0.3), Brand.ColorSystem.primary.opacity(0.05)],
+                            colors: [Brand.Color.primary.opacity(0.3), Brand.Color.primary.opacity(0.05)],
                             startPoint: .leading,
                             endPoint: .trailing
                         ))
@@ -290,25 +304,25 @@ struct InfertilityView: View {
                                 )
                             
                             Text("Overview")
-                                .font(.subheadline.weight(.semibold))
-                                .foregroundColor(Brand.ColorSystem.primary)
+                                .font(Brand.Typography.labelLarge)
+                                .foregroundColor(Brand.Color.primary)
                         }
                         
                         Text(topic.description)
-                            .font(.callout)
+                            .font(Brand.Typography.bodySmall)
                             .foregroundColor(.primary)
                             .lineSpacing(4)
                             .fixedSize(horizontal: false, vertical: true)
                             .textSelection(.enabled)
-                            .padding(16)
+                            .padding(Brand.Spacing.lg)
                             .background(
-                                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous)
                                     .fill(.ultraThinMaterial)
                                     .overlay(
-                                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                        RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous)
                                             .strokeBorder(
                                                 LinearGradient(
-                                                    colors: [Brand.ColorToken.hairline, Brand.ColorToken.hairline.opacity(0.3)],
+                                                    colors: [Brand.Color.hairline, Brand.Color.hairline.opacity(0.3)],
                                                     startPoint: .topLeading,
                                                     endPoint: .bottomTrailing
                                                 ),
@@ -324,96 +338,94 @@ struct InfertilityView: View {
                             HStack(spacing: 8) {
                                 Image(systemName: "checkmark.circle.fill")
                                     .font(.body)
-                                    .foregroundColor(Brand.ColorSystem.primary)
+                                    .foregroundColor(Brand.Color.primary)
                                 
                                 Text("Key Points")
-                                    .font(.subheadline.weight(.semibold))
-                                    .foregroundColor(Brand.ColorSystem.primary)
+                                    .font(Brand.Typography.labelLarge)
+                                    .foregroundColor(Brand.Color.primary)
                             }
                             
                             VStack(alignment: .leading, spacing: 12) {
                                 ForEach(keyPoints, id: \.self) { point in
                                     HStack(alignment: .top, spacing: 10) {
                                         Circle()
-                                            .fill(Brand.ColorSystem.primary)
+                                            .fill(Brand.Color.primary)
                                             .frame(width: 6, height: 6)
                                             .padding(.top, 6)
                                         
                                         Text(point)
-                                            .font(.callout)
+                                            .font(Brand.Typography.bodySmall)
                                             .foregroundColor(.primary)
                                             .fixedSize(horizontal: false, vertical: true)
                                     }
                                 }
                             }
-                            .padding(16)
+                            .padding(Brand.Spacing.lg)
                             .background(
-                                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                    .fill(Brand.ColorSystem.primary.opacity(0.03))
+                                RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous)
+                                    .fill(Brand.Color.primary.opacity(0.03))
                             )
                         }
                     }
                 }
                 .padding()
             }
-            .tint(Brand.ColorSystem.primary)
+            .tint(Brand.Color.primary)
             .presentationDetents([.large])
             .presentationDragIndicator(.visible)
         }
     }
     
     // MARK: - Load data from JSON
-    private func loadInfertilityInfo() {
-        Task { @MainActor in
-            isLoading = true
-            
-            // Load from AppData (which uses GitHub/Remote data)
-            let infertilityData = AppData.infertilityInfo
-            
-            if !infertilityData.isEmpty {
-                // Convert InfertilityInfo to InfoItem
-                topics = infertilityData.map { info in
-                    InfoItem(
-                        title: info.title,
-                        subtitle: info.subtitle,
-                        systemIcon: info.systemIcon,
-                        description: info.description,
-                        keyPoints: info.keyPoints.isEmpty ? nil : info.keyPoints,
-                        references: info.references.isEmpty ? nil : info.references.map { ref in
-                            InfoItem.Reference(title: ref.title, url: ref.url)
-                        }
-                    )
-                }
-                errorMessage = nil
-            } else {
-                // Fallback to basic data if no data available
-                topics = [
-                    InfoItem(
-                        title: "What is Infertility?",
-                        subtitle: "Understanding your diagnosis",
-                        systemIcon: "person.2.slash",
-                        description: "If you've been trying to conceive for 12 months without success (or 6 months if you're over 35), you may be experiencing infertility.",
-                        keyPoints: nil,
-                        references: nil
-                    )
-                ]
-                errorMessage = "Some content may be unavailable"
-                showingErrorAlert = true
+    private func loadInfertilityInfo() async {
+        isLoading = true
+        
+        // Load from remote data service
+        let infertilityData = await remoteDataService.loadInfertilityInfo()
+
+        if !infertilityData.isEmpty {
+            // Convert InfertilityInfo to InfoItem
+            topics = infertilityData.map { info in
+                InfoItem(
+                    title: info.title,
+                    subtitle: info.subtitle,
+                    systemIcon: info.systemIcon,
+                    description: info.description,
+                    keyPoints: info.keyPoints.isEmpty ? nil : info.keyPoints,
+                    references: info.references.isEmpty ? nil : info.references.map { ref in
+                        InfoItem.Reference(title: ref.title, url: ref.url)
+                    }
+                )
             }
-            
-            isLoading = false
+            errorMessage = nil
+        } else {
+            // Fallback to basic data if no data available
+            topics = [
+                InfoItem(
+                    title: "What is Infertility?",
+                    subtitle: "Understanding your diagnosis",
+                    systemIcon: "person.2.slash",
+                    description: "If you've been trying to conceive for 12 months without success (or 6 months if you're over 35), you may be experiencing infertility.",
+                    keyPoints: nil,
+                    references: nil
+                )
+            ]
+            errorMessage = "Some content may be unavailable"
+            showingErrorAlert = true
         }
+        
+        isLoading = false
     }
     
     // MARK: - Section header
     private func sectionHeader(title: String, icon: String) -> some View {
         HStack(spacing: 8) {
             Image(systemName: icon)
-                .font(.headline)
-                .foregroundColor(Brand.ColorSystem.primary)
+                .font(Brand.Typography.headlineMedium)
+                .foregroundColor(Brand.Color.primary)
             
             Text(title)
-                .font(.title2.weight(.semibold))
+                .font(Brand.Typography.headlineMedium)
                 .foregroundColor(.primary)
             
             Spacer()

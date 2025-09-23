@@ -188,13 +188,13 @@ struct AccessibilityConstants {
 
 // MARK: - Accessible Button Style
 
-struct AccessibleButtonStyle: ButtonStyle {
+struct AccessibilityHelperButtonStyle: ButtonStyle {
     let backgroundColor: Color
     let foregroundColor: Color
     let isDestructive: Bool
     
     init(
-        backgroundColor: Color = Brand.ColorSystem.primary,
+        backgroundColor: Color = Brand.Color.primary,
         foregroundColor: Color = .white,
         isDestructive: Bool = false
     ) {

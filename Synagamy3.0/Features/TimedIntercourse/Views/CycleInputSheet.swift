@@ -28,15 +28,15 @@ struct CycleInputSheet: View {
                     VStack(spacing: Brand.Spacing.md) {
                         Image(systemName: "calendar.badge.plus")
                             .font(.system(size: 48, weight: .light))
-                            .foregroundColor(Brand.ColorSystem.primary)
+                            .foregroundColor(Brand.Color.primary)
                         
                         Text("Track Your Cycle")
                             .font(Brand.Typography.displayMedium)
-                            .foregroundColor(Brand.ColorSystem.textPrimary)
+                            .foregroundColor(Brand.Color.textPrimary)
                         
                         Text("Enter your cycle information to receive personalized timing analysis")
                             .font(Brand.Typography.bodyMedium)
-                            .foregroundColor(Brand.ColorSystem.textSecondary)
+                            .foregroundColor(Brand.Color.textSecondary)
                             .multilineTextAlignment(.center)
                     }
                     .padding(.top, Brand.Spacing.lg)
@@ -54,23 +54,23 @@ struct CycleInputSheet: View {
                             } label: {
                                 HStack {
                                     Image(systemName: "calendar")
-                                        .foregroundColor(Brand.ColorSystem.primary)
+                                        .foregroundColor(Brand.Color.primary)
                                     
                                     Text(lastPeriodDate, style: .date)
-                                        .foregroundColor(Brand.ColorSystem.textPrimary)
+                                        .foregroundColor(Brand.Color.textPrimary)
                                     
                                     Spacer()
                                     
                                     Image(systemName: "chevron.down")
                                         .font(.system(size: 12, weight: .medium))
-                                        .foregroundColor(Brand.ColorSystem.textTertiary)
+                                        .foregroundColor(Brand.Color.textTertiary)
                                 }
                                 .padding(Brand.Spacing.lg)
-                                .background(Brand.ColorSystem.surfaceCard)
+                                .background(Brand.Color.surfaceCard)
                                 .clipShape(RoundedRectangle(cornerRadius: Brand.Radius.lg))
                                 .overlay(
                                     RoundedRectangle(cornerRadius: Brand.Radius.lg)
-                                        .stroke(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
+                                        .stroke(Brand.Color.primary.opacity(0.2), lineWidth: 1)
                                 )
                             }
                             .buttonStyle(.plain)
@@ -110,11 +110,11 @@ struct CycleInputSheet: View {
                     VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                         HStack {
                             Image(systemName: "info.circle")
-                                .foregroundColor(Brand.ColorSystem.info)
+                                .foregroundColor(Brand.Color.info)
                             
                             Text("How We Calculate")
                                 .font(Brand.Typography.labelLarge)
-                                .foregroundColor(Brand.ColorSystem.textPrimary)
+                                .foregroundColor(Brand.Color.textPrimary)
                         }
                         
                         VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
@@ -124,10 +124,10 @@ struct CycleInputSheet: View {
                             Text("• An egg survives 12-24 hours after ovulation")
                         }
                         .font(Brand.Typography.bodySmall)
-                        .foregroundColor(Brand.ColorSystem.textSecondary)
+                        .foregroundColor(Brand.Color.textSecondary)
                     }
                     .padding(Brand.Spacing.lg)
-                    .background(Brand.ColorSystem.info.opacity(0.1))
+                    .background(Brand.Color.info.opacity(0.1))
                     .clipShape(RoundedRectangle(cornerRadius: Brand.Radius.lg))
                     
                     Spacer(minLength: Brand.Spacing.xl)
@@ -140,14 +140,14 @@ struct CycleInputSheet: View {
                     Button("Cancel") {
                         dismiss()
                     }
-                    .foregroundColor(Brand.ColorSystem.textSecondary)
+                    .foregroundColor(Brand.Color.textSecondary)
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
                         saveAndDismiss()
                     }
-                    .foregroundColor(Brand.ColorSystem.primary)
+                    .foregroundColor(Brand.Color.primary)
                     .fontWeight(.semibold)
                 }
             }
@@ -169,11 +169,11 @@ struct CycleInputSheet: View {
             VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
                 Text(title)
                     .font(Brand.Typography.headlineMedium)
-                    .foregroundColor(Brand.ColorSystem.textPrimary)
+                    .foregroundColor(Brand.Color.textPrimary)
                 
                 Text(description)
                     .font(Brand.Typography.bodySmall)
-                    .foregroundColor(Brand.ColorSystem.textSecondary)
+                    .foregroundColor(Brand.Color.textSecondary)
             }
             
             content()
@@ -236,7 +236,7 @@ struct DatePickerSheet: View {
                     Button("Done") {
                         dismiss()
                     }
-                    .foregroundColor(Brand.ColorSystem.primary)
+                    .foregroundColor(Brand.Color.primary)
                     .fontWeight(.semibold)
                 }
             }

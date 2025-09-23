@@ -19,15 +19,15 @@ struct TimedIntercourseInfoSheet: View {
                     VStack(spacing: Brand.Spacing.md) {
                         Image(systemName: "heart.circle.fill")
                             .font(.system(size: 48, weight: .light))
-                            .foregroundColor(Brand.ColorSystem.primary)
+                            .foregroundColor(Brand.Color.primary)
                         
                         Text("Timed Intercourse")
                             .font(Brand.Typography.displayMedium)
-                            .foregroundColor(Brand.ColorSystem.textPrimary)
+                            .foregroundColor(Brand.Color.textPrimary)
                         
                         Text("Understanding fertility timing for conception")
-                            .font(Brand.Typography.bodyMedium)
-                            .foregroundColor(Brand.ColorSystem.textSecondary)
+                            .font(Brand.Typography.bodySmall)
+                            .foregroundColor(Brand.Color.textSecondary)
                             .multilineTextAlignment(.center)
                     }
                     .frame(maxWidth: .infinity)
@@ -59,11 +59,11 @@ struct TimedIntercourseInfoSheet: View {
                         HStack {
                             Image(systemName: "checkmark.circle.fill")
                                 .font(.system(size: 24))
-                                .foregroundColor(Brand.ColorSystem.success)
+                                .foregroundColor(Brand.Color.success)
                             
                             Text("Best Practices")
                                 .font(Brand.Typography.headlineMedium)
-                                .foregroundColor(Brand.ColorSystem.textPrimary)
+                                .foregroundColor(Brand.Color.textPrimary)
                         }
                         
                         VStack(alignment: .leading, spacing: Brand.Spacing.md) {
@@ -101,11 +101,11 @@ struct TimedIntercourseInfoSheet: View {
                         HStack {
                             Image(systemName: "exclamationmark.triangle.fill")
                                 .font(.system(size: 24))
-                                .foregroundColor(Brand.ColorSystem.warning)
+                                .foregroundColor(Brand.Color.warning)
                             
                             Text("When to Consult a Doctor")
                                 .font(Brand.Typography.headlineMedium)
-                                .foregroundColor(Brand.ColorSystem.textPrimary)
+                                .foregroundColor(Brand.Color.textPrimary)
                         }
                         
                         VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
@@ -115,30 +115,30 @@ struct TimedIntercourseInfoSheet: View {
                             Text("• Known fertility issues")
                             Text("• Previous pregnancy complications")
                         }
-                        .font(Brand.Typography.bodyMedium)
-                        .foregroundColor(Brand.ColorSystem.textSecondary)
+                        .font(Brand.Typography.bodySmall)
+                        .foregroundColor(Brand.Color.textSecondary)
                     }
                     .padding(Brand.Spacing.lg)
-                    .background(Brand.ColorSystem.warning.opacity(0.1))
+                    .background(Brand.Color.warning.opacity(0.1))
                     .clipShape(RoundedRectangle(cornerRadius: Brand.Radius.lg))
                     
                     // MARK: - Disclaimer
                     VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                         HStack {
                             Image(systemName: "info.circle")
-                                .foregroundColor(Brand.ColorSystem.info)
+                                .foregroundColor(Brand.Color.info)
                             
                             Text("Medical Disclaimer")
                                 .font(Brand.Typography.labelLarge)
-                                .foregroundColor(Brand.ColorSystem.textPrimary)
+                                .foregroundColor(Brand.Color.textPrimary)
                         }
                         
                         Text("This information is for educational purposes only and should not replace professional medical advice. Individual fertility varies, and factors such as age, health conditions, and lifestyle can affect conception rates. Always consult with a healthcare provider for personalized guidance.")
                             .font(Brand.Typography.bodySmall)
-                            .foregroundColor(Brand.ColorSystem.textSecondary)
+                            .foregroundColor(Brand.Color.textSecondary)
                     }
                     .padding(Brand.Spacing.lg)
-                    .background(Brand.ColorSystem.info.opacity(0.1))
+                    .background(Brand.Color.info.opacity(0.1))
                     .clipShape(RoundedRectangle(cornerRadius: Brand.Radius.lg))
                     
                     Spacer(minLength: Brand.Spacing.xl)
@@ -152,7 +152,7 @@ struct TimedIntercourseInfoSheet: View {
                     Button("Done") {
                         dismiss()
                     }
-                    .foregroundColor(Brand.ColorSystem.primary)
+                    .foregroundColor(Brand.Color.primary)
                     .fontWeight(.semibold)
                 }
             }
@@ -164,16 +164,16 @@ struct TimedIntercourseInfoSheet: View {
             HStack {
                 Image(systemName: icon)
                     .font(.system(size: 24))
-                    .foregroundColor(Brand.ColorSystem.primary)
+                    .foregroundColor(Brand.Color.primary)
                 
                 Text(title)
                     .font(Brand.Typography.headlineMedium)
-                    .foregroundColor(Brand.ColorSystem.textPrimary)
+                    .foregroundColor(Brand.Color.textPrimary)
             }
             
             Text(content)
-                .font(Brand.Typography.bodyMedium)
-                .foregroundColor(Brand.ColorSystem.textSecondary)
+                .font(Brand.Typography.bodySmall)
+                .foregroundColor(Brand.Color.textSecondary)
                 .lineSpacing(4)
         }
         .padding(Brand.Spacing.lg)
@@ -184,17 +184,17 @@ struct TimedIntercourseInfoSheet: View {
         HStack(alignment: .top, spacing: Brand.Spacing.md) {
             Image(systemName: "checkmark.circle")
                 .font(.system(size: 16, weight: .medium))
-                .foregroundColor(Brand.ColorSystem.success)
+                .foregroundColor(Brand.Color.success)
                 .frame(width: 20)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
                     .font(Brand.Typography.labelMedium)
-                    .foregroundColor(Brand.ColorSystem.textPrimary)
+                    .foregroundColor(Brand.Color.textPrimary)
                 
                 Text(description)
                     .font(Brand.Typography.bodySmall)
-                    .foregroundColor(Brand.ColorSystem.textSecondary)
+                    .foregroundColor(Brand.Color.textSecondary)
             }
             
             Spacer()

@@ -12,7 +12,7 @@ class DisclaimerManager: ObservableObject {
     @AppStorage("disclaimerVersion") private var disclaimerVersion = 0
     @AppStorage("disclaimerAcceptanceDate") private var disclaimerAcceptanceDateString = ""
     
-    private let currentDisclaimerVersion = 1
+    private let currentDisclaimerVersion = 2
     
     @Published var shouldShowDisclaimer = false
     
@@ -56,8 +56,8 @@ struct DisclaimerContent {
     
     static let sections: [DisclaimerSection] = [
         DisclaimerSection(
-            title: "Educational Purpose Only",
-            content: "This application is designed exclusively for educational and informational purposes. The content provided, including fertility tracking tools, prediction models, and educational materials, should never be used as a substitute for professional medical advice, diagnosis, or treatment.",
+            title: "Educational Purpose Only - NOT A MEDICAL DEVICE",
+            content: "This application is designed exclusively for educational and informational purposes. The prediction algorithms, fertility tracking tools, and educational materials are NOT intended for medical decision making, diagnosis, or treatment. This software is NOT a medical device and has not been evaluated by FDA or Health Canada for safety, effectiveness, or regulatory compliance.",
             icon: "book.fill",
             priority: .critical
         ),
@@ -70,15 +70,15 @@ struct DisclaimerContent {
         ),
         
         DisclaimerSection(
-            title: "Population-Based Predictions",
-            content: "All predictions and calculations are based on population averages and statistical models. Individual outcomes may vary significantly based on numerous factors not captured in this application. These predictions should not influence medical treatment decisions.",
+            title: "Population-Based Predictions with High Uncertainty",
+            content: "All predictions and calculations are based on population averages and statistical models with significant uncertainty. Individual outcomes may vary dramatically based on numerous medical, genetic, and biological factors not captured in this application. Prediction ranges show 80% confidence intervals - 20% of individuals will fall outside these ranges. These estimates should NEVER influence medical treatment decisions.",
             icon: "chart.bar.fill",
-            priority: .high
+            priority: .critical
         ),
         
         DisclaimerSection(
-            title: "Not a Medical Device",
-            content: "This application is not a medical device and has not been evaluated by Health Canada, the FDA, or other regulatory bodies. It does not diagnose, treat, cure, or prevent any medical condition or disease.",
+            title: "FDA/Health Canada Regulatory Notice",
+            content: "This application is NOT a medical device under FDA or Health Canada regulations. It has NOT been evaluated for safety, effectiveness, or accuracy by any regulatory authority. The software does not diagnose, treat, cure, or prevent any medical condition. Predictions are for educational exploration only and must not be used for medical decision making.",
             icon: "exclamationmark.triangle.fill",
             priority: .critical
         ),
@@ -105,6 +105,34 @@ struct DisclaimerContent {
         ),
         
         DisclaimerSection(
+            title: "Medical Data Storage & Privacy",
+            content: "This application may store sensitive medical data including age, hormone levels (AMH, Estrogen), BMI, fertility diagnosis information, and IVF prediction results. All medical data is encrypted using industry-standard iOS Keychain security and stored locally on your device only. No medical data is transmitted to external servers.",
+            icon: "lock.shield.fill",
+            priority: .critical
+        ),
+
+        DisclaimerSection(
+            title: "Your Data Rights",
+            content: "You have complete control over your medical data. You may: (1) Grant or revoke consent for medical data storage at any time, (2) View all stored medical data in Settings > Data Management, (3) Export your data for review, (4) Permanently delete all medical data. Revoking consent will immediately delete all stored medical data.",
+            icon: "person.badge.shield.checkmark.fill",
+            priority: .critical
+        ),
+
+        DisclaimerSection(
+            title: "Data Consent Required",
+            content: "Before any sensitive medical data is stored, you will be asked to provide explicit informed consent. This consent can be revoked at any time. Without consent, predictions cannot be saved but the app remains fully functional for educational purposes.",
+            icon: "checkmark.shield.fill",
+            priority: .high
+        ),
+
+        DisclaimerSection(
+            title: "HIPAA-Level Data Protection",
+            content: "While this app is not a covered entity under HIPAA, we implement HIPAA-level data protection practices including encryption at rest, access controls, and user rights to access and delete personal health information. Your medical data privacy is our priority.",
+            icon: "heart.text.square.fill",
+            priority: .high
+        ),
+
+        DisclaimerSection(
             title: "Limitation of Liability",
             content: "The developers of this application disclaim any responsibility for decisions made based on the information provided. Users assume full responsibility for any decisions made using this educational tool.",
             icon: "shield.slash.fill",
@@ -114,13 +142,16 @@ struct DisclaimerContent {
     
     static let acknowledgmentText = """
     By accepting this disclaimer, I acknowledge that:
-    
+
     • I understand this app is for educational purposes only
     • I will not use it as a substitute for professional medical advice
     • I will consult with healthcare professionals for medical decisions
     • I understand predictions are based on population averages
+    • I understand sensitive medical data is stored encrypted on my device only
+    • I will provide separate consent before any medical data is stored
+    • I can view, export, and delete my medical data at any time
     • I accept full responsibility for decisions made using this information
-    • I have read and understood all disclaimer sections above
+    • I have read and understood all disclaimer and privacy sections above
     """
     
     static let countrySpecificNote = """

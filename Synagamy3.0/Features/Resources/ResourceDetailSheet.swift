@@ -25,118 +25,118 @@ struct ResourceDetailSheet: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: Brand.Spacing.lg) {
 
                     // MARK: - Enhanced header matching TopicDetailContent style
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                         // Category badge
                         HStack {
                             Image(systemName: "link.circle.fill")
                                 .font(.caption2)
                             
                             Text("RESOURCE")
-                                .font(.caption2.weight(.bold))
+                                .font(Brand.Typography.labelSmall)
                                 .tracking(0.5)
                         }
-                        .foregroundColor(Brand.ColorSystem.primary)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 5)
+                        .foregroundColor(Brand.Color.primary)
+                        .padding(.horizontal, Brand.Spacing.sm)
+                        .padding(.vertical, Brand.Spacing.xs)
                         .background(
                             Capsule()
-                                .fill(Brand.ColorSystem.primary.opacity(0.12))
+                                .fill(Brand.Color.primary.opacity(0.12))
                                 .overlay(
                                     Capsule()
-                                        .strokeBorder(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
+                                        .strokeBorder(Brand.Color.primary.opacity(0.2), lineWidth: 1)
                                 )
                         )
                         
                         // Main title
                         Text(resource.title)
-                            .font(.largeTitle.bold())
-                            .foregroundColor(Brand.ColorSystem.primary)
+                            .font(Brand.Typography.headlineMedium)
+                            .foregroundColor(Brand.Color.primary)
                             .multilineTextAlignment(.leading)
                             .fixedSize(horizontal: false, vertical: true)
                             .accessibilityAddTraits(.isHeader)
                         
                         // Subtitle
-                        HStack(spacing: 8) {
+                        HStack(spacing: Brand.Spacing.sm) {
                             Image(systemName: resource.systemImage)
                                 .font(.body)
-                                .foregroundColor(Brand.ColorSystem.secondary)
+                                .foregroundColor(Brand.Color.secondary)
                             
                             Text(resource.subtitle)
-                                .font(.subheadline.weight(.medium))
-                                .foregroundColor(Brand.ColorSystem.secondary)
+                                .font(Brand.Typography.headlineMedium)
+                                .foregroundColor(Brand.Color.secondary)
                                 .fixedSize(horizontal: false, vertical: true)
                         }
                     }
-                    .padding(.bottom, 4)
+                    .padding(.bottom, Brand.Spacing.xs)
                     
                     // Divider
                     Rectangle()
-                        .fill(Brand.ColorSystem.primary.opacity(0.2))
+                        .fill(Brand.Color.primary.opacity(0.2))
                         .frame(height: 1)
-                        .padding(.bottom, 4)
+                        .padding(.bottom, Brand.Spacing.xs)
 
                     // MARK: - Description with enhanced design
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack(spacing: 8) {
+                    VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
+                        HStack(spacing: Brand.Spacing.sm) {
                             Image(systemName: "lightbulb.fill")
                                 .font(.body)
-                                .foregroundColor(Brand.ColorSystem.primary)
+                                .foregroundColor(Brand.Color.primary)
                             
                             Text("About This Resource")
-                                .font(.subheadline.weight(.semibold))
-                                .foregroundColor(Brand.ColorSystem.primary)
+                                .font(Brand.Typography.headlineMedium)
+                                .foregroundColor(Brand.Color.primary)
                         }
                         
                         Text(resource.description)
-                            .font(.callout)
+                            .font(Brand.Typography.bodySmall)
                             .foregroundColor(.primary)
                             .lineSpacing(4)
                             .multilineTextAlignment(.leading)
                             .fixedSize(horizontal: false, vertical: true)
                             .textSelection(.enabled)
-                            .padding(16)
+                            .padding(Brand.Spacing.lg)
                             .background(
-                                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous)
                                     .fill(.ultraThinMaterial)
                                     .overlay(
-                                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                            .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
+                                        RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous)
+                                            .strokeBorder(Brand.Color.hairline, lineWidth: 1)
                                     )
                             )
                     }
 
                     // MARK: - Enhanced Actions
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack(spacing: 8) {
+                    VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
+                        HStack(spacing: Brand.Spacing.sm) {
                             Image(systemName: "hand.tap.fill")
                                 .font(.body)
-                                .foregroundColor(Brand.ColorSystem.primary)
+                                .foregroundColor(Brand.Color.primary)
                             
                             Text("Actions")
-                                .font(.subheadline.weight(.semibold))
-                                .foregroundColor(Brand.ColorSystem.primary)
+                                .font(Brand.Typography.labelLarge)
+                                .foregroundColor(Brand.Color.primary)
                         }
                         
-                        VStack(spacing: 12) {
+                        VStack(spacing: Brand.Spacing.md) {
                             // Open inside the app (SFSafariViewController)
                             Button {
                                 showSafari = true
                             } label: {
-                                HStack(spacing: 8) {
+                                HStack(spacing: Brand.Spacing.sm) {
                                     Text("Open in App")
-                                        .font(.subheadline.weight(.medium))
+                                        .font(Brand.Typography.labelMedium)
                                     Image(systemName: "safari")
                                         .font(.subheadline)
                                 }
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity)
-                                .padding(.vertical, 12)
+                                .padding(.vertical, Brand.Spacing.md)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .fill(Brand.ColorSystem.primary)
+                                    RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
+                                        .fill(Brand.Color.primary)
                                 )
                             }
                             .buttonStyle(.plain)
@@ -151,21 +151,21 @@ struct ResourceDetailSheet: View {
                                     }
                                 }
                             } label: {
-                                HStack(spacing: 8) {
+                                HStack(spacing: Brand.Spacing.sm) {
                                     Text("Open in Safari")
-                                        .font(.subheadline.weight(.medium))
+                                        .font(Brand.Typography.labelMedium)
                                     Image(systemName: "arrow.up.right.square")
                                         .font(.subheadline)
                                 }
-                                .foregroundColor(Brand.ColorSystem.primary)
+                                .foregroundColor(Brand.Color.primary)
                                 .frame(maxWidth: .infinity)
-                                .padding(.vertical, 12)
+                                .padding(.vertical, Brand.Spacing.md)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .fill(Brand.ColorSystem.primary.opacity(0.1))
+                                    RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
+                                        .fill(Brand.Color.primary.opacity(0.1))
                                         .overlay(
-                                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                                .strokeBorder(Brand.ColorSystem.primary.opacity(0.3), lineWidth: 1)
+                                            RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
+                                                .strokeBorder(Brand.Color.primary.opacity(0.3), lineWidth: 1)
                                         )
                                 )
                             }
@@ -173,21 +173,21 @@ struct ResourceDetailSheet: View {
 
                             // Native share sheet
                             ShareLink(item: resource.url) {
-                                HStack(spacing: 8) {
+                                HStack(spacing: Brand.Spacing.sm) {
                                     Text("Share")
-                                        .font(.subheadline.weight(.medium))
+                                        .font(Brand.Typography.labelMedium)
                                     Image(systemName: "square.and.arrow.up")
                                         .font(.subheadline)
                                 }
-                                .foregroundColor(Brand.ColorSystem.primary)
+                                .foregroundColor(Brand.Color.primary)
                                 .frame(maxWidth: .infinity)
-                                .padding(.vertical, 12)
+                                .padding(.vertical, Brand.Spacing.md)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                        .fill(Brand.ColorSystem.primary.opacity(0.1))
+                                    RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
+                                        .fill(Brand.Color.primary.opacity(0.1))
                                         .overlay(
-                                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                                .strokeBorder(Brand.ColorSystem.primary.opacity(0.3), lineWidth: 1)
+                                            RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
+                                                .strokeBorder(Brand.Color.primary.opacity(0.3), lineWidth: 1)
                                         )
                                 )
                             }
@@ -196,10 +196,10 @@ struct ResourceDetailSheet: View {
                         }
                     }
                 }
-                .padding()
+                .padding(Brand.Spacing.lg)
             }
         }
-        .tint(Color("BrandPrimary"))
+        .tint(Brand.Color.primary)
 
         // MARK: - In-app Safari
         .sheet(isPresented: $showSafari) {

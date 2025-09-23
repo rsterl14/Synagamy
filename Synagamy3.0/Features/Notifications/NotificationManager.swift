@@ -80,7 +80,9 @@ class NotificationManager: NSObject, ObservableObject {
             await updateAuthorizationStatus()
             return granted
         } catch {
+            #if DEBUG
             print("Notification permission error: \(error)")
+            #endif
             return false
         }
     }
@@ -182,9 +184,13 @@ class NotificationManager: NSObject, ObservableObject {
         
         do {
             try await center.add(request)
+            #if DEBUG
             print("Scheduled notification: \(title) for \(date)")
+            #endif
         } catch {
+            #if DEBUG
             print("Failed to schedule notification: \(error)")
+            #endif
         }
     }
     
@@ -224,7 +230,9 @@ class NotificationManager: NSObject, ObservableObject {
         do {
             try await center.add(request)
         } catch {
+            #if DEBUG
             print("Failed to schedule medication reminder: \(error)")
+            #endif
         }
     }
     

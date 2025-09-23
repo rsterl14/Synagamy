@@ -78,14 +78,20 @@ class OnboardingManager: ObservableObject {
     // MARK: - Initialization
     
     init() {
-        checkOnboardingStatus()
+        // Delay initial check to avoid publishing during SwiftUI initialization
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.checkOnboardingStatus()
+        }
     }
     
     // MARK: - Public Methods
     
     func checkOnboardingStatus() {
-        shouldShowOnboarding = !hasCompletedOnboarding || onboardingVersion < currentOnboardingVersion
-        shouldShowDisclaimer = !hasAcceptedDisclaimer
+        // Defer to avoid publishing during view updates
+        DispatchQueue.main.async {
+            self.shouldShowOnboarding = !self.hasCompletedOnboarding || self.onboardingVersion < self.currentOnboardingVersion
+            self.shouldShowDisclaimer = !self.hasAcceptedDisclaimer
+        }
     }
     
     func nextStep() {
@@ -94,7 +100,7 @@ class OnboardingManager: ObservableObject {
             return
         }
         
-        withAnimation(.spring()) {
+        withAnimation(Brand.Motion.springGentle) {
             currentStep = OnboardingStep(rawValue: currentStep.rawValue + 1) ?? .complete
         }
     }
@@ -102,7 +108,7 @@ class OnboardingManager: ObservableObject {
     func previousStep() {
         guard currentStep.rawValue > 0 else { return }
         
-        withAnimation(.spring()) {
+        withAnimation(Brand.Motion.springGentle) {
             currentStep = OnboardingStep(rawValue: currentStep.rawValue - 1) ?? .welcome
         }
     }
@@ -111,7 +117,7 @@ class OnboardingManager: ObservableObject {
         hasCompletedOnboarding = true
         onboardingVersion = currentOnboardingVersion
         
-        withAnimation(.spring()) {
+        withAnimation(Brand.Motion.springGentle) {
             shouldShowOnboarding = false
         }
     }
@@ -169,31 +175,31 @@ struct OnboardingFeature: Identifiable {
             title: "IVF Outcome Predictor",
             description: "Get personalized predictions based on population data",
             systemImage: "chart.bar.fill",
-            color: .blue
+            color: Brand.Color.primary
         ),
         OnboardingFeature(
             title: "Timed Intercourse Tracker",
             description: "Optimize conception timing with fertility window tracking",
             systemImage: "heart.circle.fill",
-            color: .pink
+            color: Brand.Color.secondary
         ),
         OnboardingFeature(
             title: "Educational Resources",
             description: "Evidence-based fertility education backed by scentific research",
             systemImage: "book.fill",
-            color: .green
+            color: Brand.Color.success
         ),
         OnboardingFeature(
             title: "Treatment Pathways",
             description: "Personalized learning paths based on your situation",
             systemImage: "map.fill",
-            color: .orange
+            color: Brand.Color.warning
         ),
         OnboardingFeature(
             title: "Clinical Resources",
             description: "Find fertility clinics and access professional resources",
             systemImage: "building.2.fill",
-            color: .purple
+            color: Brand.Color.secondary
         )
     ]
 }

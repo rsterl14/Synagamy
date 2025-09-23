@@ -93,11 +93,13 @@ struct SavedPrediction: Codable, Identifiable {
         self.icsiFinalOutcome = results.cascadeFlow.icsiPathway.finalOutcome
         
         // Debug logging for cascade values
+        #if DEBUG
         print("📱 [DEBUG] SavedPrediction storing cascade data:")
         print("📱 [DEBUG] - Mature Oocytes: \(self.matureOocytes)")
         print("📱 [DEBUG] - Day 3 Embryos: \(self.day3Embryos)")
         print("📱 [DEBUG] - IVF Blastocysts: \(self.ivfBlastocysts)")
         print("📱 [DEBUG] - ICSI Blastocysts: \(self.icsiBlastocysts)")
+        #endif
     }
     
     // Computed properties for display

@@ -13,9 +13,7 @@ import SwiftUI
 
 @main
 struct SynagamyApp: App {
-    // A tiny launch model so we can surface a friendly error later if needed.
     @StateObject private var launchModel = AppLaunchModel()
-    @StateObject private var onboardingManager = OnboardingManager()
 
     init() {
         #if DEBUG
@@ -29,24 +27,19 @@ struct SynagamyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ZStack {
-                MainTabView()
-                    .environmentObject(onboardingManager)
-                    .tint(Color("BrandPrimary"))   // global accent
-                    .task {
-                        // Preload JSON data + warm caches (non-blocking, safe).
+            MainTabView()
+                .tint(Color("BrandPrimary"))   // global accent
+                .task {
+                    // Preload JSON data + warm caches (non-blocking, safe).
+                    do {
+                        try await Task.sleep(nanoseconds: 50_000_000) // Brief delay to avoid publishing conflicts
+                    } catch {
+                        // If sleep is cancelled, continue anyway
+                    }
+                    await MainActor.run {
                         launchModel.preload()
                     }
-                
-                // Onboarding overlay
-                if onboardingManager.shouldShowOnboarding {
-                    OnboardingView()
-                        .environmentObject(onboardingManager)
-                        .transition(.opacity.combined(with: .scale))
-                        .zIndex(1)
                 }
-            }
-            .animation(.spring(), value: onboardingManager.shouldShowOnboarding)
         }
     }
 }
@@ -99,26 +92,9 @@ final class AppLaunchModel: ObservableObject {
         print("🏁 AppLaunchModel: Starting preload...")
         #endif
         
-        // Accessing AppData.* should be cheap and synchronous with your current loader.
-        // If you change AppData to async/throwing later, you can pivot to async here.
-        let topics = AppData.topics
-        let pathwayCategories = AppData.pathwayCategories
-        _ = AppData.questions
-        
+        // Basic preload - simplified for now
         #if DEBUG
-        print("🏁 AppLaunchModel: Preload complete - topics: \(topics.count), pathways: \(pathwayCategories.count)")
-        #endif
-
-        // Warm a topic index so step→topic sheet opens instantly later.
-        // We ignore the result here; it's just to build any internal caches.
-        _ = TopicMatcher.index(topics: topics)
-
-        // Don't set errorMessage during initial preload since data loads asynchronously
-        // The app will show proper empty states in views if data is still loading
-        #if DEBUG
-        if topics.isEmpty || pathwayCategories.isEmpty {
-            print("🏁 AppLaunchModel: Data still loading, views will handle empty states")
-        }
+        print("🏁 AppLaunchModel: Preload complete")
         #endif
     }
 }

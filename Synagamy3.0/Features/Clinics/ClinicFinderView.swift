@@ -65,37 +65,37 @@ struct ClinicFinderView: View {
             showHomeButton: true,
             usePopToRoot: true
         ) {
-            VStack(spacing: 12) {
+            VStack(spacing: Brand.Spacing.md) {
                 // Enhanced region selector header
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack(spacing: 8) {
+                VStack(alignment: .leading, spacing: Brand.Spacing.md) {
+                    HStack(spacing: Brand.Spacing.sm) {
                         Image(systemName: "location.fill")
                             .font(.body)
-                            .foregroundColor(Brand.ColorSystem.primary)
-                        
+                            .foregroundColor(Brand.Color.primary)
+
                         Text("Select Region")
-                            .font(.subheadline.weight(.semibold))
-                            .foregroundColor(Brand.ColorSystem.primary)
+                            .font(Brand.Typography.labelLarge)
+                            .foregroundColor(Brand.Color.primary)
                     }
                     
                     // Custom region selector with brand styling
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 8) {
+                        HStack(spacing: Brand.Spacing.sm) {
                             ForEach(regions, id: \.self) { region in
                                 Button(action: {
                                     selectedRegion = region
                                 }) {
                                     Text(region)
-                                        .font(.callout.weight(.medium))
-                                        .foregroundColor(selectedRegion == region ? .white : Brand.ColorSystem.primary)
-                                        .padding(.horizontal, 16)
-                                        .padding(.vertical, 8)
+                                        .font(Brand.Typography.bodyMedium)
+                                        .foregroundColor(selectedRegion == region ? .white : Brand.Color.primary)
+                                        .padding(.horizontal, Brand.Spacing.lg)
+                                        .padding(.vertical, Brand.Spacing.sm)
                                         .background(
-                                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                                .fill(selectedRegion == region ? Brand.ColorSystem.primary : Brand.ColorSystem.primary.opacity(0.1))
+                                            RoundedRectangle(cornerRadius: Brand.Radius.xl, style: .continuous)
+                                                .fill(selectedRegion == region ? Brand.Color.primary : Brand.Color.primary.opacity(0.1))
                                                 .overlay(
-                                                    RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                                        .strokeBorder(Brand.ColorSystem.primary.opacity(0.3), lineWidth: 1)
+                                                    RoundedRectangle(cornerRadius: Brand.Radius.xl, style: .continuous)
+                                                        .strokeBorder(Brand.Color.primary.opacity(0.3), lineWidth: 1)
                                                 )
                                         )
                                 }
@@ -106,10 +106,10 @@ struct ClinicFinderView: View {
                         .padding(.horizontal, 4)
                     }
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 12)
+                .padding(.horizontal, Brand.Spacing.lg)
+                .padding(.vertical, Brand.Spacing.md)
                 .background(
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous)
                         .fill(.ultraThinMaterial)
                 )
 
@@ -130,7 +130,7 @@ struct ClinicFinderView: View {
                                 .foregroundColor(.orange)
                             
                             Text("Map Unavailable")
-                                .font(.headline)
+                                .font(Brand.Typography.headlineMedium)
                                 .foregroundColor(.primary)
                             
                             Text("The map couldn't load. You can still browse clinic information below.")
@@ -147,14 +147,14 @@ struct ClinicFinderView: View {
                         .frame(height: 600)
                         .frame(maxWidth: .infinity)
                         .background(Color(.systemGray6))
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .clipShape(RoundedRectangle(cornerRadius: Brand.Radius.lg))
                     } else {
                         Map(position: $cameraPosition) {
                             ForEach(clinicsForRegion) { clinic in
                                 Annotation(clinic.name, coordinate: clinic.coordinate) {
                                     Image(systemName: "mappin.circle.fill")
                                         .font(.title)
-                                        .foregroundStyle(Brand.ColorSystem.secondary)
+                                        .foregroundStyle(Brand.Color.secondary)
                                         .onTapGesture { 
                                             handleClinicSelection(clinic)
                                         }
@@ -164,7 +164,7 @@ struct ClinicFinderView: View {
                         }
                         .mapControls { MapCompass() }
                         .frame(height: 420)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .clipShape(RoundedRectangle(cornerRadius: Brand.Radius.lg))
                         .onAppear {
                             // Validate map can load
                             validateMapAccess()
@@ -201,35 +201,35 @@ struct ClinicFinderView: View {
                 // If the URL is malformed, show a helpful fallback instead of crashing.
                 NavigationStack {
                     ScrollView {
-                        VStack(alignment: .leading, spacing: 20) {
-                            
+                        VStack(alignment: .leading, spacing: Brand.Spacing.xl) {
+
                             // MARK: - Enhanced header matching app style
-                            VStack(alignment: .leading, spacing: 12) {
+                            VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                                 // Category badge
                                 HStack {
                                     Image(systemName: "building.2.fill")
                                         .font(.caption2)
                                     
                                     Text("CLINIC")
-                                        .font(.caption2.weight(.bold))
+                                        .font(Brand.Typography.labelSmall)
                                         .tracking(0.5)
                                 }
-                                .foregroundColor(Brand.ColorSystem.primary)
+                                .foregroundColor(Brand.Color.primary)
                                 .padding(.horizontal, 10)
                                 .padding(.vertical, 5)
                                 .background(
                                     Capsule()
-                                        .fill(Brand.ColorSystem.primary.opacity(0.12))
+                                        .fill(Brand.Color.primary.opacity(0.12))
                                         .overlay(
                                             Capsule()
-                                                .strokeBorder(Brand.ColorSystem.primary.opacity(0.2), lineWidth: 1)
+                                                .strokeBorder(Brand.Color.primary.opacity(0.2), lineWidth: 1)
                                         )
                                 )
                                 
                                 // Main title
                                 Text(clinic.name)
-                                    .font(.largeTitle.bold())
-                                    .foregroundColor(Brand.ColorSystem.primary)
+                                    .font(Brand.Typography.headlineMedium)
+                                    .foregroundColor(Brand.Color.primary)
                                     .multilineTextAlignment(.leading)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .accessibilityAddTraits(.isHeader)
@@ -238,53 +238,53 @@ struct ClinicFinderView: View {
                             
                             // Divider
                             Rectangle()
-                                .fill(Brand.ColorSystem.primary.opacity(0.2))
+                                .fill(Brand.Color.primary.opacity(0.2))
                                 .frame(height: 1)
                                 .padding(.bottom, 4)
 
                             // MARK: - Error content with enhanced design
-                            VStack(alignment: .leading, spacing: 10) {
-                                HStack(spacing: 8) {
+                            VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
+                                HStack(spacing: Brand.Spacing.sm) {
                                     Image(systemName: "exclamationmark.triangle.fill")
                                         .font(.body)
                                         .foregroundColor(.orange)
                                     
                                     Text("Website Unavailable")
-                                        .font(.subheadline.weight(.semibold))
-                                        .foregroundColor(Brand.ColorSystem.primary)
+                                        .font(Brand.Typography.labelLarge)
+                                        .foregroundColor(Brand.Color.primary)
                                 }
                                 
-                                VStack(alignment: .leading, spacing: 12) {
+                                VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                                     Text("We couldn't open this clinic's website. Please try again later or visit it manually:")
-                                        .font(.callout)
+                                        .font(Brand.Typography.bodyMedium)
                                         .foregroundColor(.primary)
                                         .lineSpacing(4)
                                         .multilineTextAlignment(.leading)
                                         .fixedSize(horizontal: false, vertical: true)
                                     
                                     Text(clinic.website)
-                                        .font(.callout)
-                                        .foregroundColor(Brand.ColorSystem.primary)
+                                        .font(Brand.Typography.bodyMedium)
+                                        .foregroundColor(Brand.Color.primary)
                                         .textSelection(.enabled)
                                         .lineLimit(3)
                                         .minimumScaleFactor(0.8)
-                                        .padding(12)
+                                        .padding(Brand.Spacing.md)
                                         .background(
-                                            RoundedRectangle(cornerRadius: 8, style: .continuous)
-                                                .fill(Brand.ColorSystem.primary.opacity(0.1))
+                                            RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
+                                                .fill(Brand.Color.primary.opacity(0.1))
                                                 .overlay(
-                                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                                                        .strokeBorder(Brand.ColorSystem.primary.opacity(0.3), lineWidth: 1)
+                                                    RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
+                                                        .strokeBorder(Brand.Color.primary.opacity(0.3), lineWidth: 1)
                                                 )
                                         )
                                 }
-                                .padding(16)
+                                .padding(Brand.Spacing.lg)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                    RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous)
                                         .fill(.ultraThinMaterial)
                                         .overlay(
-                                            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                                .strokeBorder(Brand.ColorToken.hairline, lineWidth: 1)
+                                            RoundedRectangle(cornerRadius: Brand.Radius.lg, style: .continuous)
+                                                .strokeBorder(Brand.Color.hairline, lineWidth: 1)
                                         )
                                 )
                             }
@@ -292,7 +292,7 @@ struct ClinicFinderView: View {
                         .padding()
                     }
                 }
-                .tint(Brand.ColorSystem.primary)
+                .tint(Brand.Color.primary)
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
             }

@@ -13,14 +13,14 @@ struct OnboardingView: View {
     var body: some View {
         ZStack {
             // Solid background to block app content
-            Color.white
+            Brand.Color.surfaceBase
                 .ignoresSafeArea()
             
             // Background gradient overlay
             LinearGradient(
                 colors: [
-                    Brand.ColorSystem.primary.opacity(0.1),
-                    Brand.ColorSystem.secondary.opacity(0.05)
+                    Brand.Color.primary.opacity(0.1),
+                    Brand.Color.secondary.opacity(0.05)
                 ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -44,7 +44,7 @@ struct OnboardingView: View {
                         }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                    .animation(.spring(), value: onboardingManager.currentStep)
+                    .animation(Brand.Motion.springGentle, value: onboardingManager.currentStep)
                 }
                 
                 // Navigation Controls (hidden during disclaimer step)
@@ -61,25 +61,25 @@ struct OnboardingView: View {
     // MARK: - Progress Bar
     
     private var progressBar: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: Brand.Spacing.sm) {
             HStack {
                 Text("Step \(onboardingManager.currentStep.rawValue + 1) of \(OnboardingManager.OnboardingStep.allCases.count)")
                     .font(.caption.weight(.medium))
-                    .foregroundColor(Brand.ColorSystem.secondary)
+                    .foregroundColor(Brand.Color.secondary)
                 
                 Spacer()
                 
                 .font(.caption.weight(.medium))
-                .foregroundColor(Brand.ColorSystem.primary)
+                .foregroundColor(Brand.Color.primary)
                 .opacity((onboardingManager.isLastStep || onboardingManager.currentStep == .disclaimer) ? 0 : 1)
             }
             
             ProgressView(value: onboardingManager.progress, total: 1.0)
-                .tint(Brand.ColorSystem.primary)
+                .tint(Brand.Color.primary)
                 .scaleEffect(y: 2)
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 12)
+        .padding(.horizontal, Brand.Spacing.xl)
+        .padding(.vertical, Brand.Spacing.md)
     }
     
     // MARK: - Step Content
@@ -92,25 +92,25 @@ struct OnboardingView: View {
         } else {
             // Standard step content layout
             ScrollView {
-                VStack(spacing: 32) {
-                    Spacer(minLength: 20)
+                VStack(spacing: Brand.Spacing.xxl) {
+                    Spacer(minLength: Brand.Spacing.xl)
                     
                     // Icon
                     Image(systemName: step.systemImage)
-                        .font(.system(size: 64, weight: .light))
-                        .foregroundColor(Brand.ColorSystem.primary)
+                        .font(.system(size: Brand.Typography.Size.xxxl * 2, weight: Brand.Typography.Weight.light))
+                        .foregroundColor(Brand.Color.primary)
                         .accessibility(hidden: true)
                     
                     // Title and Subtitle
-                    VStack(spacing: 12) {
+                    VStack(spacing: Brand.Spacing.md) {
                         Text(step.title)
-                            .font(.largeTitle.weight(.bold))
+                            .font(Brand.Typography.displayLarge)
                             .foregroundColor(.primary)
                             .multilineTextAlignment(.center)
                         
                         Text(step.subtitle)
-                            .font(.title3)
-                            .foregroundColor(Brand.ColorSystem.secondary)
+                            .font(Brand.Typography.headlineMedium)
+                            .foregroundColor(Brand.Color.secondary)
                             .multilineTextAlignment(.center)
                     }
                     .accessibilityElement(children: .combine)
@@ -118,9 +118,9 @@ struct OnboardingView: View {
                     // Step-specific content
                     stepSpecificContent(for: step)
                     
-                    Spacer(minLength: 20)
+                    Spacer(minLength: Brand.Spacing.xl)
                 }
-                .padding(.horizontal, 24)
+                .padding(.horizontal, Brand.Spacing.xl)
             }
         }
     }
@@ -144,14 +144,14 @@ struct OnboardingView: View {
     // MARK: - Step-Specific Content
     
     private var welcomeContent: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: Brand.Spacing.xl) {
             Text("Synagamy combines evidence-based medical research with user-friendly tools to help you understand and navigate your fertility journey.")
-                .font(.body)
+                .font(Brand.Typography.bodyMedium)
                 .foregroundColor(.primary)
                 .multilineTextAlignment(.center)
                 .lineLimit(nil)
             
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                 FeatureHighlight(
                     icon: "graduationcap.fill",
                     title: "Educational Focus",
@@ -174,7 +174,7 @@ struct OnboardingView: View {
     }
     
     private var featuresContent: some View {
-        LazyVStack(spacing: 16) {
+        LazyVStack(spacing: Brand.Spacing.lg) {
             ForEach(OnboardingFeature.features) { feature in
                 FeatureCard(feature: feature)
             }
@@ -183,8 +183,8 @@ struct OnboardingView: View {
     
     
     private var permissionsContent: some View {
-        VStack(spacing: 24) {
-            VStack(alignment: .leading, spacing: 16) {
+        VStack(spacing: Brand.Spacing.xl) {
+            VStack(alignment: .leading, spacing: Brand.Spacing.lg) {
                 PrivacyPoint(
                     icon: "lock.fill",
                     title: "Local Storage Only",
@@ -210,13 +210,13 @@ struct OnboardingView: View {
     }
     
     private var completeContent: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: Brand.Spacing.xl) {
             Text("You're ready to start using Synagamy! Here are some quick tips to get started:")
-                .font(.body)
+                .font(Brand.Typography.bodyMedium)
                 .foregroundColor(.primary)
                 .multilineTextAlignment(.center)
             
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: Brand.Spacing.lg) {
                 QuickTip(
                     number: "1",
                     title: "Start with Education",
@@ -241,13 +241,13 @@ struct OnboardingView: View {
     // MARK: - Navigation Controls
     
     private var navigationControls: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: Brand.Spacing.lg) {
             if !onboardingManager.isFirstStep {
                 Button("Back") {
                     onboardingManager.previousStep()
                 }
-                .font(.headline.weight(.medium))
-                .foregroundColor(Brand.ColorSystem.primary)
+                .font(Brand.Typography.labelLarge)
+                .foregroundColor(Brand.Color.primary)
                 .accessibilityHint("Go to previous step")
             }
             
@@ -264,18 +264,19 @@ struct OnboardingView: View {
                     onboardingManager.nextStep()
                 }
             }
-            .font(.headline.weight(.semibold))
+            .font(Brand.Typography.labelLarge)
             .foregroundColor(.white)
-            .padding(.horizontal, 32)
-            .padding(.vertical, 16)
+            .padding(.horizontal, Brand.Spacing.xxl)
+            .padding(.vertical, Brand.Spacing.lg)
             .background(
-                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                    .fill(Brand.ColorSystem.primary)
+                RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
+                    .fill(Brand.Color.primary)
             )
+            .brandPressEffect()
             .accessibilityHint(onboardingManager.isLastStep ? "Complete onboarding and start using the app" : "Continue to next step")
         }
-        .padding(.horizontal, 24)
-        .padding(.bottom, 32)
+        .padding(.horizontal, Brand.Spacing.xl)
+        .padding(.bottom, Brand.Spacing.xxl)
     }
 }
 
@@ -287,20 +288,20 @@ private struct FeatureHighlight: View {
     let description: String
     
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
+        HStack(alignment: .top, spacing: Brand.Spacing.md) {
             Image(systemName: icon)
                 .font(.title2)
-                .foregroundColor(Brand.ColorSystem.primary)
-                .frame(width: 24)
+                .foregroundColor(Brand.Color.primary)
+                .frame(width: Brand.Spacing.xl)
             
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: Brand.Spacing.xs) {
                 Text(title)
-                    .font(.subheadline.weight(.semibold))
+                    .font(Brand.Typography.labelMedium)
                     .foregroundColor(.primary)
                 
                 Text(description)
-                    .font(.caption)
-                    .foregroundColor(Brand.ColorSystem.secondary)
+                    .font(Brand.Typography.labelSmall)
+                    .foregroundColor(Brand.Color.secondary)
             }
             
             Spacer()
@@ -313,28 +314,28 @@ private struct FeatureCard: View {
     let feature: OnboardingFeature
     
     var body: some View {
-        HStack(alignment: .center, spacing: 16) {
+        HStack(alignment: .center, spacing: Brand.Spacing.lg) {
             Image(systemName: feature.systemImage)
                 .font(.title2)
                 .foregroundColor(feature.color)
-                .frame(width: 32, height: 32)
+                .frame(width: Brand.Spacing.xxl, height: Brand.Spacing.xxl)
             
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: Brand.Spacing.xs) {
                 Text(feature.title)
-                    .font(.subheadline.weight(.semibold))
+                    .font(Brand.Typography.labelMedium)
                     .foregroundColor(.primary)
                 
                 Text(feature.description)
-                    .font(.caption)
-                    .foregroundColor(Brand.ColorSystem.secondary)
+                    .font(Brand.Typography.labelSmall)
+                    .foregroundColor(Brand.Color.secondary)
                     .multilineTextAlignment(.leading)
             }
             
             Spacer()
         }
-        .padding(16)
+        .padding(Brand.Spacing.lg)
         .background(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
+            RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
                 .fill(.regularMaterial)
         )
         .accessibilityElement(children: .combine)
@@ -349,34 +350,34 @@ private struct PrivacyPoint: View {
     let status: String
     
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
+        HStack(alignment: .top, spacing: Brand.Spacing.md) {
             Image(systemName: icon)
-                .font(.title3)
-                .foregroundColor(.green)
-                .frame(width: 24)
+                .font(Brand.Typography.headlineMedium)
+                .foregroundColor(Brand.Color.success)
+                .frame(width: Brand.Spacing.xl)
             
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: Brand.Spacing.xs) {
                 HStack {
                     Text(title)
-                        .font(.subheadline.weight(.semibold))
+                        .font(Brand.Typography.labelMedium)
                         .foregroundColor(.primary)
                     
                     Spacer()
                     
                     Text(status)
-                        .font(.caption.weight(.medium))
-                        .foregroundColor(.green)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 2)
+                        .font(Brand.Typography.labelSmall)
+                        .foregroundColor(Brand.Color.success)
+                        .padding(.horizontal, Brand.Spacing.sm)
+                        .padding(.vertical, Brand.Spacing.spacing1)
                         .background(
-                            RoundedRectangle(cornerRadius: 4)
-                                .fill(.green.opacity(0.1))
+                            RoundedRectangle(cornerRadius: Brand.Radius.sm)
+                                .fill(Brand.Color.success.opacity(0.1))
                         )
                 }
                 
                 Text(description)
-                    .font(.caption)
-                    .foregroundColor(Brand.ColorSystem.secondary)
+                    .font(Brand.Typography.labelSmall)
+                    .foregroundColor(Brand.Color.secondary)
                     .multilineTextAlignment(.leading)
             }
             
@@ -392,25 +393,25 @@ private struct QuickTip: View {
     let description: String
     
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
+        HStack(alignment: .top, spacing: Brand.Spacing.md) {
             ZStack {
                 Circle()
-                    .fill(Brand.ColorSystem.primary)
-                    .frame(width: 24, height: 24)
+                    .fill(Brand.Color.primary)
+                    .frame(width: Brand.Spacing.xl, height: Brand.Spacing.xl)
                 
                 Text(number)
-                    .font(.caption.weight(.bold))
+                    .font(Brand.Typography.labelSmall.weight(.bold))
                     .foregroundColor(.white)
             }
             
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: Brand.Spacing.xs) {
                 Text(title)
-                    .font(.subheadline.weight(.semibold))
+                    .font(Brand.Typography.labelMedium)
                     .foregroundColor(.primary)
                 
                 Text(description)
-                    .font(.caption)
-                    .foregroundColor(Brand.ColorSystem.secondary)
+                    .font(Brand.Typography.labelSmall)
+                    .foregroundColor(Brand.Color.secondary)
                     .multilineTextAlignment(.leading)
             }
             

@@ -18,7 +18,7 @@ struct EmbryoTransferPredictorView: View {
     var body: some View {
         StandardPageLayout(
             primaryImage: "SynagamyLogoTwo",
-            secondaryImage: nil,
+            secondaryImage: "EmbryoTransferLogo",
             showHomeButton: true,
             usePopToRoot: true,
             showBackButton: true
@@ -52,33 +52,33 @@ struct EmbryoTransferPredictorView: View {
     
     // MARK: - Header Section
     private var headerSection: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: Brand.Spacing.md) {
             CategoryBadge(
                 text: "Embryo Transfer Predictor",
                 icon: "chart.line.uptrend.xyaxis",
-                color: Brand.ColorSystem.primary
+                color: Brand.Color.primary
             )
             
             Text("Pre-Transfer Success Rate Calculator")
-                .font(.title2.weight(.semibold))
+                .font(Brand.Typography.headlineMedium)
                 .foregroundColor(.primary)
                 .multilineTextAlignment(.center)
             
             Text("Evidence-based predictions for single embryo transfer")
                 .font(.caption)
-                .foregroundColor(Brand.ColorSystem.secondary)
+                .foregroundColor(Brand.Color.secondary)
                 .multilineTextAlignment(.center)
             
             Button {
                 showingInfoSheet = true
             } label: {
-                HStack(spacing: 4) {
+                HStack(spacing: Brand.Spacing.xs) {
                     Image(systemName: "info.circle")
                         .font(.caption2)
                     Text("Learn More")
-                        .font(.caption.weight(.medium))
+                        .font(Brand.Typography.labelSmall)
                 }
-                .foregroundColor(Brand.ColorSystem.primary)
+                .foregroundColor(Brand.Color.primary)
             }
         }
     }
@@ -91,15 +91,15 @@ struct EmbryoTransferPredictorView: View {
                 title: "Maternal Age at Egg Retrieval",
                 icon: "person.fill"
             ) {
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                     HStack {
                         Text("\(viewModel.input.oocyteAge) years")
-                            .font(.title3.weight(.semibold))
+                            .font(Brand.Typography.headlineMedium)
                             .foregroundColor(.primary)
                         
                         Spacer()
                         
-                        HStack(spacing: 16) {
+                        HStack(spacing: Brand.Spacing.lg) {
                             Button {
                                 if viewModel.input.oocyteAge > 20 {
                                     viewModel.input.oocyteAge -= 1
@@ -107,7 +107,7 @@ struct EmbryoTransferPredictorView: View {
                             } label: {
                                 Image(systemName: "minus.circle.fill")
                                     .font(.title2)
-                                    .foregroundColor(Brand.ColorSystem.primary)
+                                    .foregroundColor(Brand.Color.primary)
                             }
                             
                             Button {
@@ -117,7 +117,7 @@ struct EmbryoTransferPredictorView: View {
                             } label: {
                                 Image(systemName: "plus.circle.fill")
                                     .font(.title2)
-                                    .foregroundColor(Brand.ColorSystem.primary)
+                                    .foregroundColor(Brand.Color.primary)
                             }
                         }
                     }
@@ -130,11 +130,11 @@ struct EmbryoTransferPredictorView: View {
                         in: 20...50,
                         step: 1
                     )
-                    .tint(Brand.ColorSystem.primary)
+                    .tint(Brand.Color.primary)
                     
                     Text("Age at the time of oocyte retrieval")
                         .font(.caption2)
-                        .foregroundColor(Brand.ColorSystem.secondary)
+                        .foregroundColor(Brand.Color.secondary)
                 }
             }
             
@@ -143,7 +143,7 @@ struct EmbryoTransferPredictorView: View {
                 title: "Embryo Development Day",
                 icon: "calendar"
             ) {
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                     Picker("Embryo Day", selection: $viewModel.input.embryoDay) {
                         ForEach(EmbryoDay.allCases) { day in
                             Text(day.rawValue).tag(day)
@@ -153,7 +153,7 @@ struct EmbryoTransferPredictorView: View {
                     
                     Text("Day of blastocyst development")
                         .font(.caption2)
-                        .foregroundColor(Brand.ColorSystem.secondary)
+                        .foregroundColor(Brand.Color.secondary)
                 }
             }
             
@@ -162,37 +162,37 @@ struct EmbryoTransferPredictorView: View {
                 title: "Blastocyst Grade",
                 icon: "hexagon.fill"
             ) {
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: Brand.Spacing.lg) {
                     // Current Grade Display
                     HStack {
                         Text("Current Grade")
-                            .font(.body.weight(.medium))
+                            .font(Brand.Typography.labelLarge)
                             .foregroundColor(.primary)
                         
                         Spacer()
                         
                         Text(viewModel.input.blastocystGrade.displayName)
-                            .font(.title2.weight(.bold))
-                            .foregroundColor(Brand.ColorSystem.primary)
+                            .font(Brand.Typography.headlineMedium)
+                            .foregroundColor(Brand.Color.primary)
                     }
                     .padding(.vertical, 8)
-                    .padding(.horizontal, 16)
+                    .padding(.horizontal, Brand.Spacing.lg)
                     .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Brand.ColorSystem.primary.opacity(0.08))
+                        RoundedRectangle(cornerRadius: Brand.Radius.sm)
+                            .fill(Brand.Color.primary.opacity(0.08))
                     )
                     
                     // Grade Components
-                    HStack(spacing: 20) {
+                    HStack(spacing: Brand.Spacing.xl) {
                         Spacer()
                         // Expansion
-                        VStack(spacing: 8) {
+                        VStack(spacing: Brand.Spacing.sm) {
                             Text("Expansion")
-                                .font(.caption.weight(.medium))
+                                .font(Brand.Typography.labelSmall)
                                 .foregroundColor(.primary)
                             
                             ScrollView(.vertical, showsIndicators: false) {
-                                VStack(spacing: 4) {
+                                VStack(spacing: Brand.Spacing.xs) {
                                     ForEach(BlastocystExpansion.allCases, id: \.self) { expansion in
                                         Button {
                                             viewModel.input.blastocystGrade = BlastocystGrade(
@@ -202,14 +202,14 @@ struct EmbryoTransferPredictorView: View {
                                             )
                                         } label: {
                                             Text("\(expansion.rawValue)")
-                                                .font(.body.weight(.semibold))
-                                                .foregroundColor(viewModel.input.blastocystGrade.expansion == expansion ? .white : Brand.ColorSystem.primary)
+                                                .font(Brand.Typography.labelLarge)
+                                                .foregroundColor(viewModel.input.blastocystGrade.expansion == expansion ? .white : Brand.Color.primary)
                                                 .frame(width: 40, height: 40)
                                                 .background(
                                                     Circle()
                                                         .fill(viewModel.input.blastocystGrade.expansion == expansion ? 
-                                                              Brand.ColorSystem.primary : 
-                                                              Brand.ColorSystem.primary.opacity(0.1))
+                                                              Brand.Color.primary : 
+                                                              Brand.Color.primary.opacity(0.1))
                                                 )
                                         }
                                         .buttonStyle(.plain)
@@ -221,13 +221,13 @@ struct EmbryoTransferPredictorView: View {
                         }
                         
                         // ICM
-                        VStack(spacing: 8) {
+                        VStack(spacing: Brand.Spacing.sm) {
                             Text("ICM")
-                                .font(.caption.weight(.medium))
+                                .font(Brand.Typography.labelSmall)
                                 .foregroundColor(.primary)
                             
                             ScrollView(.vertical, showsIndicators: false) {
-                                VStack(spacing: 4) {
+                                VStack(spacing: Brand.Spacing.xs) {
                                     ForEach(CellQuality.allCases, id: \.self) { quality in
                                         Button {
                                             viewModel.input.blastocystGrade = BlastocystGrade(
@@ -237,14 +237,14 @@ struct EmbryoTransferPredictorView: View {
                                             )
                                         } label: {
                                             Text(String(quality.rawValue.first!))
-                                                .font(.body.weight(.semibold))
-                                                .foregroundColor(viewModel.input.blastocystGrade.icmGrade == quality ? .white : Brand.ColorSystem.primary)
+                                                .font(Brand.Typography.labelLarge)
+                                                .foregroundColor(viewModel.input.blastocystGrade.icmGrade == quality ? .white : Brand.Color.primary)
                                                 .frame(width: 40, height: 40)
                                                 .background(
                                                     Circle()
                                                         .fill(viewModel.input.blastocystGrade.icmGrade == quality ? 
-                                                              Brand.ColorSystem.primary : 
-                                                              Brand.ColorSystem.primary.opacity(0.1))
+                                                              Brand.Color.primary : 
+                                                              Brand.Color.primary.opacity(0.1))
                                                 )
                                         }
                                         .buttonStyle(.plain)
@@ -256,13 +256,13 @@ struct EmbryoTransferPredictorView: View {
                         }
                         
                         // Trophectoderm
-                        VStack(spacing: 8) {
+                        VStack(spacing: Brand.Spacing.sm) {
                             Text("TE")
-                                .font(.caption.weight(.medium))
+                                .font(Brand.Typography.labelSmall)
                                 .foregroundColor(.primary)
                             
                             ScrollView(.vertical, showsIndicators: false) {
-                                VStack(spacing: 4) {
+                                VStack(spacing: Brand.Spacing.xs) {
                                     ForEach(CellQuality.allCases, id: \.self) { quality in
                                         Button {
                                             viewModel.input.blastocystGrade = BlastocystGrade(
@@ -272,14 +272,14 @@ struct EmbryoTransferPredictorView: View {
                                             )
                                         } label: {
                                             Text(String(quality.rawValue.first!))
-                                                .font(.body.weight(.semibold))
-                                                .foregroundColor(viewModel.input.blastocystGrade.teGrade == quality ? .white : Brand.ColorSystem.primary)
+                                                .font(Brand.Typography.labelLarge)
+                                                .foregroundColor(viewModel.input.blastocystGrade.teGrade == quality ? .white : Brand.Color.primary)
                                                 .frame(width: 40, height: 40)
                                                 .background(
                                                     Circle()
                                                         .fill(viewModel.input.blastocystGrade.teGrade == quality ? 
-                                                              Brand.ColorSystem.primary : 
-                                                              Brand.ColorSystem.primary.opacity(0.1))
+                                                              Brand.Color.primary : 
+                                                              Brand.Color.primary.opacity(0.1))
                                                 )
                                         }
                                         .buttonStyle(.plain)
@@ -294,7 +294,7 @@ struct EmbryoTransferPredictorView: View {
                     
                     Text("Scroll each column to build your grade • \(viewModel.input.blastocystGrade.qualityCategory) quality")
                         .font(.caption)
-                        .foregroundColor(Brand.ColorSystem.secondary)
+                        .foregroundColor(Brand.Color.secondary)
                         .multilineTextAlignment(.center)
                 }
             }
@@ -304,7 +304,7 @@ struct EmbryoTransferPredictorView: View {
                 title: "Genetic Testing Status",
                 icon: "waveform.path.ecg"
             ) {
-                VStack(alignment: .leading, spacing: 12) {
+                VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                     ForEach(GeneticStatus.allCases) { status in
                         Button {
                             viewModel.input.geneticStatus = status
@@ -314,27 +314,27 @@ struct EmbryoTransferPredictorView: View {
                         } label: {
                             HStack {
                                 Text(status.rawValue)
-                                    .font(.body.weight(.medium))
+                                    .font(Brand.Typography.labelLarge)
                                     .foregroundColor(.primary)
                                 
                                 Spacer()
                                 
                                 if viewModel.input.geneticStatus == status {
                                     Image(systemName: "checkmark.circle.fill")
-                                        .foregroundColor(Brand.ColorSystem.primary)
+                                        .foregroundColor(Brand.Color.primary)
                                 }
                             }
-                            .padding(12)
+                            .padding(Brand.Spacing.md)
                             .background(
-                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
                                     .fill(viewModel.input.geneticStatus == status ? 
-                                          Brand.ColorSystem.primary.opacity(0.1) : 
+                                          Brand.Color.primary.opacity(0.1) : 
                                           Color.clear)
                                     .overlay(
-                                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
                                             .stroke(viewModel.input.geneticStatus == status ?
-                                                   Brand.ColorSystem.primary :
-                                                   Brand.ColorToken.hairline, lineWidth: 1)
+                                                   Brand.Color.primary :
+                                                   Brand.Color.hairline, lineWidth: 1)
                                     )
                             )
                             .contentShape(Rectangle())
@@ -348,7 +348,7 @@ struct EmbryoTransferPredictorView: View {
                             .padding(.vertical, 8)
                         
                         Text("Mosaic Type")
-                            .font(.subheadline.weight(.semibold))
+                            .font(Brand.Typography.labelLarge)
                             .foregroundColor(.primary)
                         
                         ForEach(MosaicType.allCases) { type in
@@ -357,27 +357,27 @@ struct EmbryoTransferPredictorView: View {
                             } label: {
                                 HStack {
                                     Text(type.rawValue)
-                                        .font(.body.weight(.medium))
+                                        .font(Brand.Typography.labelLarge)
                                         .foregroundColor(.primary)
                                     
                                     Spacer()
                                     
                                     if viewModel.input.mosaicType == type {
                                         Image(systemName: "checkmark.circle.fill")
-                                            .foregroundColor(Brand.ColorSystem.primary)
+                                            .foregroundColor(Brand.Color.primary)
                                     }
                                 }
-                                .padding(10)
+                                .padding(Brand.Spacing.sm)
                                 .background(
-                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
                                         .fill(viewModel.input.mosaicType == type ? 
-                                              Brand.ColorSystem.primary.opacity(0.08) : 
+                                              Brand.Color.primary.opacity(0.08) : 
                                               Color.clear)
                                         .overlay(
-                                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                            RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
                                                 .stroke(viewModel.input.mosaicType == type ?
-                                                       Brand.ColorSystem.primary.opacity(0.5) :
-                                                       Brand.ColorToken.hairline.opacity(0.5), lineWidth: 1)
+                                                       Brand.Color.primary.opacity(0.5) :
+                                                       Brand.Color.hairline.opacity(0.5), lineWidth: 1)
                                         )
                                 )
                                 .contentShape(Rectangle())
@@ -398,18 +398,18 @@ struct EmbryoTransferPredictorView: View {
                 showingResults = true
             }
         } label: {
-            HStack(spacing: 8) {
+            HStack(spacing: Brand.Spacing.sm) {
                 Image(systemName: "chart.line.uptrend.xyaxis")
-                    .font(.body.weight(.semibold))
+                    .font(Brand.Typography.labelLarge)
                 Text("Calculate Success Rates")
-                    .font(.body.weight(.semibold))
+                    .font(Brand.Typography.labelLarge)
             }
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 16)
+            .padding(.vertical, Brand.Spacing.lg)
             .background(
-                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                    .fill(Brand.ColorSystem.primary)
+                RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
+                    .fill(Brand.Color.primary)
             )
         }
         .buttonStyle(.plain)
@@ -424,27 +424,27 @@ struct EmbryoTransferPredictorView: View {
             ) {
                 VStack(spacing: Brand.Spacing.lg) {
                     // Live Birth Rate (Primary Outcome)
-                    VStack(spacing: 8) {
+                    VStack(spacing: Brand.Spacing.sm) {
                         HStack {
                             Text("Live Birth Rate")
                                 .font(.headline)
                                 .foregroundColor(.primary)
                             Spacer()
                             Text(prediction.liveBirthRateFormatted)
-                                .font(.title2.weight(.bold))
-                                .foregroundColor(Brand.ColorSystem.success)
+                                .font(Brand.Typography.headlineMedium)
+                                .foregroundColor(Brand.Color.success)
                         }
                         
                         GeometryReader { geometry in
                             ZStack(alignment: .leading) {
-                                RoundedRectangle(cornerRadius: 6)
-                                    .fill(Brand.ColorToken.hairline.opacity(0.3))
+                                RoundedRectangle(cornerRadius: Brand.Radius.sm)
+                                    .fill(Brand.Color.hairline.opacity(0.3))
                                     .frame(height: 24)
                                 
-                                RoundedRectangle(cornerRadius: 6)
+                                RoundedRectangle(cornerRadius: Brand.Radius.sm)
                                     .fill(
                                         LinearGradient(
-                                            colors: [Brand.ColorSystem.success.opacity(0.8), Brand.ColorSystem.success],
+                                            colors: [Brand.Color.success.opacity(0.8), Brand.Color.success],
                                             startPoint: .leading,
                                             endPoint: .trailing
                                         )
@@ -459,17 +459,17 @@ struct EmbryoTransferPredictorView: View {
                     Divider()
                     
                     // Secondary Outcomes
-                    VStack(spacing: 12) {
+                    VStack(spacing: Brand.Spacing.md) {
                         OutcomeRow(
                             title: "Clinical Pregnancy Rate",
                             value: prediction.clinicalPregnancyRateFormatted,
-                            color: Brand.ColorSystem.primary
+                            color: Brand.Color.primary
                         )
                         
                         OutcomeRow(
                             title: "Implantation Rate",
                             value: prediction.implantationRateFormatted,
-                            color: Brand.ColorSystem.primary
+                            color: Brand.Color.primary
                         )
                         
                         OutcomeRow(
@@ -490,17 +490,17 @@ struct EmbryoTransferPredictorView: View {
                 icon: "doc.text",
                 isExpanded: $isReferencesExpanded
             ) {
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
                     ForEach(prediction.references, id: \.self) { reference in
-                        HStack(alignment: .top, spacing: 8) {
+                        HStack(alignment: .top, spacing: Brand.Spacing.sm) {
                             Image(systemName: "checkmark.circle.fill")
                                 .font(.caption2)
-                                .foregroundColor(Brand.ColorSystem.success)
+                                .foregroundColor(Brand.Color.success)
                                 .padding(.top, 2)
                             
                             Text(reference)
                                 .font(.caption2)
-                                .foregroundColor(Brand.ColorSystem.secondary)
+                                .foregroundColor(Brand.Color.secondary)
                                 .multilineTextAlignment(.leading)
                         }
                     }
@@ -519,14 +519,14 @@ struct EmbryoTransferPredictorView: View {
         ) {
             VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                 Text("How It Works")
-                    .font(.subheadline.weight(.semibold))
+                    .font(Brand.Typography.labelLarge)
                     .foregroundColor(.primary)
                 
                 Text("This calculator uses data from peer-reviewed studies involving thousands of embryo transfers to predict success rates based on:")
                     .font(.caption)
-                    .foregroundColor(Brand.ColorSystem.secondary)
+                    .foregroundColor(Brand.Color.secondary)
                 
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
                     BulletPoint(text: "Maternal age at transfer")
                     BulletPoint(text: "Embryo morphology grade")
                     BulletPoint(text: "Day of blastocyst development")
@@ -534,15 +534,15 @@ struct EmbryoTransferPredictorView: View {
                 }
                 
                 Text("Limitations")
-                    .font(.subheadline.weight(.semibold))
+                    .font(Brand.Typography.labelLarge)
                     .foregroundColor(.primary)
                     .padding(.top, 8)
                 
                 Text("This calculator provides population-based estimates. Individual outcomes depend on many factors not captured here, including:")
                     .font(.caption)
-                    .foregroundColor(Brand.ColorSystem.secondary)
+                    .foregroundColor(Brand.Color.secondary)
                 
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
                     BulletPoint(text: "Underlying fertility diagnosis")
                     BulletPoint(text: "Endometrial receptivity")
                     BulletPoint(text: "Previous transfer history")
@@ -565,11 +565,11 @@ private struct OutcomeRow: View {
     var body: some View {
         HStack {
             Text(title)
-                .font(.caption.weight(.medium))
-                .foregroundColor(Brand.ColorSystem.secondary)
+                .font(Brand.Typography.labelSmall)
+                .foregroundColor(Brand.Color.secondary)
             Spacer()
             Text(value)
-                .font(.subheadline.weight(.semibold))
+                .font(Brand.Typography.labelLarge)
                 .foregroundColor(color)
         }
     }
@@ -579,15 +579,15 @@ private struct BulletPoint: View {
     let text: String
     
     var body: some View {
-        HStack(alignment: .top, spacing: 8) {
+        HStack(alignment: .top, spacing: Brand.Spacing.sm) {
             Circle()
-                .fill(Brand.ColorSystem.primary)
+                .fill(Brand.Color.primary)
                 .frame(width: 4, height: 4)
                 .padding(.top, 6)
             
             Text(text)
                 .font(.caption)
-                .foregroundColor(Brand.ColorSystem.secondary)
+                .foregroundColor(Brand.Color.secondary)
         }
     }
 }
@@ -598,18 +598,18 @@ private struct GradeExplanationRow: View {
     let examples: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
+        VStack(alignment: .leading, spacing: Brand.Spacing.xs) {
             Text(title)
-                .font(.caption.weight(.medium))
+                .font(Brand.Typography.labelSmall)
                 .foregroundColor(.primary)
             
             Text(description)
                 .font(.caption2)
-                .foregroundColor(Brand.ColorSystem.secondary)
+                .foregroundColor(Brand.Color.secondary)
             
             Text("e.g., \(examples)")
                 .font(.caption2)
-                .foregroundColor(Brand.ColorSystem.secondary.opacity(0.8))
+                .foregroundColor(Brand.Color.secondary.opacity(0.8))
                 .italic()
         }
     }
@@ -623,16 +623,16 @@ private struct BlastocystComponentPicker<T: CaseIterable & Identifiable>: View w
     let displayValue: (T) -> String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
             HStack {
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .leading, spacing: Brand.Spacing.xs) {
                     Text(title)
-                        .font(.subheadline.weight(.semibold))
+                        .font(Brand.Typography.labelLarge)
                         .foregroundColor(.primary)
                     
                     Text(description)
                         .font(.caption2)
-                        .foregroundColor(Brand.ColorSystem.secondary)
+                        .foregroundColor(Brand.Color.secondary)
                 }
                 
                 Spacer()
@@ -653,8 +653,8 @@ private struct BlastocystComponentPicker<T: CaseIterable & Identifiable>: View w
                 Spacer()
             }
             .background(
-                RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .fill(Brand.ColorSystem.primary.opacity(0.05))
+                RoundedRectangle(cornerRadius: Brand.Radius.sm, style: .continuous)
+                    .fill(Brand.Color.primary.opacity(0.05))
             )
         }
     }
@@ -681,16 +681,16 @@ struct EmbryoTransferInfoSheet: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: Brand.Spacing.lg) {
                     // Understanding Embryo Grading
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                         Text("Understanding Embryo Grading")
                             .font(.headline)
                             .foregroundColor(.primary)
                         
                         Text("Embryos are graded based on their appearance under a microscope. The grading system evaluates:")
                             .font(.subheadline)
-                            .foregroundColor(Brand.ColorSystem.secondary)
+                            .foregroundColor(Brand.Color.secondary)
                         
-                        VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
                             InfoPoint(
                                 title: "Expansion",
                                 description: "How expanded the blastocyst cavity is (1-6 scale)"
@@ -711,12 +711,12 @@ struct EmbryoTransferInfoSheet: View {
                     Divider()
                     
                     // Genetic Testing Explained
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                         Text("Genetic Testing (PGT-A)")
                             .font(.headline)
                             .foregroundColor(.primary)
                         
-                        VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
                             InfoPoint(
                                 title: "Euploid",
                                 description: "Normal number of chromosomes (46). Best chance of success."
@@ -742,29 +742,29 @@ struct EmbryoTransferInfoSheet: View {
                     Divider()
                     
                     // Day 5 vs Day 6
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                         Text("Development Day")
                             .font(.headline)
                             .foregroundColor(.primary)
                         
                         Text("Embryos that reach blastocyst stage on Day 5 generally have higher success rates than Day 6, though high-quality Day 6 embryos can still be very successful.")
                             .font(.subheadline)
-                            .foregroundColor(Brand.ColorSystem.secondary)
+                            .foregroundColor(Brand.Color.secondary)
                     }
                     
                     Divider()
                     
                     // Oocyte Age vs Current Age
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: Brand.Spacing.md) {
                         Text("Why Oocyte Age Matters")
                             .font(.headline)
                             .foregroundColor(.primary)
                         
                         Text("The age when eggs were retrieved determines embryo quality, not your current age at transfer. For example:")
                             .font(.subheadline)
-                            .foregroundColor(Brand.ColorSystem.secondary)
+                            .foregroundColor(Brand.Color.secondary)
                         
-                        VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: Brand.Spacing.sm) {
                             InfoPoint(
                                 title: "Fresh Transfer",
                                 description: "Oocyte age = your current age"
@@ -802,20 +802,20 @@ private struct InfoPoint: View {
     let description: String
     
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
+        HStack(alignment: .top, spacing: Brand.Spacing.md) {
             Image(systemName: "arrow.right.circle.fill")
                 .font(.caption)
-                .foregroundColor(Brand.ColorSystem.primary)
+                .foregroundColor(Brand.Color.primary)
                 .padding(.top, 2)
             
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: Brand.Spacing.xs) {
                 Text(title)
-                    .font(.subheadline.weight(.semibold))
+                    .font(Brand.Typography.labelLarge)
                     .foregroundColor(.primary)
                 
                 Text(description)
                     .font(.caption)
-                    .foregroundColor(Brand.ColorSystem.secondary)
+                    .foregroundColor(Brand.Color.secondary)
             }
         }
     }

@@ -13,7 +13,6 @@ import SwiftUI
 #endif
 
 struct HomeView: View {
-    @State private var showingWalkthrough = false
     #if DEBUG
     @State private var showingDataDebug = false
     @State private var debugTapCount = 0
@@ -21,7 +20,7 @@ struct HomeView: View {
     
     // MARK: - Route Definition
     enum Route: CaseIterable, Hashable {
-        case intro, education, pathways, clinics, timedIntercourse, outcome, embryoTransfer, resources, questions
+        case intro, education, pathways, clinics, timedIntercourse, outcome, embryoTransfer, resources, questions, feedback
     }
 
     // MARK: - Navigation Items
@@ -79,6 +78,12 @@ struct HomeView: View {
             subtitle: "Frequently Asked Questions",
             systemIcon: "questionmark.circle.fill",
             route: .questions
+        ),
+        HomeItem(
+            title: "Feedback",
+            subtitle: "Share Your Thoughts & Suggestions",
+            systemIcon: "heart.text.square.fill",
+            route: .feedback
         )
     ]
     
@@ -92,6 +97,12 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
+            // Set up navigation accessibility
+            Color.clear
+                .accessibilityElement()
+                .accessibilityLabel("Synagamy Home")
+                .accessibilityAddTraits(.isHeader)
+                .frame(height: 0)
             ZStack {
                 StandardPageLayout(
                     primaryImage: "SynagamyLogoTwo",
@@ -100,6 +111,14 @@ struct HomeView: View {
                     usePopToRoot: false,
                     showBackButton: false
                 ) {
+                    // Announce screen change for VoiceOver users
+                    Color.clear
+                        .accessibilityHidden(true)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                AccessibilityAnnouncement.announce("Synagamy fertility app home screen loaded. \(navigationItems.count) navigation options available.")
+                            }
+                        }
                     VStack(alignment: .leading, spacing: 12) {
                         LazyVStack(spacing: Brand.Spacing.xl) {
                             ForEach(navigationItems, id: \.id) { item in
@@ -112,6 +131,12 @@ struct HomeView: View {
                                     )
                                 }
                                 .buttonStyle(.plain)
+                                .id(item.route) // Optimize SwiftUI diffing
+                                .fertilityAccessibility(
+                                    label: "\(item.title). \(item.subtitle)",
+                                    hint: "Navigate to \(item.title.lowercased()) section",
+                                    traits: [.isButton]
+                                )
                             }
                         }
                         .padding(.top, 4)
@@ -121,33 +146,6 @@ struct HomeView: View {
                             .padding(.top, Brand.Spacing.xl)
                     }
                 }
-                
-                // Floating Info Button
-                VStack {
-                    HStack {
-                        Spacer()
-                        
-                        Button {
-                            showingWalkthrough = true
-                        } label: {
-                            ZStack {
-                                Circle()
-                                    .fill(.regularMaterial)
-                                    .frame(width: 44, height: 44)
-                                    .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
-                                
-                                Image(systemName: "info.circle.fill")
-                                    .font(.title2)
-                                    .foregroundColor(Brand.ColorSystem.primary)
-                            }
-                        }
-                        .buttonStyle(.plain)
-                        .padding(.trailing, 16)
-                        .padding(.top, 60) // Position it below the header
-                    }
-                    
-                    Spacer()
-                }
             }
 
             .navigationDestination(for: Route.self) { route in
@@ -155,68 +153,16 @@ struct HomeView: View {
             }
         }
         .toolbar(.hidden, for: .tabBar)
-        .overlay {
-            if showingWalkthrough {
-                AppWalkthroughView(isShowing: $showingWalkthrough)
-            }
+        .onDynamicTypeChange { size in
+            // Handle dynamic type changes for better accessibility
+            #if DEBUG
+            print("HomeView: Dynamic Type size changed to \(size)")
+            #endif
         }
-        #if DEBUG
-        .onTapGesture(count: 7) {
-            debugTapCount += 1
-            if debugTapCount >= 3 {
-                showingDataDebug = true
-                debugTapCount = 0
-            }
-        }
-        .sheet(isPresented: $showingDataDebug) {
-            DataSourceDebugView()
-        }
-        #endif
     }
-    
-    // MARK: - Medical Disclaimer Section
-    private var medicalDisclaimerSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing: 8) {
-                Image(systemName: "exclamationmark.triangle.fill")
-                    .font(.caption)
-                    .foregroundColor(.orange)
-                
-                Text("Important Medical Disclaimer")
-                    .font(.caption.weight(.semibold))
-                    .foregroundColor(.primary)
-            }
-            
-            VStack(alignment: .leading, spacing: 8) {
-                Text("This application is designed exclusively for educational and informational purposes. The content provided, including fertility tracking tools, prediction models, and educational materials, should never be used as a substitute for professional medical advice, diagnosis, or treatment.")
-                    .font(.caption2)
-                    .foregroundColor(Brand.ColorSystem.secondary)
-                    .multilineTextAlignment(.leading)
-                
-                Text("Always consult with qualified healthcare professionals, including reproductive endocrinologists, fertility specialists, or your primary care physician, for personalized medical guidance regarding fertility, reproductive health, and treatment decisions.")
-                    .font(.caption2.weight(.medium))
-                    .foregroundColor(Brand.ColorSystem.primary)
-                    .multilineTextAlignment(.leading)
-                
-                Text("This app is not a medical device and has not been evaluated by Health Canada, the FDA, or other regulatory bodies.")
-                    .font(.caption2)
-                    .foregroundColor(Brand.ColorSystem.secondary)
-                    .multilineTextAlignment(.leading)
-            }
-        }
-        .padding(12)
-        .background(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(.regularMaterial)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .stroke(Color.orange.opacity(0.3), lineWidth: 1)
-        )
-    }
-    
+
     // MARK: - Navigation Destinations
-    
+
     @ViewBuilder
     private func destinationView(for route: Route) -> some View {
         switch route {
@@ -238,7 +184,61 @@ struct HomeView: View {
             ResourcesView()
         case .questions:
             CommonQuestionsView()
+        case .feedback:
+            FeedbackView()
         }
+    }
+
+    // MARK: - Medical Disclaimer Section
+    private var medicalDisclaimerSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 8) {
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .font(.caption)
+                    .foregroundColor(.orange)
+                    .accessibilityHidden(true) // Icon is decorative, text conveys the meaning
+
+                Text("Important Medical Disclaimer")
+                    .font(Brand.Typography.labelSmall)
+                    .foregroundColor(.primary)
+                    .accessibilityAddTraits(.isHeader)
+            }
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("Important Medical Disclaimer")
+            .accessibilityAddTraits(.isHeader)
+            
+            VStack(alignment: .leading, spacing: 8) {
+                Text("This application is designed exclusively for educational and informational purposes. The content provided, including fertility tracking tools, prediction models, and educational materials, should never be used as a substitute for professional medical advice, diagnosis, or treatment.")
+                    .font(Brand.Typography.labelSmall)
+                    .foregroundColor(Brand.Color.secondary)
+                    .multilineTextAlignment(.leading)
+                    .accessibilityAddTraits(.isStaticText)
+
+                Text("Always consult with qualified healthcare professionals, including reproductive endocrinologists, fertility specialists, or your primary care physician, for personalized medical guidance regarding fertility, reproductive health, and treatment decisions.")
+                    .font(Brand.Typography.labelSmall)
+                    .foregroundColor(Brand.Color.primary)
+                    .multilineTextAlignment(.leading)
+                    .accessibilityAddTraits(.isStaticText)
+
+                Text("This app is not a medical device and has not been evaluated by Health Canada, the FDA, or other regulatory bodies.")
+                    .font(Brand.Typography.labelSmall)
+                    .foregroundColor(Brand.Color.secondary)
+                    .multilineTextAlignment(.leading)
+                    .accessibilityAddTraits(.isStaticText)
+            }
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("Medical disclaimer")
+            .accessibilityValue("This application is for educational purposes only and should not replace professional medical advice. Always consult qualified healthcare professionals for fertility and reproductive health guidance. This app is not a medical device.")
+        }
+        .padding(Brand.Spacing.md)
+        .background(
+            RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
+                .fill(.regularMaterial)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: Brand.Radius.md, style: .continuous)
+                .stroke(Color.orange.opacity(0.3), lineWidth: 1)
+        )
     }
 }
 

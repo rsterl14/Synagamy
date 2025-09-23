@@ -16,6 +16,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct MainTabView: View {
     // MARK: - Tab enumeration for type-safe selection & testability
@@ -26,6 +27,7 @@ struct MainTabView: View {
     // MARK: - UI state
     @State private var selectedTab: Tab = .home
     @StateObject private var errorHandler = ErrorHandler.shared
+    @StateObject private var networkManager = NetworkStatusManager.shared
 
     // MARK: - Per-tab navigation paths (so each tab keeps its own history)
     @State private var homePath = NavigationPath()
@@ -133,15 +135,21 @@ struct MainTabView: View {
 
         // Health check and error detection
         .task {
-            performHealthCheck()
+            // Delay health check to avoid publishing during view updates
+            do {
+                try await Task.sleep(nanoseconds: 100_000_000) // 0.1 seconds
+            } catch {
+                // If sleep is cancelled, continue anyway
+            }
+            await MainActor.run {
+                performHealthCheck()
+            }
         }
+        .networkAware()
         
         // Listen for home button notifications
         .onReceive(NotificationCenter.default.publisher(for: .goHome)) { _ in
-            withAnimation(.easeInOut(duration: 0.3)) {
-                selectedTab = .home
-                clearAllNavigationPaths()
-            }
+            handleGoHome()
         }
     }
     
@@ -153,17 +161,28 @@ struct MainTabView: View {
         let pathwayCategories = AppData.pathwayCategories
         let questions = AppData.questions
         
-        // Validate core content is available
+        // Be more lenient during startup - data might still be loading
+        // Only show critical errors if ALL data is missing after a delay
         if topics.isEmpty && pathwayCategories.isEmpty && questions.isEmpty {
-            let error = SynagamyError.dataLoadFailed(
-                resource: "core content", 
-                underlying: nil
-            )
-            errorHandler.handle(error)
+            // Give remote data loading more time before showing error
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                let updatedTopics = AppData.topics
+                let updatedPathways = AppData.pathwayCategories  
+                let updatedQuestions = AppData.questions
+                
+                // Only show error if still no data after waiting
+                if updatedTopics.isEmpty && updatedPathways.isEmpty && updatedQuestions.isEmpty {
+                    let error = SynagamyError.dataLoadFailed(
+                        resource: "core content", 
+                        underlying: nil
+                    )
+                    self.errorHandler.handleSilently(error) // Handle silently to avoid popup
+                }
+            }
             return
         }
         
-        // Check for partial data loss
+        // For partial data loss, just log silently - don't show error popup
         var missingContent: [String] = []
         if topics.isEmpty { missingContent.append("education topics") }
         if pathwayCategories.isEmpty { missingContent.append("pathways") }
@@ -171,7 +190,7 @@ struct MainTabView: View {
         
         if !missingContent.isEmpty {
             let error = SynagamyError.contentEmpty(section: missingContent.joined(separator: ", "))
-            errorHandler.handle(error)
+            errorHandler.handleSilently(error) // Handle silently to avoid startup popup
         }
     }
     
@@ -185,5 +204,61 @@ struct MainTabView: View {
         resourcesPath = NavigationPath()
         questionsPath = NavigationPath()
         outcomePath = NavigationPath()
+    }
+
+    // MARK: - Performance Optimized Home Navigation
+
+    @State private var homeNavigationTask: Task<Void, Never>?
+
+    private func handleGoHome() {
+        // Cancel any pending navigation
+        homeNavigationTask?.cancel()
+
+        // Debounce with a simple Task delay
+        homeNavigationTask = Task {
+            try? await Task.sleep(nanoseconds: 50_000_000) // 50ms debounce
+
+            if !Task.isCancelled {
+                await MainActor.run {
+                    performOptimizedHomeNavigation()
+                }
+            }
+        }
+    }
+
+    private func performOptimizedHomeNavigation() {
+        // Immediately switch tab with fast animation
+        withAnimation(.easeOut(duration: 0.15)) {
+            selectedTab = .home
+        }
+
+        // Clear navigation paths asynchronously to prevent blocking
+        Task {
+            await clearNavigationPathsAsync()
+        }
+    }
+
+    private func clearNavigationPathsAsync() async {
+        await MainActor.run {
+            // Clear paths in smaller batches to reduce frame drops
+            homePath = NavigationPath()
+            educationPath = NavigationPath()
+        }
+
+        // Small delay to prevent blocking
+        try? await Task.sleep(nanoseconds: 1_000_000) // 1ms
+
+        await MainActor.run {
+            pathwaysPath = NavigationPath()
+            clinicsPath = NavigationPath()
+        }
+
+        try? await Task.sleep(nanoseconds: 1_000_000) // 1ms
+
+        await MainActor.run {
+            resourcesPath = NavigationPath()
+            questionsPath = NavigationPath()
+            outcomePath = NavigationPath()
+        }
     }
 }
